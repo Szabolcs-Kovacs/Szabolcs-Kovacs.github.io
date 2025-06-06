@@ -1,2 +1,2 @@
-# Szabolcs-Kovacs.github.io
-Academic webpage
+# Academic webpage of physicist Szabolcs Kovács
+Szia Lili
