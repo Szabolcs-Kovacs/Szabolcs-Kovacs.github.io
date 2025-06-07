@@ -1,10 +1,11 @@
 ---
 layout: "page"
-title: "Szabolcs Kovács"
+title: "Home"
 feature_text: |
   Standing on a well-chilled cinder, we see the slow fading of the suns, and we try to recall the vanished brilliance of the origin of worlds.
+  
   -Lemaître
-feature_image: "https://t3.ftcdn.net/jpg/10/86/64/76/360_F_1086647666_qH7gCJnuSjW709BT1hismw42Gkl6QdM3.jpg"
+feature_image: "https://wallpapers.com/images/hd/red-galaxy-background-fo6g0su3uahjgap5.jpg"
 ---
 
 
