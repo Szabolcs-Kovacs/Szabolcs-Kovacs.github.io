@@ -1,5 +1,6 @@
 # Basic site settings
 title: Szabolcs Kovács
+email: szabolcs.kovacs.uni@gmail.com
 description: An academic page for me.
 baseurl: ""
 url: "https://szabolcs-kovacs.github.io/"
