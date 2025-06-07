@@ -13,7 +13,7 @@ custom_css: |
      1px -1px 0 black,
     -1px  1px 0 black,
      1px  1px 0 black;
-}
+  }
 feature_image: "https://wallpapers.com/images/hd/red-galaxy-background-fo6g0su3uahjgap5.jpg"
 ---
 
