@@ -6,14 +6,14 @@ feature_text: |
   
   -Lemaître
 custom_css: |
-  .feature_text {
-    color: white;
-    text-shadow: 
-      -1px -1px 0 black,
-       1px -1px 0 black,
-      -1px  1px 0 black,
-       1px  1px 0 black;
-  }
+  .container.typeset {
+  color: white;
+  text-shadow: 
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
 feature_image: "https://wallpapers.com/images/hd/red-galaxy-background-fo6g0su3uahjgap5.jpg"
 ---
 
