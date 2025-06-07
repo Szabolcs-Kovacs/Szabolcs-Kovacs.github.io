@@ -5,7 +5,7 @@ baseurl: ""
 url: "https://szabolcs-kovacs.github.io/"
 
 # Remote theme configuration
-remote_theme: daviddarnes/alembic  # Replace with the actual repository and tag of the theme.
+remote_theme: mmistakes/minimal-mistakes  # Replace with the actual repository and tag of the theme.
 plugins:
   - jekyll-sitemap
   - jekyll-mentions
