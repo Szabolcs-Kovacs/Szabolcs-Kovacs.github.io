@@ -1,4 +1,4 @@
-# Szabolcs Kovács
+# Title
 
 ## Subsection
 
