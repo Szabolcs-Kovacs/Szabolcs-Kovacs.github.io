@@ -5,15 +5,6 @@ feature_text: |
   Standing on a well-chilled cinder, we see the slow fading of the suns, and we try to recall the vanished brilliance of the origin of worlds.
   
   -Lemaître
-custom_css: |
-  .container.typeset {
-  color: white;
-  text-shadow: 
-    -1px -1px 0 black,
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
-  }
 feature_image: "https://wallpapers.com/images/hd/red-galaxy-background-fo6g0su3uahjgap5.jpg"
 ---
 
