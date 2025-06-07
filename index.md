@@ -1,3 +1,8 @@
+---
+layout: "page"
+---
+
+
 # Title
 
 ## Subsection
