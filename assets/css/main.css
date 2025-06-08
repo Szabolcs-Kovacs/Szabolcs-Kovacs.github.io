@@ -4005,6 +4005,14 @@ input, select, textarea {
 
 		}
 
+/* Ignore before statements for a subpage */
+
+.subpage .wrapper::before {
+  display: none !important;
+}
+
+
+
 /* Footer */
 
 	#footer .inner {
