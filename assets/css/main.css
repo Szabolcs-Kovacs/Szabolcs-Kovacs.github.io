@@ -2465,7 +2465,6 @@ input, select, textarea {
 				margin-right: auto;
 				margin-bottom: 2em;
 				margin-left: auto;
-				margin: 0 auto; /* Centers inside the div */
 				display: block; /* Ensures correct behavior */
 			}
 
