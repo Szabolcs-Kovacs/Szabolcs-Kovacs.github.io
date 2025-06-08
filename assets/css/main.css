@@ -181,8 +181,7 @@ input, select, textarea {
 	}
 
 		.right-align {
-		    display: block;
-		    text-align: right; /* Aligns the button to the right */
+		    margin-left: auto; /* Moves button to the right */
 		}
 
 		a:hover {
@@ -374,6 +373,14 @@ input, select, textarea {
 
 	.align-right {
 		text-align: right;
+	}
+
+	/*New header container*/
+	.header-container {
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between; /* Keeps title on left, button on right */
+	    width: 100%;
 	}
 
 /* Row */
