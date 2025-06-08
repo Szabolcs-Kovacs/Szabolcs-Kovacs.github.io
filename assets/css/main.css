@@ -2454,13 +2454,16 @@ input, select, textarea {
 			}
 
 		.image.fitless {
-			display: block;
+			display: flex;
 			margin: 0 0 0 0;
 			width: 100%;
+			justify-content: center;
 		}
 
 			.image.fitless img {
-				width: 75%;
+				width: 75% !important;
+				margin: 0 auto; /* Centers inside the div */
+				display: block; /* Ensures correct behavior */
 			}
 
 		.image.main {
