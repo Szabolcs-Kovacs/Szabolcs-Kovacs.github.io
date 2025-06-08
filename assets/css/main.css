@@ -3239,7 +3239,7 @@ input, select, textarea {
 		-moz-align-items: center;
 		-webkit-align-items: center;
 		-ms-align-items: center;
-		align-items: center;
+		/*align-items: center;*/
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -3247,7 +3247,9 @@ input, select, textarea {
 		-moz-justify-content: center;
 		-webkit-justify-content: center;
 		-ms-justify-content: center;
-		justify-content: center;
+		/*justify-content: center;*/
+		justify-content: flex-end;
+		align-items: flex-start;
 		pointer-events: none;
 		-moz-transition: opacity 0.35s ease, visibility 0.35s;
 		-webkit-transition: opacity 0.35s ease, visibility 0.35s;
