@@ -1,2 +1,2 @@
 # Academic webpage of physicist Szabolcs Kovács
-Placeholder text
+Based on the HTML5UP! template Solid State.
