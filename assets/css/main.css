@@ -180,10 +180,6 @@ input, select, textarea {
 		text-decoration: none;
 	}
 
-		.right-align {
-		    margin-left: auto; /* Moves button to the right */
-		}
-
 		a:hover {
 			border-bottom-color: transparent;
 			color: #ffffff !important;
@@ -276,7 +272,6 @@ input, select, textarea {
 		h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
 			padding-bottom: 1em;
 			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
-			margin: 0; /* Removes extra spacing */
 		}
 
 	h2 {
@@ -376,13 +371,6 @@ input, select, textarea {
 		text-align: right;
 	}
 
-	/*New header container*/
-	.header-container {
-	    display: flex;
-	    align-items: center;
-	    justify-content: space-between; /* Keeps title on left, button on right */
-	    width: 100%;
-	}
 
 /* Row */
 
