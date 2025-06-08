@@ -4011,6 +4011,10 @@ input, select, textarea {
   display: none !important;
 }
 
+.subpage .wrapper {
+  margin-top: 0 !important;  /* Removes top margin */
+  margin-bottom: 6.5em 0 !important; /* Keeps bottom margin */
+}
 
 
 /* Footer */
