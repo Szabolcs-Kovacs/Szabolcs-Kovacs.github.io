@@ -2462,6 +2462,10 @@ input, select, textarea {
 
 			.image.fitless img {
 				width: 75% !important;
+				margin-top: 2em;
+				margin-right: auto;
+				margin-bottom: 2em;
+				margin-left: auto;
 				margin: 0 auto; /* Centers inside the div */
 				display: block; /* Ensures correct behavior */
 			}
