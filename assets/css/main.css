@@ -4008,12 +4008,12 @@ input, select, textarea {
 /* Ignore before statements for a subpage */
 
 .subpage .wrapper::before {
-  display: none !important;
+	display: none !important;
 }
 
 .subpage .wrapper {
-  margin-top: 0 !important;  /* Removes top margin */
-  margin-bottom: 6.5em 0 !important; /* Keeps bottom margin */
+	margin: 0 0 !important;  /* Removes top margin that would show the bg through */
+	padding-top: 3em !important; /* But keeps it for the start of text.*/
 }
 
 
