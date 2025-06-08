@@ -180,6 +180,11 @@ input, select, textarea {
 		text-decoration: none;
 	}
 
+		.right-align {
+		    display: block;
+		    text-align: right; /* Aligns the button to the right */
+		}
+
 		a:hover {
 			border-bottom-color: transparent;
 			color: #ffffff !important;
