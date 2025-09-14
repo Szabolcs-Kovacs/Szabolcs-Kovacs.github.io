@@ -4208,8 +4208,9 @@ input, select, textarea {
 		overflow-y: auto;
 		font-size: 0.9em;
 		height: 100%;
-		max-height: 3em;
+		max-height: 5em;
 	}
+
 
 
 
