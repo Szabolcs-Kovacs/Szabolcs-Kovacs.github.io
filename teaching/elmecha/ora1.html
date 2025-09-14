@@ -188,7 +188,7 @@
 										\frac{\sin{\theta_1}}{\sin{\theta_2}} = \sqrt{1 + \frac{2m}{p_1^2} U}
 									$$
 								</p>
-								<h4>Hová lett a lendületmegmaradás?</h4>
+								<h4>1.1.2. Hová lett a lendületmegmaradás?</h4>
 								<p>
 									Már az energiamegmaradás első felírt sorában láthattuk, hogy a lendület itt gyanúsan nem marad meg.
 									Hogy ezt kicsit jobban kivesézzük, bontsuk fel a lendületeket komponensekre $\vec{p} = (p_x, p_y)$ módon, és nézzük meg az $x$ irányúakat:
@@ -205,7 +205,7 @@
 									Ennek mélyebb oka a szimmetriákban rejlik: a rendszerünk szimmetrikus arra, hogy eltoljuk a $P_1$ és $P_2$ pontokat a tengellyel párhuzamosan, attól nem változik semmi.
 									Ha arra merőlegesen tolnánk el, akkor viszont beleütközhetünk a falba, amin túl már nem ugyanarról a fizikai problémáról beszélünk.
 								</p>
-								<h4>Newtonos megoldás</h4>
+								<h4>1.1.3. Newtonos megoldás</h4>
 								<p>
 									A feladat régimódibb megoldásához kis trükközésre van szükség.
 									Végső célunk megoldani a Newton-egyenletet, ami az energiamegmaradásnak hála
@@ -261,6 +261,55 @@
 									\end{aligned}
 									$$
 									Tehát tisztán $y$ irányban kapott a kis részecskénk egy impulzuslöketet.
+								</p>
+							</div>
+						</section>
+
+						<section id="three" class="wrapper style3">
+							<div class="inner">
+								<h3>1.2 példa: Legnagyobb (?) hatás elve</h3>
+								<p>
+									Nézzünk egy példát a fényre is.
+									A Fermat elv szerint a fény a legrövidebb időbe kerülő úton közlekedik, tehát az a pálya valósul meg, amelynek mentén a megtett idő minimális.
+									$$
+									    \mathcal{T} = \int n(s) \rd s
+									$$
+									Most bebizonyítjuk, hogy ez így nem igaz, egy görbe tükör segítségével.
+								</p>
+								<p>
+									Vegyük az kezdeti $A$ és a  végződő $B$ pontokat egy félgömb alakú tükör két végében.
+									Természetesen a legrövidebb út köztük az egyenes, de optikából tudjuk, hogy a fény tud másmerre is menni: tükröződve.
+									Vegyük fel valahol a köztes $P$ pontunkat a köríven, és paraméterezzük az ábrán látható szöggel.
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson1/fermat_gorbe.png" alt="Görbe törés paraméterezése" width="55%">
+								</div>
+								<p>
+									Kis geometria után 
+									(egyenlő $R$ szárú háromszögeink vannak, amiket meg tudunk felezni.
+									A szárszöget a $\theta$ paraméterünkből és a 90 fokból tudjuk kikombinálni, ami után egy szinusz felismerése a feladat.) 
+									a megtett útszakaszok:
+									$$
+									\begin{aligned}
+									    \overline{AP} = a = 2 R \sin{\left( \frac{\pi/2 - \theta}{2}\right)} \quad\quad \overline{PB} = b = 2 R \sin{\left( \frac{\pi/2 + \theta}{2}\right)}
+									\end{aligned}
+									$$
+									A Fermat-elvhez fordulva a legrövidebb időre törekszünk.
+									De itt most a törésmutató éppen konstans, tehát ez ekvivalens lesz a legrövidebb úttal, azaz
+									$$
+										\mathcal{T} \cdot \frac{c}{n} =  \mathcal{S} = 2R \left[\sin{\left( \frac{\pi/2 - \theta}{2}\right)} + \sin{\left( \frac{\pi/2 + \theta}{2}\right)} \right]
+									$$
+									Ezt kell most deriválnunk $\theta$ szerint, majd nullává tennünk.
+									$$
+									\begin{aligned}
+									    \partial_\theta \mathcal{S} = -R\cos{\left( \frac{\pi/2 - \theta}{2}\right)} &+ R\cos{\left( \frac{\pi/2 + \theta}{2}\right)} = 0 \\
+									    \cos{\left( \frac{\pi/2 - \theta}{2}\right)} &= \cos{\left( \frac{\pi/2 + \theta}{2}\right)}
+									\end{aligned}
+									$$
+									Őt megoldhatjuk vizuálisan is, esetszétválasztással, vagy felhasználhatunk egy koszinuszok különbségére vonatkozó összefüggést, aminek hála
+									$$
+									    \sin{\frac{\theta}{2}} = 0
+									$$
 								</p>
 							</div>
 						</section>
