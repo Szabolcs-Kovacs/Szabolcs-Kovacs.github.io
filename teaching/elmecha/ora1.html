@@ -702,12 +702,66 @@
 									Végül pedig fel tudjuk írni a mozgást megvalósító pálya Euler-Lagrange egyenletét:
 									$$
 									\begin{aligned}
-									    \frac{\rd }{\rd \varphi} \frac{\partial \mathcal{L}}{\partial r^\prime} \textcolor{blue}{- \frac{\partial \mathcal{L}}{\partial r}} &= 0 \\
-									    \frac{1}{r^3}\frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \left(r^{\prime\prime} r - 2 r^{\prime 2}   -r^{\prime 2} \frac{r r^{\prime\prime} - r^{\prime 2}}{r^2 + r^{\prime 2}} \textcolor{blue}{+ r^{\prime 2}} \right) &= 0 \\
+									    \frac{\rd }{\rd \varphi} \frac{\partial \mathcal{L}}{\partial r^\prime} - \frac{\partial \mathcal{L}}{\partial r} &= 0 \\
+									    \frac{1}{r^3}\frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \left(r^{\prime\prime} r - 2 r^{\prime 2}   -r^{\prime 2} \frac{r r^{\prime\prime} - r^{\prime 2}}{r^2 + r^{\prime 2}} + r^{\prime 2} \right) &= 0 \\
 									    &\Uparrow \\
 									    r^{\prime\prime} r - r^{\prime 2}  -r^{\prime 2} \frac{r r^{\prime\prime} - r^{\prime 2}}{r^2 + r^{\prime 2}} &= 0
 									\end{aligned}
 									$$
+								</p>
+								<p>
+									Kis átalakítással
+									$$
+									    r^{\prime\prime} r - r^{\prime 2}  - \frac{r r^\prime r^{\prime\prime} - r^{\prime3}}{1 + \frac{r^{\prime 2}}{r^2}} = \left(r^{\prime\prime} r - r^{\prime 2}\right) \left(1- \frac{r^{\prime 2}}{r^2 + r^{\prime 2}}\right) = 0
+									$$
+									Láthatólag ez kétféleképpen teljesülhet. Az egyik opció:
+									$$
+									\begin{aligned}
+									    \left(1- \frac{r^{\prime 2}}{r^2 + r^{\prime 2}}\right)  &= 0 \\
+									   r^2 + r^{\prime 2}  &= r^{\prime 2} \\
+									   r(\varphi) &= 0
+									\end{aligned}
+									$$
+									Ami a triviális megoldás: nem történik semmi. A másik kissé izgalmasabb:
+									$$
+									\begin{aligned}
+									    \left(r^{\prime\prime} r - r^{\prime 2}\right)  &= 0 
+									\end{aligned}
+									$$
+									Keressük azokat az $r(\varphi)$ függvényeket, amelyek teljesítik ezt az egyenletet. Kissé átírva
+									$$
+									\begin{aligned}
+									    r^{\prime\prime} r &= r^{\prime 2}  \\
+									    \frac{r^{\prime\prime}}{r} &= \frac{ r^{\prime 2} }{r^2}
+									\end{aligned}
+									$$
+								</p>
+								<p>
+									Nem baj, ha ezt még nem látjuk mi lesz. A jobb oldal minden esetre egészen szép, szóval vezessünk be egy új $u$ függvényt, mint
+									$$
+									    u(\varphi) = \frac{r^\prime}{r}
+									$$
+									Mi lesz az ő deriváltja?
+									$$
+									    u^\prime = \frac{\rd }{\rd \varphi} \frac{r^\prime}{r} = \frac{r^{\prime\prime} \times r - r^\prime \times r^\prime}{r^2} = \frac{r^{\prime\prime}}{r} - \frac{r^{\prime 2}}{r^2}
+									$$
+									A fentiek alapján viszont ennek a jobb oldala nulla. Ergo
+									$$
+									\begin{aligned}
+									    u^\prime = 0 \quad\quad \longrightarrow \quad\quad u = \text{konst.} = c
+									\end{aligned}
+									$$
+									Visszaírva az $u$ definíciójába
+									$$
+									\begin{aligned}
+									    \frac{r^\prime}{r} = c \quad\quad \longrightarrow \quad\quad r(\varphi) = A \exp{(c \varphi)}
+									\end{aligned}
+									$$
+								</p>
+								<p>
+									Ezt láthatólag nem volt könnyű megoldani.
+									Itt bukik elő a variációszámítás egyik hátránya: attól, hogy könnyen fel tudjuk írni a mozgásegyenletet, nem biztos, hogy azt egyszerűen (vagy egyáltalán) meg is tudjuk oldani.
+									A következő órákon erre a feladatra látni fogunk majd egy kevésbé favágó módszert, ami (mint a legtöbb szép megoldás a fizikában) a szimmetriákra alapul.
 								</p>
 							</div>
 						</section>
