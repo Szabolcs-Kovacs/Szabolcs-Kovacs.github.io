@@ -107,7 +107,7 @@
 									Az előadáson hallhattunk két fontos elvet:
 									$$
 									\begin{aligned}
-										\mathcal{S}_0 = \int |\Vec{p}| \rd s \quad\quad \mathcal{T} = \int n(s) \rd s
+										\mathcal{S}_0 = \int |\vec{p}| \rd s \quad\quad \mathcal{T} = \int n(s) \rd s
 									\end{aligned}
 									$$
 									amikről beláthattuk, hogy azonosan viselkednek.
@@ -178,6 +178,89 @@
 									$$
 										\boxed{p_1 \sin{\theta_1} = p_2 \sin{\theta_2}}
 									$$
+								</p>
+								<p>
+									Ezzel meg is oldottuk a feladatot: a potenciális energia ugrása pont olyan hatással van a részecskére, mint a törésmutató ugrása a fényre.
+									Ha magukat a sebességeket nem ismerjük, csak a potenciált és a kimenő sebességet 
+									(ami gyakori, ha például egy laborban mi magunk rakjuk oda a potenciális energiát, és detektáljuk a kijövő részecskét), 
+									akkor átírva:
+									$$
+										\frac{\sin{\theta_1}}{\sin{\theta_2}} = \sqrt{1 + \frac{2m}{p_1^2} U}
+									$$
+								</p>
+								<h4>Hová lett a lendületmegmaradás?</h4>
+								<p>
+									Már az energiamegmaradás első felírt sorában láthattuk, hogy a lendület itt gyanúsan nem marad meg.
+									Hogy ezt kicsit jobban kivesézzük, bontsuk fel a lendületeket komponensekre $\vec{p} = (p_x, p_y)$ módon, és nézzük meg az $x$ irányúakat:
+									$$
+									\begin{aligned}
+									    p_{1,x} = |\vec{p_1}|\sin{\theta_1} \quad\quad p_{2,x} = |\vec{p_2}|\sin{\theta_2}
+									\end{aligned}
+									$$
+									Rögtön láthatjuk:
+									$$
+										p_{1,x} = p_{2,x} 
+									$$
+									tehát a határfelülettel párhuzamos irányú lendület nem változik, megmarad.
+									Ennek mélyebb oka a szimmetriákban rejlik: a rendszerünk szimmetrikus arra, hogy eltoljuk a $P_1$ és $P_2$ pontokat a tengellyel párhuzamosan, attól nem változik semmi.
+									Ha arra merőlegesen tolnánk el, akkor viszont beleütközhetünk a falba, amin túl már nem ugyanarról a fizikai problémáról beszélünk.
+								</p>
+								<h4>Newtonos megoldás</h4>
+								<p>
+									A feladat régimódibb megoldásához kis trükközésre van szükség.
+									Végső célunk megoldani a Newton-egyenletet, ami az energiamegmaradásnak hála
+									$$
+										-\nabla U = \dot{\vec{p}}
+									$$
+									Ami itt bajos lehet, az a $\nabla U$. Nekünk ez a lépcsőszerű ugrás a potenciálban a Heaviside lépcsőfüggvénnyel írható le
+									$$
+										U(x,y) = -U \Theta(-y)
+									$$
+									Ami nem folytonos, ezért deriválni sem lehet szépen disztribúcióelmélet nélkül.
+									Ha éppen nem jut eszünkbe, hogy az alapján ennek pont egy Dirac-delta a deriváltja, akkor a következő trükköket lehet bevetni.
+								</p>
+								<p>
+									A lépcsőfüggvény sokféleképpen közelíthető.
+									Egyik mód például a
+									$$
+										\Theta(y) \approx \frac{1}{2} + \frac{1}{2} \tanh{(ky)}
+									$$
+									ami visszaadja a lépcsőt, ha $k\rightarrow \infty$.
+									Ezt már vígan lehet deriválni:
+									$$
+										\partial_y \Theta(y) \approx \frac{1}{2}\frac{k}{\cosh^2{(ky)}}
+									$$
+									Ennek a függvénynek pedig van egy hasznos tulajdonsága:
+									$$
+										\int_{-\infty}^\infty \frac{1}{2}\frac{1}{\cosh^2{u}} \rd u = 1
+									$$
+									Beírva, a Newton törvény alakja:
+									$$
+										U \begin{pmatrix}
+										0 \\
+										\frac{1}{2}\frac{k}{\cosh^2{(ky)}}
+										\end{pmatrix} = \frac{\rd}{\rd t} \begin{pmatrix}
+										p_x \\
+										p_y
+									\end{pmatrix}
+									$$
+									Amiből rögtön látszik, hogy $p_x$ állandó.
+									A másik komponensre vonatkozó egyenlet pedig
+									$$
+										U \frac{1}{2}\frac{k}{\cosh^2{(ky)}} = \frac{\rd p_y}{\rd t}
+									$$
+									Ha ennek a kezdeti és végállapotbeli megváltozására vagyunk kíváncsiak, akkor egy kis
+									$$
+										\frac{\rd p_y}{\rd t} \rd y = \frac{\rd y }{\rd t}\rd p_y = \dot{y} \rd p_y = \frac{1}{m} p_y \rd p_y 
+									$$
+									átírás után kiintegrálhatjuk az egyenlet mindkét oldalát $y$ szerint:
+									$$
+									\begin{aligned}
+									    U \int \frac{1}{2}\frac{k}{\cosh^2{(ky)}} \rd y &= \frac{1}{m} \int  p_y \rd p_y  \\
+									    U &= \frac{1}{2m} \Delta p_y^2
+									\end{aligned}
+									$$
+									Tehát tisztán $y$ irányban kapott a kis részecskénk egy impulzuslöketet.
 								</p>
 							</div>
 						</section>
