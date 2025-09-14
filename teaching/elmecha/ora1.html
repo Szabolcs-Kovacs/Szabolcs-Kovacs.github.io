@@ -113,7 +113,9 @@
 									amikről beláthattuk, hogy azonosan viselkednek.
 									A Fermat elvet már ismeritek, és levezettétek belőle a Snellius-Descartes törvényt, miszerint fénytörés esetén a beesési szögek és a törésmutatók közti összefüggés:
 									$$
+									\begin{aligned}
 										n_1 \sin{\varphi_1} = n_2 \sin{\varphi_2}
+									\end{aligned}
 									$$
 									A Maupertuis elv még új, szóval első példáinkban barátkozzunk vele egy kicsit.
 								</p>
@@ -153,12 +155,16 @@
 								<p>
 									A hatásunk egy út szerinti integrál: bontsuk fel ketté.
 									$$
+									\begin{aligned}
 										\mathcal{S}_0 = \int_{P_1}^{P_2} |\vec{p}(s)| \rd s = \int_{P_1}^{Q} |\vec{p}_1| \rd s + \int_{Q}^{P_2}|\vec{p}_2| \rd s
+									\end{aligned}
 									$$
 									Mivel az impulzusok már konstansok, így ami marad az magának az útnak a kiintegrálása.
 									Mivel ez két egyenes hossza, ez egészen egyszerű:
 									$$
+									\begin{aligned}
 										\mathcal{S}_0 = p_1 \sqrt{x^2 + y_1^2} + p_2 \sqrt{(x_2-x)^2+y_2^2}
+									\end{aligned}
 									$$
 									A Maupertuis elv szerint ez minimális kell, hogy legyen.
 									Nekünk $x$ az egyetlen dolog ami változhat, tehát
@@ -176,7 +182,9 @@
 									$$
 									tehát
 									$$
+									\begin{aligned}
 										\boxed{p_1 \sin{\theta_1} = p_2 \sin{\theta_2}}
+									\end{aligned}
 									$$
 								</p>
 								<p>
@@ -185,7 +193,9 @@
 									(ami gyakori, ha például egy laborban mi magunk rakjuk oda a potenciális energiát, és detektáljuk a kijövő részecskét), 
 									akkor átírva:
 									$$
+									\begin{aligned}
 										\frac{\sin{\theta_1}}{\sin{\theta_2}} = \sqrt{1 + \frac{2m}{p_1^2} U}
+									\end{aligned}
 									$$
 								</p>
 								<h4>1.1.2. Hová lett a lendületmegmaradás?</h4>
@@ -199,7 +209,9 @@
 									$$
 									Rögtön láthatjuk:
 									$$
+									\begin{aligned}
 										p_{1,x} = p_{2,x} 
+									\end{aligned}
 									$$
 									tehát a határfelülettel párhuzamos irányú lendület nem változik, megmarad.
 									Ennek mélyebb oka a szimmetriákban rejlik: a rendszerünk szimmetrikus arra, hogy eltoljuk a $P_1$ és $P_2$ pontokat a tengellyel párhuzamosan, attól nem változik semmi.
@@ -210,11 +222,15 @@
 									A feladat régimódibb megoldásához kis trükközésre van szükség.
 									Végső célunk megoldani a Newton-egyenletet, ami az energiamegmaradásnak hála
 									$$
+									\begin{aligned}
 										-\nabla U = \dot{\vec{p}}
+									\end{aligned}
 									$$
 									Ami itt bajos lehet, az a $\nabla U$. Nekünk ez a lépcsőszerű ugrás a potenciálban a Heaviside lépcsőfüggvénnyel írható le
 									$$
+									\begin{aligned}
 										U(x,y) = -U \Theta(-y)
+									\end{aligned}
 									$$
 									Ami nem folytonos, ezért deriválni sem lehet szépen disztribúcióelmélet nélkül.
 									Ha éppen nem jut eszünkbe, hogy az alapján ennek pont egy Dirac-delta a deriváltja, akkor a következő trükköket lehet bevetni.
@@ -223,19 +239,26 @@
 									A lépcsőfüggvény sokféleképpen közelíthető.
 									Egyik mód például a
 									$$
+									\begin{aligned}
 										\Theta(y) \approx \frac{1}{2} + \frac{1}{2} \tanh{(ky)}
+									\end{aligned}
 									$$
 									ami visszaadja a lépcsőt, ha $k\rightarrow \infty$.
 									Ezt már vígan lehet deriválni:
 									$$
+									\begin{aligned}
 										\partial_y \Theta(y) \approx \frac{1}{2}\frac{k}{\cosh^2{(ky)}}
+									\end{aligned}
 									$$
 									Ennek a függvénynek pedig van egy hasznos tulajdonsága:
 									$$
+									\begin{aligned}
 										\int_{-\infty}^\infty \frac{1}{2}\frac{1}{\cosh^2{u}} \rd u = 1
+									\end{aligned}
 									$$
 									Beírva, a Newton törvény alakja:
 									$$
+									\begin{aligned}
 										U \begin{pmatrix}
 										0 \\
 										\frac{1}{2}\frac{k}{\cosh^2{(ky)}}
@@ -243,15 +266,20 @@
 										p_x \\
 										p_y
 									\end{pmatrix}
+									\end{aligned}
 									$$
 									Amiből rögtön látszik, hogy $p_x$ állandó.
 									A másik komponensre vonatkozó egyenlet pedig
 									$$
+									\begin{aligned}
 										U \frac{1}{2}\frac{k}{\cosh^2{(ky)}} = \frac{\rd p_y}{\rd t}
+									\end{aligned}
 									$$
 									Ha ennek a kezdeti és végállapotbeli megváltozására vagyunk kíváncsiak, akkor egy kis
 									$$
+									\begin{aligned}
 										\frac{\rd p_y}{\rd t} \rd y = \frac{\rd y }{\rd t}\rd p_y = \dot{y} \rd p_y = \frac{1}{m} p_y \rd p_y 
+									\end{aligned}
 									$$
 									átírás után kiintegrálhatjuk az egyenlet mindkét oldalát $y$ szerint:
 									$$
@@ -272,7 +300,9 @@
 									Nézzünk egy példát a fényre is.
 									A Fermat elv szerint a fény a legrövidebb időbe kerülő úton közlekedik, tehát az a pálya valósul meg, amelynek mentén a megtett idő minimális.
 									$$
+									\begin{aligned}
 									    \mathcal{T} = \int n(s) \rd s
+									\end{aligned}
 									$$
 									Most bebizonyítjuk, hogy ez így nem igaz, egy görbe tükör segítségével.
 								</p>
@@ -286,7 +316,7 @@
 								</div>
 								<p>
 									Kis geometria után 
-									(egyenlő $R$ szárú háromszögeink vannak, amiket meg tudunk felezni.
+									(Egyenlő $R$ szárú háromszögeink vannak, amiket meg tudunk felezni.
 									A szárszöget a $\theta$ paraméterünkből és a 90 fokból tudjuk kikombinálni, ami után egy szinusz felismerése a feladat.) 
 									a megtett útszakaszok:
 									$$
@@ -297,7 +327,9 @@
 									A Fermat-elvhez fordulva a legrövidebb időre törekszünk.
 									De itt most a törésmutató éppen konstans, tehát ez ekvivalens lesz a legrövidebb úttal, azaz
 									$$
+									\begin{aligned}
 										\mathcal{T} \cdot \frac{c}{n} =  \mathcal{S} = 2R \left[\sin{\left( \frac{\pi/2 - \theta}{2}\right)} + \sin{\left( \frac{\pi/2 + \theta}{2}\right)} \right]
+									\end{aligned}
 									$$
 									Ezt kell most deriválnunk $\theta$ szerint, majd nullává tennünk.
 									$$
@@ -308,7 +340,9 @@
 									$$
 									Őt megoldhatjuk vizuálisan is, esetszétválasztással, vagy felhasználhatunk egy koszinuszok különbségére vonatkozó összefüggést, aminek hála
 									$$
+									\begin{aligned}
 									    \sin{\frac{\theta}{2}} = 0
+									\end{aligned}
 									$$
 								</p>
 							</div>
