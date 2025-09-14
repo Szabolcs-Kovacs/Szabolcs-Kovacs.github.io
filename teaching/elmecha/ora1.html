@@ -371,8 +371,45 @@
 									Valójában inkább a <i>szélsőértékes</i> hatás elvére gondolunk, de az sokkal csúnyábban hangzik mind magyarul, mind angolul.
 									(A pontosságra törekedőknek a \textit{stacionárius} a bevett szó.)
 								</p>
+								<p>
+									Feltűnhetett, hogy mindkét példában az integrálás igazból egy-egy egyenes hosszának kiszámolására redukálódott.
+									Ez csak didaktikus, és mutatja a Maupertuis elv hátrányát: mást nem igazán tudtunk volna kiszámolni.
+									A probléma az integrálással van, hiszen azt nem mindig lehet elvégezni; és itt az integrálás \textbf{után} szelektáljuk ki az összes lehetséges útból az igazit.
+									Ha kegyes a fizika, akkor létezik olyan módszer, ami ezeket megcseréli.
+								</p>
 							</div>
 						</section>
+						<section id="four" class="wrapper style4">
+							<div class="inner">
+								<h3>A Lagrange formalizmus</h3>
+								<p>
+									Felidézve, hogy a hatástól megköveteljük, hogy stacionárius legyen:
+									$$
+									\begin{aligned}
+									    \delta \mathcal{S} = 0
+									\end{aligned}
+									$$
+									Vegyünk rá most egy általánosabb alakot az eddigieknél. Legyen
+									$$
+									\begin{aligned}
+										\mathcal{S} = \int_A^B \mathcal{L}\Bigl(x(t), \dot{x}(t),t \Bigr) \rd t
+									\end{aligned}
+									$$
+									Hogy ez minimális legyen, alkalmazzuk a funkcionál deriválás szabályait: kapunk egy szép egyenletet az $\mathcal{L}$ <b>Lagrange-függvényünkre</b>:
+									$$
+									\begin{aligned}
+									    \frac{\rd}{\rd t} \frac{\partial \mathcal{L}}{\partial \dot{x}} = \frac{\partial \mathcal{L}}{\partial x} 
+									\end{aligned}
+									$$
+									az úgy nevezett <b>Euler-Lagrange</b>-egyenletet.
+									Ez egyelőre még lehet, hogy csúnyábbnak tűnik mint az $\vec{F} = m \vec{a}$, de pont arra van a gyakorlat, hogy megbarátkozzunk vele.
+									Úgy általánosságban két féle példával fogunk találkozni: lesznek a tipikus feladatok, ahol ezt kell használni ahogy van; és lesznek gondolkodósak, ahol ezt az egyenletet nem lehet csak úgy ráküldeni a problémára.
+									Nézzünk először pár példát az utóbbira.
+								</p>
+							</div>
+						</section>
+
+						
 
 
 				<!-- Footer -->
