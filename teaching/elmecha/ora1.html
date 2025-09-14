@@ -528,9 +528,116 @@
 								</p>
 							</div>
 						</section>
-
-						
-
+						<section id="five" class="wrapper style5">
+							<div class="inner">
+								<h3>1.4 példa: Brachisztokron</h3>
+								<p>
+									Egy egészen hasonló, de történelmi jelentősségű példát kapunk, ha kicsit módosítunk az előző feladaton.
+									Az alapkérdésünk most az, hogy (homogén) gravitációs térben milyen görbe az, amin legurulva a legkevesebb időbe telik az út $A$ és $B$ között.
+									A legkevesebb időre törekszünk, tehát ami minimalizálandó az
+									$$
+									    \mathcal{S} = \int_A^B \rd t
+									$$
+									Felhasználva, hogy $v = s/t$, illetve az energiamegmaradásból kapott
+									$$
+									\begin{aligned}
+									    \frac{1}{2} m v^2 = mg y \\
+									    v = \frac{1}{\sqrt{2g y}}
+									\end{aligned}
+									$$
+									összefüggést, ez átírható egy útra vett integrállá:
+									$$
+									     \mathcal{S} = \frac{1}{\sqrt{2g}} \int_{A}^{B} \frac{1}{\sqrt{y}} \rd s
+									$$
+									Már csak az a kérdés, hogy mi legyen $\rd s$.
+									Az előző feladattal ellentétben most vehetjük a <i>változónak</i> $y$-t, aminek függvénye az $x$, amivel
+									$$
+									    \rd s^2 = [1 + x^{\prime 2}(y)] \rd y^2
+									$$
+									Így a hatásintegrálunk
+									$$
+									    \mathcal{S} = \frac{1}{\sqrt{2g}} \int_{y_A}^{y_B} \frac{\sqrt{1+x^{\prime 2}(y)}}{\sqrt{y}} \rd y
+									$$
+									Erre kell most alkalmaznunk az Euler-Lagrange formulát, ügyelve arra hogy most $x$ és $y$ kicserélődtek.
+								</p>
+								<p>
+									Az integrál előtti szorzófaktorokat elhagyva a deriváltak:
+									$$
+									\begin{aligned}
+									    \frac{\partial \mathcal{L}}{\partial x} = 0 \quad \quad \frac{\partial \mathcal{L}}{\partial x^\prime} = \frac{1}{\sqrt{y}}\frac{x^\prime}{\sqrt{1 + x^{\prime 2}}} 
+									\end{aligned}
+									$$
+									Az előző feladatból tanulva most nem számítjuk ki $\frac{\rd}{\rd y} \frac{\partial \mathcal{L}}{\partial x^\prime}$-et, mert a másik nulla: tudjuk tehát, hogy
+									$$
+									\begin{aligned}
+									    \frac{1}{\sqrt{y}}\frac{x^\prime}{\sqrt{1 + x^{\prime 2}}} &= \text{konst.} \\
+									    \frac{1}{y}\frac{x^{\prime 2}}{1 + x^{\prime 2}} &=  \text{konst.} = \frac{1}{2a}
+									\end{aligned}
+									$$
+									ahol a konstans azért így van bevezetve, hogy később szép legyen a megoldás.
+									Ez egy diffegyenlet, amit meg kell oldanunk. Kis rendezéssel
+									$$
+									\begin{aligned}
+									    x^{\prime 2} &=  \frac{y}{2a}+ \frac{y}{2a}x^{\prime 2} \\
+									    x^{\prime 2} &= \frac{ \frac{y}{2a}}{1-  \frac{y}{2a}} \\
+									    x^{\prime 2} &= \frac{ y}{2a -y}
+									\end{aligned}
+									$$
+									Ami felintegrálható, mint
+									$$
+									    x = \int \sqrt{\frac{y}{2a-y}}\, \rd y
+									$$
+								</p>
+								<p>
+									Hogy ezt megoldjuk, megsejtjük a jó $y\rightarrow \varphi$ változócserét a tankönyv segítségével, mint
+									$$
+										y = a(1-\cos{\varphi})
+									$$
+									Amivel
+									$$
+									\begin{aligned}
+									    \frac{\rd y}{\rd \varphi} = a \sin{\varphi} \quad\quad \longrightarrow && \rd y = a \sin{\varphi}\, \rd \varphi
+									\end{aligned}
+									$$
+									és
+									$$
+									    \frac{y}{2a-y} = \frac{a(1-\cos{\varphi})}{2a - a + a\cos{\varphi}} = \frac{1 - \cos{\varphi}}{1+\cos{\varphi}}
+									$$
+									Beírva mindkettőt, az integrandus
+									$$
+									\begin{aligned}
+									    a\sqrt{\frac{1 - \cos{\varphi}}{\cos{\varphi}}} \sin{\varphi} &= a \sqrt{\frac{1 - \cos{\varphi}}{1+\cos{\varphi}} \sin^2{\varphi}} \\
+									    &= a \sqrt{\frac{\sin^2{\varphi} - \sin^2{\varphi}\cos{\varphi}}{1+\cos{\varphi}} } \\
+									    &=  a \sqrt{\frac{1 - \cos^2{\varphi} - \sin^2{\varphi}\cos{\varphi}}{1+\cos{\varphi}} } \\
+									    &= a \sqrt{\frac{1 - \cos^2{\varphi} - \cos{\varphi} + \cos^3{\varphi}}{1+\cos{\varphi}} } \\
+									    &=  a \sqrt{\frac{(1+\cos{\varphi}(1-\cos{\varphi})^2)}{1+\cos{\varphi}} } \\
+									    &= a (1-\cos{\varphi})
+									\end{aligned}
+									$$
+									Amit már könnyebb kiintegrálni, mint
+									$$
+									    x = a \int (1-\cos{\varphi}) \rd \varphi = a \left( \varphi - \sin{\varphi} \right) + \text{konst.}
+									$$
+								</p>
+								<p>
+									Innentől a pontos megoldás már csak kezdeti értékek kérdése.
+									Legyenek ők $x_A = y_A = 0$, amikből $\varphi = 0$ következik, illetve a konstansunk is nulla lesz.
+									A megoldásunk tehát a görbére:
+									$$
+									\begin{aligned}
+									    x &= a\left( \varphi - \sin{\varphi} \right) \\
+									    y &=  a(1-\cos{\varphi})
+									\end{aligned}
+									$$
+									ahol $\varphi$ parametrizálja a görbét. Ha eleget nézzük ezt a megoldást, szét tudjuk szedni pár darabra:
+									<ul>
+										<li>a két változó rendre szinuszosan és koszinuszosa változik, ami valami körszerűre utal;</li>
+										<li>$x$-hez viszont folyamatosan adódik egy extra $\varphi$ tag, ami eltolja.</li>
+									</ul>
+									Ezek tudatában nem meglepő, hogy ez a görbe egy ciklois: az a görbe, amit akkor kapunk, ha elgurítva egy kereket követünk egy pontot annak a peremén.
+								</p>
+							</div>
+						</section>
 
 				<!-- Footer -->
 					<section id="footer">
