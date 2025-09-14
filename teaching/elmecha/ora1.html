@@ -12,17 +12,18 @@
 		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
 		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
 		<script>
-		  document.addEventListener("DOMContentLoaded", () => {
+			document.addEventListener("DOMContentLoaded", () => {
 		    renderMathInElement(document.body, {
-		      // choose exactly the pairs you want
-		      delimiters: [
-		        { left: "$$", right: "$$", display: true  },  // display math
-		        //{ left: "\\[", right: "\\]", display: true  },  // display TeX style
-		       // { left: "\\(", right: "\\)", display: false }   // inline TeX style
-		        { left: "$",  right: "$", display: false }  // uncomment to allow dollar inline
-		      ],
-		      // you can also disable or tweak other settings here
-		    });
+				// choose exactly the pairs you want
+				delimiters: [
+					{ left: "$$", right: "$$", display: true  },
+					{ left: "$",  right: "$", display: false }
+				],
+				macros: {
+				'\\rd': '\\mathrm{d}'
+				}
+				// you can also disable or tweak other settings here
+				});
 		  });
 		</script>
 
@@ -105,7 +106,7 @@
 									Először néhány történelmi példával kezdünk, és megbarátkozunk a minimalizálásával.
 									Az előadáson hallhattunk két fontos elvet:
 									$$
-										\mathcal{S}_0 = \int |\Vec{p}| \rd s \quad \mathcal{T} = \int n(s) \rd s
+										\mathcal{S}_0 = \int |\vec{p}| \rd s \quad \mathcal{T} = \int n(s) \rd s
 									$$
 									amikről beláthattuk, hogy azonosan viselkednek.
 									A Fermat elvet már ismeritek, és levezettétek belőle a Snellius-Descartes törvényt, miszerint fénytörés esetén a beesési szögek és a törésmutatók közti összefüggés:
@@ -114,74 +115,32 @@
 									$$
 									A Maupertuis elv még új, szóval első példáinkban barátkozzunk vele egy kicsit.
 								</p>
+
+								<h3>
+									1.1 példa: Úttörés részecskére
+								</h3>
+								<p>
+									Van egy tömegpontunk (mondjuk egy elektron) ami kezdetben szabadon mozog egyenes vonalban, egyenletes sebességgel.
+									Az $x$ tengelyt elérve viszont azt tapasztalja, hogy lecsökken a potenciális energiája: a negatív tartományban a fentihez képest egy konstans $-U$ potenciál tölti ki a teret.
+								</p>
+								<h4>
+									1.1.1. Mi történik a részecske pályájával?
+								</h4>
+								<p>
+									Ezt a feladatot kicsit macerás megoldani a Newton törvényekkel, szóval azt későbbre hagyjuk.
+									Használjuk helyette a Maupertuis elvet, illetve az energiamegmaradást, felírva a tengelyen áthaladás előtti és utáni pillanatokra:
+									$$
+									    K_1 = K_2 - U \\
+									    \frac{1}{2}m v_1^2 = \frac{1}{2}m v_2^2 - U \\
+									    \frac{p_1^2}{2m} = \frac{p_2^2}{2m} - U \\
+									    p_1^2 = p_2^2 - 2mU \\
+									    |\vec{p}_2| = \sqrt{p_1^2 + 2mU}
+									$$
+									A pontos alak most annyira nem is fontos, a lényeg az, hogy ez konstans fent is és lent is (még ha nem is ugyanaz a konstans).
+								</p>
 							</div>
 						</section>
 
-						<!-- Content -->
-						<!--
-							<div class="wrapper">
-								<div class="inner">
-
-									<section>
-										<h2 class="major">
-											1. óra
-										</h2>
-										<h3>Hatáselvek</h3>
-
-										<p style="text-align: justify;">
-											Az óra célja röviden az, hogy megismerkedjünk a variációs módszerekkel.
-											Ez gyakorlatilag egy új nyelv, amire az eddig megszokotthoz (rajzolni egy diagramot az erőkkel, aztán $\vec{F}=m\vec{a} $) hasonlóan le lehet fordítani azt, hogy mi történik a világban.
-											Az előnye az, hogy általában sokkal könnyebb felírni így a mozgást leíró egyenleteket, mégha megoldani nem is mindig lehet azokat.
-											Mellékesen pedig ezen a nyelven lesz olvasható a későbbiekben két egész fontos ága a tudományunknak: a kvantumfizika és az általános relativitáselmélet.
-										</p>
-										<p style="text-align: justify;">
-											Mechanikáról léve szó, azt szeretnénk megtudni, hogy hogyan jutunk el valamilyen $A$ pontból a $B$-be.
-											Ezt sokféle úton lehetne megtenni, sok féle $\Gamma$ görbén; amik mentén változhat a "fizika" valamilyen (egyelőre) ismeretlen $f$ függvények által kódolva.
-											A függvények és a görbék relatíve bonyolult dolgok, ezért keressünk valami egyszerűbbet, mondjuk egy számot amit hívjunk $\mathcal{S}$-nek.
-											Hogy ez is kódolja az összes eddigi információt, legyen absztraktul
-											$$
-												\mathcal{S} = \mathcal{S}[f(\Gamma)]
-											$$
-											Ami nevesítve azt mondja, hogy $\mathcal{S}$ egy funkcionál: ahogyan egy $f$ függvény (<i>function</i>) egy számhoz hozzárendel egy másikat, az $\mathcal{S}$ funkcionál egy függvényhez rendel hozzá egy számot.
-										</p>
-										<p style="text-align: justify;">
-											A fizika ott kezdődik, hogy eközül a sok út közül csak egy lehet reális: az alma nem keringőzik a levegőben, hanem leesik.
-											Kitüntetett szerepe annak az útnak lesz, ahol ez az $\mathcal{S}$ hatás alig változik: extrémuma van.
-											A legkisebb hatás elve szerint tehát az lesz a fizikailag megvalósuló pálya, amelynek mentén
-											$$
-												\delta \mathcal{S} = 0
-											$$
-										</p>
-										<div style="text-align: center;">
-											<img src="figs/lesson1/abstractpaths.png" alt="Az igazi és a lehetséges utak" width="45%">
-										</div>
-									</section>
-
-									<section class="wrapper alt style3">
-										<h3>Korai minimumelvek</h3>
-
-										<p>
-											A kérdés már csak az, hogy mi is ez az $\mathcal{S}$ hatás.
-											Először néhány történelmi példával kezdünk, és megbarátkozunk a minimalizálásával.
-											Az előadáson hallhattunk két fontos elvet:
-											$$
-											    \mathcal{S}_0 = \int |\Vec{p}| \rd s \quad \mathcal{T} = \int n(s) \rd s
-											$$
-											amikről beláthattuk, hogy azonosan viselkednek.
-											A Fermat elvet már ismeritek, és levezettétek belőle a Snellius-Descartes törvényt, miszerint fénytörés esetén a beesési szögek és a törésmutatók közti összefüggés:
-											$$
-											    n_1 \sin{\varphi_1} = n_2 \sin{\varphi_2}
-											$$
-											A Maupertuis elv még új, szóval első példáinkban barátkozzunk vele egy kicsit.
-										</p>
-										
-									</section>
-
-								</div>
-							</div>
-
-					</section>
-						-->
 
 				<!-- Footer -->
 					<section id="footer">
