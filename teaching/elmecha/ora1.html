@@ -31,6 +31,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<style>
+			.katex-display {
+				height: auto    !important;
+				max-height: none !important;
+				overflow-y: visible !important;
+			}
+		</style>
 	</head>
 	<body class="is-preload subpage teachpage">
 
@@ -635,6 +642,72 @@
 										<li>$x$-hez viszont folyamatosan adódik egy extra $\varphi$ tag, ami eltolja.</li>
 									</ul>
 									Ezek tudatában nem meglepő, hogy ez a görbe egy ciklois: az a görbe, amit akkor kapunk, ha elgurítva egy kereket követünk egy pontot annak a peremén.
+								</p>
+							</div>
+						</section>
+						<section id="six" class="wrapper style6">
+							<div class="inner">
+								<h3>példa: Gömbszimmetrikus törésmutató</h3>
+								<p>
+									Kicsit közelebb kerülve a fizikához, most a két pont között utazzon valami létező dolog is: a fény.
+									A megszokott koordinátarendszertől cserébe távolodjunk, most vegyünk egy közeget, ahol a törésmutató
+									$$
+									    n(r) = n_0 \frac{R}{r}
+									$$
+									módon változik: fordítóttan arányos az origótól való távolsággal. Felidézve a gömbi koordináták esetét, az ívelemnégyzet
+									$$
+									    \rd s^2 = \rd r^2 + r^2 \rd \varphi^2
+									$$
+									Már csak az a kérdés, hogy mi szerint szeretnénk integrálni. Két változónk van, $r$ és $\varphi$, amik az út mentén valahogyan függnek egymástól. Most egyszerűbb a feladathoz úgy nekiállni, hogy $r$ függ valahogyan a szögtől, tehát a sugárirányú megváltozást célszerű
+									$$
+									    \rd r = r^{\prime} \rd \varphi
+									$$
+									alakban írni. Ezzel az ívelemnégyzet:
+									$$
+									    \rd s^2 = (r^{\prime 2}  + r^2) \rd \varphi^2
+									$$
+									Beírva mindent, a hatásintegrálunk
+									$$
+									    \mathcal{S} = n_0 R \int_{\varphi_A}^{\varphi_B} \frac{\sqrt{r^{\prime 2}  + r^2}}{r} \rd \varphi
+									$$
+								</p>
+								<p>
+									Felismerve a Lagrange-függvényt,  és kicsit átírva:
+									$$
+									    \mathcal{L} =  \frac{\sqrt{r^{\prime 2}  + r^2}}{r} = \sqrt{1 + \frac{r^{\prime 2}}{r^2}}
+									$$
+									felírhatjuk az Euler-Lagrange-hoz szükséges deriváltakat:
+									$$
+									\begin{aligned}
+									    \frac{\partial \mathcal{L}}{\partial r} = \frac{1}{2} \frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \times r^{\prime 2}\frac{-2 }{r^3} = - \frac{ r^{\prime 2}}{r^3} \frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \\
+									    \frac{\partial \mathcal{L}}{\partial r^\prime} = \frac{1}{2} \frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \times \frac{1}{r^2} 2 r^\prime  = \frac{r^\prime}{r^2} \frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} 
+									\end{aligned}
+									$$
+									Itt már egyik sem nulla, nincs mese, kell venni az utóbbinak a teljes deriváltját. Ezt szerintem szorzatfüggvényként célszerű, lebontva lépésekre:
+									$$
+									\begin{aligned}
+									    \frac{\rd }{\rd \varphi} \frac{r^\prime}{r^2} &= \frac{r^{\prime\prime}\times r^2 - r^{\prime}\times2 r r^\prime }{r^4} = \frac{1}{r^3}\left(r^{\prime\prime} r - 2 r^{\prime 2} \right) \\
+									    \frac{\rd }{\rd \varphi} \frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} &= -\frac{1}{2} \frac{1}{\left(1 + \frac{r^{\prime 2}}{r^2}\right)^{3/2}} \times \frac{2 r^\prime r^{\prime\prime} \times r^2 -r^{\prime 2} \times 2 r r^{\prime}}{r^4} \\
+									    &=- \frac{1}{r^3} \frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \frac{1}{1 + \frac{r^{\prime 2}}{r^2}}\left(r r^\prime r^{\prime\prime} - r^{\prime3} \right)
+									\end{aligned}
+									$$
+									Ha ezek megvannak, a teljes deriválthoz csak össze kell kombinálni őket:
+									$$
+									\begin{aligned}
+									     \frac{\rd }{\rd \varphi} \frac{\partial \mathcal{L}}{\partial r^\prime} &=  \frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \times \frac{\rd }{\rd \varphi} \frac{r^\prime}{r^2} + \frac{r^\prime}{r^2} \times  \frac{\rd }{\rd \varphi} \frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \\
+									     &= \frac{1}{r^3}\frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \left(r^{\prime\prime} r - 2 r^{\prime 2}  -\frac{r^\prime}{r^2} \frac{r r^\prime r^{\prime\prime} - r^{\prime3}}{1 + \frac{r^{\prime 2}}{r^2}} \right) \\
+									     &= \frac{1}{r^3}\frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \left(r^{\prime\prime} r - 2 r^{\prime 2}  -r^{\prime 2} \frac{r r^{\prime\prime} - r^{\prime 2}}{r^2 + r^{\prime 2}} \right) 
+									\end{aligned}
+									$$
+									Végül pedig fel tudjuk írni a mozgást megvalósító pálya Euler-Lagrange egyenletét:
+									$$
+									\begin{aligned}
+									    \frac{\rd }{\rd \varphi} \frac{\partial \mathcal{L}}{\partial r^\prime} \textcolor{blue}{- \frac{\partial \mathcal{L}}{\partial r}} &= 0 \\
+									    \frac{1}{r^3}\frac{1}{\sqrt{1 + \frac{r^{\prime 2}}{r^2}}} \left(r^{\prime\prime} r - 2 r^{\prime 2}   -r^{\prime 2} \frac{r r^{\prime\prime} - r^{\prime 2}}{r^2 + r^{\prime 2}} \textcolor{blue}{+ r^{\prime 2}} \right) &= 0 \\
+									    &\Uparrow \\
+									    r^{\prime\prime} r - r^{\prime 2}  -r^{\prime 2} \frac{r r^{\prime\prime} - r^{\prime 2}}{r^2 + r^{\prime 2}} &= 0
+									\end{aligned}
+									$$
 								</p>
 							</div>
 						</section>
