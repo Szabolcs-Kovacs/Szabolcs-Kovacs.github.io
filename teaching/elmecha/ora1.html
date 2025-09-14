@@ -426,6 +426,75 @@
 								<div style="text-align: center;">
 									<img src="figs/lesson1/euclides.png" alt="Út két pont között" width="55%">
 								</div>
+								<p>
+									Amivel meg is van a feladat filozofálósabb része.
+									Ami marad az az, hogy hogyan kell ezt az integrálást elvégezni: mik is a határok, és hogy függ tőlük az ívelem.
+									Descartes-i koordinátákban dolgozva általánosan is igaz, hogy két pont közt a távolság $s^2 = x^2 + y^2$.
+									Ez alapján az infinitezimális elmozdulásokra is valid lesz:
+									$$
+									\begin{aligned}
+									    \rd s = \sqrt{\rd x^2 + \rd y^2}
+									\end{aligned}
+									$$
+									Ami már majdnem jó, de nekünk csak $x$ a változó, amitől függ maga az $y$, ezért azt a $\rd y$-t el lehet tűntetni.
+									Szorozzuk be eggyel:
+									$$
+									\begin{aligned}
+									    \rd y = \rd y \frac{\rd x}{\rd x} = \frac{\rd y}{\rd x}  \rd x = y^\prime(x) \rd x
+									\end{aligned}
+									$$
+									Ezzel a hatásintegrálunkat már fel tudjuk írni mint egy szokásos, $x$ szerinti integrálás:
+									$$
+									\begin{aligned}
+									     \mathcal{S} = \int_{x_A}^{x_B} \sqrt{\rd x^2 + y^{\prime 2}(x) \rd x^2} = \int_{x_A}^{x_B} \sqrt{1 + y^{\prime 2}(x) } \rd x
+									\end{aligned}
+									$$
+								</p>
+								<h4>1.3.2 Variáció</h4>
+								<p>
+									Megtaláltuk tehát, hogy mi az a Lagrange-függvény ami ezt a problémát írja le:
+									$$
+									\begin{aligned}
+									    \mathcal{L}(y(x), y^\prime(x)) = \sqrt{1 + y^{\prime 2}(x) }
+									\end{aligned}
+									$$
+									Ennek véve a deriváltjait:
+									$$
+									\begin{aligned}
+									     \frac{\partial \mathcal{L}}{\partial y} = 0 &&  \frac{\partial \mathcal{L}}{\partial y^\prime} = \frac{1}{2}\frac{2 y^\prime}{\sqrt{1+y^{\prime 2}}} 
+									\end{aligned}
+									$$
+									Aztán felírhatjuk persze az Euler-Lagrange egyenletet, amihez kell még ez utóbbinak a teljes deriváltja.
+									Most ez ki fog derülni, hogy felesleges, de gyakorlásként nézzük meg.
+									$$
+									\begin{aligned}
+									    \frac{\rd}{\rd x}\frac{\partial \mathcal{L}}{\partial y^\prime} &= \frac{y^{\prime\prime} \times \sqrt{1+y^{\prime 2}} - y^\prime \times \frac{y^\prime y^{\prime\prime}}{\sqrt{1+y^{\prime 2}}}}{1+y^{\prime 2}} = 0 = \frac{\partial \mathcal{L}}{\partial y} \\
+									    &= y^{\prime\prime}\frac{\sqrt{1+y^{\prime 2}} - \frac{y^{\prime 2}}{\sqrt{1+y^{\prime 2}}}}{1+y^{\prime 2}} \\
+									    0 &= y^{\prime\prime} \left(1-\frac{y^{\prime 2}}{1+y^{\prime 2}} \right)
+									\end{aligned}
+									$$
+								</p>
+								<h4>1.3.3 A mozgásegyenlet megoldása</h4>
+								<p>
+									Kaptunk egy szép másodrendű differenciálegyenletet a "mozgásra".
+									Kicsit nézegetve ez kétféleképpen teljesülhet: egyrészt lehet a zárójel nulla
+									$$
+									\begin{aligned}
+									    \left(1-\frac{y^{\prime 2}}{1+y^{\prime 2}} \right) = 0 \\
+									    1+y^{\prime 2} =y^{\prime 2} \\
+									    1 = 0
+									\end{aligned}
+									$$
+									Szóval mégsem lehet az a zárójel nulla. Másrészt lehetséges megoldás még
+									$$
+									\begin{aligned}
+									    y^{\prime\prime}(x) &= 0 \\
+									    y^\prime(x) &= m \\
+									    y(x) &= m x + b
+									\end{aligned}
+									$$
+									az egyenes.
+								</p>
 							</div>
 						</section>
 
