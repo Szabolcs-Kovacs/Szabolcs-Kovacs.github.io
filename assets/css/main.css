@@ -4207,6 +4207,9 @@ input, select, textarea {
 		overflow-x: auto;
 		overflow-y: auto;
 		font-size: 0.9em;
+		height: 100%;
+		max-height: 3em;
 	}
+
 
 
