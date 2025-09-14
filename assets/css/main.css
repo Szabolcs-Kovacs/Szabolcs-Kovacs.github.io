@@ -4201,9 +4201,12 @@ input, select, textarea {
 
 	.katex-display {
 		display: block;
-		max-width: 100%;
+		width: 100%;              /* fill parent’s width */
+		max-width: 100%;          /* but never exceed it */
+		box-sizing: border-box;   /* include padding/borders in that width */
 		overflow-x: auto;
 		overflow-y: auto;
 		font-size: 0.9em;
 	}
+
 
