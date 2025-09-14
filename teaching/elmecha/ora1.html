@@ -106,7 +106,9 @@
 									Először néhány történelmi példával kezdünk, és megbarátkozunk a minimalizálásával.
 									Az előadáson hallhattunk két fontos elvet:
 									$$
-										\mathcal{S}_0 = \int |\vec{p}| \rd s \quad \mathcal{T} = \int n(s) \rd s
+									\begin{align}
+										\mathcal{S}_0 = \int |\Vec{p}| \rd s && \mathcal{T} = \int n(s) \rd s
+									\end{align}
 									$$
 									amikről beláthattuk, hogy azonosan viselkednek.
 									A Fermat elvet már ismeritek, és levezettétek belőle a Snellius-Descartes törvényt, miszerint fénytörés esetén a beesési szögek és a törésmutatók közti összefüggés:
@@ -130,13 +132,52 @@
 									Ezt a feladatot kicsit macerás megoldani a Newton törvényekkel, szóval azt későbbre hagyjuk.
 									Használjuk helyette a Maupertuis elvet, illetve az energiamegmaradást, felírva a tengelyen áthaladás előtti és utáni pillanatokra:
 									$$
-									    K_1 = K_2 - U \\
-									    \frac{1}{2}m v_1^2 = \frac{1}{2}m v_2^2 - U \\
-									    \frac{p_1^2}{2m} = \frac{p_2^2}{2m} - U \\
-									    p_1^2 = p_2^2 - 2mU \\
-									    |\vec{p}_2| = \sqrt{p_1^2 + 2mU}
+									\begin{aligned}
+									    K_1 &= K_2 - U \\
+									    \frac{1}{2}m v_1^2 &= \frac{1}{2}m v_2^2 - U \\
+									    \frac{p_1^2}{2m} &= \frac{p_2^2}{2m} - U \\
+									    p_1^2 &= p_2^2 - 2mU \\
+									    |\vec{p}_2| &= \sqrt{p_1^2 + 2mU}
+									\end{aligned}
 									$$
 									A pontos alak most annyira nem is fontos, a lényeg az, hogy ez konstans fent is és lent is (még ha nem is ugyanaz a konstans).
+								</p>
+								<p>
+									A hatás felírásához szükség lesz még a megtett utakra, amiket valahogy paraméterezni kell egy koordinátarendszerben.
+									Legyen az Origó a kiindulási $P_1$ pont $x$ tengelyre vetett képe, a tengelyen áthaladás pontját pedig vegyük fel valamilyen $x$ pontban, amire végső soron kíváncsiak vagyunk.
+									Két szöget is be tudunk rajzolni, ezek mindjárt hasznosak is lesznek.
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson1/fermat" alt="Törés paraméterezése" width="55%">
+								</div>
+								<p>
+									A hatásunk egy út szerinti integrál: bontsuk fel ketté.
+									$$
+										\mathcal{S}_0 = \int_{P_1}^{P_2} |\Vec{p}(s)| \rd s = \int_{P_1}^{Q} |\vec{p}_1| \rd s + \int_{Q}^{P_2}|\Vec{p}_2| \rd s
+									$$
+									Mivel az impulzusok már konstansok, így ami marad az magának az útnak a kiintegrálása.
+									Mivel ez két egyenes hossza, ez egészen egyszerű:
+									$$
+										\mathcal{S}_0 = p_1 \sqrt{x^2 + y_1^2} + p_2 \sqrt{(x_2-x)^2+y_2^2}
+									$$
+									A Maupertuis elv szerint ez minimális kell, hogy legyen.
+									Nekünk $x$ az egyetlen dolog ami változhat, tehát
+									$$
+									\begin{aligned}
+									    \frac{\partial \mathcal{S}_0}{\partial x} &= 0 \\
+									    p_1 \frac{x}{\sqrt{x^2 + y_1^2}} -p_2 \frac{x_2-x}{\sqrt{(x_2-x)^2+y_2^2}} &= 0
+									\end{aligned}
+									$$
+									Kis trigonometriával
+									$$
+									\begin{aligned}
+									    \sin{\theta_1} = \frac{x}{\sqrt{x^2 + y_1^2}} \quad \sin{\theta_2} = \frac{x_2 - x}{ \sqrt{(x_2-x)^2 + y_2^2}}
+									\end{aligned}
+									$$
+									tehát
+									$$
+										\boxed{p_1 \sin{\theta_1} = p_2 \sin{\theta_2}}
+									$$
 								</p>
 							</div>
 						</section>
