@@ -4200,8 +4200,10 @@ input, select, textarea {
 	}
 
 	.katex-display {
-	  display: block;
-	  max-width: 100%;
-	  overflow-x: auto;
-	  font-size: 0.9em;
+		display: block;
+		max-width: 100%;
+		overflow-x: auto;
+		overflow-y: auto;
+		font-size: 0.9em;
 	}
+
