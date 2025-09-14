@@ -4214,6 +4214,10 @@ input, select, textarea {
 		overflow-y: visible !important;
 	}
 
+	.katex-display::-webkit-scrollbar {
+	  width: 0;
+	}
+
 
 
 
