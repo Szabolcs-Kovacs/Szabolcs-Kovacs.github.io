@@ -443,6 +443,78 @@
 									$$
 									az energia nem más mint a kinetikus és potenciális energiák összege.
 								</p>
+								<p style="text-align: justify;">
+									Ha őt kihasználjuk, minden eddig vett példa leegyszerűsödik; és új feladatok válnak könnyen (vagy legalábbis könnyebben) megoldhatóvá.
+									Nézzük például az előzőt!
+								</p>
+								<h3>
+									2.4. példa: Félkörről lecsúszás - 3
+								</h3>
+								<p style="text-align: justify;">
+									Idézzük vissza a Lagrange-függvényünket:
+									$$
+									    \mathcal{L} = \frac{1}{2}m \dot{\varphi}^2  R^2 - mgR \cos{\varphi}
+									$$
+									És a belőle kapott \textit{lendületet}:
+									$$
+									\begin{aligned}
+									    \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = m R^2 \dot{\varphi}
+									\end{aligned}
+									$$
+									Használjuk ki az energiamegmaradást! Ez felírva
+									$$
+									\begin{aligned}
+									    \dot{\varphi} \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} - \mathcal{L} &= E \\
+									    m R^2 \dot{\varphi}^2 - \frac{1}{2}m \dot{\varphi}^2  R^2 + mgR \cos{\varphi} &= E \\
+									    \frac{1}{2}m \dot{\varphi}^2  R^2 + mgR \cos{\varphi} &= E
+									\end{aligned}
+									$$
+									Nem lepődünk meg, hogy tényleg $K+V$ alakú.
+									Az energia viszont konstans: vegyük referencia értéknek azt, amikor fent csücsül a golyó és $E = mgR$.
+									Ezt beírva, és kicsit átírogatva az egyenletet:
+									$$
+									\begin{aligned}
+									    \frac{1}{2}m \dot{\varphi}^2  R^2 &+ mgR \cos{\varphi} = mgR \\
+									    \dot{\varphi}^2  &= \frac{2g}{R} (1- \cos{\varphi}) \\
+									    \dot{\varphi} &= \pm\sqrt{2} \sqrt{\frac{g}{R}} \sqrt{1- \cos{\varphi}}
+									\end{aligned}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Egy \textit{elsőrendű} diffegyenletet kaptunk.
+									Most ezt oldjuk, meg, hogy gyakoroljuk a diffegyenletek megoldását is.
+									Először is a tömörség kedvéért legyen $\omega = \sqrt{g/R}$, és nézzük csak a pozitív megoldást.
+									$$
+									\begin{aligned}
+									    \frac{\rd \varphi}{\rd t} = \sqrt{2}\, \omega\sqrt{1- \cos{\varphi}} \\
+									    \rd \varphi = \sqrt{2}\, \omega\sqrt{1- \cos{\varphi}} \rd t \\
+									    \frac{1}{\sqrt{1- \cos{\varphi}}}\rd \varphi = \sqrt{2}\, \omega \rd t \\
+									    \int \frac{1}{\sqrt{1- \cos{\varphi}}}\rd \varphi = \int \sqrt{2}\, \omega \rd t
+									\end{aligned}
+									$$
+									Ennek mindkét oldala kiintegrálható, kezdjük a jobbal:
+									$$
+									    \int \frac{1}{\sqrt{1- \cos{\varphi}}}\rd \varphi =  \sqrt{2}\, \omega t
+									$$
+									A bal már nehezebb, ott már fordulhatunk szimbolikus integrálszámító programokhoz.
+									Ha nem hagyatkoznánk a gépre, akkor viszont segítenek köztes lépésként a következő tippek:
+									$$
+									\begin{aligned}
+									    1-\cos{\varphi} = 2 \sin^2{\frac{\varphi}{2}}\\
+									    u := \tan{\frac{\varphi}{4}}
+									\end{aligned}
+									$$
+									Ezekkel leredukálódik a problémánk $\int 1/u \rd u$ alakra, amit már meg tudunk oldani.
+									Visszahelyettesítve mindent
+									$$
+									    \ln{\tan{\frac{\varphi}{4}}} + c = \omega t
+									$$
+									Ezt még invertálni kell $\varphi(t)$-re:
+									$$
+									    \varphi(t) = 4 \arctan{\left(C e^{\omega t} \right)}
+									$$
+									ahol a konstans $c$-t kicseréltük egy $C$-re. Ezzel megkaptuk az egzakt megoldásunkat, hála az energiamegmaradásnak.
+								</p>
 						
 
 				<!-- Footer -->
