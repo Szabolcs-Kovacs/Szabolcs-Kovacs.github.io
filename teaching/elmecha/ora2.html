@@ -68,7 +68,7 @@
 				<!-- Wrapper -->
 					<section id="wrapper">
 
-						<section id="one" class="wrapper alt style3">
+						<section id="one" class="wrapper alt style1">
 							<div class="inner">
 								<h2 class="major">
 									2. óra &nbsp;&nbsp;&nbsp;&nbsp; <a href="02_ora.pdf" download="02_ora.pdf" class="button icon solid fa-download align-right">Letöltés</a>
@@ -90,20 +90,20 @@
 									$$
 									az <b>Euler-Lagrange-egyenletet.</b> Múlt órán néztünk pár gondolkodást igénylő geometriai példát, ahol ezt a Lagrange-függvényt nekünk kellett kitalálni úgy, hogy az adott feladatot írja le.
 									Szerencsére a továbbiakban ez könnyebb lesz.
-									</p>
-					                <h3>Klasszikus mechanika</h3>
-					                <p style="text-align: justify;">
+								</p>
+								<h3>Klasszikus mechanika</h3>
+								<p style="text-align: justify;">
 										Térjünk át a tipikus mechanikai feladatokra. Ekkor a hatásunk alakja
-										&&
+										$$
 											\mathcal{S} = \int \mathcal{L}(\vec{r}(t),\dot{\vec{r}}(t)) \rd t = \int \left(K(\dot{\vec{r}}, \vec{r})-V(\vec{r})\right) \rd t
-										&&
+										$$
 										mert akkor az Euler-Lagrange egy ismerős egyenletre vezet:
-										&&
+										$$
 											\frac{\rd}{\rd t} \vec{p} = \boxed{\frac{\rd}{\rd t} \frac{\partial \mathcal{L}}{\partial \dot{\vec{r}}} = \frac{\partial \mathcal{L}}{\partial \vec{r}}} = - \nabla V(\vec{r})
-										&&
+										$$
 										Ez hasznos, mert a kinetikus és a potenciális energiákat már ismerjük: az előbbi mindig $\frac{1}{2} m \dot{\vec{r}}^2$, a második pedig a rendszerből adódik.
 										Ezt kihasználva tetszőleges mechanikai feladatokra fel tudjuk írni a Lagrange-függvényt a kinetikus és potenciális energiákat építőkockaként használva.
-					                </p>
+								</p>
 							</div>
 						</section>
 
@@ -175,11 +175,11 @@
 									$$
 									tehát az ék mozgásegyenlete:
 									$$
-										mg \tan{\varphi} = M \Ddot{x_1} + m \tan^2{\varphi}(\ddot{x_1}+\ddot{x_2})
+										mg \tan{\varphi} = M \ddot{x_1} + m \tan^2{\varphi}(\ddot{x_1}+\ddot{x_2})
 									$$
 									A kis téglatestünkre is fel lehet írni ugyanezeket: vegyük észre, hogy szinte teljesen szimmetrikus a Lagrange-ünk, annyi a különbség a két változó közt, hogy a kitneikus tagban más tömeg szerepel. A kis $m$ tömegű test egyenlete tehát:
 									$$
-										mg \tan{\varphi} = m \Ddot{x_2} + m \tan^2{\varphi}(\ddot{x_1}+\ddot{x_2})
+										mg \tan{\varphi} = m \ddot{x_2} + m \tan^2{\varphi}(\ddot{x_1}+\ddot{x_2})
 									$$
 								</p>
 								<h4>2.1.3. Mi a pálya?</h4>
@@ -190,7 +190,7 @@
 									Vegyük a két mozgásegyenlet különbségét:
 									$$
 									\begin{aligned}
-										0 &= M \Ddot{x_1} - m \Ddot{x_2} \\
+										0 &= M \ddot{x_1} - m \ddot{x_2} \\
 										0 &= \frac{\rd}{\rd t} \left(p_{1,x} - p_{2,x}\right)
 									\end{aligned}
 									$$
@@ -344,6 +344,105 @@
 								</p>
 							</div>
 						</section>
+
+						<section id="four" class="wrapper alt style4">
+							<div class="inner">
+								<h3>
+									Általános koordináták
+								</h3>
+								<p style="text-align: justify;">
+									Eddig a Descartes-i koordinátákban mozogtunk, de ennek különös fizikai szerepe nincsen: bármely más koordinátarendszerben is szeretnénk, hogy a fizika érvényes legyen.
+									A variációs módszereknek itt jön be mégegy előnye a Newtoni mechanikával szemben: a mozgást leíró egyenletünk pont ugyanúgy néz ki (szinte) minden koordinátarendszerben.
+									Általános $q$ koordinátákkal:
+									$$
+									    \mathcal{S} = \int \mathcal{L}(q(t), \dot{q}(t)) \rd t
+									$$
+									lesz a hatásunk, amire az Euler-Lagrange alakja változatlan
+									$$
+									    \frac{\partial \mathcal{L}}{\partial q} = \frac{\rd}{\rd t} \frac{\partial \mathcal{L}}{\partial \dot{q}}
+									$$
+									Nézzünk is egy pár példát, ahol látjuk ennek a jelentősségét.
+								</p>
+								<h3>
+									2.3. példa: Félkörről lecsúszás - 2
+								</h3>
+								<p style="text-align: justify;">
+									Jól látható ennél a feladatnál, hogy sokat egyszerűsít, ha áttérünk a konfigurációnkhoz jobban illeszkedő változóra: a szögre. Ezt az előbb a mozgásegyenlet levezetése után tettük meg. A Lagrange-i mechanikában viszont rögtön az első lépésben, a hatás felírásánál is tudunk élni ezzel az egyszerűsítéssel. A változónak most a szöget véve, a kinetikus energiánk:
+									$$
+									\begin{aligned}
+									    K &= \frac{1}{2}m \dot{y}^2 \left( 1 + \frac{y^2}{R^2 - y^2}\right) \\
+									    &= \frac{1}{2}m R^2 \sin^2{\varphi} \dot{\varphi}^2 \left(1+ \frac{R^2 \cos^2{\varphi}}{R^2 \sin^2{\varphi}} \right) \\
+									    &= \frac{1}{2}m \dot{\varphi}^2  R^2 \sin^2{\varphi} \left(\frac{R^2}{R^2 \sin^2{\varphi}} \right) \\
+									    &=  \frac{1}{2}m \dot{\varphi}^2  R^2
+									\end{aligned}
+									$$
+									Amit most behelyettesítve számoltunk ki, de egyébként abból is kiindulhattunk volna, hogy mi az érintőirányú sebesség egy kör mentén (sugár $\cdot$ szögsebesség). Én inkább a behelyettesítéses számolást ajánlom: lesznek olyan példák, ahol az utóbbi módszer félrevezet, ha nem vagyunk óvatosak. A potenciális energia szintén egyszerű:
+									$$
+									\begin{aligned}
+									    V &= -mg y \\
+									    &= -mg R(1- \cos{\varphi}) \\
+									    &= -mgR + mgR \cos{\varphi}
+									\end{aligned}
+									$$
+									használjuk ki, hogy ez tetszőlegesen eltolható egy konstanssal, és legyen:
+									$$
+									    V =  mgR \cos{\varphi}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Így a Lagrange-unk szép tömör alakot ölt:
+									$$
+									    \mathcal{L} = \frac{1}{2}m \dot{\varphi}^2  R^2 - mgR \cos{\varphi}
+									$$
+									És az Euler-Lagrange is egyszerűbb:
+									$$
+									\begin{aligned}
+									    \frac{\partial \mathcal{L}}{\partial \varphi} = mgR \sin{\varphi} \quad \quad \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = m R^2 \dot{\varphi}
+									\end{aligned}
+									$$
+									amiből egy deriválás után
+									$$
+									    m R^2 \ddot{\varphi} =  mgR \sin{\varphi}
+									$$
+									Tehát a mozgásegyenlet:
+									$$
+									    R \ddot{\varphi} = g \sin{\varphi}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ez jóval kevesebb lépésbe került, mint derékszögű koordinátákkal.
+									Ez az egyenlet pár trükkel megoldható, de helyette most nézzünk meg egy speciális esetet: mi van a félgömb tetejéhez közel, ahol $\varphi \ll 1$?
+									$$
+									    \sin{\varphi} \approx \varphi
+									$$
+									Tehát
+									$$
+									    \ddot{\varphi} \approx \frac{g}{R} \varphi
+									$$
+									Ez egy nevezetes diffegyenlet: valamilyen függvény második deriváltja arányos önmagával. Megoldása:
+									$$
+									    \varphi (t) \approx c_1 e^{\sqrt{\frac{g}{R}} t} + c_2 e^{-\sqrt{\frac{g}{R}} t}
+									$$
+								</p>
+							</div>
+						</section>
+
+						<section id="five" class="wrapper alt style5">
+							<div class="inner">
+								<h3>
+									Energiamegmaradás
+								</h3>
+								<p style="text-align: justify;">
+									A gyakorlatban az egy dimenziós példák gyakran még tovább egyszerűsödnek. Mindeddig nem használtunk ki egy erős eszközt: az energiamegmaradást. Ugyanis ha a Lagrange-függvényünk nem függ \textit{expliciten} az időtől, akkor létezik egy mennyiség, ami megmarad: őt (általánosított) \textbf{energiának} hívjuk.
+									$$
+									    \mathcal{L}\bigl(r(t), \dot{r}(t), \slashed{t}\bigr) \quad \longrightarrow \quad E = \dot{\vec{r}} \frac{\partial \mathcal{L}}{\partial \dot{\vec{r}}} - \mathcal{L} = \text{konst.}
+									$$
+									Ennek egy speciális esete a klasszikus mechanika, ugyanis ekkor
+									$$
+									    E = K+V
+									$$
+									az energia nem más mint a kinetikus és potenciális energiák összege.
+								</p>
 						
 
 				<!-- Footer -->
