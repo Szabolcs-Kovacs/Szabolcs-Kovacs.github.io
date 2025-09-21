@@ -76,34 +76,34 @@
 								<h3>Elméleti frissítő</h3>
 	
 								<p style="text-align: justify;">
-                  A Lagrange-i mechanika kezdeteként feltettük, hogy léteznek valamilyen $\mathcal{L}$ Lagrange-függvények, amelyekből össze tudunk tákolni egy hatást
-                  $$
-                      \mathcal{S} = \int_{t_1}^{t_2} \mathcal{L}(\vec{r}(t), \dot{\vec{r}}(t)\textcolor{gray}{,t})\, \rd t
-                  $$
-                  amely ha stacionárius
-                  $$
-                      \delta \mathcal{S} = 0
-                  $$
-                  akkor a megoldások a fizikai valóságot írják le. Ezt megkövetelve, ha alkalmazzuk a funkcionális deriválás szabályait, kapunk egy szép egyenletet magára az $\mathcal{L}$ Lagrange-függvényünkre:
-                  $$
-                      \boxed{\frac{\rd}{\rd t} \frac{\partial \mathcal{L}(r(t), \dot{r}(t))}{\partial \dot{r}(t)} = \frac{\partial \mathcal{L}(r(t), \dot{r}(t))}{\partial r(t)}}
-                  $$
-                  az <b>Euler-Lagrange-egyenletet.</b> Múlt órán néztünk pár gondolkodást igénylő geometriai példát, ahol ezt a Lagrange-függvényt nekünk kellett kitalálni úgy, hogy az adott feladatot írja le.
-                  Szerencsére a továbbiakban ez könnyebb lesz.
-								</p>
-                <h3>Klasszikus mechanika</h3>
-                <p style="text-align: justify;">
-                  Térjünk át a tipikus mechanikai feladatokra. Ekkor a hatásunk alakja
-                  &&
-                      \mathcal{S} = \int \mathcal{L}(\vec{r}(t),\dot{\vec{r}}(t)) \rd t = \int \left(K(\dot{\vec{r}}, \textcolor{gray}{\vec{r}})-V(\vec{r})\right) \rd t
-                  &&
-                  mert akkor az Euler-Lagrange egy ismerős egyenletre vezet:
-                  &&
-                      \frac{\rd}{\rd t} \vec{p} = \boxed{\frac{\rd}{\rd t} \frac{\partial \mathcal{L}}{\partial \dot{\vec{r}}} = \frac{\partial \mathcal{L}}{\partial \vec{r}}} = - \nabla V(\vec{r})
-                  &&
-                  Ez hasznos, mert a kinetikus és a potenciális energiákat már ismerjük: az előbbi mindig $\frac{1}{2} m \dot{\vec{r}}^2$, a második pedig a rendszerből adódik.
-                  Ezt kihasználva tetszőleges mechanikai feladatokra fel tudjuk írni a Lagrange-függvényt a kinetikus és potenciális energiákat építőkockaként használva.
-                </p>
+									A Lagrange-i mechanika kezdeteként feltettük, hogy léteznek valamilyen $\mathcal{L}$ Lagrange-függvények, amelyekből össze tudunk tákolni egy hatást
+									$$
+										\mathcal{S} = \int_{t_1}^{t_2} \mathcal{L}(\vec{r}(t), \dot{\vec{r}}(t)\textcolor{gray}{,t})\, \rd t
+									$$
+									amely ha stacionárius
+									$$
+										\delta \mathcal{S} = 0
+									$$
+									akkor a megoldások a fizikai valóságot írják le. Ezt megkövetelve, ha alkalmazzuk a funkcionális deriválás szabályait, kapunk egy szép egyenletet magára az $\mathcal{L}$ Lagrange-függvényünkre:
+									$$
+										\boxed{\frac{\rd}{\rd t} \frac{\partial \mathcal{L}(r(t), \dot{r}(t))}{\partial \dot{r}(t)} = \frac{\partial \mathcal{L}(r(t), \dot{r}(t))}{\partial r(t)}}
+									$$
+									az <b>Euler-Lagrange-egyenletet.</b> Múlt órán néztünk pár gondolkodást igénylő geometriai példát, ahol ezt a Lagrange-függvényt nekünk kellett kitalálni úgy, hogy az adott feladatot írja le.
+									Szerencsére a továbbiakban ez könnyebb lesz.
+									</p>
+					                <h3>Klasszikus mechanika</h3>
+					                <p style="text-align: justify;">
+										Térjünk át a tipikus mechanikai feladatokra. Ekkor a hatásunk alakja
+										&&
+											\mathcal{S} = \int \mathcal{L}(\vec{r}(t),\dot{\vec{r}}(t)) \rd t = \int \left(K(\dot{\vec{r}}, \vec{r})-V(\vec{r})\right) \rd t
+										&&
+										mert akkor az Euler-Lagrange egy ismerős egyenletre vezet:
+										&&
+											\frac{\rd}{\rd t} \vec{p} = \boxed{\frac{\rd}{\rd t} \frac{\partial \mathcal{L}}{\partial \dot{\vec{r}}} = \frac{\partial \mathcal{L}}{\partial \vec{r}}} = - \nabla V(\vec{r})
+										&&
+										Ez hasznos, mert a kinetikus és a potenciális energiákat már ismerjük: az előbbi mindig $\frac{1}{2} m \dot{\vec{r}}^2$, a második pedig a rendszerből adódik.
+										Ezt kihasználva tetszőleges mechanikai feladatokra fel tudjuk írni a Lagrange-függvényt a kinetikus és potenciális energiákat építőkockaként használva.
+					                </p>
 							</div>
 						</section>
 
@@ -114,206 +114,233 @@
 								</h3>
 								<p style="text-align: justify;">
 									Első példaként vegyünk egy asztalt. Rakjunk rá egy háromszög alakú, $M$ tömegű éket, ami súrlódás mentesen tud rajta mozogni.
-                  Erre az ékre pedig rakjunk rá egy $m$ tömegű téglatestet, ami szintén súrlódás nélkül le tud csúszni rajta.
-                  Ha engedjük lecsúszni a kis téglatestet, <i>mekkora lesz az ék gyorsulása?</i>
-
-                  Kezdjük az első lépéssel:
+									Erre az ékre pedig rakjunk rá egy $m$ tömegű téglatestet, ami szintén súrlódás nélkül le tud csúszni rajta.
+									Ha engedjük lecsúszni a kis téglatestet, <i>mekkora lesz az ék gyorsulása?</i>
+									
+									Kezdjük az első lépéssel:
 								</p>
 								<h4>
 									1.1.1. Mi a hatás?
 								</h4>
 								<p style="text-align: justify;">
-                  Kell nekünk a $\mathcal{L}$ Lagrange-függvényünk két része: a kinetikus és a potenciális energia.
-                  Az utóbbi itt könnyebb: ahogy csúszik lefele a téglatest, csökken a gravitációs potenciálja. Tehát:
-                  $$
-                     \Delta V =  mg \Delta h
-                  $$
-                  amit paraméterezni kell majd valahogy szépen.
-                  Addig is emlékezzünk, hogy bárhol megválaszthatjuk a nullpontját, de lefelé menve csökkenni fog.
+									Kell nekünk a $\mathcal{L}$ Lagrange-függvényünk két része: a kinetikus és a potenciális energia.
+									Az utóbbi itt könnyebb: ahogy csúszik lefele a téglatest, csökken a gravitációs potenciálja. Tehát:
+									$$
+										\Delta V =  mg \Delta h
+									$$
+									amit paraméterezni kell majd valahogy szépen.
+									Addig is emlékezzünk, hogy bárhol megválaszthatjuk a nullpontját, de lefelé menve csökkenni fog.
 								</p>
-                <p style="text-align: justify;">
-                  A kinetikus energiánk már picit több tagból áll: az $m$ test is tud mozogni és az $M$ is. Tehát:
-                  $$
-                      K = \frac{1}{2}M \dot{x_1}^2 + \frac{1}{2}M \dot{y_1}^2 + \frac{1}{2} m \dot{x_2}^2 + \frac{1}{2} m \dot{y_2}^2
-                  $$
-                  Ami általánosan szép és jó, viszont elviekben még semmi nem zárja ki, hogy a kis téglatestünk egyenesen átessen a háromszögön, a nagy háromszögünk pedig az asztalon.
-                  Ehhez egy-egy \textbf{kényszert} kell kiróni: az $m$ test \textbf{kényszeresen} az ék felületén közlekedik lefelé, az $M$ test pedig egyáltalán nem mozoghat fel-le.
+								<p style="text-align: justify;">
+									A kinetikus energiánk már picit több tagból áll: az $m$ test is tud mozogni és az $M$ is. Tehát:
+									$$
+										K = \frac{1}{2}M \dot{x_1}^2 + \frac{1}{2}M \dot{y_1}^2 + \frac{1}{2} m \dot{x_2}^2 + \frac{1}{2} m \dot{y_2}^2
+									$$
+									Ami általánosan szép és jó, viszont elviekben még semmi nem zárja ki, hogy a kis téglatestünk egyenesen átessen a háromszögön, a nagy háromszögünk pedig az asztalon.
+									Ehhez egy-egy \textbf{kényszert} kell kiróni: az $m$ test \textbf{kényszeresen} az ék felületén közlekedik lefelé, az $M$ test pedig egyáltalán nem mozoghat fel-le.
 								</p>
-                <p style="text-align: justify;">
-                  Ahhoz, hogy ez a kényszer teljesüljön, matekká kell fogalmazni amit szeretnénk kiróni.
-                  Kezdjük a háromszöggel: ha valami nem mozoghat fel-le, akkor
-                  $$
-                     y_1 = \text{konst.} \quad\quad  \longrightarrow \quad\quad  \dot{y_1} = 0
-                  $$
-                  A kis téglatestünk úgy közlekedik lefelé, hogy végig a háromszög élén marad. Ehhez segítségül hívjuk a \ref{fig:csuszoek2}. ábrát. Azt látjuk, hogy össze tudjuk kötni a kis téglatest $y$ irányú, $y_2$ mértékű lecsúszását azzal, hogy mennyit mozogtak $x$ irányba a testek. Kis matekkal:
-                  $$
-                      y_2 = (x_1+x_2) \tan{\varphi}
-                  $$
-                </p>
-                <p style="text-align: justify;">
-                  Ez kétrétről is hasznos lesz: egyrészt a potenciális energiába pont ezt a magasságmegváltozást kerestük:
-                  $$
-                      \Delta V = - mg y_2
-                  $$
-                  másrészt pedig be tudjuk helyettesíteni a kinetikus energiába is, mivel
-                  $$
-                      \dot{y_2} = (\dot{x_1}+\dot{x_2}) \tan{\varphi}
-                  $$
-                  Felírva tehát, a teljes Lagrange-függvény:
-                  $$
-                      \mathcal{L} = \frac{1}{2}M \dot{x_1}^2 + \frac{1}{2} m \dot{x_2}^2 + \frac{1}{2} m (\dot{x_1}+\dot{x_2})^2 \tan^2{\varphi} + mg (x_1+x_2) \tan{\varphi}
-                  $$
-                </p>
-                <h4>2.1.2. Mik a mozgásegyenletek?</h4>
-                <p style="text-align: justify;">
-                  Két testünk mozog ebben a rendszerben, amiknek az $(x_1, \dot{x_1})$ és $(x_2, \dot{x_2})$ koordinátáival felírtuk a hatást. Hogy megkapjuk a mozgásegyenleteket, egyszerűen az Euler-Lagrange egyenleteket kell felírnunk a két testre. Kezdve az elsővel:
-                  \begin{aligned}
-                      \frac{\partial \mathcal{L}}{\partial x_1}= mg \tan{\varphi} \quad \frac{\partial \mathcal{L}}{\partial \dot{x_1}}=M\dot{x_1} + m \tan^2{\varphi} (\dot{x_1}+\dot{x_2})
-                  \end{aligned}
-                  tehát az ék mozgásegyenlete:
-                  $$
-                      mg \tan{\varphi} = M \Ddot{x_1} + m \tan^2{\varphi}(\ddot{x_1}+\ddot{x_2})
-                  $$
-                  A kis téglatestünkre is fel lehet írni ugyanezeket: vegyük észre, hogy szinte teljesen szimmetrikus a Lagrange-ünk, annyi a különbség a két változó közt, hogy a kitneikus tagban más tömeg szerepel. A kis $m$ tömegű test egyenlete tehát:
-                  $$
-                      mg \tan{\varphi} = m \Ddot{x_2} + m \tan^2{\varphi}(\ddot{x_1}+\ddot{x_2})
-                  $$
-                </p>
-                <h4>2.1.3. Mi a pálya?</h4>
-                <p style="text-align: justify;">
-                  Hogy megkapjuk a trajektóriákat, meg kell oldanunk a mozgásegyenleteket.
-                  Na, ez az a lépés ami általánosságban nem lehetséges algebrailag.
-                  Szerencsére viszont léteznek feladatgyűjtemények olyan példákkal amikre igen: ez például pont megoldható.
-                  Vegyük a két mozgásegyenlet különbségét:
-                  \begin{aligned}
-                      0 &= M \Ddot{x_1} - m \Ddot{x_2} \\
-                      0 &= \frac{\rd}{\rd t} \left(p_{1,x} - p_{2,x}\right)
-                  \end{aligned}
-                  ami igazából ismerős lehet:
-                  $$
-                      p_{1,x} - p_{2,x} = \text{konst.}
-                  $$
-                  ez nem más, mint az $x$ irányú lendület megmaradása (a fordított előjelet az okozza, hogy az ék elmozdulását ellenkező irányúnak vettük fel a téglatestéhez képest).
-                  Visszaidézve az első órát, itt is láthatjuk, hogy eltolásinvariáns a rendszerünk erre az irányra, amivel ez az eredmény konzisztens.
-                </p>
-                <p style="text-align: justify;">
-                  Minden esetre, megvan a két egyenlet amit meg kell oldani. Ezeket kicsit átrendezve:
-                  \begin{aligned}
-                      mg \tan{\varphi}  - m \tan^2{\varphi}\ddot{x_2} &= (M + m \tan^2{\varphi})\ddot{x_1} \\
-                      mg \tan{\varphi} - m \tan^2{\varphi}\ddot{x_1} &= m(1 + \tan^2{\varphi})\ddot{x_2}
-                  \end{aligned}
-                  be tudjuk helyettesítni az elsőbe $\ddot{x_2}$-t, amivel
-                  \begin{aligned}
-                      (M + m \tan^2{\varphi})\ddot{x_1} &= mg \tan{\varphi}  - m \tan^2{\varphi} \frac{g \tan{\varphi} -  \tan^2{\varphi}\ddot{x_1}}{(1 + \tan^2{\varphi})} \\
-                      \left(M + m \tan^2{\varphi} - m\frac{\tan^4{\varphi}}{1 + \tan^2{\varphi}}\right)\ddot{x_1} &= mg \tan{\varphi}  - m \tan^2{\varphi} \frac{g \tan{\varphi}}{1 + \tan^2{\varphi}}
-                  \end{aligned}
-                  Vegyük észre hogy $1+\tan^2 = 1/\cos^2$, így pár szögfüggvényes egyszerűsítés után
-                  \begin{aligned}
-                      \left(M + m \tan^2{\varphi} - m\frac{\sin^4{\varphi}}{\cos^2{\varphi}}\right)\ddot{x_1} &= mg \tan{\varphi}  - m \sin^2{\varphi} g \tan{\varphi} \\
-                      \left(M + m \sin^2{\varphi}\frac{1- \sin^2{\varphi}}{\cos^2{\varphi}}\right)\ddot{x_1} &= mg \tan{\varphi} (1 - \sin^2{\varphi}) \\
-                      \left(M + m \sin^2{\varphi}\right)\ddot{x_1} &= mg \tan{\varphi} \cos^2{\varphi} \\
-                      \left(M + m \sin^2{\varphi}\right)\ddot{x_1} &= mg \cos{\varphi}\sin{\varphi} \\
-                      \ddot{x_1} &= \frac{mg \cos{\varphi}\sin{\varphi}}{M + m \sin^2{\varphi}}
-                  \end{aligned}
-                  amivel meg is válaszoltuk a kérdést: ezzel a konstans gyorsulással fog mozogni az ékünk.
-                </p>
-                <p style="text-align: justify;">
-                  Ha a mozgás időfüggésére vagyunk kíváncsiak, akkor ezt még ki kell integrálni kétszer. Emlékeztetőül
-                  \begin{aligned}
-                      \ddot{x_1} &= a_1 \\
-                      \int \ddot{x_1} \rd t &= \int a_1 \rd t \\
-                      \dot{x_1} &= a_1 t \\
-                      \int \dot{x_1} \rd t &= \int a_1 t\, \rd t \\
-                      x_1(t) &= \frac{a_1}{2} t^2 +c_1
-                  \end{aligned}
-                  A másik pedig ugyanígy, $a_2 = \frac{M}{m} a_1$ gyorsulással.
-                </p>
+								<p style="text-align: justify;">
+									Ahhoz, hogy ez a kényszer teljesüljön, matekká kell fogalmazni amit szeretnénk kiróni.
+									Kezdjük a háromszöggel: ha valami nem mozoghat fel-le, akkor
+									$$
+										y_1 = \text{konst.} \quad\quad  \longrightarrow \quad\quad  \dot{y_1} = 0
+									$$
+									A kis téglatestünk úgy közlekedik lefelé, hogy végig a háromszög élén marad. Ehhez segítségül hívjuk a \ref{fig:csuszoek2}. ábrát. Azt látjuk, hogy össze tudjuk kötni a kis téglatest $y$ irányú, $y_2$ mértékű lecsúszását azzal, hogy mennyit mozogtak $x$ irányba a testek. Kis matekkal:
+									$$
+										y_2 = (x_1+x_2) \tan{\varphi}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ez kétrétről is hasznos lesz: egyrészt a potenciális energiába pont ezt a magasságmegváltozást kerestük:
+									$$
+										\Delta V = - mg y_2
+									$$
+									másrészt pedig be tudjuk helyettesíteni a kinetikus energiába is, mivel
+									$$
+										\dot{y_2} = (\dot{x_1}+\dot{x_2}) \tan{\varphi}
+									$$
+									Felírva tehát, a teljes Lagrange-függvény:
+									$$
+										\mathcal{L} = \frac{1}{2}M \dot{x_1}^2 + \frac{1}{2} m \dot{x_2}^2 + \frac{1}{2} m (\dot{x_1}+\dot{x_2})^2 \tan^2{\varphi} + mg (x_1+x_2) \tan{\varphi}
+									$$
+								</p>
+								<h4>2.1.2. Mik a mozgásegyenletek?</h4>
+								<p style="text-align: justify;">
+									Két testünk mozog ebben a rendszerben, amiknek az $(x_1, \dot{x_1})$ és $(x_2, \dot{x_2})$ koordinátáival felírtuk a hatást.
+									Hogy megkapjuk a mozgásegyenleteket, egyszerűen az Euler-Lagrange egyenleteket kell felírnunk a két testre. Kezdve az elsővel:
+									$$
+									\begin{aligned}
+										\frac{\partial \mathcal{L}}{\partial x_1}= mg \tan{\varphi} \quad \frac{\partial \mathcal{L}}{\partial \dot{x_1}}=M\dot{x_1} + m \tan^2{\varphi} (\dot{x_1}+\dot{x_2})
+									\end{aligned}
+									$$
+									tehát az ék mozgásegyenlete:
+									$$
+										mg \tan{\varphi} = M \Ddot{x_1} + m \tan^2{\varphi}(\ddot{x_1}+\ddot{x_2})
+									$$
+									A kis téglatestünkre is fel lehet írni ugyanezeket: vegyük észre, hogy szinte teljesen szimmetrikus a Lagrange-ünk, annyi a különbség a két változó közt, hogy a kitneikus tagban más tömeg szerepel. A kis $m$ tömegű test egyenlete tehát:
+									$$
+										mg \tan{\varphi} = m \Ddot{x_2} + m \tan^2{\varphi}(\ddot{x_1}+\ddot{x_2})
+									$$
+								</p>
+								<h4>2.1.3. Mi a pálya?</h4>
+								<p style="text-align: justify;">
+									Hogy megkapjuk a trajektóriákat, meg kell oldanunk a mozgásegyenleteket.
+									Na, ez az a lépés ami általánosságban nem lehetséges algebrailag.
+									Szerencsére viszont léteznek feladatgyűjtemények olyan példákkal amikre igen: ez például pont megoldható.
+									Vegyük a két mozgásegyenlet különbségét:
+									$$
+									\begin{aligned}
+										0 &= M \Ddot{x_1} - m \Ddot{x_2} \\
+										0 &= \frac{\rd}{\rd t} \left(p_{1,x} - p_{2,x}\right)
+									\end{aligned}
+									$$
+									ami igazából ismerős lehet:
+									$$
+										p_{1,x} - p_{2,x} = \text{konst.}
+									$$
+									ez nem más, mint az $x$ irányú lendület megmaradása (a fordított előjelet az okozza, hogy az ék elmozdulását ellenkező irányúnak vettük fel a téglatestéhez képest).
+									Visszaidézve az első órát, itt is láthatjuk, hogy eltolásinvariáns a rendszerünk erre az irányra, amivel ez az eredmény konzisztens.
+								</p>
+								<p style="text-align: justify;">
+									Minden esetre, megvan a két egyenlet amit meg kell oldani. Ezeket kicsit átrendezve:
+									$$
+									\begin{aligned}
+										mg \tan{\varphi}  - m \tan^2{\varphi}\ddot{x_2} &= (M + m \tan^2{\varphi})\ddot{x_1} \\
+										mg \tan{\varphi} - m \tan^2{\varphi}\ddot{x_1} &= m(1 + \tan^2{\varphi})\ddot{x_2}
+									\end{aligned}
+									$$
+									be tudjuk helyettesítni az elsőbe $\ddot{x_2}$-t, amivel
+									$$
+									\begin{aligned}
+										(M + m \tan^2{\varphi})\ddot{x_1} &= mg \tan{\varphi}  - m \tan^2{\varphi} \frac{g \tan{\varphi} -  \tan^2{\varphi}\ddot{x_1}}{(1 + \tan^2{\varphi})} \\
+										\left(M + m \tan^2{\varphi} - m\frac{\tan^4{\varphi}}{1 + \tan^2{\varphi}}\right)\ddot{x_1} &= mg \tan{\varphi}  - m \tan^2{\varphi} \frac{g \tan{\varphi}}{1 + \tan^2{\varphi}}
+									\end{aligned}
+									$$
+									Vegyük észre hogy $1+\tan^2 = 1/\cos^2$, így pár szögfüggvényes egyszerűsítés után
+									$$
+									\begin{aligned}
+										\left(M + m \tan^2{\varphi} - m\frac{\sin^4{\varphi}}{\cos^2{\varphi}}\right)\ddot{x_1} &= mg \tan{\varphi}  - m \sin^2{\varphi} g \tan{\varphi} \\
+										\left(M + m \sin^2{\varphi}\frac{1- \sin^2{\varphi}}{\cos^2{\varphi}}\right)\ddot{x_1} &= mg \tan{\varphi} (1 - \sin^2{\varphi}) \\
+										\left(M + m \sin^2{\varphi}\right)\ddot{x_1} &= mg \tan{\varphi} \cos^2{\varphi} \\
+										\left(M + m \sin^2{\varphi}\right)\ddot{x_1} &= mg \cos{\varphi}\sin{\varphi} \\
+										\ddot{x_1} &= \frac{mg \cos{\varphi}\sin{\varphi}}{M + m \sin^2{\varphi}}
+									\end{aligned}
+									$$
+									amivel meg is válaszoltuk a kérdést: ezzel a konstans gyorsulással fog mozogni az ékünk.
+								</p>
+								<p style="text-align: justify;">
+									Ha a mozgás időfüggésére vagyunk kíváncsiak, akkor ezt még ki kell integrálni kétszer. Emlékeztetőül
+									$$
+									\begin{aligned}
+										\ddot{x_1} &= a_1 \\
+										\int \ddot{x_1} \rd t &= \int a_1 \rd t \\
+										\dot{x_1} &= a_1 t \\
+										\int \dot{x_1} \rd t &= \int a_1 t\, \rd t \\
+										x_1(t) &= \frac{a_1}{2} t^2 +c_1
+									\end{aligned}
+									$$
+									A másik pedig ugyanígy, $a_2 = \frac{M}{m} a_1$ gyorsulással.
+								</p>
 							</div>
 						</section>
 
 						<section id="three" class="wrapper style3">
 							<div class="inner">
-								<h3>1.2 példa: Legnagyobb (?) hatás elve</h3>
+								<h3>2.2 példa: Félkörről lecsúszás - 1</h3>
 								<p style="text-align: justify;">
-									Nézzünk egy példát a fényre is.
-									A Fermat elv szerint a fény a legrövidebb időbe kerülő úton közlekedik, tehát az a pálya valósul meg, amelynek mentén a megtett idő minimális.
-									$$
-									\begin{aligned}
-									    \mathcal{T} = \int n(s) \rd s
-									\end{aligned}
-									$$
-									Most bebizonyítjuk, hogy ez így nem igaz, egy görbe tükör segítségével.
+									Vegyünk egy asztalt, és szögezzünk rá egy félkört.
+									Ezután rakjunk rá egy kis tömegpontot, ami súrlódásmentesen lecsúszhat: <i>mi lesz a mozgásegyenlet?</i>
 								</p>
 								<p style="text-align: justify;">
-									Vegyük az kezdeti $A$ és a  végződő $B$ pontokat egy félgömb alakú tükör két végében.
-									Természetesen a legrövidebb út köztük az egyenes, de optikából tudjuk, hogy a fény tud másmerre is menni: tükröződve.
-									Vegyük fel valahol a köztes $P$ pontunkat a köríven, és paraméterezzük az ábrán látható szöggel.
-								</p>
-								<div style="text-align: center;">
-									<img src="figs/lesson1/fermat_gorbe.png" alt="Görbe törés paraméterezése" width="55%">
-								</div>
-								<p style="text-align: justify;">
-									Kis geometria után 
-									(Egyenlő $R$ szárú háromszögeink vannak, amiket meg tudunk felezni.
-									A szárszöget a $\theta$ paraméterünkből és a 90 fokból tudjuk kikombinálni, ami után egy szinusz felismerése a feladat.) 
-									a megtett útszakaszok:
+									Először írjuk fel a feladatot Descartes-i koordinátarendszerben. Kényszerek nélkül, a kinetikus tagban lehetne bármi:
 									$$
-									\begin{aligned}
-									    \overline{AP} = a = 2 R \sin{\left( \frac{\pi/2 - \theta}{2}\right)} \quad\quad \overline{PB} = b = 2 R \sin{\left( \frac{\pi/2 + \theta}{2}\right)}
-									\end{aligned}
+										K = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} m \dot{y}^2 
 									$$
-									A Fermat-elvhez fordulva a legrövidebb időre törekszünk.
-									De itt most a törésmutató éppen konstans, tehát ez ekvivalens lesz a legrövidebb úttal, azaz
+									a potenciális energiánkat pedig felvehetjük, mint
 									$$
-									\begin{aligned}
-										\mathcal{T} \cdot \frac{c}{n} =  \mathcal{S} = 2R \left[\sin{\left( \frac{\pi/2 - \theta}{2}\right)} + \sin{\left( \frac{\pi/2 + \theta}{2}\right)} \right]
-									\end{aligned}
+										V = -mg (R-y)
 									$$
-									Ezt kell most deriválnunk $\theta$ szerint, majd nullává tennünk.
+									Persze tudjuk, hogy a mozgás itt csak a félkör felületén történhet: ez matekul annyit tesz, hogy
 									$$
-									\begin{aligned}
-									    \partial_\theta \mathcal{S} = -R\cos{\left( \frac{\pi/2 - \theta}{2}\right)} &+ R\cos{\left( \frac{\pi/2 + \theta}{2}\right)} = 0 \\
-									    \cos{\left( \frac{\pi/2 - \theta}{2}\right)} &= \cos{\left( \frac{\pi/2 + \theta}{2}\right)}
-									\end{aligned}
+										x^2 + y^2 = R^2
 									$$
-									Őt megoldhatjuk vizuálisan is, esetszétválasztással, vagy felhasználhatunk egy koszinuszok különbségére vonatkozó összefüggést, aminek hála
+									Ezzel pedig ki tudjuk fejezni valamelyik változónkat a másik függvényében. Legyen most ez $x(y)$, mert a potenciális energiában már amúgy is $y$ van.
 									$$
-									\begin{aligned}
-									    \sin{\frac{\theta}{2}} = 0
-									\end{aligned}
+										x = \sqrt{R^2 - y^2}
+									$$
+									Az ő deriváltja:
+									$$
+										\dot{x} = \frac{y \dot{y}}{\sqrt{R^2 - y^2}}
+									$$
+									Így a Lagrange-unk:
+									$$
+										\mathcal{L} = \frac{1}{2}m \dot{y}^2 \left( 1 + \frac{y^2}{R^2 - y^2}\right) + mg(R-y)
 									$$
 								</p>
 								<p style="text-align: justify;">
-									Minden esetre a megoldásaink:
+									Ha ezzel megvagyunk, felírhatjuk az Euler-Lagrange egyenlet két tagját:
 									$$
 									\begin{aligned}
-									    \theta = 2n \pi \,, \hspace{10mm} n\in \mathbb{Z}
+										\frac{\partial \mathcal{L}}{\partial y} = \frac{1}{2}m \dot{y}^2 \frac{2y(R^2 - y^2)+2y^2\cdot y}{(R^2 - y^2)^2} - mg \quad \quad \frac{\partial \mathcal{L}}{\partial \dot{y}} = m \dot{y} \left( 1 + \frac{y^2}{R^2 - y^2}\right)
 									\end{aligned}
 									$$
-									Nekünk ezek közül $\theta=0$ lesz az fontos, minden más ugyanazt jelenti.
-								</p>
-								<p style="text-align: justify;">
-									Érdekes dolgot figyelhetünk meg viszont, ha megnézzük az időtartam <i>második</i> deriváltját is a minimumban.
+									amihez még deriválni kell egyet:
+									$$
+										\frac{\rd}{\rd t} \frac{\partial \mathcal{L}}{\partial \dot{y}} = m \left[ \ddot{y} \left( 1 + \frac{y^2}{R^2 - y^2}\right) + \dot{y}^2\frac{2y(R^2 - y^2) +2 y^3  }{(R^2 - y^2)^2} \right]
+									$$
+									Egyenlővé téve amit kell, és kicsit átalakítva:
 									$$
 									\begin{aligned}
-									    \left. \partial_\theta^2 \mathcal{T} \right|_{\theta=0}  \propto -R \left[\sin{\frac{\pi}{4}} +\sin{\frac{\pi}{4}} \right] \\
-									    \propto -R \sin{\frac{\pi}{4}}
+										\frac{1}{2}m \dot{y}^2 \frac{2y(R^2 - y^2)+2y^2\cdot y}{(R^2 - y^2)^2} - mg &= m \left[ \ddot{y} \left( 1 + \frac{y^2}{R^2 - y^2}\right) + \dot{y}^2\frac{2y(R^2 - y^2) +2 y^3  }{(R^2 - y^2)^2} \right] \\
+										\dot{y}^2 \frac{y(R^2 - y^2)+y^3}{(R^2 - y^2)^2} - g &=   \ddot{y} \left( 1 + \frac{y^2}{R^2 - y^2}\right) + 2\dot{y}^2\frac{y(R^2 - y^2) + y^3  }{(R^2 - y^2)^2} \\
+										- \dot{y}^2 \frac{y(R^2 - y^2)+y^3}{(R^2 - y^2)^2} - g &=   \ddot{y} \left( 1 + \frac{y^2}{R^2 - y^2}\right) 
 									\end{aligned}
 									$$
-									Ami negatív.
-									Visszaidézve a korábbi matekos tudásunkat, ez azt jelenti, hogy a megvalósuló pályánk nem is egy minimumhoz köthető.
-									Pont ellenkezőleg, egy lokális maximumhoz tartozó pályát követ ezesetben a fény.
+									Ez nem túl szép. Vezessük be a tömegpont helyzetét leíró szöget, amivel
+									$$
+										y = R \cos{\varphi}
+									$$
 								</p>
 								<p style="text-align: justify;">
-									Éppen ezért, most is és a jövőben is, bármikor, ha a <i>legkisebb</i> hatás elvét emlegeti valaki, akkor az általában csak egy megszokott elnevezés.
-									Valójában inkább a <i>szélsőértékes</i> hatás elvére gondolunk, de az sokkal csúnyábban hangzik mind magyarul, mind angolul.
-									(A pontosságra törekedőknek a <i>stacionárius</i> a bevett szó.)
+									Ennek hála
+									$$
+									\begin{aligned}
+									    R^2 - y^2 = R^2(1-\cos^2{\varphi}) = R^2 \sin^2{\varphi}
+									\end{aligned}
+									$$
+									Beírva a mozgásegyenletbe, leegyszerűsödik pár dolog:
+									$$
+									\begin{aligned}
+									    - \dot{y}^2 y \frac{ R^2 \sin^2{\varphi}+y^2}{(R^2 \sin^2{\varphi})^2} - g &=   \ddot{y} \left( 1 + \frac{R^2 \cos^2{\varphi}}{R^2 \sin^2{\varphi}}\right) \\
+									    - \dot{y}^2 y \frac{ R^2 \sin^2{\varphi}+R^2 \cos^2{\varphi}}{(R^2 \sin^2{\varphi})^2} - g &=   \ddot{y} \left( \frac{R^2 \sin^2{\varphi}+R^2 \cos^2{\varphi}}{R^2 \sin^2{\varphi}}\right) \\
+									    - \dot{y}^2 y \frac{ 1 }{R^2 \sin^4{\varphi}} - g &=   \ddot{y} \left( \frac{1}{ \sin^2{\varphi}}\right)
+									\end{aligned}
+									$$
+									Beírva végül, hogy
+									$$
+									\begin{aligned}
+									    \dot{y} = - R \sin{\varphi} \dot{\varphi} \quad \quad  \ddot{y} = -R (\dot{\varphi}^2\cos{\varphi} + \sin{\varphi} \ddot{\varphi})
+									\end{aligned}
+									$$
+									Először
+									$$
+									\begin{aligned}
+									    - R^3 \dot{\varphi}^2   \sin^2{\varphi} \cos{\varphi} \frac{ 1 }{R^2 \sin^4{\varphi}} - g &=   \ddot{y} \left( \frac{1}{ \sin^2{\varphi}}\right) \\
+									    - \dot{\varphi}^2 R  \frac{ \cos{\varphi}  }{\sin^2{\varphi}} - g &=   \ddot{y} \left( \frac{1}{ \sin^2{\varphi}}\right) 
+									\end{aligned}
+									$$
+									aztán
+									$$
+									\begin{aligned}
+									    - \dot{\varphi}^2 R  \cos{\varphi} - g \sin^2{\varphi} &=  - R (\dot{\varphi}^2\cos{\varphi} + \sin{\varphi} \ddot{\varphi}) \\
+									    \ddot{\varphi} &=  \frac{g}{R}\sin{\varphi}
+									\end{aligned}
+									$$
 								</p>
 								<p style="text-align: justify;">
-									Feltűnhetett, hogy mindkét példában az integrálás igazból egy-egy egyenes hosszának kiszámolására redukálódott.
-									Ez csak didaktikus, és mutatja a Maupertuis elv hátrányát: mást nem igazán tudtunk volna kiszámolni.
-									A probléma az integrálással van, hiszen azt nem mindig lehet elvégezni; és itt az integrálás <b>után</b> szelektáljuk ki az összes lehetséges útból az igazit.
-									Ha kegyes a fizika, akkor létezik olyan módszer, ami ezeket megcseréli.
+									Ezt nem triviális megoldani, szóval egyelőre így hagyjuk.
+									Láthatóan egy hosszadalmas feladattal küzdöttünk meg, amin az segített, hogy áttértünk egy új változóra a szög segítségével.
+									Sok fáradalmat megspórolhatunk a jövőben, ha ezt ezek után hamarabb megtesszük, például már a legelején.
 								</p>
 							</div>
 						</section>
