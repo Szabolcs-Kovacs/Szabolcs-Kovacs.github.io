@@ -95,7 +95,7 @@
 								<p style="text-align: justify;">
 										Térjünk át a tipikus mechanikai feladatokra. Ekkor a hatásunk alakja
 										$$
-											\mathcal{S} = \int \mathcal{L}(\vec{r}(t),\dot{\vec{r}}(t)) \rd t = \int \left(K(\dot{\vec{r}}, \vec{r})-V(\vec{r})\right) \rd t
+											\mathcal{S} = \int \mathcal{L}(\vec{r}(t),\dot{\vec{r}}(t)) \rd t = \int \left(K(\dot{\vec{r}}, \textcolor{gray}{\vec{r}})-V(\vec{r})\right) \rd t
 										$$
 										mert akkor az Euler-Lagrange egy ismerős egyenletre vezet:
 										$$
@@ -145,7 +145,8 @@
 									$$
 										y_1 = \text{konst.} \quad\quad  \longrightarrow \quad\quad  \dot{y_1} = 0
 									$$
-									A kis téglatestünk úgy közlekedik lefelé, hogy végig a háromszög élén marad. Ehhez segítségül hívjuk a \ref{fig:csuszoek2}. ábrát. Azt látjuk, hogy össze tudjuk kötni a kis téglatest $y$ irányú, $y_2$ mértékű lecsúszását azzal, hogy mennyit mozogtak $x$ irányba a testek. Kis matekkal:
+									A kis téglatestünk úgy közlekedik lefelé, hogy végig a háromszög élén marad. Ehhez segítségül hívjuk az ábrát.
+									Azt látjuk, hogy össze tudjuk kötni a kis téglatest $y$ irányú, $y_2$ mértékű lecsúszását azzal, hogy mennyit mozogtak $x$ irányba a testek. Kis matekkal:
 									$$
 										y_2 = (x_1+x_2) \tan{\varphi}
 									$$
@@ -435,7 +436,7 @@
 								<p style="text-align: justify;">
 									A gyakorlatban az egy dimenziós példák gyakran még tovább egyszerűsödnek. Mindeddig nem használtunk ki egy erős eszközt: az energiamegmaradást. Ugyanis ha a Lagrange-függvényünk nem függ \textit{expliciten} az időtől, akkor létezik egy mennyiség, ami megmarad: őt (általánosított) \textbf{energiának} hívjuk.
 									$$
-									    \mathcal{L}\bigl(r(t), \dot{r}(t), \slashed{t}\bigr) \quad \longrightarrow \quad E = \dot{\vec{r}} \frac{\partial \mathcal{L}}{\partial \dot{\vec{r}}} - \mathcal{L} = \text{konst.}
+									    \mathcal{L}\bigl(r(t), \dot{r}(t), <s>t</s>\bigr) \quad \longrightarrow \quad E = \dot{\vec{r}} \frac{\partial \mathcal{L}}{\partial \dot{\vec{r}}} - \mathcal{L} = \text{konst.}
 									$$
 									Ennek egy speciális esete a klasszikus mechanika, ugyanis ekkor
 									$$
@@ -518,7 +519,7 @@
 							</div>
 						</section>
 
-						<section id="six" class="wrapper alt style6">
+						<section id="six" class="wrapper alt style3">
 							<div class="inner">
 								<h3>
 									2.5. példa: Rugós inga
@@ -640,7 +641,7 @@
 							</div>
 						</section>
 
-						<section id="six" class="wrapper alt style6">
+						<section id="seven" class="wrapper alt style2">
 							<div class="inner">
 								<h3>
 									Teljes derivált
@@ -650,7 +651,7 @@
 									$$
 									    \mathcal{L} \quad \longrightarrow \quad \mathcal{L}^\prime =\mathcal{L}+\frac{\rd F}{\rd t}
 									$$
-									\textit{feltéve} hogy a függvény alakja $F(t, q, <s>\dot{q}</s>)$, tehát csak a koordinátáktól és az időtől függhet, a sebességektől nem.
+									\textit{feltéve} hogy a függvény alakja $F(t, q)$, tehát csak a koordinátáktól és az időtől függhet, a sebességektől nem.
 									Ezt gyorsan bebizonyítjuk, belátva hogy az Euler-Lagrange egyenlet ekkor is teljesül:
 									$$
 									\begin{aligned}
