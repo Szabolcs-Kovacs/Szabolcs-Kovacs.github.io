@@ -515,6 +515,235 @@
 									$$
 									ahol a konstans $c$-t kicseréltük egy $C$-re. Ezzel megkaptuk az egzakt megoldásunkat, hála az energiamegmaradásnak.
 								</p>
+							</div>
+						</section>
+
+						<section id="six" class="wrapper alt style6">
+							<div class="inner">
+								<h3>
+									2.5. példa: Rugós inga
+								</h3>
+								<p style="text-align: justify;">
+									Vegyünk egy sima matematikai ingát, ami alapjáraton $l$ hosszúságú, és egy $m$ tömegű testet tart.
+									Cseréljük ki a madzagot egy $k$ rugóállandójú rugóra: \textit{mi lesz ekkor a mozgásegyenlet?}
+								</p>
+								<h4>2.5.1. Descartes</h4>
+								<p style="text-align: justify;">
+									Bemelegítésként először írjuk fel a sima inga problémáját Lagrange-osan, Descartes-i koordinátákkal.
+									A kényszermentes Lagrange-függvény két tagja, ha origónak a felfüggesztési pontot vesszük:
+									$$
+									\begin{aligned}
+									    K = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} m \dot{y}^2 \\
+									    V = - mg (l-y)
+									\end{aligned}
+									$$
+									Ezt még ki kell egészítenünk azzal a feltétellel, hogy a test csak az $l$ hosszúságú drót által rajzolt körön mozog. Most direkt távol maradva a szögektől, ez egy kis Pitagorasz tétel után:
+									$$
+									\begin{aligned}
+									    l^2 = x^2 + y^2 \\
+									    y = \sqrt{x^2 - l^2}
+									\end{aligned}
+									$$
+									tehát
+									$$
+									    \dot{y} = \frac{\rd}{\rd t} (\sqrt{x^2 - l^2}) = \frac{x \dot{x}}{\sqrt{x^2 - l^2}} 
+									$$
+									amivel
+									$$
+									    \dot{y}^2 = \frac{x^2 \dot{x}^2}{x^2 - l^2}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Beírva mindent a Lagrange-ba:
+									$$
+									    \mathcal{L}_{\text{inga}} = \frac{1}{2} m \dot{x}^2 \left( 1 + \frac{x^2 }{x^2 - l^2}\right) + mg (l- \sqrt{x^2 - l^2})
+									$$
+									És ez még csak maga az inga. Ha belevesszük a rugót is:
+									$$
+									    V_{\text{rugó}} = \frac{1}{2} k \Delta l^2
+									$$
+									ahol $\Delta l$ fejezi ki, hogy mennyire nyúlt meg a rugó az eredeti $l_0$-hoz képest. Descartes-i koordinátákkal:
+									$$
+									\begin{aligned}
+									    x^2 + y^2 = l^2  = (l_0+\Delta l)^2 \\
+									    \Delta l = \sqrt{x^2 + y^2} - l_0
+									\end{aligned}
+									$$
+									amivel
+									$$
+									    V_{\text{rugó}} = \frac{1}{2} k \left(\sqrt{x^2 + y^2} - l_0 \right)^2
+									$$
+									És itt meg is állnék, mielőtt elkezdünk tovább helyettesítgetni.
+									Szerintem sikerült demonstrálni, hogy mennyire el tudnak bonyolódni a tagok, ha a feladathoz rosszul illeszkedő koordinátarendszert választunk.
+									Nézzük meg, hogy hogyan kell ezt szépen megoldani.
+								</p>
+								<h4>2.5.2. Polár</h4>
+								<p style="text-align: justify;">
+									Hogy kiválasszuk a jó koordinátákat, gondolkodjunk kicsit a feladaton.
+									Két dolgunk van: ingánk és rugónk. Az inga nagyon illeszkedik a poláros koordinátázáshoz.
+									A rugóban pedig az jelenik meg, hogy mennyit nyúl meg sugárirányban.
+									Legyen a két változónk $\varphi$, az inga kitérési szöge, és $R$, az inga megnyúlása az eredeti $l_0$ hosszához képest.
+									A régi változók nyelvén tehát:
+									$$
+									\begin{aligned}
+									    x^2 + y^2 &= l^2 = (l_0 + R)^2 \\
+									    x = l \sin{\varphi} &= (l_0 + R) \sin{\varphi} \\
+									    y = l \cos{\varphi} &= (l_0 + R) \cos{\varphi} 
+									\end{aligned}
+									$$
+									Milyen sebességek jelennek meg a kinetikus tagban? Lesz egyrészt a sugárirányú sebesség, ami azt mondja meg, hogy mennyire változik éppen $R$:
+									$$
+									    K_r = \frac{1}{2} m \dot{R}^2
+									$$
+									és lesz egy erre merőleges komponens, ami az érintő irányú sebesség lesz. Ez pedig a $\dot{\varphi}$ szögsebesség szorozva a $(l_0+R)$ sugárral, tehát
+									$$
+									    K_\varphi = \frac{1}{2} m (l_0+R)^2 \dot{\varphi}^2
+									$$
+									A rugó potenciális energiája így már nagyon egyszerű:
+									$$
+									    V_{\text{rugó}} = \frac{1}{2} k R^2
+									$$
+									Cserébe a gravitációs potenciális energiánk lesz picit csúnyább:
+									$$
+									    V_{\text{grav.}} = -mg (l_0+R) \cos{\varphi}
+									$$
+									ahol az $y$ helyére behelyettesítettük az új koordinátákat.
+								</p>
+								<p style="text-align: justify;">
+									Egy szó mint száz, kész is a Lagrange-unk:
+									$$
+									    \mathcal{L} = \frac{1}{2} m \dot{R}^2 + \frac{1}{2} m (l_0+R)^2 \dot{\varphi}^2 + mg (l_0+R) \cos{\varphi} - \frac{1}{2} k R^2
+									$$
+									és jöhetnek is az Euler-Lagrange egyenletek. Két változónk van, tehát kettő lesz:
+									$$
+									\begin{aligned}
+									    \frac{\partial \mathcal{L}}{\partial R} = m(l_0+R)\dot{\varphi}^2 + mg \cos{\varphi} - kR && \frac{\partial \mathcal{L}}{\partial \dot{R}} = m \dot{R} \\
+									    \frac{\partial \mathcal{L}}{\partial \varphi} = - mg (l_0+R) \sin{\varphi} && \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = m(l_0+R)^2 \dot{\varphi}
+									\end{aligned}
+									$$
+									Amikkel elvégezve a deriválásokat:
+									$$
+									\begin{aligned}
+									    (l_0+R)\dot{\varphi}^2 + g \cos{\varphi} - \frac{k}{m}R =   &\ddot{R} \\
+									     - g (l_0+R) \sin{\varphi} = 2(l_0+R)\dot{R} \dot{\varphi} + (l_0+R)^2& \ddot{\varphi}
+									\end{aligned}
+									$$
+									Kicsit még szépítve:
+									$$
+									\begin{aligned}
+									    \ddot{R} &= (l_0+R)\dot{\varphi}^2 + g \cos{\varphi} - \frac{k}{m}R  \\
+									    (l_0+R) \ddot{\varphi} &= - 2\dot{R} \dot{\varphi}  - g \sin{\varphi} 
+									\end{aligned}
+									$$
+									Ezt már be lehet küldeni a kedvenc numerikus megoldónknak, és meg is lesznek a pályák.
+								</p>
+							</div>
+						</section>
+
+						<section id="six" class="wrapper alt style6">
+							<div class="inner">
+								<h3>
+									Teljes derivált
+								</h3>
+								<p style="text-align: justify;">
+									Előadáson elhangzott, hogy a fizika invariáns marad arra, ha a Lagrange-függvényhez hozzáadunk egy teljes deriváltat:
+									$$
+									    \mathcal{L} \quad \longrightarrow \quad \mathcal{L}^\prime =\mathcal{L}+\frac{\rd F}{\rd t}
+									$$
+									\textit{feltéve} hogy a függvény alakja $F(t, q, <s>\dot{q}</s>)$, tehát csak a koordinátáktól és az időtől függhet, a sebességektől nem.
+									Ezt gyorsan bebizonyítjuk, belátva hogy az Euler-Lagrange egyenlet ekkor is teljesül:
+									$$
+									\begin{aligned}
+									    \frac{\rd }{\rd t} \frac{\partial \mathcal{L}^\prime}{\partial \dot{q}} &= \frac{\partial \mathcal{L}^\prime}{\partial q} \\
+									    \frac{\rd }{\rd t} \left[ \frac{\partial \mathcal{L}}{\partial \dot{q}} + \frac{\partial}{\partial \dot{q}} \dot{F}\right]  &= \frac{\partial \mathcal{L}}{\partial q} + \frac{\partial \dot{F}}{\partial q}
+									\end{aligned}
+									$$
+									Mindkét oldalról kiesik az első tag, hála a sima, teljes derivált nélküli Euler-Lagrange egyenletnek. Ami marad:
+									$$
+									    \frac{\rd }{\rd t}  \frac{\partial}{\partial \dot{q}} \dot{F} =\frac{\partial \dot{F}}{\partial q}
+									$$
+									Ennek a tovább fejtéséhez először is nézzük meg hogyna néz ki $F$ teljes időderiváltja, $\dot{F}$.
+									Mivel $F(t,q)$ alakú, ezért két módon függhet az időtől: expliciten $t$-n keresztül, és impliciten $q(t)$-n át. Tehát
+									$$
+									    \dot{F} = \frac{\partial F}{\partial q} \frac{\partial q}{\partial t} + \frac{\partial F}{\partial t} = \frac{\partial F}{\partial q} \dot{q} + \frac{\partial}{\partial t} F
+									$$
+									Hogy függhet ez a kifejezés $\dot{q}$-től? Mivel $F$ önmagában sehogy, egyetlen helyen hat a $\dot{q}$ szerinti parciális deriválás:
+									$$
+									    \frac{\partial}{\partial \dot{q}}\dot{F} = \frac{\partial F}{\partial q}\cdot 1  +0
+									$$
+									Alkalmazzuk ugyanezt a logikát most $F$ helyett az így kapott $\frac{\partial F}{\partial q}$-ra:
+									$$
+									    \frac{\rd}{\rd t} \frac{\partial F}{\partial q} = \frac{\partial}{\partial q} \frac{\partial F}{\partial q} \dot{q} + \partial_t \frac{\partial F}{\partial q}
+									$$
+									A parciális deriváltak egymással felcserélhetők egy szép tételnek hála, így összességében
+									$$
+									\begin{aligned}
+									    \frac{\rd}{\rd t} \frac{\partial F}{\partial q} &= \frac{\partial}{\partial q} \frac{\partial F}{\partial q} \dot{q} + \frac{\partial}{\partial q} \frac{\partial F}{\partial t} \\
+									    &=\frac{\partial }{\partial q} \left[ \frac{\partial F}{\partial q} \dot{q} + \frac{\partial F}{\partial t} \right] \\
+									    &= \frac{\partial \dot{F}}{\partial q}
+									\end{aligned}
+									$$
+									amivel be is bizonyítottuk a feltevésünket.
+								</p>
+								<h4>2.6. példa: Egy csúnyának tűnő feladat</h4>
+								<p style="text-align: justify;">
+									A gonosz feladatgyűjtemény a következő Lagrange-függvénnyel szembesít minket:
+									$$
+									    \mathcal{L}(x,\dot{x},t) = \dot{x}^2 - (x+t)^2 - \dot{x} t^2
+									$$
+									majd azt kéri, hogy használjuk az energiamegmaradást a feladat megoldására.
+									Ez egy hibának tűnhet, mert a Lagrange explicit időfüggő: ekkor nem maradhat meg az energia.
+									Oldjuk meg mégis, a most tanult új trükköt alkalmazva.
+								</p>
+								<p style="text-align: justify;">
+									Először is bontsuk szét a zárójelet:
+									$$
+									     \mathcal{L}(x,\dot{x},t) = \dot{x}^2 - x^2 - 2xt - t^2 - \dot{x} t^2
+									$$
+									A keverten $t$-t és $x$-et tartalmazó tagokkal van probléma, őket szeretnénk eltűntetni.
+									Ilyenkor az ember próbálkozik pár függvénnyel, amíg nem talál valamit, ami közelebb viszi a jó megoldáshoz.
+									Legyen az első tippünk
+									$$
+									    F(x,t) = \frac{1}{3}t^3
+									$$
+									Ezt lederiválva és hozzáadva a Lagrange-hoz eltűnik a $t^3$ tag. Második próbálkozásunk pedig legyen
+									$$
+									    G(x,t) = x t^2 \quad \longrightarrow \quad \dot{G} = \dot{x}t^2 + 2tx
+									$$
+									amivel már boldogak lehetünk: ezt a két teljes deriváltat hozzáadva eltűntek az expliciten időfűggő tagok a Lagrange-ból.
+									Ami maradt:
+									$$
+									    \mathcal{L}^\prime = \dot{x}^2 - x^2
+									$$
+									már megoldható az energiamegmaradást használva.
+								</p>
+								<p style="text-align: justify;">
+									Itt nem feltétlen egyértelmű hogy egy klasszikus mechanikai feladatról van szó, ezért a $K+V$ helyett használjuk az általánosabb képletet:
+									$$
+									    E = \dot{x} \frac{\partial \mathcal{L}}{\partial \dot{x}} - \mathcal{L} = 2 \dot{x}^2 - \left(\dot{x}^2 - x^2 \right) = \dot{x}^2 + x^2
+									$$
+									Ami egy megmaradó mennyiség. Vegyük fel a nullpontját úgy, hogy $E = 1$ teljesüljön. Ekkor a megoldandó differenciálegyenletünk
+									$$
+									\begin{aligned}
+									    \dot{x}^2 = 1- x^2 \\
+									    \dot{x} = \sqrt{1-x^2}
+									\end{aligned}
+									$$
+									Ez egy szeparálható diffegyenlet:
+									$$
+									\begin{aligned}
+									    \frac{\rd x}{\rd t} = \sqrt{1-x^2} \\
+									    \rd x = \sqrt{1-x^2}\, \rd t \\
+									    \frac{\rd x}{\sqrt{1-x^2}} = \rd t \\
+									    \int \frac{\rd x}{\sqrt{1-x^2}} = \int \rd t \\
+									    \arcsin{x} = t+c \\
+									    x = \sin{(t+c)}
+									\end{aligned}
+									$$
+									Méghozzá a harmonikus mozgásé.
+								</p>
+							</div>
+						</section>
 						
 
 				<!-- Footer -->
