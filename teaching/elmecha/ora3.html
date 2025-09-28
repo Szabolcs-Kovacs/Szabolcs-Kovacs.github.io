@@ -76,7 +76,8 @@
 								<h3>Ciklikus koordináták</h3>
 	
 								<p style="text-align: justify;">
-									A mai órán további megmaradó mennyiségekkel foglalkozunk: ezeknek első példája a \textbf{ciklikus koordinátákra} vezethető vissza. Velük már találkoztunk, csak nem nevesítettük őket. Ha a Lagrange alakja
+									A mai órán további megmaradó mennyiségekkel foglalkozunk: ezeknek első példája a <b>ciklikus koordinátákra</b> vezethető vissza.
+									Velük már találkoztunk, csak nem nevesítettük őket. Ha a Lagrange alakja
 									$$
 										\mathcal{L}(x,y,\dot{x},\dot{y}) = \mathcal{L}(x,\dot{x},\dot{y}) =  K(\textcolor{gray}{x},\dot{x},\dot{y})-V(x)
 									$$
@@ -84,7 +85,7 @@
 									$$
 										\frac{\rd}{\rd t} \frac{\partial \mathcal{L}}{\partial \dot{y}} = \frac{\partial \mathcal{L}}{\partial y} = 0
 									$$
-									a hozzá tartozó $p_y = \partial_{\dot{y}}\mathcal{L}$ által definiált \textbf{általános lendület} időderiváltja nulla: ő egy megmaradó, lendület-szerű mennyiség.
+									a hozzá tartozó $p_y = \partial_{\dot{y}}\mathcal{L}$ által definiált <b>általános lendület</b> időderiváltja nulla: ő egy megmaradó, lendület-szerű mennyiség.
 								</p>
 							</div>
 						</section>
@@ -262,12 +263,12 @@
 					                     \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = mR^2 \dot{\varphi} = \text{konst.}
 					                $$
 					                Ez egy megmaradó mennyiség, mint az előző példában az impulzus volt.
-					                Ahogy itt most $\varphi$ egy \textit{általános} koordináta, a hozzá tartozó $mR^2 \dot{\varphi}$ mennyiség egy \textit{általános} impulzus.
+					                Ahogy itt most $\varphi$ egy <i>általános</i> koordináta, a hozzá tartozó $mR^2 \dot{\varphi}$ mennyiség egy <i>általános</i> impulzus.
 					                Mivel ez a koordináta ciklikus (nincs explicit a Lagrange-ban), a hozzá tartozó általános impulzus megmarad. Kis átalakítással egyébként
 					                $$
 					                    p_\varphi = R \cdot m R \dot{\varphi} =  R \cdot m v_\perp = R \cdot p_\perp = L 
 					                $$
-					                ez nem más mint a \textbf{perdület}.
+					                ez nem más mint a <b>perdület</b>.
 								</p>
 				                <p style="text-align: justify;">
 					                Minden esetre, már az Euler-Lagrange felírása nélkül tudunk valamit a pályáról: a körkörös komponense a mozgásnak csupán egy állandó sebességű keringés lesz.
@@ -319,7 +320,8 @@
 									3.3.1. Descartes
 								</h4>
 								<p style="text-align: justify;">
-									Vegyünk egy egyszerű rugós testet egy síkban, és írjuk fel a Lagrange-át sima Descartes-i koordinátákban. Ahogy az előbb láthattuk, a rugó potenciális energiája $\frac{1}{2} k \vec{r}^{\,2}$, tehát
+									Vegyünk egy egyszerű rugós testet egy síkban, és írjuk fel a Lagrange-át sima Descartes-i koordinátákban.
+									Ahogy az előbb láthattuk, a rugó potenciális energiája $\frac{1}{2} k \vec{r}^{\,2}$, tehát
 									$$
 									    \mathcal{L} = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2) - \frac{1}{2}k (x^2 + y^2)
 									$$
@@ -363,10 +365,11 @@
 									$$
 									    V \rightarrow \frac{1}{2}k (x^2 + y^2 + + \underbrace{2 \epsilon x y - 2 \epsilon x y}_{=0}) = V
 									$$
-									az is ugyanúgy néz ki, tehát ez egy \textbf{szimmetria}.
+									az is ugyanúgy néz ki, tehát ez egy <b>szimmetria</b>.
 								</p>
 								<p style="text-align: justify;">
-									Ha már tujduk, hogy szimmetriáról beszélünk, nézzük meg mi marad meg a Noether-tétel szerint. Deriválva a Lagrange-ot a sebességek szerint megkapjuk az általános lendületeket:
+									Ha már tujduk, hogy szimmetriáról beszélünk, nézzük meg mi marad meg a Noether-tétel szerint.
+									Deriválva a Lagrange-ot a sebességek szerint megkapjuk az általános lendületeket:
 									$$
 									\begin{aligned}
 									    p_x =\frac{\partial \mathcal{L}}{\partial \dot{x}} = m \dot{x} \qquad\qquad\qquad
@@ -454,7 +457,7 @@
 										r \dot{\alpha_0} = R \dot{\beta_0}
 									$$
 									És mivel nem lenne csúszás, a kis henger középpontja ott is maradna, ahol volt.
-									Ha ez a feltétel viszont \textbf{nem} teljesül, akkor el fog mozdulni a kör körül, valamilyen $r \dot{\alpha} - R \dot{\beta}$ sebességgel.
+									Ha ez a feltétel viszont <b>nem</b> teljesül, akkor el fog mozdulni a kör körül, valamilyen $r \dot{\alpha} - R \dot{\beta}$ sebességgel.
 									Ez alatt megtesz a kis henger középpontja valamennyi $\Delta l$ utat a nagy középpontja körül, méghozzá
 									$$
 										\Delta l = r \alpha - R \beta
@@ -561,7 +564,7 @@
 									Ilyenkor nagyjából három lehetőség van:
 								</p>
 								<ul>
-									<li>Numerikusan oldjuk meg őket, például \texttt{python}-ban a \texttt{scipy} csomaggal.</li>
+									<li>Numerikusan oldjuk meg őket, például python-ban a scipy csomaggal.</li>
 									<li>Megnézzük a rendszer egyensúlyi pontjait, és azokról próbálunk meg valami okosat mondani.</li>
 									<li>Addig közelítünk, amíg meg nem tudjuk oldani kézzel.</li>
 								</ul>
@@ -619,7 +622,7 @@
 										\ddot{\varphi} = -\frac{g}{l} \sin{\varphi}
 									$$
 									ami már ismerős lehet az előző óráról.
-									Emlékeztetőül ott bevezettük $\omega = \sqrt{g/l}$-et, aztán \textbf{kis szögekre} közelítettünk mint $\varphi \ll 1$, amelynek eredményeképp
+									Emlékeztetőül ott bevezettük $\omega = \sqrt{g/l}$-et, aztán <i>kis szögekre</i> közelítettünk mint $\varphi \ll 1$, amelynek eredményeképp
 									$$
 										\ddot{\varphi} \approx  -\omega^2 \varphi
 									$$
@@ -822,7 +825,7 @@
 									Múlt héten említettem, hogy a Lagrange-i mechanika feladatok olyanok mint a LEGO: csak össze kell rakni az őket felépítő blokkokat, aztán szisztematikusan megy a megoldás.
 									Most nézzük meg ezt pár eddigi példa darabjaiból.
 									Vegyünk egy asztalhoz rögzített háromszög alakú éket, amire rakjunk egy $M$ tömegű téglatestet, ami rajta szabadon, súrlódásmentesen mozoghat.
-									Rakjunk erre a téglatestre egy $l$ hosszúságú ingát, egy $m$ tömegű testtel a végén. \textit{Mi lesz az inga mozgásegyenlete?}
+									Rakjunk erre a téglatestre egy $l$ hosszúságú ingát, egy $m$ tömegű testtel a végén. <i>Mi lesz az inga mozgásegyenlete?</i>
 								</p>
 								<div style="text-align: center;">
 									<img src="figs/lesson3/csuszoinga.png" alt="Rajz a rugós ingáról" width="45%">
