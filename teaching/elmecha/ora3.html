@@ -430,27 +430,507 @@
 						<section id="five" class="wrapper alt style5">
 							<div class="inner">
 								<h3>
-									
+									3.4. példa: Hengerben henger
 								</h3>
-								
+								<p style="text-align: justify;">
+									Vegyünk egy $M$ tömegű, $R$ sugarú üres hengert.
+									Rakjunk bele egy másik, $m$ tömegű $r$ sugarú hengert.
+									A nagyot kezdjük el megforgatni valamilyen $\dot{\beta}$ sebességgel, a kicsit pedig hagyjuk csúszni: mi lesz ekkor a Lagrange, mik a szimmetriái és a megmaradó mennyiségei?
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson3/noether1.png" alt="Vázlatos rajz a hengerben csúszkáló hengerről" width="45%">
+								</div>
+								<p style="text-align: justify;">
+									Nézzük meg először a feladat nehezét: a paraméterezést.
+									Hol van a kis henger középpontja tetszőleges időpontban?
+									Ehhez két dolgot kell tudnunk: a csúszásmentes mozgás feltételét, és egy kis geometriát. Utóbbihoz segít a lenti ábra.
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson3/hengerhenger.png" alt="Részletesebb rajz a hengerben csúszkáló hengerről" width="45%">
+								</div>
+								<p style="text-align: justify;">
+									Ha csúszás nélkül történne a mozgás, akkor az érintkzési pontokban megegyeznének a kerületi sebességek, tehát
+									$$
+										r \dot{\alpha_0} = R \dot{\beta_0}
+									$$
+									És mivel nem lenne csúszás, a kis henger középpontja ott is maradna, ahol volt.
+									Ha ez a feltétel viszont \textbf{nem} teljesül, akkor el fog mozdulni a kör körül, valamilyen $r \dot{\alpha} - R \dot{\beta}$ sebességgel.
+									Ez alatt megtesz a kis henger középpontja valamennyi $\Delta l$ utat a nagy középpontja körül, méghozzá
+									$$
+										\Delta l = r \alpha - R \beta
+									$$
+									Tehát kis geometriával tetszőleges $(\alpha, \beta)$ változóknál a kis henger középpontjához kellő szög:
+									$$
+										\vartheta = \frac{r \alpha - R \beta}{R-r}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ezzel a kis kör középpontjának $(x_m, y_m)$ koordinátái:
+									$$
+									\begin{aligned}
+									    x_m = (R-r) \sin{\frac{r \alpha - R \beta}{R-r}} \qquad\qquad\qquad y_m = (R-r) \cos{\frac{r \alpha - R \beta}{R-r}} 
+									\end{aligned}
+									$$
+									Az utóbbival gyorsan fel is tudjuk írni a potenciális energiát, mint
+									$$
+									    V = -mg (R-r) \cos{\frac{r \alpha - R \beta}{R-r}} 
+									$$
+									A kis henger kinetikus energiájához nem elég tudni a középpontját: a kerületén lévő pontok szép gyorsan keringhetnek, szóval nekik is lesz kinetikus energiájuk.
+									Egy tetszőleges pontja a kis körnek:
+									$$
+									\begin{aligned}
+									    x = x_m + r \sin{\alpha} \qquad\qquad\qquad y &= y_m - r \cos{\alpha} \\
+									    x = (R-r) \sin{\frac{r \alpha - R \beta}{R-r}} + r \sin{\alpha} \qquad\qquad\qquad y &= (R-r) \cos{\frac{r \alpha - R \beta}{R-r}}  - r \cos{\alpha}
+									\end{aligned}
+									$$
+									Ezeket deriválva:
+									$$
+									\begin{aligned}
+									    \dot{x} = \cos{\frac{r \alpha - R \beta}{R-r}} (r \dot{\alpha} - R \dot{\beta}) + r \dot{\alpha} \cos{\alpha} \qquad\qquad \dot{y} = -\sin{\frac{r \alpha - R \beta}{R-r}} (r \dot{\alpha} - R \dot{\beta})  + r \dot{\alpha} \sin{\alpha}
+									\end{aligned}
+									$$
+									Amiből a kinetikus tagba szükséges négyzetösszegük:
+									$$
+									\begin{aligned}
+									    \dot{x}^2 + \dot{y}^2 &= r^2 \dot{\alpha}^2 +  (r \dot{\alpha} - R \dot{\beta})^2 \\
+									    \dot{x}^2 + \dot{y}^2 &= 2 r^2 \dot{\alpha}^2  +  R^2 \dot{\beta}^2 - 2 r R \dot{\alpha} \dot{\beta}
+									\end{aligned}
+									$$
+									Tehát a kis henger kinetikus tagja:
+									$$
+									    K_m = m  r^2 \dot{\alpha}^2 - m  r R \dot{\alpha} \dot{\beta} + \frac{1}{2} m  R^2 \dot{\beta}^2
+									$$
+									A nagy henger már egyszerűbb: az csak forog a tengelye körül, így
+									$$
+									    K_M = \frac{1}{2} M R^2 \dot{\beta}^2
+									$$
+									Tehát a teljes Lagrange:
+									$$
+									    \mathcal{L} = \frac{1}{2} M R^2 \dot{\beta}^2 + m  r^2 \dot{\alpha}^2 - m  r R \dot{\alpha} \dot{\beta} + \frac{1}{2} m  R^2 +mg (R-r) \cos{\frac{r \alpha - R \beta}{R-r}} 
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Keressünk ebben valamilyen szimmetriát!
+									Induljunk mi megint a potenciális energiából, azon belül is a $\cos$ tagból.
+									Kis alakítással:
+									$$
+									    \cos{\frac{r \alpha - R \beta}{R-r}} = \cos{\left( r \frac{ \alpha - \frac{R}{r} \beta}{R-r}\right)} 
+									$$
+									Ez alapján tippeljük be a:
+									$$
+									    \begin{pmatrix}
+									        \alpha \\ \beta
+									    \end{pmatrix} \longrightarrow \begin{pmatrix}
+									        \alpha \\ \beta
+									    \end{pmatrix} + \epsilon \begin{pmatrix}
+									        1 \\ \frac{r}{R} 
+									    \end{pmatrix}
+									$$
+									alakú konstans transzformációt.
+									Ezt nézegetve láthatjuk, hogy az $\alpha$ szöget, tehát a belső hengert elforgatjuk valamilyen $\epsilon$ szöggel; míg a külsőt a $\frac{r}{R} \epsilon$-al.
+									Visszaidézve a csúszásmentes forgás feltételét, azt ez pont teljesíti.
+								</p>
+								<p style="text-align: justify;">
+									Nézzük meg mi lesz a hozzá tartozó megmaradó mennyiség is. Véve az általános lendületeket:
+									$$
+									\begin{aligned}
+									    p_\alpha &= \frac{\partial \mathcal{L}}{\partial \dot{\alpha}} = r^2 m\dot{\alpha}  - mrR \dot{\beta} \\
+									    p_\beta &= \frac{\partial \mathcal{L}}{\partial \dot{\beta}} = R^2 M \dot{\beta} - m r R \dot{\alpha}
+									\end{aligned}
+									$$
+									Majd megszorozva az infinitezimális trafókkal:
+									$$
+									\begin{aligned}
+									    P &= (r^2 m\dot{\alpha}  - mrR \dot{\beta}) + (R^2 M \dot{\beta} - m r R \dot{\alpha}) \frac{r}{R}  \\
+									    &= (r^2 m\dot{\alpha}  - mrR \dot{\beta} + R r M \dot{\beta} - m r^2 \dot{\alpha}) \\
+									    &=  ( M-m) rR \dot{\beta}
+									\end{aligned}
+									$$
+									lesz a megmaradó mennyiségünk.
+								</p>
 							</div>
 						</section>
 
 						<section id="six" class="wrapper alt style3">
 							<div class="inner">
 								<h3>
-									
+									Közelítések
 								</h3>
-								
+								<p style="text-align: justify;">
+									Gyakran előfordul, hogy a mozgásegyenletek amiket megkapunk nem oldhatók meg kézzel, vagy legalábbis nem könnyen.
+									Ilyenkor nagyjából három lehetőség van:
+								</p>
+								<ul>
+									<li>Numerikusan oldjuk meg őket, például \texttt{python}-ban a \texttt{scipy} csomaggal.</li>
+									<li>Megnézzük a rendszer egyensúlyi pontjait, és azokról próbálunk meg valami okosat mondani.</li>
+									<li>Addig közelítünk, amíg meg nem tudjuk oldani kézzel.</li>
+								</ul>
+								<p style="text-align: justify;">
+									Most az utolsó ponttal fogunk foglalkozni.
+									A közelítéseknek első lépése, hogy feltesszük egy változóról hogy pici, például $\varphi \ll 1$.
+									Ekkor $\varphi$ összes függvényét ami megjelenik a problémánkban Taylor-sorba tudjuk fejteni a nulla körül tetszőleges rendig, ami gyakran már kezelhetőbb.
+								</p>
+								<p style="text-align: justify;">
+									Emlékeztetőül tetszőleges $f(x)$ függvénynek az $a$ pont körüli Taylor sora:
+									$$
+									    f(x) \approx f(a) +\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2 + \mathcal{O}(x^3)
+									$$
+									például
+									$$
+									\begin{aligned}
+									    \sin{x} &\approx \sin{0}+\frac{\cos{0}}{1!}(x-0)+\frac{-\sin{0}}{2!}(x-0)^2 + \dots = x + \mathcal{O}(x^3) \\
+									    \ln{(1+x)^2} &\approx  \ln{(1+0)^2}+\frac{\frac{2(1+0)}{(1+0)^2}}{1!}(x-0) + \dots = 2x + \mathcal{O}(2)
+									\end{aligned}
+									$$
+									Őt hasznos gyakorolni, ha eddig lemaradt volna: az elemi függvények sorfejtését könnyű megkeresni, de az összetettekét már gyakran manuálisan kell kiszámolnunk.
+								</p>
+								<h3>
+									3.5. példa: Inga
+								</h3>
+								<p style="text-align: justify;">
+									Bemelegítésként először írjuk fel a sima inga problémáját Lagrange-osan, polárkoordinátákkal.
+									A kényszermentes Lagrange-függvény két tagja, ha origónak a felfüggesztési pontot vesszük:
+									$$
+									\begin{aligned}
+									    K &= \frac{1}{2} m \dot{x}^2 + \frac{1}{2} m \dot{y}^2 \\
+									    V &= mg (l-y) = -mgy + \textcolor{gray}{V_0}
+									\end{aligned}
+									$$
+									Ebbe jön majd a kényszerünk, miszerint $x^2 + y^2 = l^2$. Áttérve polárkoordinátákra
+									$$
+									    x = l \sin{\varphi} \quad \quad \text{és}  \quad \quad y = l \cos{\varphi}
+									$$
+									ez automatikusan teljesül, és a Lagrange-unk alakja
+									$$
+									    \mathcal{L} = \frac{1}{2} m l^2 \dot{\varphi}^2 + mgl \cos{\varphi}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									A szükséges deriváltak
+									$$
+										\frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = ml^2 \dot{\varphi} \quad \quad \text{és}  \quad \quad \frac{\partial \mathcal{L}}{\partial \varphi} = -mgl \sin{\varphi}
+									$$
+									illetve
+									$$
+										\frac{\rd}{\rd t }\frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = ml^2 \ddot{\varphi}
+									$$
+									Amikből adódik a mozgásegyenlet:
+									$$
+										\ddot{\varphi} = -\frac{g}{l} \sin{\varphi}
+									$$
+									ami már ismerős lehet az előző óráról.
+									Emlékeztetőül ott bevezettük $\omega = \sqrt{g/l}$-et, aztán \textbf{kis szögekre} közelítettünk mint $\varphi \ll 1$, amelynek eredményeképp
+									$$
+										\ddot{\varphi} \approx  -\omega^2 \varphi
+									$$
+									egy harmonikus oszcillátort kapunk.
+									Innen ered a közelítő eredmény az inga keringési idejére:
+									$$
+										T \approx \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{l}{g}}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ez mind szép és jó, viszont a közelítést már a mozgásegyenlet utolsó alakjában alkalmaztuk.
+									Ez a precízebb és biztosabb mód: mégis kíváncsiak lehetünk, hogy lehet-e előbb.
+									A válasz az, hogy igen, ha óvatosak vagyunk.
+								</p>
+								<p style="text-align: justify;">
+									Kezdjük rögtön a Lagrange-al:
+									$$
+									    \mathcal{L} = \frac{1}{2} m l^2 \dot{\varphi}^2 \cdot 1 + mgl \cdot \cos{\varphi}
+									$$
+									És közelítsünk a potenciális energiában \textbf{másodrendig}:
+									$$
+									    \mathcal{L} \approx \frac{1}{2} m l^2 \dot{\varphi}^2 \cdot 1 + mgl \cdot \left( 1 -\frac{\varphi^2}{2} \right)
+									$$
+									Két tagot kaptunk: az első egy konstans, ami nem befolyásolja a fizikát, ezért lehagyható. A többi:
+									$$
+									    \mathcal{L} \approx \frac{1}{2} m l^2 \dot{\varphi}^2 \cdot 1 -\frac{1}{2} mgl \cdot\varphi^2 
+									$$
+									Ebből kiszámolva a mozgásegyenletet, az eredmény
+									$$
+									      \ddot{\varphi} \approx  - \omega^2 \varphi
+									$$
+									pont ugyanaz, amit az előbb kaptunk.
+								</p>
+								<h3>
+									3.6. példa: Rugós inga
+								</h3>
+								<p style="text-align: justify;">
+									Cseréljük le az előző feladat ingájának madzagát egy rugóra: \textit{mi lesz ekkor a mozgásegyenlet kis kitérésekre?}
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson3/ruginga.png" alt="Rajz a rugós ingáról" width="45%">
+								</div>
+								<h4>
+									3.6.1. Általános megoldás
+								</h4>
+								<p style="text-align: justify;">
+									Ha belevesszük a rugót is:
+									$$
+										V_{\text{rugó}} = \frac{1}{2} k \Delta l^2
+									$$
+									ahol $\Delta l$ fejezi ki, hogy mennyire nyúlt meg a rugó az eredeti $l_0$-hoz képest. Descartes-i koordinátákkal:
+									$$
+									\begin{aligned}
+										x^2 + y^2 &= l^2  = (l_0+\Delta l)^2 \\
+										\Delta l &= \sqrt{x^2 + y^2} - l_0
+									\end{aligned}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Hogy kiválasszuk a jó koordinátákat, gondolkodjunk kicsit a feladaton.
+									Két dolgunk van: ingánk és rugónk. Az inga láttuk milyen jól illeszkedik a poláros koordinátázáshoz.
+									A rugóban pedig az jelenik meg, hogy mennyit nyúl meg sugárirányban.
+									Legyen a két változónk $\varphi$, az inga kitérési szöge, és $R$, az inga megnyúlása az eredeti $l_0$ hosszához képest.
+									A régi változók nyelvén tehát:
+									$$
+									\begin{aligned}
+									    x^2 + y^2 &= l^2 = (l_0 + R)^2 \\
+									    x = l \sin{\varphi} &= (l_0 + R) \sin{\varphi} \\
+									    y = l \cos{\varphi} &= (l_0 + R) \cos{\varphi} 
+									\end{aligned}
+									$$
+									Milyen sebességek jelennek meg a kinetikus tagban? Lesz egyrészt a sugárirányú sebesség, ami azt mondja meg, hogy mennyire változik éppen $R$:
+									$$
+									    K_r = \frac{1}{2} m \dot{R}^2
+									$$
+									és lesz egy erre merőleges komponens, ami az érintő irányú sebesség lesz. Ez pedig a $\dot{\varphi}$ szögsebesség szorozva az $(l_0+R)$ sugárral, tehát
+									$$
+									    K_\varphi = \frac{1}{2} m (l_0+R)^2 \dot{\varphi}^2
+									$$
+									Ezeket összeadva pont ugyanazt kapjuk, mint amit a biztosabb behelyettesítéses módszerrel kaptunk volna.
+								</p>
+								<p style="text-align: justify;">
+									A rugó potenciális energiája így már nagyon egyszerű:
+									$$
+									    V_{\text{rugó}} = \frac{1}{2} k R^2
+									$$
+									Cserébe a gravitációs potenciális energiánk lesz picit csúnyább:
+									$$
+									    V_{\text{grav.}} = mg (l_0+R) (1-\cos{\varphi})
+									$$
+									Ezzel kész is a Lagrange-unk:
+									$$
+									    \mathcal{L} = \frac{1}{2} m \dot{R}^2 + \frac{1}{2} m (l_0+R)^2 \dot{\varphi}^2 + mg (l_0+R) (\cos{\varphi}-1) - \frac{1}{2} k R^2
+									$$
+									és jöhetnek is az Euler-Lagrange egyenletek. Két változónk van, tehát kettő lesz:
+									$$
+									\begin{aligned}
+									    &\frac{\partial \mathcal{L}}{\partial R} = m(l_0+R)\dot{\varphi}^2 + mg \cos{\varphi}-mg - kR \qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{R}} = m \dot{R} \\
+									    &\frac{\partial \mathcal{L}}{\partial \varphi} = - mg (l_0+R) \sin{\varphi} \qquad\qquad\qquad\qquad\qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = m(l_0+R)^2 \dot{\varphi}
+									\end{aligned}
+									$$
+									Amikkel elvégezve a deriválásokat:
+									$$
+									\begin{aligned}
+									    (l_0+R)\dot{\varphi}^2 + g \cos{\varphi}-g - \frac{k}{m}R =   &\ddot{R} \\
+									     - g (l_0+R) \sin{\varphi} = 2(l_0+R)\dot{R} \dot{\varphi} + (l_0+R)^2 &\ddot{\varphi}
+									\end{aligned}
+									$$
+									Kicsit még szépítve:
+									$$
+									\begin{aligned}
+									    \ddot{R} = &(l_0+R)\dot{\varphi}^2 + g (\cos{\varphi}-1) - \frac{k}{m}R  \\
+									    &(l_0+R) \ddot{\varphi} = - 2\dot{R} \dot{\varphi}  - g \sin{\varphi} 
+									\end{aligned}
+									$$
+									Ezt már be lehet küldeni a kedvenc numerikus megoldónknak, és meg is lesznek a pályák.
+								</p>
+								<h4>
+									3.6.2. Közelítés
+								</h4>
+								<p style="text-align: justify;">
+									Arra vagyunk kíváncsiak, hogy kis kitérésekre mi lesz a megoldás.
+									Ez itt két dolgot jelent: a szög is kicsit tér ki az egyensúlyi helyzetéből, és a rugó is. Tehát
+									$$
+									    \varphi \ll 1 \quad \quad \text{és} \quad \quad R \ll l_0
+									$$
+									Ha még nem megy magabiztosan a közelítés, akkor csináljuk a következőt: legyen
+									$$
+									    \varphi = \varepsilon\varphi_0   \quad \quad \text{és} \quad \quad R = \varepsilon R_0
+									$$
+									ami dimenziósan korrekt. Ezt beírva a mozgásegyenleteinkbe, illetve a szögfüggvényeket Taylor-sorba fejtve:
+									$$
+									\begin{aligned}
+									    \varepsilon\ddot{R_0} = (l_0+\varepsilon R_0)\varepsilon^2 \dot{\varphi_0}^2 +g-g - \frac{k}{m}  \varepsilon R_0  \\
+									    (l_0+\varepsilon R_0) \varepsilon\ddot{\varphi_0} = - 2\varepsilon^2\dot{R_0} \dot{\varphi_0}  - g \varepsilon\varphi_0
+									\end{aligned}
+									$$
+									Ki tudjuk kukázni az $\epsilon$-ban elsőrenden túlmenő tagokat:
+									$$
+									\begin{aligned}
+									    \varepsilon\ddot{R_0} \approx  - \frac{k}{m}  \varepsilon R_0  \\
+									    (l_0) \varepsilon\ddot{\varphi_0} \approx - g \varepsilon\varphi_0
+									\end{aligned}
+									$$
+									Tehát
+									$$
+									\begin{aligned}
+									    \ddot{R_0} \approx  - \frac{k}{m}  R_0  \\
+									    \ddot{\varphi_0} \approx - \frac{g}{l_0} \varphi_0
+									\end{aligned}
+									$$
+									első rendben a megoldásaink szeparálódnak két független harmonikus oszcillátorra: az egyik frekvenciája a szokásos rugóé, a másiké pedig az ingáé.
+								</p>
+								<p style="text-align: justify;">
+									Ha rögtön a Lagrange-ban közelítenénk, akkor az már bonyolultabb egy csatolt rendszer esetén.
+									A potenciális energiában ugyanúgy lehet másodrendben közelíteni:
+									$$
+									\begin{aligned}
+									    V_{\text{grav.}} &= mg (l_0+R) (1-\cos{\varphi}) \approx mg (l_0+R) \left(1-1+\frac{\varphi^2}{2}\right) \\
+									    &\approx \frac{1}{2} mg l_0 \varphi^2
+									\end{aligned}
+									$$
+									A kinetikus tagban figyelnünk kell, hogy összességében a koordináták és a sebességek rendje is egyezzen ezzel.
+									Van például az a tagunk, hogy
+									$$
+									    \frac{1}{2} m (l_0+R)^2 \dot{\varphi}^2
+									$$
+									ami összességében másodrendű kell, hogy legyen.
+									Mivel $\dot{\varphi}^2$ rendjét nem tudjuk csökkenteni, ezért a másik tag csak nulladik rendig számít.
+									Ergo $\frac{1}{2}m l_0^2 \dot{\varphi}^2$ lesz. Az összesített közelítő Lagrange-unk tehát
+									$$
+									    \mathcal{L} \approx \frac{1}{2} m \dot{R}^2 + \frac{1}{2} m l_0 \dot{\varphi}^2 -\frac{1}{2} m g l_0 \varphi^2 - \frac{1}{2} k R^2
+									$$
+									nem más, mint két egymással nem kommunikáló oszcillátor, ahogy fentebb is beláttuk.
+								</p>
+								<p style="text-align: justify;">
+									Kis megjegyzés a beadandóhoz és a további feladatokhoz: ha például egy olyan kinetikus tagunk van, hogy
+									$$
+									    K \propto \left(\dot{x_1} \cos{x_1} + \dot{x_2} \sin{x_2}+\dot{x_1}\frac{\ln{(x_2)}}{x_2}\right)^2
+									$$
+									akkor is figyelni kell a sorfejtés rendjére.
+									Itt például ha minden koordinátának a függvényét elsőrendig fejtjük (nulla körül $\cos{x}\approx1$, $\sin{x}\approx x$, $\ln{(1+x)}\approx x$) akkor
+									$$
+									    K \approx \left(\dot{x_1}  + \dot{x_2} x_2+\dot{x_1}\right)^2
+									$$
+									és látszik, hogy egyetlen olyan tagunk lesz csak, ami összességében másodrendű:
+									$$
+									    K \approx 4 \dot{x_1}^2 + \mathcal{O}(x^3)
+									$$
+								</p>
 							</div>
 						</section>
 
 						<section id="seven" class="wrapper alt style2">
 							<div class="inner">
 								<h3>
-									
+									3.7. példa: Éken csúszó inga
 								</h3>
-
+								<p style="text-align: justify;">
+									Múlt héten említettem, hogy a Lagrange-i mechanika feladatok olyanok mint a LEGO: csak össze kell rakni az őket felépítő blokkokat, aztán szisztematikusan megy a megoldás.
+									Most nézzük meg ezt pár eddigi példa darabjaiból.
+									Vegyünk egy asztalhoz rögzített háromszög alakú éket, amire rakjunk egy $M$ tömegű téglatestet, ami rajta szabadon, súrlódásmentesen mozoghat.
+									Rakjunk erre a téglatestre egy $l$ hosszúságú ingát, egy $m$ tömegű testtel a végén. \textit{Mi lesz az inga mozgásegyenlete?}
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson3/csuszoinga.png" alt="Rajz a rugós ingáról" width="45%">
+								</div>
+								<p style="text-align: justify;">
+									Keressük meg a jó változókat!
+									Ezek tipikusan olyanok, amik automatikusan teljesítik a kényszereket a Lagrange-ban: például azt, hogy a téglatest az éllel párhuzamosan mozog.
+									Legyen ennek a koordinátája $z$. Az inga pedig adja magát egy $\varphi$ szöghöz, amit a felfüggesztésétől nézünk. A kinetikus energia ekkor:
+									$$
+									    K = \frac{1}{2} M \dot{z}^2 + \frac{1}{2} m l^2 \dot{\varphi}^2 + K_{m,k}
+									$$
+									Ahol $K_{m,k}$ az ingán lógó test kinetikus tagja a lecsúszásból adódóan.
+									Mielőtt őt kiszámítjuk, nézzük meg a potenciális energiát.
+									Az sajnos már nem illeszkedik olyan szépen a koordinátákhoz: a két test magassága kell hozzá. Ez a téglatestre
+									$$
+									\begin{aligned}
+									    \frac{y}{z} = \sin{\beta} \qquad\qquad \text{tehát} \qquad\qquad y = z \sin{\beta}
+									\end{aligned}
+									$$
+									Az ingán lógó test pedig még ez alatt fog lógni, hozzá képest egy extra $l \cos{\varphi}$ távolságot.
+									Ezzel a potenciális energia
+									$$
+									    V = - Mgz \sin{\beta} - mg \left( z \sin{\beta} + l \cos{\varphi}\right)
+									$$
+								</p>
+								<p style="text-align: justify;">
+									A hiányzó kinetikus tagunkhoz fel tudjuk használni az itt kifejezett $y_m$ távolságot, és a hasonló $x$ irányú eltérülését is az ingának:
+									$$
+									\begin{aligned}
+									    x_m &=  z \cos{\beta} + l \sin{\varphi} \\
+									    \dot{x_m} &= \dot{z}\cos{\beta} + l \dot{\varphi} \cos{\varphi}
+									\end{aligned}
+									$$
+									Hasonlóképpen az $y_m$ tagra:
+									$$
+									    \dot{y_m} = -\dot{z}\sin{\beta} + l \dot{\varphi} \sin{\varphi}
+									$$
+									A kettő négyzetösszege pedig:
+									$$
+									    \dot{x_m}^2 + \dot{y_m}^2 = \dot{z}^2 + l^2 \dot{\varphi} ^2 + 2 l \dot{\varphi}\dot{z} (\cos{\beta}\cos{\varphi} - \sin{\beta} \sin{\varphi})
+									$$
+									Ahol megtaláljuk a már betippelt tagokat, illetve azt ami hiányzott:
+									$$
+									    K_{m,k} = 2 l \dot{\varphi}\dot{z} (\cos{\beta}\cos{\varphi} - \sin{\beta} \sin{\varphi}) = 2 l \dot{\varphi}\dot{z} \cos{(\varphi+\beta)}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ezzel együtt tehát a teljes Lagrange:
+									$$
+									    \mathcal{L} = \frac{1}{2} M \dot{z}^2 + \frac{1}{2} m l^2 \dot{\varphi}^2 +  ml \dot{\varphi}\dot{z} \cos{(\varphi+\beta)} + Mgz \sin{\beta} + mg \left( z \sin{\beta} + l \cos{\varphi}\right)
+									$$
+									A mozgásegyenletek pedig, a téglatesttel kezdve:
+									$$
+									\begin{aligned}
+									    \frac{\partial \mathcal{L}}{\partial z} =  (M+m) g \sin{\beta} \qquad\qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{z}} = M \dot{z} + m l\dot{\varphi} \cos{(\varphi+\beta)}
+									\end{aligned}
+									$$
+									$$
+									\begin{aligned}
+									    (M+m) g \sin{\beta} = M \ddot{z} + ml\ddot{\varphi}\cos{(\varphi+\beta)} -ml \dot{\varphi}^2 \sin{(\varphi+\beta)}
+									\end{aligned}
+									$$
+									Az ingára pedig:
+									$$
+									\begin{aligned}
+									    \frac{\partial \mathcal{L}}{\partial \varphi} = - ml \dot{\varphi}\dot{z} \sin{(\varphi+\beta)} - mgl \sin{\varphi} \qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = m l^2 \dot{\varphi} + ml \dot{z} \cos{(\varphi+\beta)}
+									\end{aligned}
+									$$
+									$$
+									\begin{aligned}
+									    - ml \dot{\varphi}\dot{z} \sin{(\varphi+\beta)} - mgl \sin{\varphi} &= m l^2 \ddot{\varphi} + ml \ddot{z} \cos{(\varphi+\beta)} - ml \dot{z} \dot{\varphi} \sin{(\varphi+\beta)} \\
+									    - mgl \sin{\varphi} &= m l^2 \ddot{\varphi} + ml \ddot{z} \cos{(\varphi+\beta)} \\
+									     l \ddot{\varphi} &= -  g \sin{\varphi} - \ddot{z} \cos{(\varphi+\beta)}
+									\end{aligned}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Mit kapunk akkor, ha mind $\varphi$ mind $\beta$ kicsit? Ekkor
+									$$
+									\begin{aligned}
+									    (M+m) g \beta &= M \ddot{z} + ml\ddot{\varphi} \\
+									    l \ddot{\varphi} &= -  g \varphi - \ddot{z} 
+									\end{aligned}
+									$$
+									kis rendezéssel
+									$$
+									\begin{aligned}
+									    (M+m) g \beta &= -M  l \ddot{\varphi}-Mg \varphi + ml\ddot{\varphi} \\
+									    (m-M)l\ddot{\varphi}  &= (M+m) g \beta + Mg \varphi 
+									\end{aligned}
+									$$
+									Csináljunk egy kis változócserét! Legyen
+									$$
+									    u = \varphi + \frac{M+m}{M} \beta 
+									$$
+									ezt megszorozva $Mg$-vel:
+									$$
+									    Mgu = Mg\varphi + g(M+m) \beta 
+									$$
+									ami pont az egyenletünk jobb oldala. A változót deriválva pedig azt tapasztaljuk, hogy $\ddot{u} = \ddot{\varphi}$ tehát azt az egyenletet is megoldhatnánk, hogy
+									$$
+									\begin{aligned}
+									    (m-M)l\ddot{u}  = Mgu \\
+									    \ddot{u} = -\frac{M}{M-m} \frac{g}{l} u
+									\end{aligned}
+									$$
+									Ez nem más, mint egy harmonikus oszcillátor (megint). Kis szöges közelítésben tehát az inga harmonikusan rezeg, csak egy picit eltolva: függőleges helyett attól $\frac{M+m}{M} \beta $ szöggel eltolva.
+								</p>
 							</div>
 						</section>
 						
