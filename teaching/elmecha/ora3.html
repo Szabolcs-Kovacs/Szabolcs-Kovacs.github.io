@@ -76,15 +76,15 @@
 								<h3>Ciklikus koordináták</h3>
 	
 								<p style="text-align: justify;">
-                  A mai órán további megmaradó mennyiségekkel foglalkozunk: ezeknek első példája a \textbf{ciklikus koordinátákra} vezethető vissza. Velük már találkoztunk, csak nem nevesítettük őket. Ha a Lagrange alakja
-                  $$
-                      \mathcal{L}(x,y,\dot{x},\dot{y}) = \mathcal{L}(x,\dot{x},\dot{y}) =  K(\textcolor{gray}{x},\dot{x},\dot{y})-V(x)
-                  $$
-                  tehát az egyik koordinátát nem tartalmazza expliciten, akkor az a koordináta ciklikus. Ekkor a rá vonatkozó Euler-Lagrange egyenlet alapján
-                  $$
-                      \frac{\rd}{\rd t} \frac{\partial \mathcal{L}}{\partial \dot{y}} = \frac{\partial \mathcal{L}}{\partial y} = 0
-                  $$
-                  a hozzá tartozó $p_y = \partial_{\dot{y}}\mathcal{L}$ által definiált \textbf{általános lendület} időderiváltja nulla: ő egy megmaradó, lendület-szerű mennyiség.
+									A mai órán további megmaradó mennyiségekkel foglalkozunk: ezeknek első példája a \textbf{ciklikus koordinátákra} vezethető vissza. Velük már találkoztunk, csak nem nevesítettük őket. Ha a Lagrange alakja
+									$$
+										\mathcal{L}(x,y,\dot{x},\dot{y}) = \mathcal{L}(x,\dot{x},\dot{y}) =  K(\textcolor{gray}{x},\dot{x},\dot{y})-V(x)
+									$$
+									tehát az egyik koordinátát nem tartalmazza expliciten, akkor az a koordináta ciklikus. Ekkor a rá vonatkozó Euler-Lagrange egyenlet alapján
+									$$
+										\frac{\rd}{\rd t} \frac{\partial \mathcal{L}}{\partial \dot{y}} = \frac{\partial \mathcal{L}}{\partial y} = 0
+									$$
+									a hozzá tartozó $p_y = \partial_{\dot{y}}\mathcal{L}$ által definiált \textbf{általános lendület} időderiváltja nulla: ő egy megmaradó, lendület-szerű mennyiség.
 								</p>
 							</div>
 						</section>
@@ -96,106 +96,106 @@
 								</h3>
 								<p style="text-align: justify;">
 									Térjünk vissza ismét a csúszkáló alakzatokhoz, és használjuk ezt a példát egy általános trükk megismerésére.
-                  Ha nincsenek külső erők akkor a tömegközéppont gyorsulása nulla.
-                  Ebben a példában csak $y$ irányban hat külső erő (a gravitáció): jó ötlet lehet ezért az $x$ irányban megnézni egy tömegközéppont-szerű mennyiséget.
+									Ha nincsenek külső erők akkor a tömegközéppont gyorsulása nulla.
+									Ebben a példában csak $y$ irányban hat külső erő (a gravitáció): jó ötlet lehet ezért az $x$ irányban megnézni egy tömegközéppont-szerű mennyiséget.
 								</p>
 								<div style="text-align: center;">
 									<img src="figs/lesson2/csuszoek.png" alt="Kis ábra a csúszó ékről" width="45%">
 								</div>
 								<p style="text-align: justify;">
-                  Legyenek az $x_1$ és $x_2$ helyett az új koordinátáink (emlékezve hogy a két $x$ koordinátát ellenkező előjellel vettük fel)
-                  $$
-                      R = \frac{Mx_1-mx_2}{M+m} \quad \quad \text{és} \quad \quad r = x_1+x_2
-                  $$
-                  Térjünk át ezekre a koordinátákra, és vegyük figyelembe velük a kényszereket. Visszaidézve a kényszermentes Lagrange-ot:
-                  $$
-                      \mathcal{L} = \frac{1}{2}M \dot{x_1}^2 + \frac{1}{2}M \dot{y_1}^2 + \frac{1}{2} m \dot{x_2}^2 + \frac{1}{2} m \dot{y_2}^2 +mgy_2
-                  $$
-                  A kényszereink most $y_1 = \text{konst.}$ és  $y_2 = r \tan{\varphi}$ tehát a potenciál egyszerűen
-                  $$
-                      V = -mg r \tan{\varphi}
-                  $$
-                  ami már csak az egyik koordinátától függ.
+									Legyenek az $x_1$ és $x_2$ helyett az új koordinátáink (emlékezve hogy a két $x$ koordinátát ellenkező előjellel vettük fel)
+									$$
+										R = \frac{Mx_1-mx_2}{M+m} \quad \quad \text{és} \quad \quad r = x_1+x_2
+									$$
+									Térjünk át ezekre a koordinátákra, és vegyük figyelembe velük a kényszereket. Visszaidézve a kényszermentes Lagrange-ot:
+									$$
+										\mathcal{L} = \frac{1}{2}M \dot{x_1}^2 + \frac{1}{2}M \dot{y_1}^2 + \frac{1}{2} m \dot{x_2}^2 + \frac{1}{2} m \dot{y_2}^2 +mgy_2
+									$$
+									A kényszereink most $y_1 = \text{konst.}$ és  $y_2 = r \tan{\varphi}$ tehát a potenciál egyszerűen
+									$$
+										V = -mg r \tan{\varphi}
+									$$
+									ami már csak az egyik koordinátától függ.
 								</p>
-                <p style="text-align: justify;">
-                  A kinetikus tagban viszont történhetnek még csúnyaságok. Következő lépésként invertálnunk kell az új koordinátáink definícióját a régikre. Ez favágó módszerrel
-                  $$
-                  \begin{aligned}
-                      x_1 &= r - x_2 \quad \quad \quad \quad \quad \quad x_2 = \frac{M}{m} x_1- \frac{M+m}{m}R \\
-                      x_2 &= r - x_1 \quad \quad \quad \quad \quad \quad x_1 = \frac{m}{M} x_2+ \frac{M+m}{M}R
-                  \end{aligned}
-                  $$
-                  egyenletrendszerre vezet, amik kicsit alakítva
-                  $$
-                  \begin{aligned}
-                      x_1 = \frac{m}{M} (r-x_2)+ \frac{M+m}{M}R \quad \quad &\quad \quad  \quad \quad x_2 = \frac{M}{m} (r-x_1)- \frac{M+m}{m}R \\
-                      x_1 = \frac{m}{M+m} r+ R \quad \quad &\quad \quad  \quad \quad x_2 = \frac{M}{M+m} r- R
-                  \end{aligned}
-                  $$
-                  Egy fokkal haladóbb út az, ha ezt mátrixosan írjuk:
-                  $$
-                      \begin{pmatrix}
-                          R \\ r
-                      \end{pmatrix} = \begin{pmatrix}
-                          \frac{M}{M+m} && -\frac{m}{M+m} \\
-                          1 && 1
-                      \end{pmatrix} \begin{pmatrix}
-                          x_1 \\ x_2
-                      \end{pmatrix}
-                  $$
-                  A fenti mátrixot invertálva (aminek részleteit később gyakoroljuk)
-                  $$
-                      \begin{pmatrix}
-                          x_1 \\ x_2
-                      \end{pmatrix} = \begin{pmatrix}
-                          1 && \frac{m}{M+m} \\
-                          -1 && \frac{M}{M+m}
-                      \end{pmatrix} \begin{pmatrix}
-                          R \\ r
-                      \end{pmatrix}
-                  $$
-                  ugyanezt az eredményt kapjuk.
+								<p style="text-align: justify;">
+									A kinetikus tagban viszont történhetnek még csúnyaságok. Következő lépésként invertálnunk kell az új koordinátáink definícióját a régikre. Ez favágó módszerrel
+									$$
+										\begin{aligned}
+										x_1 &= r - x_2 \quad \quad \quad \quad \quad \quad x_2 = \frac{M}{m} x_1- \frac{M+m}{m}R \\
+										x_2 &= r - x_1 \quad \quad \quad \quad \quad \quad x_1 = \frac{m}{M} x_2+ \frac{M+m}{M}R
+										\end{aligned}
+									$$
+									egyenletrendszerre vezet, amik kicsit alakítva
+									$$
+										\begin{aligned}
+										x_1 = \frac{m}{M} (r-x_2)+ \frac{M+m}{M}R \quad \quad &\quad \quad  \quad \quad x_2 = \frac{M}{m} (r-x_1)- \frac{M+m}{m}R \\
+										x_1 = \frac{m}{M+m} r+ R \quad \quad &\quad \quad  \quad \quad x_2 = \frac{M}{M+m} r- R
+										\end{aligned}
+									$$
+									Egy fokkal haladóbb út az, ha ezt mátrixosan írjuk:
+									$$
+										\begin{pmatrix}
+										R \\ r
+										\end{pmatrix} = \begin{pmatrix}
+										\frac{M}{M+m} && -\frac{m}{M+m} \\
+										1 && 1
+										\end{pmatrix} \begin{pmatrix}
+										x_1 \\ x_2
+										\end{pmatrix}
+									$$
+									A fenti mátrixot invertálva (aminek részleteit később gyakoroljuk)
+									$$
+										\begin{pmatrix}
+										x_1 \\ x_2
+										\end{pmatrix} = \begin{pmatrix}
+										1 && \frac{m}{M+m} \\
+										-1 && \frac{M}{M+m}
+										\end{pmatrix} \begin{pmatrix}
+										R \\ r
+										\end{pmatrix}
+									$$
+									ugyanezt az eredményt kapjuk.
 								</p>
-                <p style="text-align: justify;">
-                  Minden esetre ezzel ki tudjuk fejezni a kinetikus tagunk $x$ komponenseit. Némi algebra után
-                  $$
-                  \begin{aligned}
-                     M \dot{x_1}^2 +  m \dot{x_2}^2 &= M\left( \frac{m}{M+m} \dot{r} + \dot{R} \right)^2 + m\left(\frac{M}{M+m}\dot{r} -\dot{R} \right)^2 \\
-                     &=\frac{m^2M}{(M+m)^2} \dot{r}^2 +M \dot{R}^2 + 2\frac{mM}{M+m} \dot{r} \dot{R} + \frac{mM^2}{(M+m)^2}\dot{r}^2 +m\dot{R}^2 - 2 \frac{mM}{M+m} \dot{r} \dot{R} \\
-                     &= m\frac{mM}{(M+m)^2} \dot{r}^2  + M\frac{mM}{(M+m)^2}\dot{r}^2 +(M+m)\dot{R}^2 \\
-                     &=  \frac{mM}{M+m} \dot{r}^2  +(M+m)\dot{R}^2
-                  \end{aligned}
-                  $$
-                  Bevezetve a $\mu$ \textit{redukált tömeget}
-                  $$
-                      \mu = \frac{mM}{M+m}
-                  $$
-                  A teljes Lagrange-függvényünk
-                  $$
-                      \mathcal{L} =  \frac{1}{2}(M+m)\dot{R}^2 +\frac{1}{2} \mu \dot{r}^2 + \frac{1}{2} m \dot{r}^2 \tan^2{\varphi} + mg r \tan{\varphi}
-                  $$
+				                <p style="text-align: justify;">
+									Minden esetre ezzel ki tudjuk fejezni a kinetikus tagunk $x$ komponenseit. Némi algebra után
+									$$
+										\begin{aligned}
+										 M \dot{x_1}^2 +  m \dot{x_2}^2 &= M\left( \frac{m}{M+m} \dot{r} + \dot{R} \right)^2 + m\left(\frac{M}{M+m}\dot{r} -\dot{R} \right)^2 \\
+										 &=\frac{m^2M}{(M+m)^2} \dot{r}^2 +M \dot{R}^2 + 2\frac{mM}{M+m} \dot{r} \dot{R} + \frac{mM^2}{(M+m)^2}\dot{r}^2 +m\dot{R}^2 - 2 \frac{mM}{M+m} \dot{r} \dot{R} \\
+										 &= m\frac{mM}{(M+m)^2} \dot{r}^2  + M\frac{mM}{(M+m)^2}\dot{r}^2 +(M+m)\dot{R}^2 \\
+										 &=  \frac{mM}{M+m} \dot{r}^2  +(M+m)\dot{R}^2
+										\end{aligned}
+									$$
+									Bevezetve a $\mu$ \textit{redukált tömeget}
+									$$
+										\mu = \frac{mM}{M+m}
+									$$
+									A teljes Lagrange-függvényünk
+									$$
+										\mathcal{L} =  \frac{1}{2}(M+m)\dot{R}^2 +\frac{1}{2} \mu \dot{r}^2 + \frac{1}{2} m \dot{r}^2 \tan^2{\varphi} + mg r \tan{\varphi}
+									$$
 								</p>
-                <p style="text-align: justify;">
-                  Ebben már szépen látszik, hogy az $R$ koordináta sehol sem szerepel explicite: tehát a rá vonatkozó Euler-Lagrange egyenlet alapján
-                  $$
-                  \begin{aligned}
-                      \ddot{R} &= 0 \\
-                      M \ddot{x_1} - m \ddot{x_2} &= 0 \\
-                      M \dot{x_1} - m \dot{x_2} &= \text{konst.}
-                  \end{aligned}
-                  $$
-                  Tehát a tömegközéppont mozgásának $x$ komponense az, ami itt egy ciklikus koordináta.
-                  A hozzá tartozó lendület nem más, mint az $x$ irányú összlendület: ez egy megmaradó mennyiség.
-                  Mellesleg a másik, relatív koordinátára vonatkozó Euler-Lagrange eredménye
-                  $$
-                      (\mu + m \tan^2{\varphi})\ddot{r} = mg \tan{\varphi}
-                  $$
-                  visszaadja a múlt órán látott mozgásegyenletet. Eszerint a két test állandó
-                  $$
-                      \ddot{r} = \frac{mg \tan{\varphi}}{\mu + m \tan^2{\varphi}}
-                  $$
-                  gyorsulással távolodik egymástól az $x$ irányban.
-                  A múlt heti eredményeinket összeadva pontosan ezt a gyorsulást kapjuk, jópár algebrai lépés után amit most megspórolunk azzal, hogy elhisszük.
+								<p style="text-align: justify;">
+									Ebben már szépen látszik, hogy az $R$ koordináta sehol sem szerepel explicite: tehát a rá vonatkozó Euler-Lagrange egyenlet alapján
+									$$
+										\begin{aligned}
+										\ddot{R} &= 0 \\
+										M \ddot{x_1} - m \ddot{x_2} &= 0 \\
+										M \dot{x_1} - m \dot{x_2} &= \text{konst.}
+										\end{aligned}
+									$$
+									Tehát a tömegközéppont mozgásának $x$ komponense az, ami itt egy ciklikus koordináta.
+									A hozzá tartozó lendület nem más, mint az $x$ irányú összlendület: ez egy megmaradó mennyiség.
+									Mellesleg a másik, relatív koordinátára vonatkozó Euler-Lagrange eredménye
+									$$
+										(\mu + m \tan^2{\varphi})\ddot{r} = mg \tan{\varphi}
+									$$
+									visszaadja a múlt órán látott mozgásegyenletet. Eszerint a két test állandó
+									$$
+										\ddot{r} = \frac{mg \tan{\varphi}}{\mu + m \tan^2{\varphi}}
+									$$
+									gyorsulással távolodik egymástól az $x$ irányban.
+									A múlt heti eredményeinket összeadva pontosan ezt a gyorsulást kapjuk, jópár algebrai lépés után amit most megspórolunk azzal, hogy elhisszük.
 								</p>
 							</div>
 						</section>
@@ -203,87 +203,87 @@
 						<section id="three" class="wrapper style3">
 							<div class="inner">
 								<h3>
-                  3.2. példa: Mozgás hengeren
-                </h3>
+				                  3.2. példa: Mozgás hengeren
+				                </h3>
 								<p style="text-align: justify;">
-                  Bár kétségtelenül ők a leggyakoribbak, nem csak Descartes-i és gömbi koordináták léteznek.
-                  Nézzünk most egy példát, ahol hengeres $(\rho, \varphi, z)$ koordinátázás lesz célravezető.
-                  Vegyünk egy $R$ sugarú, végtelenül magas hengert.
-                  Erre rögzítünk egy tömegpontot úgy, hogy csak a henger felületén mozoghat; majd bekapcsolunk egy erőt, ami az origó felé vonzza a tömegpontot, méghozzá
-                  $$
-                      \vec{F} = -k \vec{r}
-                  $$
-                  alakban. \textit{Mi lesz a pálya, ha elindítjuk a tömegpontot?}
+									Bár kétségtelenül ők a leggyakoribbak, nem csak Descartes-i és gömbi koordináták léteznek.
+									Nézzünk most egy példát, ahol hengeres $(\rho, \varphi, z)$ koordinátázás lesz célravezető.
+									Vegyünk egy $R$ sugarú, végtelenül magas hengert.
+									Erre rögzítünk egy tömegpontot úgy, hogy csak a henger felületén mozoghat; majd bekapcsolunk egy erőt, ami az origó felé vonzza a tömegpontot, méghozzá
+									$$
+										\vec{F} = -k \vec{r}
+									$$
+									alakban. \textit{Mi lesz a pálya, ha elindítjuk a tömegpontot?}
 								</p>
 								<div style="text-align: center;">
 									<img src="figs/lesson3/henger.png" alt="Vázlatos rajz a hengeren mozgó tömegpontról" width="45%">
 								</div>
-                <p style="text-align: justify;">
-                  Először is: kellenek az energiák.
-                  A potenciál helyett itt most az erő van megadva, de ha még emlékszünk, hogy
-                  $$
-                      \vec{F} = - \vec{\nabla} U
-                  $$
-                  akkor visszakövetkeztethetünk rá, mint
-                  $$
-                      U = \frac{1}{2} k \vec{r}^{\,2}= \frac{1}{2} k r^{2}
-                  $$
-                  Itt $r$ a távolság az origótól: ő még nem hengeres. Kis Pitagorasz  tétellel viszont
-                  $$
-                      r^2 = z^2 + \rho^2
-                  $$
-                  tehát a potenciális tag hengerkoordinátákban:
-                  $$
-                      U = \frac{1}{2} k (z^2 + \rho^2)
-                  $$
-                  Ahova még beírhatjuk a $\rho = R$ kényszerünket:
-                  $$
-                      U = \frac{1}{2} k (z^2 + R^2)
-                  $$
+				                <p style="text-align: justify;">
+					                Először is: kellenek az energiák.
+					                A potenciál helyett itt most az erő van megadva, de ha még emlékszünk, hogy
+					                $$
+					                    \vec{F} = - \vec{\nabla} U
+					                $$
+					                akkor visszakövetkeztethetünk rá, mint
+					                $$
+					                    U = \frac{1}{2} k \vec{r}^{\,2}= \frac{1}{2} k r^{2}
+					                $$
+					                Itt $r$ a távolság az origótól: ő még nem hengeres. Kis Pitagorasz  tétellel viszont
+					                $$
+					                    r^2 = z^2 + \rho^2
+					                $$
+					                tehát a potenciális tag hengerkoordinátákban:
+					                $$
+					                    U = \frac{1}{2} k (z^2 + \rho^2)
+					                $$
+					                Ahova még beírhatjuk a $\rho = R$ kényszerünket:
+					                $$
+					                    U = \frac{1}{2} k (z^2 + R^2)
+					                $$
 								</p>
-                <p style="text-align: justify;">
-                  Kérdés még a kinetikus tag: milyen irányokban lehet sebessége a részecskének?
-                  A három hengeres irány közül csak $\rho$ nem játszhat, mert a felületre vagyunk korlátozva, így marad $z$ és $\varphi$.
-                  Hogy az utóbbiból sebességet csináljunk, meg kell javítani a dimenzióját egy hossz mértékegységű sugár szorzóval, ami itt $\rho = R$.
-                  $$
-                      K = \frac{1}{2} m \dot{z}^2 + \frac{1}{2} m R^2 \dot{\varphi}^2
-                  $$
-                  A teljes Lagrange tehát:
-                  $$
-                      \mathcal{L} = \frac{1}{2} m \dot{z}^2 + \frac{1}{2} m R^2 \dot{\varphi}^2 - \frac{1}{2} k (z^2 + R^2)
-                  $$
-                  Ami két változótól függ: $z$ és $\varphi$.
-                  Mostmár felfegyverkezve viszont a ciklikus koordináták ismeretével, rögtön láthatjuk, hogy nincs explicit $\varphi$ függés benne, tehát
-                  $$
-                      \frac{\partial \mathcal{L}}{\partial \varphi} = 0
-                  $$
-                  amiből következik, hogy
-                  $$
-                       \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = mR^2 \dot{\varphi} = \text{konst.}
-                  $$
-                  Ez egy megmaradó mennyiség, mint az előző példában az impulzus volt.
-                  Ahogy itt most $\varphi$ egy \textit{általános} koordináta, a hozzá tartozó $mR^2 \dot{\varphi}$ mennyiség egy \textit{általános} impulzus.
-                  Mivel ez a koordináta ciklikus (nincs explicit a Lagrange-ban), a hozzá tartozó általános impulzus megmarad. Kis átalakítással egyébként
-                  $$
-                      \Tilde{p}_\varphi = R \cdot m R \dot{\varphi} =  R \cdot m v_\perp = R \cdot p_\perp = L 
-                  $$
-                  ez nem más mint a \textbf{perdület}.
+				                <p style="text-align: justify;">
+					                Kérdés még a kinetikus tag: milyen irányokban lehet sebessége a részecskének?
+					                A három hengeres irány közül csak $\rho$ nem játszhat, mert a felületre vagyunk korlátozva, így marad $z$ és $\varphi$.
+					                Hogy az utóbbiból sebességet csináljunk, meg kell javítani a dimenzióját egy hossz mértékegységű sugár szorzóval, ami itt $\rho = R$.
+					                $$
+					                    K = \frac{1}{2} m \dot{z}^2 + \frac{1}{2} m R^2 \dot{\varphi}^2
+					                $$
+					                A teljes Lagrange tehát:
+					                $$
+					                    \mathcal{L} = \frac{1}{2} m \dot{z}^2 + \frac{1}{2} m R^2 \dot{\varphi}^2 - \frac{1}{2} k (z^2 + R^2)
+					                $$
+					                Ami két változótól függ: $z$ és $\varphi$.
+					                Mostmár felfegyverkezve viszont a ciklikus koordináták ismeretével, rögtön láthatjuk, hogy nincs explicit $\varphi$ függés benne, tehát
+					                $$
+					                    \frac{\partial \mathcal{L}}{\partial \varphi} = 0
+					                $$
+					                amiből következik, hogy
+					                $$
+					                     \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = mR^2 \dot{\varphi} = \text{konst.}
+					                $$
+					                Ez egy megmaradó mennyiség, mint az előző példában az impulzus volt.
+					                Ahogy itt most $\varphi$ egy \textit{általános} koordináta, a hozzá tartozó $mR^2 \dot{\varphi}$ mennyiség egy \textit{általános} impulzus.
+					                Mivel ez a koordináta ciklikus (nincs explicit a Lagrange-ban), a hozzá tartozó általános impulzus megmarad. Kis átalakítással egyébként
+					                $$
+					                    p_\varphi = R \cdot m R \dot{\varphi} =  R \cdot m v_\perp = R \cdot p_\perp = L 
+					                $$
+					                ez nem más mint a \textbf{perdület}.
 								</p>
-                <p style="text-align: justify;">
-                  Minden esetre, már az Euler-Lagrange felírása nélkül tudunk valamit a pályáról: a körkörös komponense a mozgásnak csupán egy állandó sebességű keringés lesz.
-                  Marad még a $z$ komponens, amire már kell az Euler-Lagrange:
-                  $$
-                  \begin{aligned}
-                      \frac{\partial \mathcal{L}}{\partial z} = -kz \qquad&\qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{z}} = m \dot{z} \\
-                      m \ddot{z} &= - kz \\
-                      \ddot{z} &= - \frac{k}{m} z = -\omega^2 z
-                  \end{aligned}
-                  $$
-                  Ez szintén egy ismerős diffegyenlet lehet: a harmonikus oszcillátoré. Megoldása:
-                  $$
-                      z(t) = A \cos{\left( \omega t + c \right)}
-                  $$
-                  Összesítve a találtakat: a részecskénk körkörösen egyenletes sebességgel fog keringeni, míg a $z$ irányban fel-le oszcillál.
+				                <p style="text-align: justify;">
+					                Minden esetre, már az Euler-Lagrange felírása nélkül tudunk valamit a pályáról: a körkörös komponense a mozgásnak csupán egy állandó sebességű keringés lesz.
+					                Marad még a $z$ komponens, amire már kell az Euler-Lagrange:
+					                $$
+					                \begin{aligned}
+					                    \frac{\partial \mathcal{L}}{\partial z} = -kz \qquad&\qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{z}} = m \dot{z} \\
+					                    m \ddot{z} &= - kz \\
+					                    \ddot{z} &= - \frac{k}{m} z = -\omega^2 z
+					                \end{aligned}
+					                $$
+					                Ez szintén egy ismerős diffegyenlet lehet: a harmonikus oszcillátoré. Megoldása:
+					                $$
+					                    z(t) = A \cos{\left( \omega t + c \right)}
+					                $$
+					                Összesítve a találtakat: a részecskénk körkörösen egyenletes sebességgel fog keringeni, míg a $z$ irányban fel-le oszcillál.
 								</p>
 							</div>
 						</section>
@@ -291,9 +291,139 @@
 						<section id="four" class="wrapper alt style4">
 							<div class="inner">
 								<h3>
-									
+									Noether-tétel
 								</h3>
-								
+								<p style="text-align: justify;">
+									Megbarátkoztunk kicsit az általános impulzusokkal.
+									Ezeket gyakran tudtuk összekötni egy vizuális megfigyeléssel a problémánkról:
+									az $x$ tengelyen eltolható rendszereknél mindig megmarad az $x$ irányú lendület, a forgásszimmetrikus feladatokban pedig a perdület.
+									Ezt a megfigyelést formalizálja, és általánosítja a Noether-tétel:
+								</p>
+								<p style="text-align: center"><i>Mi a legrövidebb út két pont között?</i></p>
+								<p style="text-align: justify;">
+									Matematikailag ez azt jelenti, hogy a $q$ változóinkat eltranszformáljuk valahogy (pl. elforgatjuk)
+									$$
+									    \vec{q} \longrightarrow T (\vec{q}) \approx \vec{q} + \epsilon\, \vec{\varphi}
+									$$
+									ami sorbafejthető az identitás transzformáció (ie.: nem csinálunk semmit, $\vec{q}\rightarrow \vec{q}$) körül.
+									Ha erre a transzformációra változatlan a Lagrange függvényünk, akkor
+									$$
+									    P = \frac{\partial \mathcal{L}}{\partial \dot{\vec{q}}} \vec{\varphi} = \sum_i  \frac{\partial \mathcal{L}}{\partial \dot{q_i}} \varphi_i = \vec{p} \vec{\varphi}
+									$$
+									állandó. Nézzünk erre pár példát!
+								</p>
+								<h3>
+									3.3. példa: 2D rugó
+								</h3>
+								<h4>
+									3.3.1. Descartes
+								</h4>
+								<p style="text-align: justify;">
+									Vegyünk egy egyszerű rugós testet egy síkban, és írjuk fel a Lagrange-át sima Descartes-i koordinátákban. Ahogy az előbb láthattuk, a rugó potenciális energiája $\frac{1}{2} k \vec{r}^{\,2}$, tehát
+									$$
+									    \mathcal{L} = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2) - \frac{1}{2}k (x^2 + y^2)
+									$$
+									Nézzük meg az
+									$$
+									\begin{aligned}
+									    x \rightarrow x + \epsilon \, y \qquad\qquad\qquad y \rightarrow y - \epsilon \, x
+									\end{aligned}
+									$$
+									transzformációt, tehát ha $\vec{\varphi} = (y,\, -x)$! Ez mellesleg úgy is írható, mint
+									$$
+									    \begin{pmatrix}
+									        x \\ y
+									    \end{pmatrix} \longrightarrow \begin{pmatrix}
+									        1 && \epsilon \\
+									        -\epsilon && 1
+									    \end{pmatrix} \begin{pmatrix}
+									        x \\ y
+									    \end{pmatrix}
+									$$
+									Ezt nézegetve kicsit, felismerhetjük hogy $\sin{\epsilon} \approx \epsilon$ és $\cos{\epsilon} \approx 1$, tehát ő nem más mint egy forgásmátrix közelítése.
+								</p>
+								<p style="text-align: justify;">
+									Nézzük meg, hogy invariáns-e erre a transzformációra a Lagrange, kezdve a kinetikus taggal. Véve a deriváltakat:
+									$$
+									\begin{aligned}
+									    \dot{x} \rightarrow \frac{\rd}{\rd t} (x + \epsilon \, y) = \dot{x} + \epsilon \dot{y} \qquad\qquad\qquad  \dot{y} \rightarrow\frac{\rd}{\rd t} (y - \epsilon \, x) = \dot{y} - \epsilon \dot{x}
+									\end{aligned}
+									$$
+									amik négyzetei:
+									$$
+									\begin{aligned}
+									    \dot{x}^2 \rightarrow \dot{x}^2 + 2 \epsilon \dot{x} \dot{y} + \underbrace{\epsilon^2 \dot{y}^2}_{\approx 0} \qquad\qquad\qquad \dot{y}^2 \rightarrow \dot{y}^2 - 2 \epsilon \dot{x} \dot{y} + \underbrace{\epsilon^2 \dot{x}^2}_{\approx 0}
+									\end{aligned}
+									$$
+									Tehát a kinetikus tag:
+									$$
+									    K \rightarrow \frac{1}{2}m (\dot{x}^2 + \dot{y}^2 + \underbrace{2 \epsilon \dot{x} \dot{y} - 2 \epsilon \dot{x} \dot{y}}_{=0}) = K
+									$$
+									változatlan. Ugyanezt eljátszva a potenciális taggal:
+									$$
+									    V \rightarrow \frac{1}{2}k (x^2 + y^2 + + \underbrace{2 \epsilon x y - 2 \epsilon x y}_{=0}) = V
+									$$
+									az is ugyanúgy néz ki, tehát ez egy \textbf{szimmetria}.
+								</p>
+								<p style="text-align: justify;">
+									Ha már tujduk, hogy szimmetriáról beszélünk, nézzük meg mi marad meg a Noether-tétel szerint. Deriválva a Lagrange-ot a sebességek szerint megkapjuk az általános lendületeket:
+									$$
+									\begin{aligned}
+									    p_x =\frac{\partial \mathcal{L}}{\partial \dot{x}} = m \dot{x} \qquad\qquad\qquad
+									    p_y=\frac{\partial \mathcal{L}}{\partial \dot{y}} = m \dot{y}
+									\end{aligned}
+									$$
+									amiket be kell szorozni még az infinitezimális $\varphi$ tagokkal:
+									$$
+									\begin{aligned}
+									    P = \frac{\partial \mathcal{L}}{\partial \dot{x}} \varphi_x + \frac{\partial \mathcal{L}}{\partial \dot{y}} \varphi_y \\
+									    = m \dot{x} \cdot y - m \dot{y} x \\
+									    = p_x y - p_y x
+									\end{aligned}
+									$$
+									Ami nem más, mint a rendszer perdülete.
+								</p>
+								<h4>
+									3.3.2. Polár
+								</h4>
+								<p style="text-align: justify;">
+									Írjuk most fel ugyanezt, csak polárkoordinátákban, a rugó végéből a testhez mutató $\vartheta$ szöggel és a rugó relatív megnyúlását leíró $R$ távolsággal.
+									Ekkor a Lagrange
+									$$
+										\mathcal{L} = \frac{1}{2} m (\dot{R}^2 + R^2 \dot{\vartheta}^2) - \frac{1}{2}k R^2
+									$$
+									Láthatjuk, hogy $\vartheta$ ciklikus, tehát az általános $p_\vartheta$ lendület megmarad, amiről már beláttuk korábban, hogy a perdület.
+									Ez konzisztens az előző feladatrésszel, de gyakorlásképp nézzük meg mi lesz most az eltolás amire invariáns a Lagrange.
+									A valóságban úgyis ez a nehezebb része a feladatoknak.
+								</p>
+								<p style="text-align: justify;">
+									A változók transzformálása nem függ azok deriváltjaitól, ezért általában először a potenciális energiát érdemes nézegetni.
+									Itt most ez teljesen független $\vartheta$-tól, tehát ott tetszőleges
+									$$
+									    \vec{\varphi} = \begin{pmatrix}
+									        0 \\
+									        \alpha
+									    \end{pmatrix} \quad \quad \text{azaz} \quad \quad R \rightarrow R+0, \quad \quad \vartheta \rightarrow \vartheta + \epsilon \alpha
+									$$
+									transzformációk működnek.
+									A kinetikus tagunkban viszont szerepel $\dot{\vartheta}$: hogy az változatlan maradjon, igaznak kell lennie
+									$$
+									    \dot{R}^2 + R^2 \dot{\vartheta}^2 = \dot{R}^2 + \dot{R}^2 (\dot{\vartheta}+\epsilon \dot{\alpha})^2
+									$$
+									összefüggésnek. Ezt kicsit kibontva:
+									$$
+									\begin{aligned}
+									    \dot{R}^2 + R^2 \dot{\vartheta}^2 = \dot{R}^2 &+ \dot{R}^2 (\dot{\vartheta} ^2 +2\epsilon \dot{\vartheta} \dot{\alpha}) \\
+									    \dot{\vartheta} \dot{\alpha} &= 0 \\
+									    \dot{\alpha} &= 0
+									\end{aligned}
+									$$
+									azt látjuk, hogy a szög transzformációja nem más, mint egy konstans eltolás. A hozzá tartozó megmaradó mennyiség pedig:
+									$$
+									    P = m R^2 \dot{\vartheta} \cdot \alpha
+									$$
+									ismét a perdület, egy konstans $\alpha$ szorzó erejéig. Ezt bele lehet olvasztani az $\epsilon$-ba, és vehető egynek.
+								</p>
 							</div>
 						</section>
 
