@@ -386,7 +386,7 @@
 									\textit{Mik a normálmódusok?}
 								</p>
 								<div style="text-align: center;">
-									<img src="figs/lesson4/doltrudinga" alt="Ábra a rudas ingáról" width="25%">
+									<img src="figs/lesson4/doltrudinga.png" alt="Ábra a rudas ingáról" width="25%">
 								</div>
 								<p style="text-align: justify;">
 									Tippeljük meg ismét a jó általános koordinátákat: ha a tömegek egybeesnek, és az inga pont lefelé mutat, egyensúlyban vagyunk.
@@ -749,73 +749,596 @@
 									4.4. példa: Tripla rugós kéttest rendszer
 								</h3>
 								<p style="text-align: justify;">
-
+									Most nézzünk valami tényleges fizikai rendszert ami nem csak közelítve lesz oszcillátor:
+									két különböző $m_1$, $m_2$ tömegű golyót, amiket kössön össze egymással egy $K$ állandójú rugó;
+									illetve a hozzájuk közelebbi falakkal 1-1 rendre $k_1$ és $k_2$ állandójú rugó.
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson4/rugok.png" alt="Tripla rugós rendszer" width="35%">
+								</div>
+								<p style="text-align: justify;">
+									Legyenek az általános koordinátáink az egyensúlyi helyzettől való eltérést leírő $q_1$ és $q_2$. Ekkor a Lagrange:
+									$$
+									    \mathcal{L} = \frac{1}{2} m_1 \dot{q_1}^2 + \frac{1}{2} m_2 \dot{q_2}^2 - \frac{1}{2} k_1 q_1^2 - \frac{1}{2} k_2 q_2^2 - \frac{1}{2} K (q_2 - q_1)^2
+									$$
+									Ezt mátrixossá alakíthatjuk:
+									$$
+									    \mathcal{L} = \frac{1}{2} \begin{pmatrix}
+									        \dot{q_1} \\ \dot{q_2}
+									    \end{pmatrix}^T \underbrace{\begin{pmatrix}
+									        m_1 && 0 \\
+									        0 && m_2
+									    \end{pmatrix}}_{= M} \begin{pmatrix}
+									        \dot{q_1} \\ \dot{q_2}
+									    \end{pmatrix} - \frac{1}{2} \begin{pmatrix}
+									        q_1 \\ q_2
+									    \end{pmatrix}^T \underbrace{  \begin{pmatrix}
+									        k_1 + K && -K \\
+									        -K && k_2 + K
+									    \end{pmatrix}}_{=D} \begin{pmatrix}
+									        q_1 \\ q_2
+									    \end{pmatrix}
+									$$
+									Visszaidézve még a sima rugóknál használt $\omega^2 = \frac{k}{m}$ frekvenciát, dimenziótlanítani is tudjuk a mátrixokat, majd megoldani a sajátérték-problémát.
+									$$\begin{aligned}
+									    A =  \underbrace{\begin{pmatrix}
+									        1/m_1 && 0 \\
+									        0 && 1/m_2
+									    \end{pmatrix}}_{= M^{-1}}\begin{pmatrix}
+									        k_1 + K && -K \\
+									        -K && k_2 + K
+									    \end{pmatrix} = \begin{pmatrix}
+									        \frac{k_1 + K}{m_1} && -\frac{K}{m_1} \\
+									        -\frac{K}{m_2} && \frac{k_2 + K}{m_2}
+									    \end{pmatrix}
+									\end{aligned}$$
 								</p>
 								<p style="text-align: justify;">
-
-								</p>
-								<p style="text-align: justify;">
-
-								</p>
-								<p style="text-align: justify;">
-
+									Legyen $\omega_1^2 = \frac{k_1}{m_1}$,  $\omega_2^2 = \frac{k_2}{m_2}$, $\alpha = \frac{K}{k_1}$ és $\beta = \frac{K}{k_2}$, amikkel
+									$$
+									    A = \begin{pmatrix}
+									        w_1^2 (1+\alpha) && -w_1^2 \alpha \\
+									        -\omega_2^2 \beta && w_2^2(1+\beta)
+									    \end{pmatrix}
+									$$
+									Végül, ha bevezetjük még $\gamma = \frac{\omega_2^2}{\omega_1^2}$-et:
+									$$
+									    A = w_1^2\begin{pmatrix}
+									         1+\alpha && - \alpha \\
+									        -\gamma \beta && \gamma(1+\beta)
+									    \end{pmatrix}
+									$$
+									Az általános megoldáshoz ennek kellene megoldani a sajátérték-problémáját.
 								</p>
 								<h3>
 									4.5. példa: Háromrugós rendszer gerjesztése
 								</h3>
 								<p style="text-align: justify;">
-
+									Nézzük meg az előző rendszert, csak kicsit leegyszerűsítve az elrendezést, hogy tükörszimmetrikus legyen.
+									Hattassuk erre egy erőt a következő alakban:
+									$$
+									    f(t) = \frac{f_0}{\tau} \Theta(t) \Theta(\tau-t)
+									$$
+									Tehát egy konstans erő a $t\in [0,\tau]$ időintervallumban, azon kívül pedig nulla.
+									Diskutáljuk, hogy mi történik annak függvényében, hogy melyik testre hatunk vele.
 								</p>
 								<h4>
 									4.5.1. Sajátmódusok
 								</h4>
 								<p style="text-align: justify;">
-
+									Legyen most szimmetrikus a rendszer, tehát $m_1 = m_2$ és $k_1 = k_2 \neq K$. Emlékeztetőül, ekkor a mátrixaink:
+									$$\begin{aligned}
+									    \underline{\underline{M}} = \begin{pmatrix}
+									        m && 0 \\
+									        0 && m
+									    \end{pmatrix} \qquad\qquad D = \begin{pmatrix}
+									        k+K && -K \\
+									        -K && k+K
+									    \end{pmatrix}
+									\end{aligned}$$
+									amivel egyszerűen
+									$$
+									    \underline{\underline{A}} = \frac{1}{m}\underline{\underline{D}}
+									$$
+									A sajátértékekre ekkor:
+									$$
+									    \left( \frac{k+K}{m} - \omega^2\right)^2 - \frac{K^2}{m^2} = 0
+									$$
+									Legyen a lustaság kedvéért $\omega_0^2 = k/m$ és $\Omega_0^2 = K/m$, így
+									$$\begin{aligned}
+									    &\left( \Omega_0^2+\omega_0^2 - \omega^2\right)^2 - \Omega_0^4= 0 \\
+									    \omega^4 - &2(\Omega_0^2+\omega_0^2) \omega^2 + (\Omega_0^2+\omega_0^2)^2  - \Omega_0^4 = 0 \\
+									    \omega^2 = &\Omega_0^2+\omega_0^2 \pm \sqrt{(\Omega_0^2+\omega_0^2)^2 - (\Omega_0^2+\omega_0^2)^2 + \Omega_0^4}
+									\end{aligned}$$
+									$$\begin{aligned}
+									    \omega_1^2 =\omega_0^2 && \omega_2^2 =\omega_0^2 + 2\Omega_0^2
+									\end{aligned}$$
 								</p>
 								<p style="text-align: justify;">
-
+									Az ezekhez tartozó sajátmódusok pedig, mivel
+									$$
+									    A = \begin{pmatrix}
+									        \omega_0^2+\Omega_0^2 && -\Omega_0^2 \\
+									        -\Omega_0^2 && \omega_0^2+\Omega_0^2
+									    \end{pmatrix}
+									$$
+									innen kis matekkal
+									$$\begin{aligned}
+									    \underline{\eta_1} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+									        1 \\
+									        1
+									    \end{pmatrix} \qquad\qquad \underline{\eta_2} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+									        1 \\
+									        -1
+									    \end{pmatrix} 
+									\end{aligned}$$
+									Ezek ugyebár két harmonikus mozgást írnak le: az elsőnél a két test azonos irányba mozdul ki, a másiknál pedig ellentétesbe.
+									Ezekhez a módusokhoz kell illesztenünk a gerjesztésünket.
+									Tehát a Green függvényünk komponensei a sajátmódusok rendszerén, kihasználva, hogy most teljes ortonormált:
+									$$
+									    \left(\frac{1}{\Theta(t) } \cdot\right)\underline{\underline{G}}(t) = \sum_i \frac{\sin{(\omega_i t)}}{\omega_i} \underline{\eta}\underline{\tilde{\eta}} = \frac{\sin{(\omega_1 t)}}{\omega_1} \underline{\eta_1}\underline{\eta_1}^T + \frac{\sin{(\omega_2 t)}}{\omega_2} \underline{\eta_2}\underline{\eta_2}^T
+									$$
+									Ha ezt hattatjuk a gerjesztő erőnkre, akkor az $\underline{\eta}\underline{\eta}^T$ tagok gyakorlatilag egy projektorfelbontást fognak rajta végezni:
+									fel kell írnunk a forrástagunkat ezekkel a vektorokkal.
 								</p>
 								<h4>
 									4.5.2. Azonos lökés
 								</h4>
 								<p style="text-align: justify;">
-
+									Ha mindkét testet azonos erővel lökdössük, akkor ezen a bázison az erő:
+									$$\begin{aligned}
+									    \underline{\underline{M}}^{-1}\underline{F} = \frac{F(t)}{m} \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix} + 0 \cdot \begin{pmatrix}
+									        1 \\ -1
+									    \end{pmatrix} \qquad\qquad F(t) = \frac{f_0}{\tau} \Theta(t)\Theta(\tau-t)
+									\end{aligned}$$
+									Tehát a koordináták időfejlődése:
+									$$
+									    \underline{q} = \int_{-\infty}^\infty \Theta(t^\prime) \Theta(\tau-t^\prime) \Theta (t-t^\prime)  \frac{f_0}{m \tau} \frac{\sin{(\omega_1 (t-t^\prime))}}{\omega_1}  \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix} \rd t^\prime
+									$$
 								</p>
 								<p style="text-align: justify;">
-
+									Vegyük azt az esetet, ahol $t>\tau$, és nézzük meg mi történik a lépcsőfüggvényekkel. A $\Theta(t^\prime)$ a lenti határt fogja megadni, hiszen $-\infty$ és $0$ közt nullával szoroz mindent. A másik kettő a felső határt: az egyik $t$ a másik $\tau$ felett szoroz mindent nullával. Mivel itt $\tau$ a kisebb, ő lesz a felső határunk:
+									$$
+									    \underline{q} = \int_{0}^\tau \frac{f_0}{m \tau} \frac{\sin{(\omega_1 (t-t^\prime))}}{\omega_1}  \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix} \rd t^\prime
+									$$
+									Az integrálás után:
+									$$
+									    \underline{q} = \frac{f_0}{m \tau \omega_0^2} \left[ \cos{(\omega_0(t-\tau)) - \cos{(\omega_0 t)}} \right] \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix}
+									$$
+									Nézzük meg mi történik, ha $\tau \rightarrow 0$. Ez annak felel meg, hogy a rendszer egy pillanatnyi lökést kap, aztán szabadon fejlődik az időben. Egy kis átírással:
+									$$
+									    \underline{q} = \frac{f_0}{m \omega_0^2} \frac{\cos{(\omega_0(t-\tau)) - \cos{(\omega_0 t)}}}{\tau} \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix}
+									$$
+									ami ebben a határesetben nem más lesz, mint egy derivált régimódi képlete. Tehát:
+									$$
+									    \underline{q} \rightarrow \frac{f_0}{m \omega_0} \sin{\omega_0t} \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix}
+									$$
+									a kis löket után a rugók az első módusban rezegnek, azonos irányban. Ennek a frekvenciája $\omega_0$, az amplitúdója pedig $f_0/m\omega_0$.
 								</p>
 								<h4>
 									4.5.3. Baloldali lökés
 								</h4>
 								<p style="text-align: justify;">
-
+									Mi történik, ha csak az első rugóra hat külső gerjesztés? Ekkor az erő felbontása
+									$$
+									    \underline{F} = \frac{F}{2} \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix} + \frac{F}{2} \cdot \begin{pmatrix}
+									        1 \\ -1
+									    \end{pmatrix}
+									$$
+									Ezt kétféleképpen is megkaphatjuk: egyrészt ezt adja a didaktikus szorzatból készített két projektor. Másrészt vegyük észre, hogy ha össze adjuk őket
+									$$
+									        \underline{F} = \frac{F}{2} \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix} + \frac{F}{2} \cdot \begin{pmatrix}
+									        1 \\ -1
+									    \end{pmatrix} = \frac{F}{2}\cdot \begin{pmatrix}
+									        2 \\ 0
+									    \end{pmatrix}
+									$$
+									akkor csak az első komponensben lesz rezgés, pont ahogyan azt a feladat kéri. Ha nem vagyunk biztosak, akkor csináljuk meg a projektálást.
 								</p>
 								<p style="text-align: justify;">
-
+									Minden esetre most az integrálunkban két tag is lesz:
+									$$
+									    \underline{q} = \frac{f_0}{2m\tau} \int_{0}^\tau  \frac{\sin{(\omega_1 (t-t^\prime))}}{\omega_1}  \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix} + \frac{\sin{(\omega_2 (t-t^\prime))}}{\omega_2}  \cdot \begin{pmatrix}
+									        1 \\ -1
+									    \end{pmatrix}  \rd t^\prime
+									$$
+									Ezt kiszámítva
+									$$
+									    \underline{q} = \frac{f_0}{2m\tau \omega_1^2} \left[ \cos{(\omega_1(t-\tau)) - \cos{(\omega_1 t)}} \right] \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix} + \frac{f_0}{2m\tau \omega_2^2} \left[ \cos{(\omega_2(t-\tau)) - \cos{(\omega_2 t)}} \right] \cdot \begin{pmatrix}
+									        1 \\ -1
+									    \end{pmatrix}
+									$$
+									Itt szintén alkalmazzuk a $\tau \rightarrow 0$ határesetet:
+									$$
+									    \underline{q} \rightarrow \frac{f_0}{2m\omega_1} \sin{\omega_1t} \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix} + \frac{f_0}{2m\omega_2} \sin{\omega_2 t} \cdot \begin{pmatrix}
+									        1 \\ -1
+									    \end{pmatrix}
+									$$
+									Ez a mozgás tehát két részből áll: azonos irányban feleakkora amplitúdójú rezgést végeznek a rugók mint az első esetben;
+									viszont megjelenik egy ellentétes irányú módus is, a hozzá tartozó $\omega_2$ frekvenciával.
 								</p>
 								<p style="text-align: justify;">
-
+									Vegyük még ellenőrzésül radikális esetnek azt, amikor a középső rugón $K=0$, mert ekkor
+									$$\begin{aligned}
+									    \omega_0^2 &= \omega_0^2 + 2 \Omega_0^2 \\
+									    \omega_1 &= \omega_2
+									\end{aligned}$$
+									Beírva:
+									$$
+									    \underline{q} \rightarrow \frac{f_0}{2m\omega_0} \sin{\omega_0t} \cdot \begin{pmatrix}
+									        1 \\ 1
+									    \end{pmatrix} + \frac{f_0}{2m\omega_0} \sin{\omega_0 t} \cdot \begin{pmatrix}
+									        1 \\ -1
+									    \end{pmatrix}
+									$$
+									ami kis rendezés után
+									$$
+									    \underline{q} \rightarrow \frac{f_0}{m\omega_0} \sin{\omega_0t} \cdot \begin{pmatrix}
+									        1 \\ 0
+									    \end{pmatrix}
+									$$
+									Aminek örülünk: az első test pontosan úgy mozog, mint a fenti gerjesztő erő esetén; a második pedig nyugalomban marad.
+									Ez logikus, mert $K=0$ mellett nincs rugó ami összekötné a megmozgatott testtel.
 								</p>
 								<h4>
 									4.5.4. Ellentétes szinuszos gerjesztés
 								</h4>
 								<p style="text-align: justify;">
-
+									Nézzünk meg erre a rendszerre is egy szinuszos gerjesztést $t=0$ kezdettel, ami ellentétesen hat a két testre. Tehát a gerjesztő erőnk:
+									$$
+									    \underline{F}(t) = \Theta(t) f_0 \sin{(\Omega t)} \underline{\eta_2}
+									$$
+									Erre hattatva a tömegmátrix inverzét:
+									$$
+									    \underline{\underline{M}}^{-1} =\Theta(t) \frac{ f_0}{m} \sin{(\Omega t)} \underline{\eta_2}
+									$$
+									majd pedig a Green-függvényt, ami most ismét csak az egyik móduson hat:
+									$$
+									    \underline{q} = \int_{-\infty}^\infty \Theta(t-t^\prime) \frac{\sin{(\omega_2 (t-t^\prime))}}{\omega_2} \Theta(t^\prime) \frac{ f_0}{m} \sin{(\Omega t^\prime)} \underline{\eta_2} \rd t^\prime
+									$$
+									A határok ismét a lépcsőfüggvényekből adódnak: az első miatt a fenti határ $t$, a második miatt a lenti pedig $0$. Tehát:
+									$$
+									    \underline{q} =\frac{f_0}{m \omega_2}\int_{0}^t \sin{(\omega_2 (t-t^\prime))} \sin{(\Omega t^\prime)} \begin{pmatrix}
+									        1 \\ -1
+									    \end{pmatrix} \rd t^\prime
+									$$
+									Ez az integrál ugyanaz, mint a sima oszcillátornál, szóval a kiszámítását most kihagyjuk. Eredménye:
+									$$
+									     \underline{q} =\frac{f_0}{m \omega_2}\frac{\Omega \sin{\omega_2t} - \omega_2 \sin{\Omega t}}{\Omega^2 - \omega_2^2}\begin{pmatrix}
+									        1 \\ -1
+									    \end{pmatrix}
+									$$
 								</p>
 							</div>
 						</section>
 
 						<section id="six" class="wrapper alt style3">
 							<div class="inner">
-								
+								<h3>
+									4.6. példa: Egyszerű molekula
+								</h3>
+								<p style="text-align: justify;">
+									Modellezzünk úgy egy kis molekulát, mint 3 test összekötve 2 rugóval.
+									Legyenek a rugók és a kinti tömegek azonosak. Mik lesznek ekkor a sajátmódusok, és hogyan hatnak a rendszerre a külső gerjesztések?
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson4/molekula.png" alt="Tripla rugós rendszer" width="35%">
+								</div>
+								<h4>
+									4.6.1. Normálmódusok
+								</h4>
+								<p style="text-align: justify;">
+									Felírva a Lagrange-ot, kis munkával kiderül, hogy itt a mátrixaink:
+									$$\begin{aligned}
+									    \underline{\underline{M}} = \begin{pmatrix}
+									        m && 0 && 0 \\
+									        0 && M && 0 \\
+									        0 && 0 && m
+									    \end{pmatrix} \qquad\qquad \underline{\underline{D}} = \begin{pmatrix}
+									        k &&- k && 0 \\
+									        -k && 2k && -k \\
+									        0 && - k && k
+									    \end{pmatrix}
+									\end{aligned}$$
+									Mivel $M$ diagonális, könnyű invertálni: egyszerűen a tömegek reciprokai kellenek egy diagonális mátrixba. A szorzást elvégezve:
+									$$
+									    \underline{\underline{A}} = \omega_0^2 \begin{pmatrix}
+									        1 && -1 && 0 \\
+									        -\frac{m}{M} && 2 \frac{m}{M} && - \frac{m}{M} \\
+									        0 && -1 && 1
+									    \end{pmatrix}
+									$$
+									ahol bevezettem megint $\frac{k}{m} = \omega_0^2$-et. Ebből a sajátértékre vonatkozó egyenlet:
+									$$
+									    (\omega_0^2 - \omega^2)^2 \left(2 \omega_0^2 \frac{m}{M} - \omega^2\right) - 2\omega_0^4 \frac{m}{M} (\omega_0^2 - \omega^2) =0
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ránézésre két megoldást is be tudunk tippelni. Legyen az első $\omega = \omega_0$, ami általában egy jó tipp. Az ehhez tartozó sajátvektor
+									$$
+									    \begin{pmatrix}
+									        1-1 && -1 && 0 \\
+									        -\frac{m}{M} && 2 \frac{m}{M}-1 && - \frac{m}{M} \\
+									        0 && -1 && 1-1
+									    \end{pmatrix} \underline{\eta_0} = 0
+									$$
+									alapján olyan lesz, hogy a második komponense nulla; az első és utolsó pedig egymás ellentettjei. Szépen normálva:
+									$$
+									    \underline{\eta_0} =  \frac{1}{\sqrt{2}}\begin{pmatrix}
+									        1 \\ 0 \\ -1
+									    \end{pmatrix}
+									$$
+									Amivel meg is van az első módus: ebben a középső atom mozdulatlan, a másik kettő pedig ki-be rezeg körülötte.
+								</p>
+								<p style="text-align: justify;">
+									A második sajátérték is könnyen tippelhető: legyen $\omega_1 = 0$.
+									Ez is teljesíti az egyenletet, és a hozzá tartozó sajátvektor lehet például:
+									$$
+									    \begin{pmatrix}
+									        1 && -1 && 0 \\
+									        -\frac{m}{M} && 2 \frac{m}{M} && - \frac{m}{M} \\
+									        0 && -1 && 1
+									    \end{pmatrix} \underline{\eta_1} = 0
+									$$
+									$$
+									    \underline{\eta_1} = \begin{pmatrix}
+									        1 \\ 1 \\ 1
+									    \end{pmatrix}
+									$$
+									Ez egy nulla frekvenciás rezgés, ami minden koordinátára azonosan hat.
+									Hasonlóan a csúszkáló ingánál látotthoz, ez sem egy rezgés igazából: ez egy eltolás az x tengelyen, ami mindhárom atomra ugyanúgy hat.
+								</p>
+								<p style="text-align: justify;">
+									A harmadik sajátérték nehezebb: ehhez már egy picit számolni is kell.
+									Tudjuk, hogy ez egyik sajátérték $\omega_0^2$, szóval emeljünk ki a sajátérték egyenletéből $(\omega_0^2 - \omega^2)$-et:
+									$$\begin{aligned}
+									    (\omega_0^2 - \omega^2)^2 \left(2 \omega_0^2 \frac{m}{M} - \omega^2\right) - 2\omega_0^4 \frac{m}{M} (\omega_0^2 - \omega^2) =0 \\
+									    (\omega_0^2 - \omega^2) \left[ (\omega_0^2 - \omega^2) \left(2 \omega_0^2 \frac{m}{M} - \omega^2\right) - 2\omega_0^4 \frac{m}{M} \right] = 0 \\
+									    \omega^4 - \omega^2 \omega_0^2\left(1 + 2 \frac{m}{M}\right)+ 2 \omega_0^4 \frac{m}{M}  -2\omega_0^4 \frac{m}{M} = 0 \\
+									     \omega^4 - \omega^2 \omega_0^2\left(1 + 2 \frac{m}{M}\right) = 0 \\
+									     \omega^2 \left[\omega^2 -\omega_0^2\left(1 + 2 \frac{m}{M}\right) \right] = 0
+									\end{aligned}$$
+									Tehát a harmadik megoldás $\omega_2^2 =\omega_0^2\left(1 + 2 \frac{m}{M}\right) $. Az ehhez tartozó sajátvektor számolását most kihagyom, eredménye:
+									$$
+									    \underline{\eta_2} = \frac{1}{\sqrt{2+4\alpha^2}} \begin{pmatrix}
+									        1 \\
+									        -2 \alpha \\
+									        1
+									    \end{pmatrix}
+									$$
+									Ahol $\alpha = \frac{m}{M}$. Ez egy olyan módus, ahol a két szélső azonos irányba mozdul el, a középső viszont ellentétesen.
+									A bejövő tömeges szorzófaktor azért olyan, amilyen, mert a tömegközéppont nem mozdulhat el.
+								</p>
+								<h4>
+									4.6.2. Bal oldali összenyomás
+								</h4>
+								<p style="text-align: justify;">
+									Hattasunk a rendszerre most egy lökés szerű gerjesztőerőt, aminek az alakja:
+									$$\begin{aligned}
+									    \underline{F} = F(t) \begin{pmatrix}
+									        2 \\ -2 \\ 0
+									    \end{pmatrix} \qquad\qquad F(t) = \frac{f_0}{\tau}\Theta(t)\Theta(\tau-t)
+									\end{aligned}$$
+									Tehát a bal oldali és a középső atomokat ellentétes irányba löki, a harmadikat pedig békén hagyja. Erre hattatva a tömegmátrix inverzét:
+									$$
+									    \underline{F} = \underline{\underline{M}}^{-1} \underline{F} = F \begin{pmatrix}
+									        2/m \\ -2/M \\ 0
+									    \end{pmatrix} = \frac{2F}{m} \begin{pmatrix}
+									        1 \\ -\alpha \\ 0
+									    \end{pmatrix}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Most nézzük meg tippelés nélkül, hogy hogyan kell ezt felbontani a sajátbázisra. Először is, hálistennek a $\underline{\eta_0}$ és $\underline{\eta_2}$ sajátértékek ortogonálisak, szóval nekik lehetnek a duálisok egyszerűen csak a transzponáltak. Velük:
+									$$\begin{aligned}
+									    \underline{\eta_0} \underline{\tilde{\eta_0}} = \frac{1}{2} \begin{pmatrix}
+									        1 && 0 && -1 \\
+									        0 && 0 && 0 \\
+									        -1 && 0 &&1
+									    \end{pmatrix} \qquad\qquad \underline{\eta_1} \underline{\tilde{\eta_1}} = \frac{1}{2+4\alpha^2}\begin{pmatrix}
+									        1 && -2\alpha && 1 \\
+									        - 2\alpha && 4\alpha^2 && -2\alpha \\
+									        1 && -2\alpha &&1
+									    \end{pmatrix}
+									\end{aligned}$$
+									Ezekkel megszorozva a ható erőt:
+									$$\begin{aligned}
+									    \underline{\eta_0} \underline{\tilde{\eta_0}}\ \underline{F} =& \frac{F}{m} \begin{pmatrix}
+									        1 \\
+									        0 \\
+									        -1
+									    \end{pmatrix} = \frac{F}{m}  \sqrt{2} \underline{\eta_0} \\
+									    \underline{\eta_2} \underline{\tilde{\eta_2}}\ \underline{F} =& \frac{F}{m}\frac{1}{1+2\alpha^2} \begin{pmatrix}
+									        1+2\alpha^2 \\
+									        -2\alpha+4\alpha^2 \\
+									        1+2\alpha^2
+									    \end{pmatrix} = \frac{F}{m} \sqrt{2+4\alpha^2}\underline{\eta_1}
+									\end{aligned}$$
+								</p>
+								<p style="text-align: justify;">
+									Ellenőrzésképp láthatjuk, hogy ezeknek az összege tényleg visszaadja $\underline{F}$-et.
+									A harmadik irányra most nincs szükség. Beírva végre a Green-függvényes alakot a rendszer időfejlődésére, az előző példát követve:
+									$$
+									    \underline{q} = \frac{f_0}{m \tau} \int_{0}^t   \frac{\sin{(\omega_0 (t-t^\prime))}}{\omega_0}  \cdot \begin{pmatrix}
+									        1 \\ 0 \\ -1
+									    \end{pmatrix} + \frac{\sin{(\omega_2 (t-t^\prime))}}{\omega_2}  \cdot \begin{pmatrix}
+									        1 \\ -2\alpha \\ 1
+									    \end{pmatrix}\rd t^\prime
+									$$
+									Ezt ismét ki tudjuk integrálni, majd megnézni az érdekes $\tau \rightarrow 0$ határesetet:
+									$$
+									    \underline{q} \rightarrow \frac{f_0}{m} \frac{\sin{(\omega_0 t)}}{\omega_0}  \cdot \begin{pmatrix}
+									        1 \\ 0 \\ -1
+									    \end{pmatrix} + \frac{f_0}{m} \frac{\sin{(\omega_2 t)}}{\omega_2}  \cdot \begin{pmatrix}
+									        1 \\ -2\alpha \\ 1
+									    \end{pmatrix}\rd t^\prime
+									$$
+									Mivel $\omega_2 = \omega_0 \sqrt{1 + 2 \alpha}$, meg tudjuk nézni mi történik $\alpha = 0$ határesetben:
+									ez azt mondja ki, hogy a középső atom sokkal nehezebb, mint a szélsők.
+									Ekkor a középső test módusai eltűnnek, az mozdulatlan marad.
+									A másik kettőre pedig ebben a határesetben azonos frekvenciájú rezgések hatnak:
+									a jobb oldali testre kioltják egymást, a bal oldalira pedig kétszeres amplitúdójú rezgéseket okoznak.
+								</p>
+								<h4>
+									4.6.3. Eltolás Green-függvénnyel
+								</h4>
+								<p style="text-align: justify;">
+									Azért nézzük még meg az eltoláshoz kapcsolódó módust is, és lássuk be, hogy \textit{tényleg} az eltolásokhoz kapcsolódik. Legyen a gerjesztőerő
+									$$
+									    \underline{F} = F \begin{pmatrix}
+									        1 \\ \frac{M}{m} \\ 1
+									    \end{pmatrix}
+									$$
+									amivel
+									$$
+									    \underline{F} = \frac{f}{m} \begin{pmatrix}
+									        1 \\ 1 \\ 1
+									    \end{pmatrix}
+									$$
+									tehát ő $\underline{\eta_1}$ módushoz tartozik. Ezzel a gerjesztéssel
+									$$
+									    \underline{q} = \frac{f_0}{m \tau} \int_{0}^t   \frac{\sin{(\omega_1 (t-t^\prime))}}{\omega_1}  \cdot \begin{pmatrix}
+									        1 \\ 1 \\ 1
+									        \end{pmatrix}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ne ijedjünk meg, hogy $\omega_1=0$-val osztunk le, helyette számoljunk tovább.
+									Kiintegrálva, majd a szokásos határesetet véve:
+									$$
+									    \underline{q} \rightarrow  \frac{f_0}{m} \frac{\sin{(\omega_1 t)}}{\omega_1} \cdot \begin{pmatrix}
+									        1 \\ 1 \\ 1
+									        \end{pmatrix}
+									$$
+									Ezt szorozzuk be eggyel, ami $t/t$:
+									$$
+									    \underline{q} \rightarrow  \frac{f_0}{m} \frac{\sin{(\omega_1 t)}}{\omega_1 t} t \cdot \begin{pmatrix}
+									        1 \\ 1 \\ 1
+									        \end{pmatrix}
+									$$
+									Majd használjuk ki, hogy $\frac{\sin{\epsilon}}{\epsilon} \approx 1$, ha $\epsilon$ kicsi. Nekünk most pontosan nulla, szóval elég jó lesz ez a közelítés:
+									$$
+									    \underline{q} \rightarrow  \frac{f_0}{m}  t \cdot \begin{pmatrix}
+									        1 \\ 1 \\ 1
+									        \end{pmatrix}
+									$$
+									Tehát azt kapjuk, hogy mindhárom testet meglökve, azok egy konstans $v = \frac{f_0}{m}$ sebességgel fognak reagálni.
+									Ez egész intuitív, szóval jó látni, hogy végső soron csak ki tud jönni a rezgések nyelvén is.
+								</p>
+								<h4>
+									Teljes duális rendszer
+								</h4>
+								<p style="text-align: justify;">
+									A teljesség jegyében nézzük még meg, hogy hogyan lehetne egy általános irányú gerjesztést is kiszámolni. A bázisunk:
+									$$\begin{aligned}
+									    \underline{\eta_0} = \frac{1}{\sqrt{2}} \begin{pmatrix}
+									        1 \\ 0 \\ - 1
+									    \end{pmatrix} \qquad\qquad &\underline{\tilde{\eta}_0} = \frac{1}{\sqrt{2}} \begin{pmatrix}
+									        1 && 0 && - 1
+									    \end{pmatrix} \\
+									    \underline{\eta_1} = \begin{pmatrix}
+									        1 \\ 1 \\ 1
+									    \end{pmatrix} \qquad\qquad &\underline{\tilde{\eta}_1} = ??? \\
+									    \underline{\eta_2} = \frac{1}{\sqrt{2+4\alpha^2}} \begin{pmatrix}
+									        1 \\ -2\alpha \\ 1
+									    \end{pmatrix} \qquad\qquad &\underline{\tilde{\eta}_2} = \frac{1}{\sqrt{2+4\alpha^2}} \begin{pmatrix}
+									        1 && -2\alpha && 1
+									    \end{pmatrix}
+									\end{aligned}$$
+									Azok a duálisok amik már megvannak jók: rájuk könnyen láthatjuk,
+									hogy teljesül $\underline{\tilde{\eta_i}} \underline{\eta_j} = \delta_{ij}$.
+									Ez $\underline{\eta_1}^T$ transzponálttal nem működne, szóval keressük meg, hogy mivel igen.
+								</p>
+								<p style="text-align: justify;">
+									Legyen
+									$$
+									    \underline{\tilde{\eta}_1} = \begin{pmatrix}
+									        x && y && z
+									    \end{pmatrix}
+									$$
+									majd nézzük meg mindhárom sajátvektorral a skalárszorzatát, és követeljük meg a $\delta$ teljesülését.
+									Ezek rendre három egyenletet adnak:
+									$$\begin{aligned}
+									    x + y + z = 1 \\
+									    x - z = 0 \\
+									    x - 2\alpha y + z = 0
+									\end{aligned}$$
+									Ezt kicsit átrendezve megoldja:
+									$$\begin{aligned}
+									    z &= x \\
+									    x &= \alpha y \\
+									    (2 \alpha  + 1 ) y &= 1
+									\end{aligned}$$
+									Tehát
+									$$\begin{aligned}
+									    x = \frac{ \alpha}{2 \alpha  + 1 } \\
+									    y = \frac{1}{2 \alpha  + 1 } \\
+									    z = \frac{ \alpha}{2 \alpha  + 1 } \\
+									\end{aligned}$$
+									Vagy tömörebben
+									$$
+									    \underline{\tilde{\eta_1}} = \frac{1}{2\alpha+1} \begin{pmatrix}
+									        \alpha && 1 && \alpha
+									    \end{pmatrix}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ezzel a projektorunk
+									$$
+									    \underline{{\eta_1}}\underline{\tilde{\eta_1}} = \frac{1}{2\alpha+1} \begin{pmatrix}
+									        \alpha && 1 && \alpha \\
+									        \alpha && 1 && \alpha \\
+									        \alpha && 1 && \alpha
+									    \end{pmatrix}
+									$$
+									Ellenőrzésképp, hogyha ezt hattatjuk a korábbi
+									$$
+									    \underline{F} = \frac{f}{m} \begin{pmatrix}
+									        1 \\ 1 \\1
+									    \end{pmatrix}
+									$$
+									erőre, akkor eredményül:
+									$$\begin{aligned}
+									    \underline{{\eta_1}}\underline{\tilde{\eta_1}}\ \underline{F} &=\frac{f}{m} \frac{1}{2\alpha+1} \begin{pmatrix}
+									        \alpha && 1 && \alpha \\
+									        \alpha && 1 && \alpha \\
+									        \alpha && 1 && \alpha
+									    \end{pmatrix} \begin{pmatrix}
+									        1 \\ 1 \\1
+									    \end{pmatrix} \\
+									    &= \frac{f}{m} \frac{1}{2\alpha+1} \begin{pmatrix}
+									        2\alpha + 1 \\
+									        2\alpha + 1 \\
+									        2\alpha + 1
+									    \end{pmatrix} =  \underline{F}
+									\end{aligned}$$
+									tehát jól dolgoztunk: tényleg ebbe az irányba projektál ez a diadikus szorzat.
+								</p>
 							</div>
 						</section>
 
-						<section id="seven" class="wrapper alt style2">
-							<div class="inner">
-								
-							</div>
-						</section>
 						
 
 				<!-- Footer -->
