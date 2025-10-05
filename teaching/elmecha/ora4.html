@@ -74,10 +74,57 @@
 									4. óra &nbsp;&nbsp;&nbsp;&nbsp; <a href="04_ora.pdf" download="04_ora.pdf" class="button icon solid fa-download align-right">Letöltés</a>
 								</h2>
 								<h3>
-                  Kisrezgések, normálmódusok
-                </h3>
+									Kisrezgések, normálmódusok
+								</h3>
 								<p style="text-align: justify;">
-
+									Bár a mozgásegyenleteket könnyen fel tudjuk írni a Lagrange-i mechanika módszereivel, láthattuk, hogy azokat megoldani már általánosan nem mindig lehet.
+									Van viszont egy nevezetes rendszer amit jól ismerünk és szeretünk: a harmonikus oszcillátor.
+									Ha egy adott rendszert valamilyen közelítésben (\textit{pl. kis szögek}) át tudunk alakítani
+									valami oszcillátor-szerűvé (\textit{rezgések}) akkor vissza tudjuk vezetni a problémát valami jól megoldhatóra.
+								</p>
+								<p style="text-align: justify;">
+									Emlékeztetőül egy darab egy dimenziós harmonikus oszcillátor Lagrange-függvénye (valamilyen általános $q$ koordinátával):
+									$$
+										\mathcal{L} = \frac{1}{2} m \dot{q}^2 - \frac{1}{2}k q^2
+									$$
+									amit kicsit másképp is írhatunk:
+									$$
+										\mathcal{L} = \frac{1}{2} \dot{q}m \dot{q} - \frac{1}{2}q k q
+									$$
+									Ha több, akár egymással kölcsönható rugónk is van, akkor is ilyen alakú lesz a megoldás.
+									Viszont több koordináta esetén $q$ helyett $\underline{q}$ vektoraink lesznek, a Lagrange viszont egy skalár mennyiség.
+									Ahhoz hogy skalárt kapjunk vektorokból, a tippelt alak a több rugós Lagrange-ra:
+									$$
+										\mathcal{L} = \frac{1}{2} \dot{\underline{q}}^T \underline{\underline{M}}\ \dot{\underline{q}} - \frac{1}{2} \underline{q}^T \underline{\underline{D}}\,  \underline{q}
+									$$
+									tehát sorvektor, mátrix, oszlopvektor alakú tagjaink kell hogy legyenek.
+								</p>
+								<p style="text-align: justify;">
+									Ennek az alaknak van egy nagy előnye: ismerősen néz ki, és az Euler-Lagrange egyenlet is teljesen hasonló egy harmonikus oszcillátoréra:
+									$$
+									\begin{aligned}
+									    \frac{\rd }{\rd t} \frac{\partial \mathcal{L}}{\partial {\dot{\underline{q}}}} &= \frac{\partial \mathcal{L}}{\partial {\underline{q}}} \\
+									    \underline{\underline{M}}\, \ddot{\underline{q}} &=- \underline{\underline{D}}\,  \underline{q} \\
+									    \ddot{\underline{q}} &= -\underline{\underline{M}}^{-1}\underline{\underline{D}}\,  \underline{q} \\
+									    \ddot{\underline{q}} &= -\underline{\underline{A}}\,  \underline{q}
+									\end{aligned}
+									$$
+									végeredményéül pedig ilyen alakú mozgásegyenletet kapunk.
+									Ha itt nem vektorok lennének, akkor ez egy szögfüggvény diffegyenlete lenne:
+									mivel több dimenzióban vagyunk, jó ötlet az, ha a megoldást szögfüggvények lineárkombinációjaként keressük, valamilyen
+									$$
+									    \underline{q} = \sum_i c_i \underline{\eta}^i \cos{\left( \omega_i t + \delta_i\right)}
+									$$
+									alakban. Az állítás az, hogy ezek az $\underline{\eta}$ vektorok (amikből kikombinálható a tényleges megoldás) sajátvektorai az $\underline{\underline{A}}$ mátrixnak:
+									őket hívjuk \textbf{normálmódusoknak}. A szögfüggvényekben megjelenő $\omega$ frekvenciák pedig a hozzájuk tartozó \textbf{sajátfrekvenciák}.
+								</p>
+								<p style="text-align: justify;">
+									Ez így még egész száraznak tűnhet: pár példa után megbarátkozunk vele. A lényeges lépések minden esetre:
+									<ul>
+										<li>Felírjuk mátrixosan a Lagrange függvényt (akár közelítésekkel).</li>
+										<li>Kiszámoljuk az $\underline{\underline{A}} = \underline{\underline{M}}^{-1}\underline{\underline{D}}$ mátrixot (ez egy invertálás aztán egy mátrixszorzás).</li>
+										<li>Megkeressük a sajátrendszerét, amiből adódnak a megoldásaink.</li>
+									</ul>
 								</p>
 							</div>
 						</section>
@@ -85,14 +132,246 @@
 						<section id="two" class="wrapper alt style2">
 							<div class="inner">
 								<h3>
-
+									4.1. példa: Csúszkáló inga
 								</h3>
 								<p style="text-align: justify;">
-
+									Vegyünk egy $M$ tömegű testet, és rögzítsük egy sínre a gravitációval merőlegesen.
+									Erre akasszunk egy $l$ hosszúságú ingát, rajta egy $m$ tömeggel.
+									\textit{Milyen mozgást végez a rendszer kis kitérések esetén?}
 								</p>
 								<div style="text-align: center;">
-									<img src="figs/lesson2/csuszoek.png" alt="Kis ábra a csúszó ékről" width="45%">
+									<img src="figs/lesson4/csuszkaloinga.png" alt="Ábra a csúszkáló ingáról" width="25%">
 								</div>
+								<p style="text-align: justify;">
+									Nézzük meg ezt a példát két féle megoldáson keresztül.
+									Minden esetre a kiindulási pont a Lagrange-lesz, amit írjunk fel az egyensúlyi helyzettől vett eltérésekkel.
+									Ez a példa egyszerű: ránézésre akkor van egyensúlyban a rendszer, ha $x=0$ és $\vartheta = 0$: ezek már magukban jó általános koordináták.
+									Kiindulásul a Descartes-i Lagrange:
+									$$
+									        \mathcal{L} = \frac{1}{2} M \dot{x}^2 + \frac{1}{2} M \dot{y}^2 + \frac{1}{2} m \left( \dot{x_m}^2 + \dot{y_m}^2 \right) - mg y_m
+									$$
+									Amire még ki kell róni a kényszereinket.
+									Egyrészt a test a sínen mozog, tehát $\dot{y} = \text{konst.}$, másrészt pedig az inga hossza fix: ezt már láttuk, a polárkoordináták teljesítik automatikusan.
+								</p>
+								<p style="text-align: justify;">
+									A kis tömegpont koordinátái
+									$$
+									    \vec{r}_m = \vec{r}_M + \begin{pmatrix}
+									        l \sin{\varphi} \\
+									        -l \cos{\varphi}
+									    \end{pmatrix} =\begin{pmatrix}
+									        x \\
+									        0
+									    \end{pmatrix} +\begin{pmatrix}
+									        l \sin{\varphi} \\
+									        -l \cos{\varphi}
+									    \end{pmatrix}
+									$$
+									tehát kis matekkal
+									$$
+									    \mathcal{L} = \frac{1}{2} M \dot{x}^2 + \frac{1}{2} m \left( \dot{x}^2 + l^2\dot{\vartheta}^2 + 2 l \dot{x}\dot{\vartheta} \cos{\vartheta}\right) + mgl \cos{\vartheta}
+									$$
+									Ebből a Lagrange-ból kell megmondanunk a mozgást.
+									Először nézzünk meg egy speciálisabb utat ami általában nem működik, de ennél a feladatnál egyszerűbb lesz miatta az életünk.
+									Aztán a megoldás tudatában váltsunk át a szisztematikus, mindig működő módszerekre.
+								</p>
+								<h4>
+									4.1.1. Lendületmegmaradás
+								</h4>
+								<p style="text-align: justify;">
+									Vegyük észre, hogy $x$ ciklikus: tehát $p_x$ megmarad. Ezért
+									$$
+									    p_x = \frac{\partial \mathcal{L}}{\partial \dot{x}} = M\dot{x} + m\dot{x} + ml\dot{\vartheta}\cos{\vartheta} = \text{konst.}
+									$$
+									Hogyha csak a kis szögekre vagyunk kíváncsiak, akkor első rendben
+									$$
+									\begin{aligned}
+									    \dot{x}&(m+M)  + ml\dot{\vartheta} = A^\prime \\
+									     \dot{x}&= -  \frac{ml}{m+M }\dot{\vartheta} + A \\
+									     \int \dot{x} \rd t&= - \int \frac{ml}{m+M }\dot{\vartheta}  \rd t + \int A \rd t \\
+									     x(t) &= - \frac{ml}{m+M } \vartheta + At + B
+									\end{aligned}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ami marad még, az a másik változó Euler-Lagrange egyenlete:
+									\begin{aligned}
+									    \frac{\partial \mathcal{L}}{\partial \vartheta} = - ml \dot{x}\dot{\vartheta} \sin{\vartheta} - mgl \sin{\vartheta} \qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{\vartheta}} = m l^2 \dot{\vartheta} + ml \dot{x} \cos{\vartheta}
+									\end{aligned}
+									$$
+									     m l^2 \ddot{\vartheta} + ml \ddot{x} \cos{\vartheta} -m l \dot{x} \dot{\vartheta} \sin{\vartheta} =  - ml \dot{x}\dot{\vartheta} \sin{\vartheta} - mgl \sin{\vartheta}
+									$$
+									Amire alkalmazzuk a is szöges közelítést, és egyszerűsítsünk.
+									A közelítésben most első rendig megyünk el, mert a nem-szögfüggvényeket tartalmazó $ml^2 \ddot{\vartheta}$ tag elsőrendű a szögben: a többit is célszerű eddig közelíteni.
+									$$
+									      \ddot{\vartheta} + \frac{1}{l} \ddot{x}   =   - \frac{g}{l} \vartheta
+									$$
+									Ebbe be tudjuk írni $x(t)$-t a lendületmegmaradásból kiszámított időfüggéssel:
+									$$
+									\begin{aligned}
+									     \ddot{\vartheta} - \frac{m}{m+M } &\ddot{\vartheta}  =   - \frac{g}{l} \vartheta \\
+									      \left(1 -   \frac{m}{m+M }\right) &\ddot{\vartheta} =  - \frac{g}{l} \vartheta \\
+									      &\ddot{\vartheta} = - \frac{g}{l} \frac{m+M}{M} \vartheta 
+									\end{aligned}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ez egy ismerős differenciálegyenlet: a szögfüggvények második deriváltja pont egy negatív előjellel arányos saját magukkal. Keressük tehát a megoldást
+									$$
+									    \vartheta(t) = C \cos{\left(\omega t + \delta \right)}
+									$$
+									alakban. Ezt visszaírva
+									$$
+									    - C \omega^2 \cos{\left(\omega t + \delta \right)} = - \frac{g}{l} \frac{m+M}{M} \vartheta 
+									$$
+									tehát megoldja a tippelt függvényünk a mozgásegyenletet, ha
+									$$
+									    \omega^2 = \frac{g}{l} \frac{m+M}{M}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Összegezve, a megoldásunk a két változóra:
+									$$
+									\begin{aligned}
+									    \vartheta (t) &=  C \cos{\left(\omega t + \delta \right)} \\
+									    x(t) &=  - C \frac{ml}{m+M } \cos{\left(\omega t + \delta \right)}+ At + B
+									\end{aligned}
+									$$
+									Ami azt mutatja, hogy az inga oszcillál, az őt tartó test mozgása pedig egy azonos frekvenciájú oszcillációból és egy $x$ irányú egyenletes mozgásból áll.
+								</p>
+								<h4>
+									4.1.2. Általános megoldás
+								</h4>
+								<p style="text-align: justify;">
+									A fenti megoldás működött, de kihasználta a lendület megmaradását: sajnos ezt nem mindig tudjuk megtenni.
+									Hogy a bonyolultabb feladatok megoldásához szükséges mátrixos írásmódot gyakoroljuk, alkalmazzuk azt is erre a feladatra.
+								</p>
+								<p style="text-align: justify;">
+									Először is, fel kell írnunk a Lagrange-ot mátrixosan az általános koordinátákkal,
+									$$
+									    \mathcal{L} = \frac{1}{2} \dot{\underline{q}} \underline{\underline{M}} \dot{\underline{q}}  - \frac{1}{2}  \underline{q} \underline{\underline{D}} \underline{q} 
+									$$
+									alakban. Na ez így még nem fog menni a mi Lagrangunkra, szóval közelítsünk most rögtön a Lagrange-ban.
+									Menjünk el a szögben másodfokig: így a deriválások után elsőfokú tagok lesznek a mozgásegyenletben.
+									Ebben a közelítésben $\cos{\vartheta} \approx 1 - \frac{\vartheta^2}{2}$, tehát
+									$$
+									    \mathcal{L} = \frac{1}{2} M \dot{x}^2 + \frac{1}{2} m \left( \dot{x}^2 + l^2\dot{\vartheta}^2 + 2 l \dot{x}\dot{\vartheta} - \underbrace{l \dot{x}\dot{\vartheta}\vartheta^2} \right) + \underbrace{mgl }- \frac{1}{2}mgl\vartheta^2
+									$$
+									Itt két tagot is elhagyhatunk: az első aláhúzott már harmadfokú, a második pedig egy konstans. Ez már felírható szépen, mint
+									$$
+									    \mathcal{L} = \frac{1}{2} \begin{pmatrix}
+									        \dot{x} \\ \dot{\vartheta}
+									    \end{pmatrix} \begin{pmatrix}
+									        M+m && ml \\
+									        ml && ml^2
+									    \end{pmatrix} \begin{pmatrix}
+									        \dot{x} \\ \dot{\vartheta}
+									    \end{pmatrix} - \frac{1}{2} \begin{pmatrix}
+									        x \\ \vartheta
+									    \end{pmatrix} \begin{pmatrix}
+									        0 && 0 \\
+									        0 && mgl
+									    \end{pmatrix}  \begin{pmatrix}
+									        x \\ \vartheta
+									    \end{pmatrix} 
+									$$
+									Elvégezve a mátrixos alakra a deriválgatást, az Euler-Lagrange
+									$$
+									\begin{aligned}
+									    \underline{\underline{M}} \ddot{\underline{q}} &= - \underline{\underline{D}} \underline{q} \\
+									    \ddot{\underline{q}} &= - \underline{\underline{M}}^{-1} \underline{\underline{D}} \underline{q}
+									\end{aligned}
+									$$
+									Keressük a $\underline{q}$ megoldását valamilyen tippelt próbafüggvények lineáris kombinációjaként:
+									$$
+									    \underline{q} = \sum_i c_i \underline{\eta}_i \cos{\left(\omega_i t + \delta_i \right)}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Hogy megtaláljuk ezeket az $\underline{\eta}$ vektorokat és $\omega$ frekvenciákat, 
+									meg kell oldanunk az $ \underline{\underline{A}} = \underline{\underline{M}}^{-1} \underline{\underline{D}}$ mátrix sajátproblémáját. 
+									Először kell a tömegmátrix inverze, ami két dimenzióban egyszerűbb:
+									$$
+									    \underline{\underline{M}}^{-1} = \frac{1}{\det{\underline{\underline{M}}}} \text{adj}\underline{\underline{M}} 
+									$$
+									a determinánsból és a (mátrix értelemben vett) adjungált mátrixból tevődik össze. Tehát nekünk
+									$$
+									\begin{aligned}
+									    \underline{\underline{M}}^{-1} &= \frac{1}{m(m+M)l^2-m^2l^2} \begin{pmatrix}
+									        ml^2 && -ml \\
+									        -ml && M+m
+									    \end{pmatrix} \\
+									    \underline{\underline{M}}^{-1} &= \frac{1}{Mml^2}  \begin{pmatrix}
+									        ml^2 && -ml \\
+									        -ml && M+m
+									    \end{pmatrix}
+									\end{aligned}
+									$$
+									Marad a mátrixszorzás, ami most relatíve gyorsan megvan:
+									$$
+									    \underline{\underline{A}} =  \frac{1}{Mml^2} \begin{pmatrix}
+									        0 && -m^2l^2g \\
+									        0 && (M+m)mgl
+									    \end{pmatrix} = \begin{pmatrix}
+									        0 && -\frac{m}{M}g \\
+									        0 && \frac{M+m}{M}\frac{g}{l}
+									    \end{pmatrix}
+									$$
+									Ennek a sajátértékeit jelöljük $\omega^2$-el. A rájuk vonatkozó sajátértékegyenlet pedig a spuros-determinánsos képletből
+									$$
+									    - \omega^2 \left( \frac{M+m}{M}\frac{g}{l} - \omega^2 \right) = 0
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Ennek két megoldása van: egyrészt lehet $\omega_0 = 0$. Másrészt lehet
+									$$
+									     \omega^2 =\frac{M+m}{M}\frac{g}{l}
+									$$
+									Nézzük meg a hozzájuk tartozó sajátvektorokat! Az első esetben
+									$$
+									    \begin{pmatrix}
+									        0-0 && -\frac{m}{M}g \\
+									        0 && \frac{M+m}{M}\frac{g}{l} - 0
+									    \end{pmatrix} \underline{\eta_0} = \mathbf{0}
+									$$
+									Ennek normált megoldása:
+									$$
+									    \underline{\eta_0} = \begin{pmatrix}
+									        1 \\ 0
+									    \end{pmatrix}
+									$$
+									Van tehát egy komponensünk, ami az $x$ irányban $\omega_0=0$ frekvenciával oszcillál:
+									ez nem egy rezgés, tehát a módszertanunk nem alkalmas a tárgyalására.
+									Egyébként ő az, ami egy egyenletes eltolásként és sebességként jelenik meg a megoldásban.
+								</p>
+								<p style="text-align: justify;">
+									A másik sajátértékre
+									$$
+									    \begin{pmatrix}
+									        -\frac{M+m}{M}\frac{g}{l} && -\frac{m}{M}g \\
+									        0 && 0
+									    \end{pmatrix} \underline{\eta} = \mathbf{0}
+									$$
+									amit megold
+									$$
+									    \underline{\eta} = \begin{pmatrix}
+									        - \frac{m l }{m+M} \\ 1
+									    \end{pmatrix}
+									$$
+									Ez a szög irányában egy $\omega$ frekvenciás oszcilláció, ami az $x$ irányra egy $- \frac{m l }{m+M}$ faktorral terjed át.
+									A mozgásegyenletek megoldása tehát ebben a formalizmusban:
+									$$
+									    \begin{pmatrix}
+									        x \\
+									        \vartheta
+									    \end{pmatrix} = C \begin{pmatrix}
+									        - \frac{m l }{m+M} \\ 1
+									    \end{pmatrix} \cos{\left(\omega t + \delta \right)} + B \begin{pmatrix}
+									        1 \\ 0
+									    \end{pmatrix} \cos{\left(0 t + \delta_0 \right)}
+									$$
+									Ez szépen visszaadja a "rendes" megoldásunk oszcilláló részét: láthatjuk viszont, hogy az egyenes mozgás kiesett.
+								</p>
 							</div>
 						</section>
 
