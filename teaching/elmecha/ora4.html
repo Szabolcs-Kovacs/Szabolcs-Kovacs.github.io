@@ -195,9 +195,9 @@
 								</p>
 								<p style="text-align: justify;">
 									Ami marad még, az a másik változó Euler-Lagrange egyenlete:
-									\begin{aligned}
+									$$\begin{aligned}
 									    \frac{\partial \mathcal{L}}{\partial \vartheta} = - ml \dot{x}\dot{\vartheta} \sin{\vartheta} - mgl \sin{\vartheta} \qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{\vartheta}} = m l^2 \dot{\vartheta} + ml \dot{x} \cos{\vartheta}
-									\end{aligned}
+									\end{aligned}$$
 									$$
 									     m l^2 \ddot{\vartheta} + ml \ddot{x} \cos{\vartheta} -m l \dot{x} \dot{\vartheta} \sin{\vartheta} =  - ml \dot{x}\dot{\vartheta} \sin{\vartheta} - mgl \sin{\vartheta}
 									$$
@@ -542,18 +542,14 @@
 									     (\partial_t^2 + \underline{\underline{M}}^{-1}\underline{\underline{D}}) \hat{G}(t) = \delta(t)
 									$$
 									egyenletet.
-									%Ez Fourier térben
-									%$$
-									%     -(\omega^2 - \underline{\underline{M}}^{-1}\underline{\underline{D}}) G_\omega(\omega,\omega^\prime) =  e^{i\omega t^\prime}
-									%$$
 									A sima oszcillátor megoldásából idézzük vissza, hogy megtaláltuk $\underline{\underline{M}}^{-1}\underline{\underline{D}}$ sajátrendszerét: ezek voltak a normálmódusok, amikre
 									$$
 									    (\underline{\underline{M}}^{-1}\underline{\underline{D}}) \underline{\eta_i} = \omega_i^2 \underline{\eta_i}
 									$$
 									A sajátvektorok diadikus szorzatát felhasználva pedig felírhatunk két fontos mátrixot velük:
-									\begin{align*}
+									$$\begin{aligned}
 									    \underline{I} = \sum_i\underline{\eta_i} \underline{\tilde{\eta_i}} && \underline{\underline{M}}^{-1}\underline{\underline{D}} =\sum_i \omega_i^2 \underline{\eta_i} \underline{\tilde{\eta_i}}
-									\end{align*}
+									\end{aligned}$$
 									Ahol megjelenik $\underline{\tilde{\eta_i}}$, a sajátvektorhoz tartozó duális, amire $\underline{\tilde{\eta_i}} \underline{{\eta_j}} = \delta_{ij}$.
 									Ha a sajátrendszer teljes és ortogonális, őt vehetjük egyszerűen a vektor transzponáltjának.
 									Minden esetre ezzel a lépéssel rögzítettük a bázisunkat a sajátrendszerhez, amit tartsunk fejben.
@@ -571,10 +567,6 @@
 									alakban szerepel nekünk a megoldásban: hatni fog valamilyen vektorra.
 									Ha mi eddig a sajátbázisban dolgoztunk, akkor ezt az $M^{-1}F$ vektort is át kell rá transzformálni. 
 									Így a helyes mátrixos alakba bekerül még az $M^{-1}F$ vektor átírása is erre a bázisra (meg persze egy $\Theta$ lépcsőfüggvény):
-									%$$
-									%    \underline{\underline{G_\omega}} = - \sum_i \frac{e^{i\omega t^\prime}}{\omega^2 - w_i^2} \underline{\eta_i}\underline{\tilde{\eta_i}}
-									%$$
-									%Ezt visszatranszformálva megkapjuk Green-függvényt időtérben:
 									$$
 									    \hat{G}(t) = \underline{\underline{G}}(t) = \Theta(t) \sum_i \frac{\sin{(\omega_i t)}}{\omega_i} \underline{\eta_i}\underline{\tilde{\eta_i}}
 									$$
@@ -826,7 +818,7 @@
 									4.5.1. Sajátmódusok
 								</h4>
 								<p style="text-align: justify;">
-									Legyen most szimmetrikus a rendszer, tehát $m_1 = m_2$ és $k_1 = k_2 \neq K$. Emlékeztetőül, ekkor a mátrixaink:
+									Legyen most szimmetrikus a rendszer, tehát $m_1 = m_2$ és $k_1 = k_2 \neq{} K$. Emlékeztetőül, ekkor a mátrixaink:
 									$$\begin{aligned}
 									    \underline{\underline{M}} = \begin{pmatrix}
 									        m && 0 \\
