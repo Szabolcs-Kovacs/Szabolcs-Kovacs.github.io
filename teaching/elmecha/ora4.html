@@ -378,22 +378,430 @@
 						<section id="three" class="wrapper style3">
 							<div class="inner">
 								<h3>
-				        
-				        </h3>
+									4.2. példa: Rudas inga
+								</h3>	
 								<p style="text-align: justify;">
+									Vegyünk egy $l$ hosszúságú ingát, aminek a végére rögzítsünk egy $M$ tömegpontot.
+									Ezen a ponton fűzzünk át az ingára merőlegesen egy sínt: erre pedig rakjunk egy $m$ tömegű testet.
+									\textit{Mik a normálmódusok?}
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson4/doltrudinga" alt="Ábra a rudas ingáról" width="25%">
+								</div>
+								<p style="text-align: justify;">
+									Tippeljük meg ismét a jó általános koordinátákat: ha a tömegek egybeesnek, és az inga pont lefelé mutat, egyensúlyban vagyunk.
+									Legyenek az ettől való eltérés általános koordinátái $\varphi$ és $r$.
+									Az $M$ tömegpont Descartes-i koordinátái (a potenciál nullpontjához illeszkedve):
+									$$
+									\begin{aligned}
+									    \begin{pmatrix}
+									        x_M \\ y_M
+									    \end{pmatrix} = \begin{pmatrix}
+									        l \sin{\varphi} \\ -l \cos{\varphi}
+									    \end{pmatrix}
+									\end{aligned}
+									$$
+									A kis tömegpont már bonyolultabb: ahhoz kell a rúd és a horizont közötti szög.
+									Kis geometriával belátható, hogy az is $\varphi$. Ezzel
+									$$
+									    \begin{pmatrix}
+									        x_m \\ y_m
+									    \end{pmatrix} = \begin{pmatrix}
+									        x_M \\ y_M
+									    \end{pmatrix} + \begin{pmatrix}
+									        r \cos{\varphi} \\ r\sin{\varphi} 
+									    \end{pmatrix}
+									$$
+									Deriválva:
+									$$
+									     \begin{pmatrix}
+									        \dot{x_M} \\ \dot{y_M}
+									    \end{pmatrix} = \begin{pmatrix}
+									        l \dot{\varphi} \cos{\varphi} \\ l \dot{\varphi} \sin{\varphi}
+									    \end{pmatrix}
+									$$
+									$$
+									    \begin{pmatrix}
+									        \dot{x_m} \\ \dot{y_m}
+									    \end{pmatrix} = \begin{pmatrix}
+									        l \dot{\varphi} \cos{\varphi} - r \dot{\varphi} \sin{\varphi} + \dot{r} \cos{\varphi} \\ l \dot{\varphi} \sin{\varphi} - r \dot{\varphi}\cos{\varphi} -\dot{r}\sin{\varphi} 
+									    \end{pmatrix}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Emeljük ezeket négyzetre:
+									$$
+									    \dot{x_M}^2 + \dot{y_M}^2 = l^2 \dot{\varphi}^2
+									$$
+									$$
+									     \dot{x_m}^2 + \dot{y_m}^2 = (l\dot{\varphi}+\dot{r})^2 + r^2\dot{\varphi}^2
+									$$
+									Amikkel a kinetikus tagok nagyjából készen is vannak. A potenciális:
+									$$
+									    V = - Mg l\cos{\varphi} - mg (l\cos{\varphi}-r\sin{\varphi})
+									$$
+									Ha rezgésekre vagyunk kíváncsiak, megint át kell írni az ebből kapott Lagrange-függvényt valamilyen közelítésekkel.
+									A kis szög itt is működik, viszont $x$-re is kell kiszabnunk valamit, hogy eltűnjön a négyzetes keveredés a kinetikus tagból. A probléma okozója
+									$$
+									     \dot{x_m}^2 + \dot{y_m}^2 = (l\dot{\varphi}+\dot{r})^2 + r^2\dot{\varphi}^2 = l^2 \dot{\varphi}^2 + 2l \dot{r}\dot{\varphi}+\dot{r}^2+ \underbrace{r^2 \dot{\varphi}^2}
+									$$
+									Tegyük fel ezért, hogy $r \ll l$! Ekkor a kinetikus tagból ezt a keveredést elhagyhatjuk, a potenciálból pedig kiesik az $r \sin{\varphi} \approx r \varphi$ tag.
+								</p>
+								<p style="text-align: justify;">
+									Így már felírható a feladat mátrixosan:
+									$$
+									    \mathcal{L} = \frac{1}{2} \dot{\underline{q}} \underline{\underline{M}} \dot{\underline{q}} - \frac{1}{2} \underline{q}\underline{\underline{D}} \underline{q}
+									$$
+									ahol
+									$$
+									\begin{aligned}
+									    \underline{\underline{M}} = \begin{pmatrix}
+									        m && ml \\
+									        ml && l^2(M+m)
+									    \end{pmatrix} \qquad\qquad \underline{\underline{D}} = \begin{pmatrix}
+									        0 && 0 \\
+									        0 && (m+M)lg
+									    \end{pmatrix}
+									\end{aligned}
+									$$
+									A normálmódusok megtalálásához ismét számítsuk ki az $\underline{\underline{A}} = \underline{\underline{M}}^{-1}\underline{\underline{D}}$ mátrixot! Ehhez
+									$$
+									    \underline{\underline{M}}^{-1} = \frac{1}{m l^2(M+m)-m^2l^2}\begin{pmatrix}
+									        l^2(M+m) && -ml \\
+									        -ml && m
+									    \end{pmatrix} = \frac{1}{M l} \begin{pmatrix}
+									        l\frac{M+m}{m} && -1 \\
+									        -1 && \frac{1}{l}
+									    \end{pmatrix}
+									$$
+									Amivel
+									$$
+									    \underline{\underline{A}} = \frac{1}{M l} \begin{pmatrix}
+									        l\frac{M+m}{m} && -1 \\
+									        -1 && \frac{1}{l}
+									    \end{pmatrix} (m+M)lg \begin{pmatrix}
+									        0 &&  0 \\
+									        0 && 1
+									    \end{pmatrix} = \frac{m+M}{M}g \begin{pmatrix}
+									        0 && -1 \\
+									        0 && \frac{1}{l}
+									    \end{pmatrix}
+									$$
+									Amiből a sajátértékek:
+									$$
+									    -\omega^2 \left(\frac{m+M}{M}\frac{g}{l}-\omega^2 \right) = 0
+									$$
+									Tehát pontosan ugyanazok, mint az előző feladatban. 
 								</p>
 							</div>
 						</section>
 
 						<section id="four" class="wrapper alt style4">
 							<div class="inner">
-								
+								<h3>
+									Gerjesztések
+								</h3>
+								<p style="text-align: justify;">
+									A harmonikus mozgásokkal már jól megbarátkoztunk.
+									Ezeknek eggyel bonyolultabb esete, ha vesszük az eddigi rezgő rendszerünket, és rákapcsolunk valami külső erőt.
+									Arra vagyunk kíváncsiak, hogy mi lesz ekkor a mozgás, feltéve, hogy a külső erő nélküli rendszert már ismerjük.
+									Egy matekos ismétlésként nézzük a következő differenciálegyenletet:
+									$$
+									    (\partial_t^2 + \omega_0^2) x(t) = f(t)
+									$$
+									és gyorsan vegyük át a lépéseket a megoldásához.
+								</p>
+								<p style="text-align: justify;">
+									Először is: ez bonyolult. Oldjuk meg először $x$ helyett valami $G$ függvényre abban az eseten, ha a jobb oldalt szereplő erő csak egy Dirac-delta.
+									$$
+									     (\partial_t^2 + \omega_0^2) G(t) = \delta(t)
+									$$
+									Ő azért jó nekünk, mert az ismeretében \textit{tetszőleges} $f(t)$ erőre meg tudjuk mondani a megoldást:
+									$$
+									    x(t) = \int_{-\infty}^\infty G(t- t^\prime) f(t^\prime) \rd t^\prime
+									$$
+									Ezt ha behelyettesítjük az eredeti egyenletbe, akkor láthatjuk, hogy megoldja azt.
+									Minden esetre még csak alrébbtoltuk a problémát: most $x$ helyett a $G$ \textbf{Green-függvényt} kell megtalálnunk. 
+									Ez kinézhető táblázatokból, például a harmonikus oszcillátor rendszerére:
+									$$
+									    G(t) =\Theta(t) \frac{\sin{(\omega_0 t)}}{\omega_0}
+									$$
+									amivel tetszőleges gerjesztőerőre fel tudjuk írni a megoldást, a fenti integrállal.
+								</p>
+								<p style="text-align: justify;">
+									Persze minket most a mátrixos jelölés érdekel. Ekkor a mozgásegyenletünk igazából
+									$$
+									    \underline{\underline{M}} \ddot{\underline{q}} + \underline{\underline{D}} \underline{q} = \underline{F}
+									$$
+									Ezt kicsit alakítva
+									$$
+									     \ddot{\underline{q}} +\underline{\underline{M}}^{-1} \underline{\underline{D}} \underline{q} = \underline{\underline{M}}^{-1} \underline{F}
+									$$
+									Hasonlóan a fentihez, ennek általános megoldása helyett először nézzük a
+									$$
+									     (\partial_t^2 + \underline{\underline{M}}^{-1}\underline{\underline{D}}) \hat{G}(t) = \delta(t)
+									$$
+									egyenletet.
+									%Ez Fourier térben
+									%$$
+									%     -(\omega^2 - \underline{\underline{M}}^{-1}\underline{\underline{D}}) G_\omega(\omega,\omega^\prime) =  e^{i\omega t^\prime}
+									%$$
+									A sima oszcillátor megoldásából idézzük vissza, hogy megtaláltuk $\underline{\underline{M}}^{-1}\underline{\underline{D}}$ sajátrendszerét: ezek voltak a normálmódusok, amikre
+									$$
+									    (\underline{\underline{M}}^{-1}\underline{\underline{D}}) \underline{\eta_i} = \omega_i^2 \underline{\eta_i}
+									$$
+									A sajátvektorok diadikus szorzatát felhasználva pedig felírhatunk két fontos mátrixot velük:
+									\begin{align*}
+									    \underline{I} = \sum_i\underline{\eta_i} \underline{\tilde{\eta_i}} && \underline{\underline{M}}^{-1}\underline{\underline{D}} =\sum_i \omega_i^2 \underline{\eta_i} \underline{\tilde{\eta_i}}
+									\end{align*}
+									Ahol megjelenik $\underline{\tilde{\eta_i}}$, a sajátvektorhoz tartozó duális, amire $\underline{\tilde{\eta_i}} \underline{{\eta_j}} = \delta_{ij}$.
+									Ha a sajátrendszer teljes és ortogonális, őt vehetjük egyszerűen a vektor transzponáltjának.
+									Minden esetre ezzel a lépéssel rögzítettük a bázisunkat a sajátrendszerhez, amit tartsunk fejben.
+									Ha visszaírunk mindent, és addig hunyorítunk hogy ne lássunk vektorokat, akkor ez úgy néz ki mint a sima oszcillátor, tehát
+									$$
+									    "\hat{G}(t) \propto - \sum_i \frac{\sin{(\omega_i t)}}{\omega_i} "
+									$$
+									kinézetű megoldást keresünk, a vektoros-mátrixos részen kívül.
+								</p>
+								<p style="text-align: justify;">
+									A mátrixos részhez emlékezzünk vissza, hogy a Green függvény
+									$$
+									    \int \hat{G}(t- t^\prime) \underline{\underline{M}}^{-1} \underline{F}
+									$$
+									alakban szerepel nekünk a megoldásban: hatni fog valamilyen vektorra.
+									Ha mi eddig a sajátbázisban dolgoztunk, akkor ezt az $M^{-1}F$ vektort is át kell rá transzformálni. 
+									Így a helyes mátrixos alakba bekerül még az $M^{-1}F$ vektor átírása is erre a bázisra (meg persze egy $\Theta$ lépcsőfüggvény):
+									%$$
+									%    \underline{\underline{G_\omega}} = - \sum_i \frac{e^{i\omega t^\prime}}{\omega^2 - w_i^2} \underline{\eta_i}\underline{\tilde{\eta_i}}
+									%$$
+									%Ezt visszatranszformálva megkapjuk Green-függvényt időtérben:
+									$$
+									    \hat{G}(t) = \underline{\underline{G}}(t) = \Theta(t) \sum_i \frac{\sin{(\omega_i t)}}{\omega_i} \underline{\eta_i}\underline{\tilde{\eta_i}}
+									$$
+									Kicsit nézegetve ez két dolgot csinál. Először is, hattatva a gerjesztő erőre, azt levetíti valamelyik sajátmódus irányába.
+									Ebben az irányban pontosan úgy hat, mint a sima oszcillátorra a gerjesztés.
+									Ezeket összegezve az összes módusra, megkapjuk a teljes hatását a forrástagnak.
+									Mindez persze szép bonyolultan hangzik, szóval nézzünk is rá pár példát!
+								</p>
+								<h3>
+									4.3. példa: Szinuszos gerjesztés harmonikus oszcillátorra
+								</h3>
+								<p style="text-align: justify;">
+									Bemelegítésként nézzünk meg egy sima harmonikus oszcillátort, amire rákapcsolunk egy $\Omega$ frekvenciájú, $f_0$ amplitúdójú szinuszos gerjesztést a $t=0$ pillanattól kezdve:
+									$$
+									\begin{aligned}
+									    (\partial_t^2 + \omega_0^2) x &= f(t) \\
+									    f(t) &= f_0 \sin{(\Omega t)} \Theta(t)
+									\end{aligned}
+									$$
+									Itt a gerjesztőerőben a $\Theta(t)$ lépcsőfüggvény a "$t=0$\textit{ pillanattól kezdve}" szófordulat átfogalmazása matekra.
+								</p>
+								<p style="text-align: justify;">
+									Tudjuk, hogy a Green függvény ismeretében a megoldás
+									$$
+									    x(t) = \int_{-\infty}^\infty G(t-t^\prime) f(t^\prime) \rd t^\prime
+									$$
+									és hogy a sima oszcillátorra
+									$$
+									    G(t) = \Theta(t) \frac{\sin{\omega t}}{\omega}
+									$$
+									Mivel a forrásmentes rendszer egy sima harmonikus oszcillátor, amit ismerünk, nincs más dolgunk,
+									mint beírni ezeket az integrálba, ügyelve, hogy minek mi az argumentuma:
+									$$
+									    x(t) = \int_{-\infty}^\infty \Theta(t-t^\prime) \frac{\sin{\omega (t-t^\prime)}}{\omega} f_0 \sin{(\Omega t^\prime)} \Theta(t^\prime)  \rd t^\prime
+									$$
+									Nézzük meg mit csinálnak ezek a lépcsőfüggvények.
+									A $\Theta(t^\prime)$ annyit tud, hogy $t^\prime = 0$ alatt nulla, felette pedig egy.
+									Ezzel be van szorozva az integrandus: tehát annyit tesz, mintha $-\infty$ helyett 0-tól integrálnánk.
+									A másik, $\Theta(t-t^\prime)$ akkor lesz nulla, ha $t-t^\prime < 0$, tehát ha $t^\prime > t$.
+										Ez egy felső korlátot ad az integrálunknak $t$-nél. Ezeket beírva, illetve kiemelve mindent ami konstans:
+									$$
+									    x(t) = \frac{f_0}{\omega}\int_{0}^t \sin{[\omega (t-t^\prime)]}\sin{(\Omega t^\prime)}  \rd t^\prime
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Nézzük meg hogyan kell elvégezni egy ilyen integrált kézzel, papíron. Először is, trigonometriából tudjuk, hogy
+									$$
+									\begin{aligned}
+									    \cos(x+y) &= \cos{x} \cos{y} - \sin{x} \sin{y} \\
+									    \cos(x-y) &= \cos{x} \cos{y} + \sin{x} \sin{y}
+									\end{aligned}
+									$$
+									Az alsóból kivonva a fölsőt:
+									$$
+									\begin{aligned}
+									    \cos(x-y) - \cos(x+y) = 2 \sin{x} \sin{y}
+									\end{aligned}
+									$$
+									Tehát nekünk:
+									$$
+									    \sin{[\omega (t-t^\prime)]}\sin{(\Omega t^\prime)} = \frac{\cos{[\omega (t-t^\prime) - \Omega t^\prime]} - \cos{[\omega (t-t^\prime) + \Omega t^\prime]}}{2}
+									$$
+									Amivel az integrálunk két rész összegéből fog állni:
+									$$
+									   \frac{1}{2} \int_0^t \cos{[\omega (t-t^\prime) - \Omega t^\prime]} \rd t^\prime -   \frac{1}{2} \int_0^t \cos{[\omega (t-t^\prime) + \Omega t^\prime]} \rd t^\prime
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Nézzük most csak az elsőt, és vezessünk be egy $u$ változócserét:
+									$$
+									\begin{aligned}
+									    u &= \omega (t-t^\prime) - \Omega t^\prime \\
+									    \frac{\rd u}{ \rd t^\prime} &= -\omega - \Omega = -(\Omega + \omega)
+									\end{aligned}
+									$$
+									Tehát az integrál:
+									$$
+									    \int_0^t \cos{[\omega (t-t^\prime) - \Omega t^\prime]} \rd t^\prime = - \frac{1}{\Omega + \omega} \int \cos{u} \rd u
+									$$
+									Amire kell még figyelnünk, azok a határok. Ezek rendre:
+									$$
+									\begin{aligned}
+									    u(t^\prime=0) = \omega t \qquad\qquad u(t^\prime = t) = - \Omega t
+									\end{aligned}
+									$$
+									ahol feltűnhet, hogy a fenti határ igazából lentebb van, mint a lenti. Ezeket felcserélhetjük, ami hoz egy negatív szorzót az integrál elé, így:
+									$$
+									    - \frac{1}{\Omega + \omega} \int \cos{u} \rd u = \frac{1}{\Omega + \omega} \int_{-\Omega t}^{\omega t} \cos{u} \rd u
+									$$
+									Ezt már egyszerű kiintegrálni:
+									$$
+									\begin{aligned}
+									    \frac{1}{\Omega + \omega} \int_{-\Omega t}^{\omega t} \cos{u} \rd u &= \frac{1}{\Omega + \omega} \left[\sin{\omega t} - \sin{(-\Omega t)} \right] \\
+									    &= \frac{1}{\Omega + \omega} \left[\sin{\omega t} + \sin{\Omega t} \right]
+									\end{aligned}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									A másik integrálunk is hasonló lesz, annyi különbséggel, hogy ott
+									$$
+									\begin{aligned}
+									    w &= \omega (t-t^\prime) + \Omega t^\prime \\
+									    \frac{\rd w}{ \rd t^\prime} &= -\omega + \Omega = \Omega - \omega
+									\end{aligned}
+									$$
+									illetve
+									$$
+									\begin{aligned}
+									    w(t^\prime=0) = \omega t \qquad\qquad w(t^\prime = t) = \Omega t
+									\end{aligned}
+									$$
+									Tehát ez az integrál:
+									$$
+									\begin{aligned}
+									    \int_0^t \cos{[\omega (t-t^\prime) + \Omega t^\prime]} \rd t^\prime &= \frac{1}{\Omega - \omega} \int_{\omega t}^{\Omega t} \cos{w} \rd w \\
+									    &= \frac{1}{\Omega - \omega} \left[\sin{\Omega t} - \sin{\omega t} \right]
+									\end{aligned}
+									$$
+									Véve a kettő különbségét, közös nevezőre tudunk hozni:
+									$$
+									\begin{aligned}
+									     &\frac{1}{\Omega + \omega} \left[\sin{\omega t} + \sin{\Omega t} \right] - \frac{1}{\Omega - \omega} \left[\sin{\Omega t} - \sin{\omega t} \right] = \\
+									     = &\frac{(\Omega - \omega) \sin{\omega t} +(\Omega - \omega)\sin{\Omega t} - (\Omega + \omega) \sin{\Omega t} + (\Omega + \omega) \sin{\omega t} }{(\Omega + \omega) (\Omega - \omega)} \\
+									     = &\frac{2 \Omega \sin{\omega t} - 2 \omega \sin{\Omega t} }{\Omega^2 - \omega^2}
+									\end{aligned}
+									$$
+								</p>
+								<p style="text-align: justify;">
+									Visszaírva minden elhagyott szorzó faktort, ezzel a megoldásunk:
+									$$
+										x(t) = \frac{f_0}{\omega} \frac{ \Omega \sin{\omega t} - \omega \sin{\Omega t} }{\Omega^2 - \omega^2}
+									$$
+									Így megkaptuk egzakt formában a kitérés-idő függvényt.
+									Vele már tudunk számolni bármit, ami érdekelhet a mozgásról.
+									Most például nézzük meg, hogy hol lesz a kitérés nulla, tehát
+									$$
+										x(t_0) = 0
+									$$
+									Ehhez
+									$$
+									\begin{aligned}
+										\frac{f_0}{\omega} &\frac{ \Omega \sin{\omega t_0} - \omega \sin{\Omega t_0} }{\Omega^2 - \omega^2} = 0 \\
+										&\Omega \sin{\omega t_0} - \omega \sin{\Omega t_0}  = 0 \\
+										&\Omega \sin{\omega t_0} = \omega \sin{\Omega t_0} \\
+										&\ \,\frac{\sin{\omega t_0}}{\sin{\Omega t_0}} = \frac{\omega}{\Omega}
+									\end{aligned}
+									$$
+									Vegyük azt a speciális esetet, ahol $\Omega = 2 \omega$. Ekkor
+									$$\begin{aligned}
+										\frac{\sin{\omega t_0}}{\sin{(2 \omega t_0)}} = \frac{1}{2}
+									\end{aligned}$$
+									Egy addíciós tétel után
+									$$
+										\sin{2x} = 2 \sin{x} \cos{x}
+									$$
+									tehát
+									$$\begin{aligned}
+										\frac{\sin{\omega t_0}}{2\sin{\omega t_0} \cos{\omega t_0}} = \frac{1}{2} \\
+										\frac{1}{\cos{\omega t_0}} = 1
+									\end{aligned}$$
+									Ami teljesül, ha
+									$$\begin{aligned}
+										\omega t_0 = 2 k \pi && k \in \mathbb{Z}
+									\end{aligned}$$
+								</p>
 							</div>
 						</section>
 
 						<section id="five" class="wrapper alt style5">
 							<div class="inner">
-								
+								<h3>
+									4.4. példa: Tripla rugós kéttest rendszer
+								</h3>
+								<p style="text-align: justify;">
+
+								</p>
+								<p style="text-align: justify;">
+
+								</p>
+								<p style="text-align: justify;">
+
+								</p>
+								<p style="text-align: justify;">
+
+								</p>
+								<h3>
+									4.5. példa: Háromrugós rendszer gerjesztése
+								</h3>
+								<p style="text-align: justify;">
+
+								</p>
+								<h4>
+									4.5.1. Sajátmódusok
+								</h4>
+								<p style="text-align: justify;">
+
+								</p>
+								<p style="text-align: justify;">
+
+								</p>
+								<h4>
+									4.5.2. Azonos lökés
+								</h4>
+								<p style="text-align: justify;">
+
+								</p>
+								<p style="text-align: justify;">
+
+								</p>
+								<h4>
+									4.5.3. Baloldali lökés
+								</h4>
+								<p style="text-align: justify;">
+
+								</p>
+								<p style="text-align: justify;">
+
+								</p>
+								<p style="text-align: justify;">
+
+								</p>
+								<h4>
+									4.5.4. Ellentétes szinuszos gerjesztés
+								</h4>
+								<p style="text-align: justify;">
+
+								</p>
 							</div>
 						</section>
 
