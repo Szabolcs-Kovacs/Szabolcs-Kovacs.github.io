@@ -434,21 +434,49 @@
 									    \dot{x_M}^2 + \dot{y_M}^2 = l^2 \dot{\varphi}^2
 									$$
 									$$
-									     \dot{x_m}^2 + \dot{y_m}^2 = (l\dot{\varphi}+\dot{r})^2 + r^2\dot{\varphi}^2
+									\begin{aligned}
+									    \dot{x_m}^2 =((l\dot{\varphi}+\dot{r})\cos{\varphi}-r\dot{\varphi}\sin{\varphi})^2 \qquad \qquad \dot{y_m}^2 =((l\dot{\varphi}-\dot{r})\sin{\varphi}-r\dot{\varphi}\cos{\varphi})^2 \\
+									    \dot{x_m}^2 =(l\dot{\varphi}+\dot{r})^2\cos^2{\varphi}+r^2\dot{\varphi}^2\sin^2{\varphi}-2(l\dot{\varphi}+\dot{r})r\dot{\varphi}\cos{\varphi}\sin{\varphi} \\
+									    \dot{y_m}^2 = (l\dot{\varphi}-\dot{r})^2\sin^2{\varphi}+r^2\dot{\varphi}^2\cos^2{\varphi}-2(l\dot{\varphi}-\dot{r})r\dot{\varphi}\cos{\varphi}\sin{\varphi} 
+									\end{aligned}
 									$$
+									Összeadva a komponenseket
+									$$\begin{aligned}
+									        \dot{x_m}^2+ \dot{y_m}^2 = (l\dot{\varphi}+\dot{r})^2\cos^2{\varphi} + (l\dot{\varphi}-\dot{r})^2\sin^2{\varphi} 
+									        +r^2\dot{\varphi}^2\sin^2{\varphi}+r^2\dot{\varphi}^2\cos^2{\varphi} 
+									        -2(l\dot{\varphi}+\dot{r})r\dot{\varphi}\cos{\varphi}\sin{\varphi} -2(l\dot{\varphi}-\dot{r})r\dot{\varphi}\cos{\varphi}\sin{\varphi} \\
+									        \dot{x_m}^2+ \dot{y_m}^2 = (l^2\dot{\varphi}^2+\dot{r}^2 + 2 l\dot{\varphi}\dot{r})\cos^2{\varphi} + (l^2\dot{\varphi}^2+\dot{r}^2 - 2 l\dot{\varphi}\dot{r})\sin^2{\varphi} 
+									        +r^2\dot{\varphi}^2 -4rl\dot{\varphi}^2\cos{\varphi}\sin{\varphi}\\
+									        \dot{x_m}^2+ \dot{y_m}^2 = (l^2\dot{\varphi}^2+\dot{r}^2)\cos^2{\varphi} + 2 l\dot{\varphi}\dot{r}\cos^2{\varphi} + (l^2\dot{\varphi}^2+\dot{r}^2)\sin^2{\varphi} - 2 l\dot{\varphi}\dot{r}\sin^2{\varphi}
+									        +r^2\dot{\varphi}^2 -4rl\dot{\varphi}^2\cos{\varphi}\sin{\varphi}\\
+									        \dot{x_m}^2+ \dot{y_m}^2 = 2 l\dot{\varphi}\dot{r}(\cos^2{\varphi}  - \sin^2{\varphi})
+									        +l^2\dot{\varphi}^2+\dot{r}^2 +r^2\dot{\varphi}^2 -4rl\dot{\varphi}^2\cos{\varphi}\sin{\varphi} \\
+									        \dot{x_m}^2+ \dot{y_m}^2 = 2 l\dot{\varphi}\dot{r}(1  - 2\sin^2{\varphi})
+									        +l^2\dot{\varphi}^2+\dot{r}^2 +r^2\dot{\varphi}^2 -4rl\dot{\varphi}^2\cos{\varphi}\sin{\varphi} \\
+									        \dot{x_m}^2+ \dot{y_m}^2 = 2 l\dot{\varphi}\dot{r}  
+									        +l^2\dot{\varphi}^2+\dot{r}^2 +r^2\dot{\varphi}^2 -4rl\dot{\varphi}^2\cos{\varphi}\sin{\varphi} -4 l\dot{\varphi}\dot{r} \sin^2{\varphi}
+									\end{aligned}$$
 									Amikkel a kinetikus tagok nagyjából készen is vannak. A potenciális:
 									$$
 									    V = - Mg l\cos{\varphi} - mg (l\cos{\varphi}-r\sin{\varphi})
 									$$
-									Ha rezgésekre vagyunk kíváncsiak, megint át kell írni az ebből kapott Lagrange-függvényt valamilyen közelítésekkel.
-									A kis szög itt is működik, viszont $x$-re is kell kiszabnunk valamit, hogy eltűnjön a négyzetes keveredés a kinetikus tagból. A probléma okozója
-									$$
-									     \dot{x_m}^2 + \dot{y_m}^2 = (l\dot{\varphi}+\dot{r})^2 + r^2\dot{\varphi}^2 = l^2 \dot{\varphi}^2 + 2l \dot{r}\dot{\varphi}+\dot{r}^2+ \underbrace{r^2 \dot{\varphi}^2}
-									$$
-									Tegyük fel ezért, hogy $r \ll l$! Ekkor a kinetikus tagból ezt a keveredést elhagyhatjuk, a potenciálból pedig kiesik az $r \sin{\varphi} \approx r \varphi$ tag.
+									Ha rezgésekre vagyunk kíváncsiak, megint át kell írni az ebből kapott Lagrange-függvényt valamilyen közelítésekkel. A kis szög itt is működik, egy pontig:
+									$$\begin{aligned}
+									    \dot{x_m}^2+ \dot{y_m}^2 \approx 2 l \dot{\varphi}\dot{r}  
+									        +l^2 \dot{\varphi}^2 +\dot{r}^2  +r^2\dot{\varphi}^2 -4lr\dot{\varphi}^2\varphi -4 l\dot{\varphi}\dot{r}\varphi^2
+									\end{aligned}$$
+									Viszont két változónk van: $x$-re is ki kell szabnunk valamit, ha benne is kicsik a rezgések. Praktikai szempontból pedig az a célunk, hogy mátrixosan tudjuk felírni a kinetikus tagot, tehát a tagjainkban csak $\dot{r}$ és $\dot{\varphi}$ szerepeljenek (szigorúan másodrendben), maguk a változók ne. Ezt a két problémát egy csapásra tudjuk megoldani, ha feltesszük hogy $r \ll l$ tehát $\frac{r}{l}\ll 1$. Ekkor megjelölve, hogy mi hányadrendű a kis változókban:
+									$$\begin{aligned}
+									    \dot{x_m}^2+ \dot{y_m}^2 \approx 2 l^2 \underbrace{\dot{\varphi}\frac{\dot{r}}{l}}_{\mathcal{O}(2)}  
+									        +l^2 \underbrace{\dot{\varphi}^2}_{\mathcal{O}(2)} +l^2 \underbrace{\frac{\dot{r}^2}{l^2}}_{\mathcal{O}(2)}  +l^2\underbrace{\frac{r^2}{l^2}\dot{\varphi}^2}_{\mathcal{O}(4)} -4l^2 \underbrace{\frac{r}{l}\dot{\varphi}^2\varphi}_{\mathcal{O}(4)} -4 l^2\underbrace{\dot{\varphi}\frac{\dot{r}}{l}\varphi^2}_{\mathcal{O}(4)}
+									\end{aligned}$$
+									láthatjuk, hogy csak az első három tag kell nekünk: egyrészt a többi már negyedrendű, másrészt pont ők azok, amik felírhatók mátrixosan. A teljesség jegyében még nézzük meg a potenciált is:
+									$$\begin{aligned}
+									    V \approx -\underbrace{ Mg l}_{\mathcal{O}(0)} + \frac{Mg l}{2}\underbrace{\varphi^2}_{\mathcal{O}(2)} - \underbrace{mgl}_{\mathcal{O}(0)} + \frac{mgl}{2} \underbrace{\varphi^2}_{\mathcal{O}(2)}+mgl \underbrace{\frac{r}{l}\varphi}_{\mathcal{O}(2)}
+									\end{aligned}$$
 								</p>
 								<p style="text-align: justify;">
-									Így már felírható a feladat mátrixosan:
+									Így a Lagrange:
 									$$
 									    \mathcal{L} = \frac{1}{2} \dot{\underline{q}} \underline{\underline{M}} \dot{\underline{q}} - \frac{1}{2} \underline{q}\underline{\underline{D}} \underline{q}
 									$$
@@ -459,9 +487,9 @@
 									        m && ml \\
 									        ml && l^2(M+m)
 									    \end{pmatrix} \qquad\qquad \underline{\underline{D}} = \begin{pmatrix}
-									        0 && 0 \\
-									        0 && (m+M)lg
-									    \end{pmatrix}
+											0 && mg \\
+											mg && (m+M)lg
+										\end{pmatrix}
 									\end{aligned}
 									$$
 									A normálmódusok megtalálásához ismét számítsuk ki az $\underline{\underline{A}} = \underline{\underline{M}}^{-1}\underline{\underline{D}}$ mátrixot! Ehhez
@@ -479,19 +507,32 @@
 									    \underline{\underline{A}} = \frac{1}{M l} \begin{pmatrix}
 									        l\frac{M+m}{m} && -1 \\
 									        -1 && \frac{1}{l}
-									    \end{pmatrix} (m+M)lg \begin{pmatrix}
-									        0 &&  0 \\
-									        0 && 1
-									    \end{pmatrix} = \frac{m+M}{M}g \begin{pmatrix}
-									        0 && -1 \\
-									        0 && \frac{1}{l}
+									    \end{pmatrix} mg \begin{pmatrix}
+									        0 &&  1 \\
+									        1 && \frac{m+M}{m}l
+									    \end{pmatrix} = \frac{m}{M} \frac{g}{l}\begin{pmatrix}
+									        -1 && 0 \\
+									        \frac{1}{l} && \frac{M}{m}
 									    \end{pmatrix}
 									$$
-									Amiből a sajátértékek:
+									Amiből a sajátértékek egyenlete:
 									$$
-									    -\omega^2 \left(\frac{m+M}{M}\frac{g}{l}-\omega^2 \right) = 0
+									    \omega^4 -  \frac{g}{l}\left(\frac{M-m}{M}\right)\omega^2 - \frac{m}{M}\left(\frac{g}{l}\right)^2= 0
 									$$
-									Tehát pontosan ugyanazok, mint az előző feladatban. 
+									Most rábízva a szimbolikus programokra a megoldást, azok
+									$$
+										\omega_1^2 = \frac{g}{l} \qquad \qquad \omega_2^2 = - \frac{m}{M}\frac{g}{l}
+									$$
+									A normálmódusok pedig (normálás nélkül):
+									$$\begin{aligned}
+										\eta_1 = \begin{pmatrix}
+											0 \\
+											1
+										\end{pmatrix} \qquad \qquad \eta_2 =  \begin{pmatrix}
+											-l \frac{m+M}{m} \\
+											1
+										\end{pmatrix}
+									\end{aligned}$$
 								</p>
 							</div>
 						</section>
