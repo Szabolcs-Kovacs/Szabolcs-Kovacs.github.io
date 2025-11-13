@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Elmecha-06</title>
+		<title>Elmecha-07</title>
     	<!-- For LaTeX translation I use KeTeX -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
 		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
@@ -71,27 +71,37 @@
 						<section id="one" class="wrapper alt style1">
 							<div class="inner">
 								<h2 class="major">
-									6. óra &nbsp;&nbsp;&nbsp;&nbsp; <a href="06_ora.pdf" download="06_ora.pdf" class="button icon solid fa-download align-right">Letöltés</a>
+									7. óra &nbsp;&nbsp;&nbsp;&nbsp; <a href="06_ora.pdf" download="06_ora.pdf" class="button icon solid fa-download align-right">Letöltés</a>
 								</h2>
 								<h3>
-									Merev testek
+									Hamiltoni mechanika
 								</h3>
 								<p style="text-align: justify;">
-									Ha merev testekről beszélünk, az azt jelenti, hogy minden pont közti távolság fix.
-									Ezzel a nagy korlátozással két féle mozgást végezhet a test: vagy minden pontja ugyanarra megy, ez lesz a tömegközépponti mozgás, vagy valahogy forog egy tengely körül.
-									Ezekkel a kinetikus tag:
-									$$
-									    K = \frac{1}{2} M \underline{v}_0^2 + \frac{1}{2} \underline{\omega}\, \underline{\underline{\Theta}} \,\underline{\omega}
-									$$
-									Ahol $M$ a test össztömege, $\underline{v}_0$ pedig a tömegközéppont sebessége. Emlékeztetőül, a forgási tagban megjelenik a tehetetlenségi nyomaték tenzor:
-									$$
-									    \Theta_{ij} = \int \rd^3 \mathbf{r} \rho(\mathbf{r})\bigl(\delta_{ij}\mathbf{r}^2 - r_i r_j\bigr)
-									$$
-									ami olyan mint a tömeg, csak a gyorsulásra való tehetetlenség helyett a forgatásra vonatkozik.
-									Ezen felül megjelenik még a forgatás vektoros ábrázolása $\underline{\omega}$-n keresztül: ő mondja meg, hogy milyen tengelyek körül milyen gyorsan forgunk.
+									A Lagrange-i mechanikával már nagyon jól megbarátkoztunk.
+									Ennek lényege tömören hogy egy $\mathcal{L}(q, \dot{q},t)$ Lagrange-függvényből az E-L egyenletek segítségével
+									megkapjuk a mozgásegyenletet valamilyen $\ddot{q} = f(q, \dot{q})$ alakban.
+									Ez egy szép, relatíve könnyen követhető lépésekből álló folyamat eredménye, ami miatt hasznos és szemléletes.
 								</p>
 								<p style="text-align: justify;">
-									Nézzünk először pár példát arra, hogy hogyan kell kiszámolni ezt a tömegszerű mátrixos izét.
+									Viszont a másodrendű diffegyenleteket nem szeretjük annyira, mint az elsőrendűeket.
+									Sokkal kezelhetőbb, ha ehelyett átírjuk a mozgásegyenletet kétszer annyi elsőrendű diffegyenletté.
+									Ez a Hamiltoni mechanika egyik előnye.
+									A másik az, hogy a kvantummechanika is ezen a nyelven íródott, szóval nem árt megbarátkozni vele klasszikusan is.
+								</p>
+								<p style="text-align: justify;">
+									Hogy áttérjünk a Lagrange-i formalizmusból a Hamiltoniba, néhány egyszerű lépést kell csak tennünk.
+									Lagrange-függvény helyett most Hamilton-unk lesz:
+									$$ \begin{aligned}
+										\mathcal{H}(\underline{q},\underline{p}) = \underline{p}^T\ \dot{\underline{q}}(\underline{p}) -\mathcal{L}(\underline{q}, \dot{\underline{q}}(\underline{p}))
+									\end{aligned} $$
+									aminek a változói a(z általános) koordináta és az (általános) impulzus.
+								</p>
+								<p style="text-align: justify;">
+									Az Euler-Lagrange egyenlet helyett most két darab Hamilton egyenletünk lesz, amikből megkapjuk a két elsőrendű diffegyenletet:
+									$$ \begin{aligned}
+									    \dot{\underline{q}} = \frac{\partial \mathcal{H}}{\partial \underline{p}} \qquad\qquad \dot{\underline{p}} = -\frac{\partial \mathcal{H}}{\partial \underline{q}}
+									\end{aligned} $$
+									A negatív előjel itt fontos, ne felejtsük el. Ha emlékezni akarunk rá, akkor idézzük vissza hogy $\dot{p} = F = - \nabla V$.
 								</p>
 							</div>
 						</section>
@@ -99,284 +109,432 @@
 						<section id="two" class="wrapper alt style2">
 							<div class="inner">
 								<h3>
-									6.1. példa: 2+2 tömegpont
+									7.1. példa: Egyszerű rugó
 								</h3>
+								<p style="text-align: justify;">
+									Nézzünk meg először egy egyszerű példát: egy sima, egy dimenziós rugót. Ennek a Lagrange-függvénye ugyebár
+									$$ \begin{aligned}
+									    \mathcal{L} = K - V = \frac{1}{2} m \dot{x}^2 - \frac{1}{2} k x^2
+									\end{aligned} $$
+									Hogy áttérjünk a Hamiltoni formalizmusra, először is kell valami jó $p$ impulzusváltozó. Ez lehet a már korábbról ismert általános impulzus:
+									$$ \begin{aligned}
+									    p = \frac{\partial \mathcal{L}}{\partial \dot{x}} = m \dot{x}
+									\end{aligned} $$
+									Tehát az egyenleteinkben $\dot{x} = \frac{p}{m}$ lesz, így a Lagrange az általános koordinátával ($q=x$) és impulzussal kifejezve:
+									$$ \begin{aligned}
+									    \mathcal{L}(q,\dot{q}(p)) = \frac{1}{2} m \left( \frac{p}{m}\right)^2 - \frac{1}{2} k q^2 = \frac{1}{2m} p^2   - \frac{1}{2} k q^2
+									\end{aligned} $$
+								</p>
+								<p style="text-align: justify;">
+									Beírva ezt, és $p\dot{q}$-t a Hamiltoni definíciójába:
+									$$ \begin{aligned}
+									    \mathcal{H}(q,p) &= p \frac{p}{m} - \frac{1}{2m} p^2 + \frac{1}{2} k q^2 \\
+									     \mathcal{H}(q,p) &=  \frac{1}{2m} p^2 + \frac{1}{2} k q^2
+									\end{aligned} $$
+									Ha szemfülesek vagyunk, akkor feltűnhet, hogy ez pont a rendszer teljes $E=K+V$ energiája.
+									Ez gyakran így van, de nem mindig. Részletes tárgyalást a Goldsteinben találunk, de nagyjából:
+									ha konzervatív a potenciál, illetve nem függ a sebességektől, továbbá az általános koordináták kényszerei időfüggetlenek, akkor $\mathcal{H} = E$.
+									Nekünk ez a legtöbb feladatban teljesül, de később még visszatérünk rá egy kis általánosítással.
+								</p>
+								<p style="text-align: justify;">
+									Mik lesznek ekkor a mozgásegyenletek? Egy-egy deriválás után:
+									$$ \begin{aligned}
+										\dot{q} = \frac{\partial \mathcal{H}}{\partial p} = \frac{p}{m} \qquad\qquad -\dot{p} = \frac{\partial \mathcal{H}}{\partial q} = k q
+									\end{aligned} $$
+									Tehát
+									$$ \begin{aligned}
+										\dot{q} = \frac{1}{m} p \qquad\qquad\dot{p} = - k q
+									\end{aligned} $$
+									Amit fel is írhatunk mátrixosan, kis gyakorlásként:
+									$$ \begin{aligned}
+										\frac{\rd}{\rd t}\begin{pmatrix}
+											q \\
+											p
+										\end{pmatrix} =  \begin{pmatrix}
+											0 && 1/m\\
+											-\omega^2 && 0
+										\end{pmatrix} \begin{pmatrix}
+											q \\
+											p
+										\end{pmatrix}
+									\end{aligned} $$
+									Ahol $\omega^2 = \frac{k}{m}$. Ennek a feladatnak a megoldását persze már ismerjük: deriváljuk le még egyszer az egyik Hamilton egyenletet.
+									$$ \begin{aligned}
+										\ddot{q} = \frac{1}{m} \dot{p} = - \omega^2 q
+									\end{aligned} $$
+								</p>
+								<p style="text-align: justify;">
+									Ezt már párszor megoldottuk:
+									$$ \begin{aligned}
+									    q(t) &= A \cos{(\omega t + \varphi)} \\
+									    \dot{q}(t) &= - \omega A\sin{(\omega t + \varphi)}
+									\end{aligned} $$
+									amit visszaírva megvan az impulzus is:
+									$$ \begin{aligned}
+									    p(t) = - m\omega A\sin{(\omega t + \varphi)}
+									\end{aligned} $$
+									Ezt is fel lehet írni vektorosan:
+									$$ \begin{aligned}
+									    \begin{pmatrix}
+									        q \\
+									        p
+									    \end{pmatrix}(t) = A \begin{pmatrix}
+									        \cos{(\omega t + \varphi)} \\
+									         - m\omega \sin{(\omega t + \varphi)}
+									    \end{pmatrix}
+									\end{aligned} $$
+									Kicsit nézegetve ezt szét tudjuk kapni pár részre:
+									$$ \begin{aligned}
+									    \begin{pmatrix}
+									        q \\
+									        p
+									    \end{pmatrix}(t) = A \begin{pmatrix}
+									        1 && 0 \\
+									        0 && - m\omega
+									    \end{pmatrix} \begin{pmatrix}
+									        \cos{(\omega t + \varphi)} \\
+									         \sin{(\omega t + \varphi)}
+									    \end{pmatrix}
+									\end{aligned} $$
+									Rajzoljuk le ennek a mozgásnak a fázisterét!
+									Ehhez képzeljünk el egy olyan koordinátarendszert, aminek egyik tengelye $q$, a másik pedig $p$.
+									Rakjuk le a tollunkat valamilyen kezdeti pontban, ami megfelel a $t=0$ pillanatnak, aztán ahogy telik az idő,
+									kövessük le egy görbével azt, hogy melyik pontokba halad tovább a rendszer.
+									Ez a trajektória, amit a rendszerünk a mozgás során bejár.
+								</p>
+								<p style="text-align: justify;">
+									A fenti példánkra ez relatíve egyszerű: van jobb oldalt egy körünk.
+									Ez meg van szorozva egy nyújtást (és tükrözést) végző mátrixxal, meg valami irreleváns konstanssal.
+									Tehát a fázistér nem lesz más, mint egy ellipszis.
+									Gyakran szokás az $A$ szabad paramétert lecserélni valamire, ami a kezdeti feltételekből adott.
+									Ez lehet például az energia: itt például ha a $t=0$ pillanatban $p=0$ és $\varphi = 0$ akkor
+									$$ \begin{aligned}
+									    E = 0+\frac{1}{2} m \omega^2 A^2 \cos^2{(\omega t + \varphi)} = \frac{1}{2} m \omega^2 A^2 \\
+									    A = \pm\sqrt{\frac{2E}{m \omega^2}}
+									\end{aligned} $$
+									Tehát az ellipszis szélei konstans energia mellett:
+									$$ \begin{aligned}
+									    p\Big|_{q=0} = \mp m\omega \sqrt{\frac{2E}{m \omega^2}}  = \mp \sqrt{2mE} \\
+									    q\Big|_{p=0} = \pm\sqrt{\frac{2E}{m \omega^2}}
+									\end{aligned} $$
+									Az pedig, hogy merre mutat az áramlás most fizikai intuícióból adódik.
+									Ha jobbra ($+$) van kitérítve a testünk, akkor onnan balra ($-$) fog gyorsulva visszarugózni.
+									Tehát ha $q$ pozitívból megy a negatív felé, akkor $p$ negatív.
+									Fordítva is igaz: ha a jobb oldali szélső pont felé halad a testünk, de még nincs ott, akkor pozitív lendülete lesz.
+								</p>
 								<div style="text-align: center;">
-									<img src="figs/lesson7/tehet_better.png" alt="Négypontrendszerek, amiknek érdekel a tehetetlensége" width="50%">
+									<img src="figs/lesson8/harmosc_phase.png" alt="Harmonikus oszcillátor fázistere." width="50%">
 								</div>
-								<p style="text-align: justify;">
-									Határozzuk meg ennek a 4-pont-rendszernek a tehetetlenségi tenzorát!
-									Először is: inkább legyünk okosak, és forgassuk el az egészet 45 fokkal, mert úgy egyszerűbb. Nézve a képletet:
-									$$ \begin{aligned}
-									    \Theta_{ij} = \int \rd^3 r \rho(\mathbf{r})\bigl(\delta_{ij}r^2 - r_i r_j\bigr)
-									\end{aligned} $$
-									nekünk itt igazából 4 diszkrét pontunk van: csak szummáznunk kell az egyes pontokra, mert $\rho$ egy pár Dirac delta, ami megeszi az integrálást.
-									$$ \begin{aligned}
-									    \Theta_{ij} = \sum_k m_k \bigl(\delta_{ij}r^{k^2} - r_{i}^k r_{j}^k\bigr)
-									\end{aligned} $$
-									Ezt kiírva például az $xx$ komponensre:
-									$$ \begin{aligned}
-									    \Theta_{xx} &= \sum_k m_k \bigl(\delta_{xx}r^{k^2} - r_{x}^k r_{x}^k\bigr) = \sum_k m_k \bigl(r^{k^2} - r_{x}^k r_{x}^k\bigr) \\
-									    &= \sum_k m_k \bigl(x_k^2 + y_k^2 + z_k^2 - x_k^2\bigr) = \sum_k m_k \bigl( y_k^2 + z_k^2\bigr)
-									\end{aligned} $$
-									A $z$ koordináta mindegyikre nulla. Az $y$ pedig csak a kettő nagy $M$ tömegűre nem: ekkor ha mondjuk $2a$ az oldalhosszúságunk, akkor $y_k = \sqrt{2} a$
-									$$ \begin{aligned}
-									    \Theta_{xx} = M \cdot 2 a^2+ M \cdot 2 a^2= 4 M a^2
-									\end{aligned} $$
-									Teljesen hasonlóan:
-									$$ \begin{aligned}
-									    \Theta_{yy}  = 4 m a^2
-									\end{aligned} $$
-								</p>
-								<p style="text-align: justify;">
-									Ami más, az a harmadik irány:
-									$$ \begin{aligned}
-									    \Theta_{zz} = \sum_k m_k \bigl(\delta_{zz}r^{k^2} - r_{z}^k r_{z}^k\bigr) = \sum_k m_k \bigl(x^2_k + y^2_k\bigr)
-									\end{aligned} $$
-									mert ebbe már mind a négy járulékot ad. Beírva:
-									$$ \begin{aligned}
-									    \Theta_{zz} = 2\cdot M \cdot (2a^2) + 2\cdot m \cdot (2a^2) = 4 (M+m) a^2
-									\end{aligned} $$
-									A vegyes tagok még hátra vannak, mind a három. Ezekből például
-									$$ \begin{aligned}
-									    \Theta_{xy} = \sum_k m_k \bigl(\delta_{xy}r^{k^2} - x_k y_k\bigr) = 0
-									\end{aligned} $$
-									mert a $\delta$ nulla, illetve nincs olyan tömegpont, amire $x_k \cdot y_k$ ne lenne nulla. A tenzor tehát ebben a forgatott rendszerben:
-									$$ \begin{aligned}
-									    \underline{\underline{\Theta}} = 4 a^2\begin{pmatrix}
-									        M && 0 && 0 \\
-									        0 && m && 0 \\
-									        0 && 0 && M+m
-									    \end{pmatrix}
-									\end{aligned} $$
-								</p>
-								<p style="text-align: justify;">
-									Jó, de minket nem ez érdekelt, hanem ennek a 45 fokkal elforgatott esete. Van már viszont egy mátrixunk: ezt könnyen el tudjuk forgatni egy 3D-s forgásmátrixszal, mivel
-									$$ \begin{aligned}
-									    \underline{\underline{\Theta}}^\prime = \underline{\underline{O}}^T \underline{\underline{\Theta}}\ \underline{\underline{O}}
-									\end{aligned} $$
-									Ez a mátrix most, beírva a szögfüggvényekbe a 45 fokot:
-									$$ \begin{aligned}
-									    \underline{\underline{O}} = \frac{1}{\sqrt{2}} \begin{pmatrix}
-									        1 && 1 && 0 \\
-									        -1 && 1 && 0 \\
-									        0 && 0 && \sqrt{2}
-									    \end{pmatrix}
-									\end{aligned} $$
-									A végeredmény egy kis szorozgatás után:
-									$$ \begin{aligned}
-									    \underline{\underline{\Theta}}^\prime = 2a^2 \begin{pmatrix}
-									        m+M && m-M && 0 \\
-									        m - M && m+M && 0 \\
-									        0 && 0 && 2(m+M)
-									    \end{pmatrix}
-									\end{aligned} $$
-									Ugyanezt kaptuk volna, ha rögtön ebben a koordinátarendszerben számolunk: csak látszik, hogy $2$ nem nulla tagot kellett volna még figyelembe vennünk.
-								</p>
 							</div>
 						</section>
 
 						<section id="three" class="wrapper style3">
 							<div class="inner">
 								<h3>
-									6.2. példa: Henger
+									7.2. példa: Csillapított oszcillátor
 								</h3>
 								<p style="text-align: justify;">
-									Nézzünk meg egy folytonos tömegeloszlású esetet is.
-									Mi lesz egy homogén henger tehetetlenségi nyomatéka a tömegközéppontra vonatkoztatva? Mivel homogén, így
+									Nézzük meg ehhez képest, hogy mi lesz a csillapított oszcillátor mozgásegyenlete. Az ő Lagrange-a:
 									$$ \begin{aligned}
-									    \rho(r) = \rho = \text{konst.}
+									    \mathcal{L} = \left(\frac{1}{2} m \dot{x}^2 -\frac{1}{2}m\omega^2 x^2 \right)e^{\gamma t}
 									\end{aligned} $$
-									Felírva az integrált:
+									szép explicit időfüggést tartalmaz. De nem baj, attól még tudunk számolni, például egy kanonikus impulzust:
 									$$ \begin{aligned}
-									    \Theta_{ij} = \rho \int \rd^3 r \bigl(\delta_{ij}r^2 - r_i r_j\bigr)
+									    p = m \dot{x} e^{\gamma t} \qquad\qquad \dot{x} = \frac{1}{m} e^{-\gamma t} p
 									\end{aligned} $$
-									de nekünk csak a henger határaiig kell elmennünk, azokon kívül nincs tömeg. Ehhez térjünk át hengerkoordinátákba, ahol az integrál
+									Szóval
 									$$ \begin{aligned}
-									    \Theta_{ij} = \rho \int_{-L/2}^{L/2} \rd z \int_0^{2\pi} r \rd \varphi \int_0^R \rd r \bigl(\delta_{ij}q^2 - q_i q_j\bigr)
+									    p \dot{x}(p) &= \frac{1}{m} e^{-\gamma t} p^2 \\
+									    \mathcal{L}(x, \dot{x}(p)) &= \frac{1}{2m} p^2 e^{-\gamma t} - \frac{1}{2}m\omega^2 x^2 e^{\gamma t}
 									\end{aligned} $$
-									Itt átírtam az eddig $r$-el jelölt koordinátákat $q$-ra, hogy ne keverjük össze a hengerkoordinátákból a sugárral.
 								</p>
 								<p style="text-align: justify;">
-									Nézzük meg most a zárójeles kifejezést az egyes komponensekre, és hogy azt hogyan kell kifejezni a koordinátáinkkal.
+									Összerakva:
 									$$ \begin{aligned}
-									    ij=zz \qquad\qquad \longrightarrow \qquad\qquad (\delta_{zz}q^2 - q_z q_z\bigr)= x^2 + y^2 = r^2
+									    \mathcal{H}(x,p) =  \frac{1}{2m} p^2 e^{-\gamma t} + \frac{1}{2}m\omega^2 x^2 e^{\gamma t}
 									\end{aligned} $$
-									ami felülnézetből felrajzolva a problémát vizuálisan is látszik. Tehát erre a komponensre:
+									ami <b>nem</b> a mechanikából szokásos energia. Annak az alakja $E_m =\frac{1}{2}m \dot{x}^2 + V$, szóval kis matekkal $\mathcal{H} =E_m  e^{\gamma t}$.
+									Minden esetre a mozgásegyenletek még igazak:
 									$$ \begin{aligned}
-									     \Theta_{zz} &= \rho \int_{-L/2}^{L/2} \rd z \int_0^{2\pi} \rd \varphi \int_0^R \rd r\  r^3 \\
-									     &= \rho L \int_0^{2\pi} \rd \varphi \int_0^R \rd r\  r^3 \\
-									    &= 2\pi  \rho L \int_0^R \rd r\  r^3 \\
-									     &= 2\pi  \rho L \frac{R^4}{4} = R^2 \pi L \frac{R^2}{2} \\
-									     &= \frac{M}{2} R^2 
+									    \dot{x} = \frac{1}{m} p  e^{-\gamma t} \qquad\qquad \dot{p} = - m\omega^2 x e^{\gamma t}
 									\end{aligned} $$
-									A másik kettőre:
+									Mit tudunk mondani ezeknek a megoldásáról? Nézzük meg először, hogy van-e fixpontja az egyenleteknek:
 									$$ \begin{aligned}
-									    ij=yy \qquad\qquad \longrightarrow \qquad\qquad (\delta_{yy}q^2 - q_y q_y\bigr)= x^2 + z^2 = r^2 \sin^2{\varphi} + z^2
+									    0 = \frac{1}{m} p  e^{-\gamma t} \rightarrow p = 0 \\
+									    0 =  - m\omega^2 x e^{\gamma t} \rightarrow x = 0 
 									\end{aligned} $$
-									Na ez már bonyolultabb:
-									$$ \begin{aligned}
-									    \Theta_{yy} &= \rho \int_{-L/2}^{L/2} \rd z \int_0^{2\pi}  \rd \varphi \int_0^R \rd r\  r( r^2\sin^2{\varphi} + z^2) \\
-									    &= \rho \int_{-L/2}^{L/2} \rd z \int_0^{2\pi}  \rd \varphi \ ( \frac{R^4}{4}\sin^2{\varphi} + \frac{R^2}{2} z^2) \\
-									    &= \rho \int_0^{2\pi}  \rd \varphi \ ( L \frac{R^4}{4}\sin^2{\varphi} + \frac{L^3}{3\cdot 4}\frac{R^2}{2} ) \\
-									    &= \rho  ( L \frac{R^4}{4} \pi + \frac{L^3}{3\cdot 4}\frac{R^2}{2} 2 \pi) \\
-									    &= \frac{M}{12} (L^2 + 3 R^2)
-									\end{aligned} $$
-									De szerencsére ugyanez lesz $xx$-re is. Minden más tagban pedig olyanok jelennek meg, hogy
-									$$ \begin{aligned}
-									    \int_0^{2\pi} \sin{\varphi}\cos{\varphi} \propto \int_0^{2\pi} \sin{2\varphi}, &&  \int_0^{2\pi} \sin{\varphi}, &&  \int_0^{2\pi} \cos{\varphi}
-									\end{aligned} $$
-									Amik mint teljes periódusra integrálnak sima szögfüggvényeket: ezeket felrajzolva beláthatjuk, hogy nullát adnak.
 								</p>
 								<p style="text-align: justify;">
-									Tehát a tehetetlenségi tenzorunk:
+									Van, méghozzá az origó. Kis mellébeszéléssel nézzük meg, stabil-e. Térítsük ki az egyensúlyi pontból a rendszert egy kis $\Delta x$ és $\Delta p$ távolsággal. Ekkor:
 									$$ \begin{aligned}
-									    \underline{\underline{\Theta}} = \frac{M}{12} \begin{pmatrix}
-									        L^2 + 3R^2 && 0 && 0 \\
-									        0 && L^2 + 3R^2 && 0 \\
-									        0 && 0 && 6 R^2
-									    \end{pmatrix}
+									    \dot{x} = \frac{1}{m}  e^{-\gamma t} \Delta p \qquad\qquad \dot{p} = - m\omega^2  e^{\gamma t} \Delta x
 									\end{aligned} $$
-									Egy fontos részt leolvashatunk ennek jobb alsó sarkából:
-									ha körbe forog egy hengerünk, a tehetetlenség nem függ a $z$ irányú hosszától, nagysága pedig $\frac{1}{2} M R^2$.
-									A henger felülnézetből pedig nem más mint egy korong, így:
-									$$ \begin{aligned}
-									    \Theta_{korong} = \frac{1}{2} M R^2
-									\end{aligned} $$
-									Egy másik érdekes határeset, amikor a henger sokkal hosszabb, mint szélesebb.
-									Ezt köznyelven rúdnak hívjuk, matematikailag pedig $L\gg R$-nek, amit beírva a tenzorba megkapjuk a rúd <b>középpontja</b> körüli forgatásokra vonatkoztatott tehetetlenségét:
-									$$ \begin{aligned}
-									    \Theta_{rúd}^{CM} = \frac{1}{12} M L^2
-									\end{aligned} $$
-									Ha esetleg az érdekel minket, hogy egy rúd a középpontja helyett az egyik vége körül mennyire ellenáll a forgatásokra, azt a párhuzamos tengelyek (Steiner) tétele alapján kapjuk:
-									$$ \begin{aligned}
-									    \Theta_{rúd}^{vég} = \Theta^{CM} + M d^2 = \frac{L^2}{3} M
-									\end{aligned} $$
-									Ha a jövőben szükség lenne rá, akkor ennek a tételnek a mátrixos alakja
-									$$ \begin{aligned}
-									    \underline{\underline{\Theta}} = \underline{\underline{\Theta}}^{CM} + M \left(\delta_{ij} \underline{d}^2 - d_i d_j\right)
-									\end{aligned} $$
+									Ha kellően sok idő eltelt, akkor $e^{-\gamma t} \approx 0$, tehát az elsőt elhanyagolhatjuk.
+									A második előjele pont ellentétes a kitérítés irányával: ez a pont egy stabil vonzópont lesz.
+									A fázistéren ezt fel tudjuk rajzolni a sima oszcillátor alapján, csak egy különbséggel: a trajektóriák az origóba tartanak, miután $t\neq0$.
+									Attól függően, hogy túlcsillapított-e az oszcillátorunk; vagy keringenek körülötte párat, vagy rögtön belezuhannak.
 								</p>
+								<details>
+									<summary>Érdeklődőknek:</summary>
+									<p style="text-align: justify;">
+										Igazából ez egy jó nagy mellébeszélés, aminek szinte semmi igazságalapja nincs.
+										Valójában a stabilitásvizsgálatot itt célszerűbb $q-\dot{q}$ térben elvégezni, mert ott kiderül,
+										hogy ez egy vonzó fixpont, mert a fixpontban kiértékelt Jacobi sajátértékeinek valós része mindig negatív.
+										A képzetes részeik pedig megadják a mozgás oszcilláló mivoltját: ha eltűnnek, túlcsillapítást tapasztalunk.
+									</p>
+								</details>
+								<div style="text-align: center;">
+									<img src="figs/lesson8/damposc_phase" alt="Csillapított oszcillátor fázistere." width="50%">
+								</div>
 						</section>
 
 						<section id="four" class="wrapper alt style4">
 							<div class="inner">
 								<h3>
-									6.3. példa: Tömeges Atwood gép
+									7.3. példa: Potenciálvölgyek
 								</h3>
 								<p style="text-align: justify;">
-									Vegyünk egy egyszerű Atwood gépet, $m$ és $M$ tömegekkel.
-									Viszont most vegyük figyelembe, hogy a csiga is forog: az $\mu$ tömegű, és $R$ sugarú.
-									Mik lesznek ekkor a mozgásegyenletek?
+									Nézzünk egy (talán már ismerős) egy dimenziós rendszert, amelynek potenciális energiája
+									$$ \begin{aligned}
+										V=A(q^2-v^2)^2
+									\end{aligned} $$
+									ahol $v$ valamilyen konstans. Ekkor a Hamilton
+									$$ \begin{aligned}
+										\mathcal{H}(q,p) = \frac{p^2}{2m} + A(q^2-v^2)^2
+									\end{aligned} $$
+									A belőle fakadó egyenletek:
+									$$ \begin{aligned}
+										\dot{q} &= \frac{\partial \mathcal{H}}{\partial p} = \frac{p}{m} \\
+										\dot{p} &= -\frac{\partial \mathcal{H}}{\partial q} =-4Aq(q^2-v^2)
+									\end{aligned} $$
+									Milyen fixpontjai vannak ezeknek?
+									$$ \begin{aligned}
+										p_0 &= 0 \\
+										q_0 = 0 \qquad \qquad &\text{vagy} \qquad \qquad q_0 = \pm v
+									\end{aligned} $$
+								</p>
+								<p style="text-align: justify;">
+									Fixpontból három fajta lehet:
+									<ul>
+										<li>Vonzó, ami bevonzza a trajektóriákat. Ide tarthat a rendszer végtelen idő után.</li>
+										<li>Taszító, ami taszítja a trajektóriákat. Itt nagyon nem akar lenni a rendszer.</li>
+										<li>Nyeregpont, ami egyes irányokban vonz, másik irányokban pedig taszít.</li>
+									</ul>
+									Hogyan döntsük el egy pontról, hogy ő melyik? Sokféleképpen.
+									Mi most a Lineáris Stabilitásvizsgálat módszerét fogjuk megnézni.
+									Eszerint, ha van egy egyenletrendszerünk, akkor annak tudjuk venni a Jacobi mátrixát:
+									$$ \begin{aligned}
+									    \underline{\underline{J}} = \begin{pmatrix}
+									        \partial_q \dot{q} && \partial_p \dot{q} \\
+									        \partial_q \dot{p} && \partial_p \dot{p}
+									    \end{pmatrix}
+									\end{aligned} $$
+									Amit ki tudunk értékelni egy-egy fixpontban.
+								</p>
+								<p style="text-align: justify;">
+									Ezután ki kell számítani a fixpontban vett mátrix $\lambda$ sajátértékeit:
+									<ul>
+										<li>Ha $\forall \mathcal{R}e(\lambda)>0$, akkor taszító.</li>
+										<li>Ha $\forall \mathcal{R}e(\lambda)<0$, akkor vonzó.</li>
+										<li>Ha is-is, akkor nyeregpont.</li>
+										<li>Illetve ha $\mathcal{I}m(\lambda) \neq 0$, akkor oszcilláló mozgást fogunk tapasztalni.</li>
+									</ul>
+								</p>
+								<p style="text-align: justify;">
+									Most nézzük meg ezeknek a stabilitását rendesen!
+									Ehhez szükségünk van a Jacobi mátrixra, amely definíció szerint
+									$$ \begin{aligned}
+									    \frac{\rd}{\rd t} \begin{pmatrix}
+									        q \\ p
+									    \end{pmatrix} = \underline{f}(q,p) \\
+									    \underline{\underline{J}} = \begin{pmatrix}
+									        \partial_q f_1 && \partial_p f_1 \\
+									        \partial_q f_2 && \partial_p f_2
+									    \end{pmatrix}
+									\end{aligned} $$
+									tehát esetünkben
+									$$ \begin{aligned}
+									    \underline{\underline{J}} = \begin{pmatrix}
+									        0 && 1/m\\
+									        -4A(q^2-v^2) -8Aq^2  && 0
+									    \end{pmatrix}
+									\end{aligned} $$
+									Őt kell kiértékelni a fixpontokban, majd kiszámolni a sajátértékeit. Először is $q_0=v$ esetén
+									$$ \begin{aligned}
+									    \underline{\underline{J}}\Big|_{q_0=v} = &\begin{pmatrix}
+									        0 && 1/m\\
+									        -8Av^2  && 0
+									    \end{pmatrix} \\
+									    &\lambda_\pm = \pm i \sqrt{\frac{8A}{m}} v
+									\end{aligned} $$
+									ezek képzetesek.
+									Róluk több mindent nem tudunk mondani a lineáris stabilitásvizsgálattal: az annyiban merül ki, hogy valami oszcilláló keringésre számítunk körülöttük.
+								</p>
+								<p style="text-align: justify;">
+									Másrészt
+									$$ \begin{aligned}
+									    \underline{\underline{J}}\Big|_{q_0=0} = &\begin{pmatrix}
+									        0 && 1/m\\
+									        4Av^2  && 0
+									    \end{pmatrix} \\
+									    &\lambda_\pm = \pm \sqrt{\frac{4A}{m}} v
+									\end{aligned} $$
+									amik valósak: az egyik pozitív, a másik negatív. Ez azt jelenti, hogy ő egy nyeregpont lesz:
+									az egyik irányból bevonzza, a másikban pedig kitaszítja a trajektóriákat. Meg tudjuk nézni még a sajátvektorait is:
+									$$ \begin{aligned}
+									    \underline{u}_+ \propto \begin{pmatrix}
+									        1\\ 
+									        v\sqrt{4Am}
+									    \end{pmatrix} \qquad \qquad \underline{u}_- \propto \begin{pmatrix}
+									        1\\ 
+									        -v\sqrt{4Am}
+									    \end{pmatrix}
+									\end{aligned} $$
+									Amikről azt látjuk, hogy a taszítóhoz tartozó egy pozitív meredekségű egyenes irányába mutat, a másik, vonzó irány pedig rá merőleges.
+									Ezt össze tudjuk vetni a lenti, gép által generált ábrával:
 								</p>
 								<div style="text-align: center;">
-									<img src="figs/lesson7/atwood.png" alt="Tömeges Atwood gép" width="35%">
+									<img src="figs/lesson8/higgs_phase" alt="Kétvölgyes potenciál fázistere" width="35%">
 								</div>
-								<p style="text-align: justify;">
-									A teljesen általános Lagrange-unk ezúttal:
-									$$ \begin{aligned}
-									    \mathcal{L} = \frac{1}{2} m \dot{y}_1^2 + \frac{1}{2} M \dot{y}_2^2 + m g y_1 + M g y_2 + \frac{1}{2} \Theta \omega^2
-									\end{aligned} $$
-									Kiróhatunk viszont pár kényszert: mivel a kötél hossza fix, így
-									$$ \begin{aligned}
-									    y_2 = - y_1
-									\end{aligned} $$
-									Vagy másképp kifejezve, a kötél minden pontja azonos sebességgel mozog, mert különben szétcsúszna:
-									$$ \begin{aligned}
-									    |\dot{y_1}| = |\dot{y_2}| = |\dot{y}|
-									\end{aligned} $$
-									A kötél pedig nem csúszhat el a csigán: tehát
-									$$ \begin{aligned}
-									    \dot{y} = R \omega
-									\end{aligned} $$
-								</p>
-								<p style="text-align: justify;">
-									Beírva még az előző feladatból a nyomatékot, a Lagrange-unk végső alakja:
-									$$ \begin{aligned}
-									    \mathcal{L} = \frac{1}{2} \dot{y}^2 (m+M) + g (m-M)y + \frac{1}{4} \mu  \dot{y}^2
-									\end{aligned} $$
-									Ebből az Euler Lagrange eredménye:
-									$$ \begin{aligned}
-									    \ddot{y} \left[(m+M) + \frac{1}{2} \mu \right] = g (m-M)
-									\end{aligned} $$
-									Legyen most $M = 2m $, $\mu = m$, amikkel
-									$$ \begin{aligned}
-									    \ddot{y} \left[3m + \frac{1}{2} m \right] &= - g m \\
-									    \ddot{y} &= \frac{2}{7} g
-									\end{aligned} $$
-									egy konstans gyorsulást tapasztalunk.
-								</p>
 							</div>
 						</section>
 
 						<section id="five" class="wrapper alt style3">
 							<div class="inner">
 								<h3>
-									6.4. példa: Forgatott rúd
+									7.4. példa: Rugós inga
 								</h3>
-								<p style="text-align: justify;">
-									Vegyünk egy $m$ tömegű, $l$ hosszúságú rudat, rögzítsük az egyik végét a plafonhoz úgy, hogy forogni tudjon, de másképp elmozdulni ne.
-									Kezdjük el forgatni valamilyen állandó $\omega$ szögsebességgel a felfüggesztési pontjától lehúzott vertikális tengely körül.
-									Mi lesz a rúd vízszintessel bezárt szöge?
-								</p>
 								<div style="text-align: center;">
-									<img src="figs/lesson7/rud1.png" alt="Forgatott rúd" width="40%">
+									<img src="figs/lesson3/ruginga.png" alt="Rugós inga, ismét" width="40%">
 								</div>
 								<p style="text-align: justify;">
-									Kis emlékeztetőként
+									Véve egy $l$ nyugalmi hosszúságú rugót, és azt felfüggesztve egy plafonra, a Lagrange-unk:
 									$$ \begin{aligned}
-									    \Theta = \frac{1}{3} m l^2
+									    \mathcal{L}(\underline{q}, \dot{\underline{q}}) = \frac{1}{2} m \dot{r}^2 + \frac{1}{2} m (l+r)^2 \dot{\varphi}^2 + mg(l+r) \cos{\varphi} - \frac{1}{2} m \omega^2 r^2
 									\end{aligned} $$
-									a tehetetlenség, a rúd végére merőleges forgatásokra. Itt a forgatás lefelé mutat: annak a rúdra merőleges komponense
+									Hogy áttérjünk a Hamiltoni formalizmusra, kellenek először is a kanonikus impulzusok, amikből most kettő is lesz:
 									$$ \begin{aligned}
-									    \omega_\perp = \omega \sin{\varphi}
+									    p_r = \frac{\partial \mathcal{L}}{\partial \dot{r}} = m \dot{r} \qquad\qquad p_\varphi = \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = m (l+r)^2 \dot{\varphi}
 									\end{aligned} $$
-									ami a rúd végére vonatkoztatott forgatásoknak feleltethető meg.
-									Itt hangsúlyoznám, hogy $\omega_\perp$ vektora nem keverendő össze a rá ható erővel.
-									Ez egy axiálvektor, a forgatás mit ő ír le jobbkéz-szabály szerint adódik, és itt a képernyő felől az olvasó irányába mutat.
-									Ha szépen szeretnénk kiszámolni a feladatot, akkor tenzorosan és vektorosan kellene felírni a problémát, amiből ugyanaz fog kijönni.
+									Illetve ezeknek az invertálása, hogy ki tudjuk fejezni a sebességeket az impulzusokkal:
+									$$ \begin{aligned}
+									    \dot{r} = \frac{1}{m} p_r \qquad\qquad \dot{\varphi} = \frac{1}{m(l+r)^2} p_\varphi
+									\end{aligned} $$
+									Tehát a Hamiltonhoz kellő tagok:
+									$$ \begin{aligned}
+									    \underline{p}^T\underline{\dot{q}}(\underline{p}) &= \frac{1}{m} p_r^2 +  \frac{1}{m(l+r)^2} p_\varphi^2 \\
+									    \mathcal{L}(\underline{q}, \dot{\underline{q}}(\underline{q}, \underline{p})) &=  \frac{1}{2 m } p_r^2 + \frac{1}{2m(l+r)^2}  p_\varphi^2 + mg(l+r) \cos{\varphi} - \frac{1}{2} m \omega^2 r^2
+									\end{aligned} $$
+								</p>
+								<p style="text-align: justify;">
+									Összekombinálva, a Hamilton:
+									$$ \begin{aligned}
+									    \mathcal{H} &= \frac{1}{m} p_r^2 +  \frac{1}{m(l+r)^2} p_\varphi^2 - \frac{1}{2 m } p_r^2 - \frac{1}{2m(l+r)^2}   p_\varphi^2 - mg(l+r) \cos{\varphi} + \frac{1}{2} m \omega^2 r^2 \\
+									    &= \frac{1}{2 m } p_r^2 + \frac{1}{2m(l+r)^2}   p_\varphi^2 - mg(l+r) \cos{\varphi}+ \frac{1}{2} m \omega^2 r^2
+									\end{aligned} $$
+									Ebből a mozgásegyenleteket egy-egy deriválással kapjuk:
+									$$ \begin{aligned}
+									    \dot{r} &= \frac{\partial \mathcal{H}}{\partial p_r} = \frac{1}{m} p_r \qquad &\dot{\varphi} =  \frac{\partial \mathcal{H}}{\partial p_\varphi} =  \frac{1}{m} \frac{1}{(l+r)^2} p_\varphi \\
+									    - \dot{p_r} &= \frac{\partial \mathcal{H}}{\partial r} = -\frac{1}{m} \frac{1}{(l+r)^3} p_\varphi^2 - mg \cos{\varphi} + m \omega^2 r \qquad
+									     &- \dot{p_\varphi} = \frac{\partial \mathcal{H}}{\partial \varphi} = mg(l+r)\sin{\varphi} 
+									\end{aligned} $$
+									Megkaptuk a négy differenciálegyenletet, ami leírja a mozgást.
+									Hogy valamit ránézésre is tudjunk róla mondani, nézzük meg, hogy van-e egyensúlyi pontja ezeknek, illetve ha igen, akkor hol.
+									Egyensúly akkor van, ha a fenti egyenletek mindegyike nulla, tehát:
+									$$ \begin{aligned}
+									    0 &= \frac{1}{m} p_r \qquad &0 =   \frac{1}{m} \frac{1}{(l+r)^2} p_\varphi \\
+									    0 &=  -\frac{1}{m} \frac{1}{(l+r)^3} p_\varphi^2 - mg \cos{\varphi} + m \omega^2 r \qquad
+									     &0 =  mg(l+r)\sin{\varphi} 
+									\end{aligned} $$
+									Ezek szerint
+									$$ \begin{aligned}
+									    p_r &=0 &&   p_\varphi = 0 \\
+									    0 &=  -\frac{1}{m} \frac{1}{(l+r)^3} p_\varphi^2 - mg \cos{\varphi} + m \omega^2 r &&
+									    \varphi = n\pi
+									\end{aligned} $$
+								</p>
+								<p style="text-align: justify;">
+									Innen az utolsó előtti a legbonyolultabb. Beleírva a többit ($\cos{n\pi} = \pm 1$, $p_\varphi=0$), azt látjuk, hogy
+									$$ \begin{aligned}
+									    0 &= \mp mg  + m \omega^2 r   \\
+									    \pm g &=  \omega^2 r \\
+									    \frac{g}{r} &= \pm \omega^2 
+									\end{aligned} $$
+									Két ilyen pont lesz tehát: az egyik lent $\varphi=0$ irányban, a másik pedig fent ahol $\varphi=\pi$ (most tegyük fel, hogy nincs fal felette, vagy mágikusan át tud rajta haladni).
+									Mindkét esetben a rugó ingaszerű megnyúlása ($g/L$-es jellemző frekvenciája) kapcsolatban lesz a rugó saját frekvenciájával, egyedül az iránya az ami eltér.
+									Fent egy picit összenyomódik, lent pedig egy picit megnyúlik.
 								</p>
 								<div style="text-align: center;">
 									<img src="figs/lesson7/rud2.png" alt="Forgatott rúd, komponensekre bontva" width="40%">
 								</div>
+							</div>
+						</section>
+
+						<section id="five" class="wrapper alt style2">
+							<div class="inner">
+								<h3>
+									7.5. példa: Kisrezgések
+								</h3>
 								<p style="text-align: justify;">
-									A potenciális tagunkban vehetjük a teljes tömeget a rúd közepébe, így
+									Erre nem nézünk meg specifikus példát, mert a következő az állítás: itt is ugyanúgy lehet kisrezgéseket vizsgálni mátrixosan.
+									A rezgéses Lagrange általános esetben:
 									$$ \begin{aligned}
-									    V = - m g \frac{l}{2} \cos{\varphi}
+									    \mathcal{L} = \frac{1}{2} \underline{\dot{q}}^T \underline{\underline{M}}\, \underline{\dot{q}} - \frac{1}{2} \underline{q}^T \underline{\underline{D}}\, \underline{q} 
 									\end{aligned} $$
-									Tehát a Lagrange most:
+									Amiből kellenek nekünk a kanonikus impulzusok. Egy szimbolikus deriválással
 									$$ \begin{aligned}
-									    \mathcal{L} &= \frac{1}{2} \Theta \omega_\perp^2 + \frac{1}{2}m g l \cos{\varphi} \\
-									    &= \frac{1}{2} \frac{1}{3} m l^2 \omega^2 \sin^2{\varphi} +  \frac{1}{2}m g l \cos{\varphi}
+									    \underline{p} = \underline{\underline{M}}\, \underline{\dot{q}} \qquad\qquad \underline{p}^T =  \underline{\dot{q}}^T \underline{\underline{M}}
 									\end{aligned} $$
-									Erre ráküldve egy Euler-Lagrange-ot:
+									Amit invertálnunk kell, hogy megkapjuk a sebességeket az impulzusokkal kifejezve:
 									$$ \begin{aligned}
-									    0 = - \frac{1}{2}mgl \sin{\varphi} + \frac{2}{6} m l^2 \omega^2 \sin{\varphi} \cos{\varphi}
+									    \underline{\underline{M}}^{-1}\underline{p} =  \underline{\dot{q}} \qquad\qquad \underline{p}^T \underline{\underline{M}}^{-1} =  \underline{\dot{q}}^T 
 									\end{aligned} $$
-									lesz a mozgásegyenlet.
 								</p>
 								<p style="text-align: justify;">
-									Ennek egy lehetséges megoldása
+									Beírva a Lagrange-ba:
 									$$ \begin{aligned}
-									    \sin{\varphi} = 0 \qquad\qquad \longrightarrow \qquad\qquad \varphi = 0
+									    \mathcal{L}(\underline{q},\underline{\dot{q}}(\underline{p})) &= \frac{1}{2} \underline{p}^T \underline{\underline{M}}^{-1} \underline{\underline{M}} \underline{\underline{M}}^{-1}\underline{p} - \frac{1}{2} \underline{q}^T \underline{\underline{D}} \underline{q} \\
+									    \mathcal{L}(\underline{q},\underline{\dot{q}}(\underline{p})) &= \frac{1}{2} \underline{p}^T \underline{\underline{M}}^{-1}\underline{p} - \frac{1}{2} \underline{q}^T \underline{\underline{D}} \underline{q} 
 									\end{aligned} $$
-									Ami teljesen logikus: azt írja le, hogy a rúd egyenesen lefelé lóg. Ezt letudva leoszthatunk vele, így
+									Ehhez jön még hozzá
 									$$ \begin{aligned}
-									    g&= \frac{2}{6}  l \omega^2 \cos{\varphi} \\
-									    \cos{\varphi} &= \frac{3}{2}\frac{g}{l} \frac{1}{\omega^2}
+									    \underline{\dot{q}}^T  \underline{p} = \underline{p}^T \underline{\underline{M}}^{-1} \underline{p}
 									\end{aligned} $$
-									Nevezzük el megszokásból a dolgokat:
+									Amiket beírva:
 									$$ \begin{aligned}
-									     \cos{\varphi} = \frac{3}{2} \frac{\omega_0^2}{\omega^2}
+									    \mathcal{H} = \frac{1}{2} \underline{p}^T \underline{\underline{M}}^{-1}\underline{p} + \frac{1}{2} \underline{q}^T \underline{\underline{D}}\, \underline{q} 
 									\end{aligned} $$
-									Na de ez korlátos, $-1 \leq \cos{} \leq 1$: csak akkor lesz ez a megoldás valid, ha
+									Ebből a Hamilton egyenletek egyszerűen deriválással kijönnek:
 									$$ \begin{aligned}
-									    \frac{3}{2} \frac{\omega_0^2}{\omega^2} &\leq 1 \\
-									    \frac{3}{2} \omega_0^2 &\leq \omega^2
+									    \underline{\dot{q}} = \underline{\underline{M}}^{-1}\underline{p} \qquad\qquad \underline{\dot{p}} = - \underline{\underline{D}}\, \underline{q} 
 									\end{aligned} $$
-									Minden más esetben csak a 0 kitérés lesz opció.
-									A megoldás tehát úgy néz ki, hogy a forgatás sebességét növelve egyszer csak elkezd a rúd kilengeni.
-									Végtelen gyors forgatás esetén pedig derékszöget tapasztalunk.
+									Deriválva mégegyszer az elsőt (<i>feltéve</i> hogy $\underline{\underline{M}}^{-1}$ konstans, mint például egy kisrezgés esetén), és behelyettesítve a másodikat:
+									$$ \begin{aligned}
+									    \underline{\ddot{q}} &= \underline{\underline{M}}^{-1} \underline{\dot{p}} \\
+									    &=- \underline{\underline{M}}^{-1} \underline{\underline{D}}\, \underline{q} 
+									\end{aligned} $$
+									egy ismerős egyenletet kapunk: innentől megint jöhetnek a normálmódusok, pont ahogy eddig.
+								</p>
+								<p style="text-align: justify;">
+									Ami viszont hasznos még akkor is, ha nem rezgésekre vagyunk kíváncsiak, az a Hamiltonra való áttérés mátrixos útja.
+									Ha felírható ilyen mátrixos alakban a Lagrange (tehát négyzetesen szerepelnek a sebességek benne, és "szépen" keverednek)
+									akkor elég felírnunk a tömegmátrixot, és invertálnunk. Például a fenti rugós ingára
+									$$ \begin{aligned}
+									    \underline{\underline{M}} &= m\begin{pmatrix}
+									        1 && 0 \\
+									        0 &&(l+r)^2
+									    \end{pmatrix}  \\
+									    \underline{\underline{M}}^{-1} &= \frac{m}{m^2(l+r)^2}\begin{pmatrix}
+									        (l+r)^2 && 0 \\
+									        0 &&1
+									    \end{pmatrix} =  \frac{1}{m(l+r)^2}\begin{pmatrix}
+									        (l+r)^2 && 0 \\
+									        0 &&1
+									    \end{pmatrix}\\
+									    K(\underline{q},\underline{p}) &= \frac{1}{2} \underline{p}^T\, \underline{\underline{M}}^{-1}\underline{p} = \frac{p_r^2}{2m} + \frac{p_\varphi^2}{2m(l+r)^2}
+									\end{aligned} $$
+									Ez meg tud spórolni nekünk pár deriválást, ha például egy sok dimenziós rendszerről beszélünk.
+									Azért a biztonság kedvéért érdemes a deriválgatással számolnunk még, főleg ha nem vagyunk biztosak benne, hogy "szép"-e a Lagrange eléggé.
 								</p>
 							</div>
 						</section>
