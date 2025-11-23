@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Elmecha-07</title>
+		<title>Elmecha-09</title>
     	<!-- For LaTeX translation I use KeTeX -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
 		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
@@ -71,37 +71,85 @@
 						<section id="one" class="wrapper alt style1">
 							<div class="inner">
 								<h2 class="major">
-									7. óra &nbsp;&nbsp;&nbsp;&nbsp; <a href="07_ora.pdf" download="07_ora.pdf" class="button icon solid fa-download align-right">Letöltés</a>
+									9. óra &nbsp;&nbsp;&nbsp;&nbsp; <a href="09_ora.pdf" download="09_ora.pdf" class="button icon solid fa-download align-right">Letöltés</a>
 								</h2>
 								<h3>
-									Hamiltoni mechanika
+									Hatás-szög változók
 								</h3>
 								<p style="text-align: justify;">
-									A Lagrange-i mechanikával már nagyon jól megbarátkoztunk.
-									Ennek lényege tömören hogy egy $\mathcal{L}(q, \dot{q},t)$ Lagrange-függvényből az E-L egyenletek segítségével
-									megkapjuk a mozgásegyenletet valamilyen $\ddot{q} = f(q, \dot{q})$ alakban.
-									Ez egy szép, relatíve könnyen követhető lépésekből álló folyamat eredménye, ami miatt hasznos és szemléletes.
-								</p>
-								<p style="text-align: justify;">
-									Viszont a másodrendű diffegyenleteket nem szeretjük annyira, mint az elsőrendűeket.
-									Sokkal kezelhetőbb, ha ehelyett átírjuk a mozgásegyenletet kétszer annyi elsőrendű diffegyenletté.
-									Ez a Hamiltoni mechanika egyik előnye.
-									A másik az, hogy a kvantummechanika is ezen a nyelven íródott, szóval nem árt megbarátkozni vele klasszikusan is.
-								</p>
-								<p style="text-align: justify;">
-									Hogy áttérjünk a Lagrange-i formalizmusból a Hamiltoniba, néhány egyszerű lépést kell csak tennünk.
-									Lagrange-függvény helyett most Hamilton-unk lesz:
+									Amennyiben van egy $\mathcal{H}(\underline{q},\underline{p})$ rendszerünk ami szépen viselkedik
+									(integrálható, kötöttek az állapotok, nincs szeparátrix és explicit időfüggés)
+									akkor létezik egy speckó kanonikus trafó a \textbf{hatás-szög} változópárokba, amikkel
 									$$ \begin{aligned}
-										\mathcal{H}(\underline{q},\underline{p}) = \underline{p}^T\ \dot{\underline{q}}(\underline{p}) -\mathcal{L}(\underline{q}, \dot{\underline{q}}(\underline{p}))
+									    \mathcal{H}(\underline{q},\underline{p}) = \mathcal{H}(\underline{P})
 									\end{aligned} $$
-									aminek a változói a(z általános) koordináta és az (általános) impulzus.
+									Ebben a (redukált) \textbf{hatás} változó nem más, mint egy fix energián vett pálya által bezárt fázistérfogat (elosztva $2\pi$-vel):
+									$$ \begin{aligned}
+									     P_i = \frac{1}{2\pi}\oint_E p_i \rd q_i
+									\end{aligned} $$
+									A mozgásegyenletek pedig jelentősen leegyszerűsödnek:
+									$$ \begin{aligned}
+									   \dot{P}_i = 0
+									    \qquad\text{és}\qquad
+									    \dot{Q}_i = \frac{\partial \mathcal{H}}{\partial P} = \omega.
+									\end{aligned} $$
+								</p>
+								<h3>
+									9.1. példa: Abszolútérték potenciál
+								</h3>
+								<div style="text-align: center;">
+									<img src="figs/lesson10/pot_abs.png" alt="Abszolútértékes potenciál" width="50%">
+								</div>
+								<p style="text-align: justify;">
+									Általában ilyenkor a periódusidőre vagy a hozzá tartozó frekvenciára vagyunk kíváncsiak.
+									Legyen például egy egydimenziós rendszerünk, aminek a potenciálja
+									$$ \begin{aligned}
+									    V(x) = A |x|
+									\end{aligned} $$
+									A Hamilton tehát
+									$$ \begin{aligned}
+									    \mathcal{H} = \frac{p^2}{2m} + A |q|
+									\end{aligned} $$
+									Feltéve, hogy az energia megmarad:
+									$$ \begin{aligned}
+									    \mathcal{H} &=E = \frac{p^2}{2m} + A |q| \\
+									    \frac{p^2}{2m} &= E-A |q| \\
+									    p^2 &= 2mE - 2mA|q| \\
+									    p = \pm\sqrt{2mE - 2mA|q|} &= \pm \sqrt{2mE}\sqrt{1 - \frac{A}{E} |q|}
+									\end{aligned} $$
+									ami leírja a fázisterünkön a trajektóriákat, adott $E$ mellett.
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson10/phs_abs.png" alt="Abszolútértékes potenciál fázistere" width="50%">
+								</div>
+								<p style="text-align: justify;">
+									Az energia a fordulópontban (ami legyen valami $x=q=a$) nem más, mint
+									$$ \begin{aligned}
+									    E = Aa \rightarrow a=\frac{E}{A}
+									\end{aligned} $$
+									mivel ott nincs sebessége a tömegpontunknak. Egy periódus alatt tehát a bezárt terület
+									$$ \begin{aligned}
+									    P &= \frac{1}{2\pi} \oint_E p \rd q =  \frac{1}{2\pi}\, 4\cdot\int_0^a p(q) \rd q \\
+									    P &= \frac{1}{2\pi}4\sqrt{2mE}\int_{0}^a \sqrt{1 - \frac{q}{a}} \rd q =\frac{1}{2\pi} 4\sqrt{2mE} \cdot \frac{2}{3}a
+									\end{aligned} $$
+									Itt az integrál amúgy egy egyszerű $1 - \frac{q}{a} \rightarrow u$ változócserével jön ki.
 								</p>
 								<p style="text-align: justify;">
-									Az Euler-Lagrange egyenlet helyett most két darab Hamilton egyenletünk lesz, amikből megkapjuk a két elsőrendű diffegyenletet:
+									Minden esetre:
 									$$ \begin{aligned}
-									    \dot{\underline{q}} = \frac{\partial \mathcal{H}}{\partial \underline{p}} \qquad\qquad \dot{\underline{p}} = -\frac{\partial \mathcal{H}}{\partial \underline{q}}
+									    P = \frac{4}{3\pi}a \sqrt{2mE} = \frac{4}{3\pi}\frac{\sqrt{2m}}{A}  E^{3/2}
 									\end{aligned} $$
-									A negatív előjel itt fontos, ne felejtsük el. Ha emlékezni akarunk rá, akkor idézzük vissza hogy $\dot{p} = F = - \nabla V$.
+									Ahol figyeljünk, hogy $a(E)$ függés is van, azt is vissza kellett írni. Ebből kell nekünk invertálni $P(E)$ függvényt $E(P)$-re:
+									$$ \begin{aligned}
+									    P^{2/3} &= \left( \frac{4}{3\pi}\frac{\sqrt{2m}}{A}\right)^{2/3}E \\
+									    E = \mathcal{H} &= \left( \frac{4}{3\pi}\frac{\sqrt{2m}}{A}\right)^{-2/3}P^{2/3}
+									\end{aligned} $$
+									Tehát:
+									$$ \begin{aligned}
+									    \omega &= \frac{\partial \mathcal{H}}{\partial P} =  \left( \frac{4}{3\pi}\frac{\sqrt{2m}}{A}\right)^{-2/3} \cdot \frac{2}{3} P^{-1/3} \\
+									    &= \frac{2}{3} \left( \frac{4}{3\pi}\frac{\sqrt{2m}}{A}\right)^{-2/3} \left( \frac{4}{3\pi}\frac{\sqrt{2m}}{A}   \right)^{-1/3} E^{-1/2}  \\
+									    &=  \frac{\pi}{2}\frac{A}{\sqrt{2m E}} 
+									\end{aligned} $$
 								</p>
 							</div>
 						</section>
@@ -109,435 +157,519 @@
 						<section id="two" class="wrapper alt style2">
 							<div class="inner">
 								<h3>
-									7.1. példa: Egyszerű rugó
+									9.2. példa: Hiperbolikus potenciál
 								</h3>
 								<p style="text-align: justify;">
-									Nézzünk meg először egy egyszerű példát: egy sima, egy dimenziós rugót. Ennek a Lagrange-függvénye ugyebár
+									Vizsgáljuk meg a 
 									$$ \begin{aligned}
-									    \mathcal{L} = K - V = \frac{1}{2} m \dot{x}^2 - \frac{1}{2} k x^2
+									    V(q) = - k \frac{1}{|q|}
 									\end{aligned} $$
-									Hogy áttérjünk a Hamiltoni formalizmusra, először is kell valami jó $p$ impulzusváltozó. Ez lehet a már korábbról ismert általános impulzus:
-									$$ \begin{aligned}
-									    p = \frac{\partial \mathcal{L}}{\partial \dot{x}} = m \dot{x}
-									\end{aligned} $$
-									Tehát az egyenleteinkben $\dot{x} = \frac{p}{m}$ lesz, így a Lagrange az általános koordinátával ($q=x$) és impulzussal kifejezve:
-									$$ \begin{aligned}
-									    \mathcal{L}(q,\dot{q}(p)) = \frac{1}{2} m \left( \frac{p}{m}\right)^2 - \frac{1}{2} k q^2 = \frac{1}{2m} p^2   - \frac{1}{2} k q^2
-									\end{aligned} $$
-								</p>
-								<p style="text-align: justify;">
-									Beírva ezt, és $p\dot{q}$-t a Hamiltoni definíciójába:
-									$$ \begin{aligned}
-									    \mathcal{H}(q,p) &= p \frac{p}{m} - \frac{1}{2m} p^2 + \frac{1}{2} k q^2 \\
-									     \mathcal{H}(q,p) &=  \frac{1}{2m} p^2 + \frac{1}{2} k q^2
-									\end{aligned} $$
-									Ha szemfülesek vagyunk, akkor feltűnhet, hogy ez pont a rendszer teljes $E=K+V$ energiája.
-									Ez gyakran így van, de nem mindig. Részletes tárgyalást a Goldsteinben találunk, de nagyjából:
-									ha konzervatív a potenciál, illetve nem függ a sebességektől, továbbá az általános koordináták kényszerei időfüggetlenek, akkor $\mathcal{H} = E$.
-									Nekünk ez a legtöbb feladatban teljesül, de később még visszatérünk rá egy kis általánosítással.
-								</p>
-								<p style="text-align: justify;">
-									Mik lesznek ekkor a mozgásegyenletek? Egy-egy deriválás után:
-									$$ \begin{aligned}
-										\dot{q} = \frac{\partial \mathcal{H}}{\partial p} = \frac{p}{m} \qquad\qquad -\dot{p} = \frac{\partial \mathcal{H}}{\partial q} = k q
-									\end{aligned} $$
-									Tehát
-									$$ \begin{aligned}
-										\dot{q} = \frac{1}{m} p \qquad\qquad\dot{p} = - k q
-									\end{aligned} $$
-									Amit fel is írhatunk mátrixosan, kis gyakorlásként:
-									$$ \begin{aligned}
-										\frac{\rd}{\rd t}\begin{pmatrix}
-											q \\
-											p
-										\end{pmatrix} =  \begin{pmatrix}
-											0 && 1/m\\
-											-\omega^2 && 0
-										\end{pmatrix} \begin{pmatrix}
-											q \\
-											p
-										\end{pmatrix}
-									\end{aligned} $$
-									Ahol $\omega^2 = \frac{k}{m}$. Ennek a feladatnak a megoldását persze már ismerjük: deriváljuk le még egyszer az egyik Hamilton egyenletet.
-									$$ \begin{aligned}
-										\ddot{q} = \frac{1}{m} \dot{p} = - \omega^2 q
-									\end{aligned} $$
-								</p>
-								<p style="text-align: justify;">
-									Ezt már párszor megoldottuk:
-									$$ \begin{aligned}
-									    q(t) &= A \cos{(\omega t + \varphi)} \\
-									    \dot{q}(t) &= - \omega A\sin{(\omega t + \varphi)}
-									\end{aligned} $$
-									amit visszaírva megvan az impulzus is:
-									$$ \begin{aligned}
-									    p(t) = - m\omega A\sin{(\omega t + \varphi)}
-									\end{aligned} $$
-									Ezt is fel lehet írni vektorosan:
-									$$ \begin{aligned}
-									    \begin{pmatrix}
-									        q \\
-									        p
-									    \end{pmatrix}(t) = A \begin{pmatrix}
-									        \cos{(\omega t + \varphi)} \\
-									         - m\omega \sin{(\omega t + \varphi)}
-									    \end{pmatrix}
-									\end{aligned} $$
-									Kicsit nézegetve ezt szét tudjuk kapni pár részre:
-									$$ \begin{aligned}
-									    \begin{pmatrix}
-									        q \\
-									        p
-									    \end{pmatrix}(t) = A \begin{pmatrix}
-									        1 && 0 \\
-									        0 && - m\omega
-									    \end{pmatrix} \begin{pmatrix}
-									        \cos{(\omega t + \varphi)} \\
-									         \sin{(\omega t + \varphi)}
-									    \end{pmatrix}
-									\end{aligned} $$
-									Rajzoljuk le ennek a mozgásnak a fázisterét!
-									Ehhez képzeljünk el egy olyan koordinátarendszert, aminek egyik tengelye $q$, a másik pedig $p$.
-									Rakjuk le a tollunkat valamilyen kezdeti pontban, ami megfelel a $t=0$ pillanatnak, aztán ahogy telik az idő,
-									kövessük le egy görbével azt, hogy melyik pontokba halad tovább a rendszer.
-									Ez a trajektória, amit a rendszerünk a mozgás során bejár.
-								</p>
-								<p style="text-align: justify;">
-									A fenti példánkra ez relatíve egyszerű: van jobb oldalt egy körünk.
-									Ez meg van szorozva egy nyújtást (és tükrözést) végző mátrixxal, meg valami irreleváns konstanssal.
-									Tehát a fázistér nem lesz más, mint egy ellipszis.
-									Gyakran szokás az $A$ szabad paramétert lecserélni valamire, ami a kezdeti feltételekből adott.
-									Ez lehet például az energia: itt például ha a $t=0$ pillanatban $p=0$ és $\varphi = 0$ akkor
-									$$ \begin{aligned}
-									    E = 0+\frac{1}{2} m \omega^2 A^2 \cos^2{(\omega t + \varphi)} = \frac{1}{2} m \omega^2 A^2 \\
-									    A = \pm\sqrt{\frac{2E}{m \omega^2}}
-									\end{aligned} $$
-									Tehát az ellipszis szélei konstans energia mellett:
-									$$ \begin{aligned}
-									    p\Big|_{q=0} = \mp m\omega \sqrt{\frac{2E}{m \omega^2}}  = \mp \sqrt{2mE} \\
-									    q\Big|_{p=0} = \pm\sqrt{\frac{2E}{m \omega^2}}
-									\end{aligned} $$
-									Az pedig, hogy merre mutat az áramlás most fizikai intuícióból adódik.
-									Ha jobbra ($+$) van kitérítve a testünk, akkor onnan balra ($-$) fog gyorsulva visszarugózni.
-									Tehát ha $q$ pozitívból megy a negatív felé, akkor $p$ negatív.
-									Fordítva is igaz: ha a jobb oldali szélső pont felé halad a testünk, de még nincs ott, akkor pozitív lendülete lesz.
+									potenciált!
+									Felrajzolva azt látjuk, hogy ez is periodikus mozgásokat okoz, ha az energia negatív.
+									Mi lesz ezeknek a frekvenciája?
 								</p>
 								<div style="text-align: center;">
-									<img src="figs/lesson8/harmosc_phase.png" alt="Harmonikus oszcillátor fázistere." width="50%">
+									<img src="figs/lesson10/hyp_abs.png" alt="Hiperbolikus potenciál" width="50%">
 								</div>
+								<p style="text-align: justify;">
+									Szisztematikusan kiindulva, írjuk fel a Hamiltont:
+									$$ \begin{aligned}
+										\mathcal{H} = \frac{p^2}{2m} - \frac{k}{|q|}
+									\end{aligned} $$
+									Majd fejezzük ki a lendületet konstans (negatív) energia mellett:
+									$$ \begin{aligned}
+										\frac{p^2}{2m} &= \frac{k}{|q|} - |E| \\
+										p^2 &= 2m\frac{k}{|q|} - 2m|E| \\
+										p^2 &= -2m|E| \left(1 - \frac{k}{|E|}\frac{1}{|q|}\right) \\
+										p^2 &= 2m|E| \left(\frac{k}{|E|}\frac{1}{|q|}-1\right) \\
+										p_{\pm} &= \pm \sqrt{2m|E|} \sqrt{\frac{k}{|E|}\frac{1}{|q|}-1}
+									\end{aligned} $$
+									Ezt szeretnénk majd kiintegrálni egy konstans energia által megadott zárt görbére.
+									Mi lesz ez a körintegrál? Először is kiindulhat a rendszer valamilyen (pozitív) $a$ pontból, ahol nincs sebessége, tehát $p_0=0$.
+									Ezt követően legurul a $q=0$ pontba, majd fel a völgy másik oldalán $-a$-ig, mert szimmetrikus a potenciálunk.
+									Innen visszagurul, amíg el nem éri a kiindulási pontot. Ez szép szimmetrikus: felbonthatjuk tehát a körintegrált 4 részre:
+									$$ \begin{aligned}
+										\oint_{E=E_0} = 4 \cdot \int_{a}^{0} p_- \rd q = 4 \cdot \int_{0}^{a} p_+ \rd q
+									\end{aligned} $$
+								</p>
+								<div style="text-align: center;">
+									<img src="figs/lesson10/phs_abs.png" alt="Hiperbolikus potenciál fázistere" width="50%">
+								</div>
+								<p style="text-align: justify;">
+									Amire szükségünk van, hogy mi lesz ez az $a$ pont.
+									Kifejezve az energiával, ebben a pontban nem lesz kinetikus energiánk, tehát
+									$$ \begin{aligned}
+									    E &= - \frac{k}{|a|} \\
+									    |E| &= \frac{k}{a} \\
+									    a &= \frac{k}{|E|}
+									\end{aligned} $$
+									Így a kiszámítandó integrál a hatáshoz:
+									$$ \begin{aligned}
+									    J = 4 \cdot \int_{0}^{k/|E|} \sqrt{2m|E|} \sqrt{\frac{k}{|E|}\frac{1}{q}-1}\ \rd q
+									\end{aligned} $$
+									Végezzünk el egy változócserét, amit két dolog motivál:
+									egyrészt az integrál felső határa, másrészt pedig az integrandusban megjelenő faktorok a $q$ mellett:
+									$$ \begin{aligned}
+									    u = \frac{|E|}{k} q \qquad\qquad  \qquad\qquad \rd u &= \frac{|E|}{k} \rd q \\
+									      u_0 = 1 \qquad\qquad\qquad  \qquad\qquad \rd q &= \frac{k}{|E|} \rd u
+									\end{aligned} $$
+									Ezzel az integrál nem lesz más, mint
+									$$ \begin{aligned}
+									    J = 4  \sqrt{2m|E|} \frac{k}{|E|}  \cdot \underbrace{ \int_{0}^{1} \sqrt{\frac{1}{u}-1} \rd u }_{= I}
+									\end{aligned} $$
+									Ahol az integrál eredménye valamilyen szám.
+									Ne is számoljuk ki, csak folytassuk az átalakítást:
+									$$ \begin{aligned}
+									    J = 4  \sqrt{2m} k\frac{1}{\sqrt{|E|}} I
+								</p>
+								<p style="text-align: justify;">
+									Megfeleltetve az energiát a Hamiltonnak, ezt át tudjuk rendezni:
+									$$ \begin{aligned}
+									    \sqrt{|E|} &= 4  \sqrt{2m} k I \frac{1}{J} \\
+									    |E| &= 32m k^2 I^2 \frac{1}{J^2} \\
+									    \mathcal{H} &= - 32m k^2 I^2\frac{1}{J^2}
+									\end{aligned} $$
+									Ebben az alakban nem szerepel általános $Q$ koordináta: $J$ megmarad, így
+									$$ \begin{aligned}
+									    \dot{Q} = \text{konst.} = \nu = \frac{\partial \mathcal{H}}{\partial J}
+									\end{aligned} $$
+									Számítsuk is ezt ki:
+									$$ \begin{aligned}
+									     \nu &= 2 \cdot 32m k^2 I^2 J^{-3} \\
+									     \nu &= 2\frac{32m k^2 I^2}{\left( 4  \sqrt{2m} k I\right)^3} |E|^{3/2} \\
+									     \nu &= \frac{1}{  2\sqrt{2m}\  k I}|E|^{3/2}
+									\end{aligned} $$
+									A teljesség jegyében még az integrált megoldhatjuk:
+									$$ \begin{aligned}
+									    \int_{0}^{1} \sqrt{\frac{1}{u}-1}\  \rd u = \frac{\pi}{2}
+									\end{aligned} $$
+									Így a végleges eredményünk a periódusidőre:
+									$$ \begin{aligned}
+									    T = \frac{1}{\nu} = \pi\sqrt{2m}\  k  |E|^{-3/2}
+									\end{aligned} $$
+								</p>
 							</div>
 						</section>
 
-						<section id="three" class="wrapper style3">
+						<section id="three" class="wrapper alt style3">
 							<div class="inner">
 								<h3>
-									7.2. példa: Csillapított oszcillátor
+									Adiabatikus invariáns
 								</h3>
 								<p style="text-align: justify;">
-									Nézzük meg ehhez képest, hogy mi lesz a csillapított oszcillátor mozgásegyenlete. Az ő Lagrange-a:
+									A hatás-szög változók amúgy is szépek, mert periodikus mozgásra egyszerűek, ciklikusra vezetnek.
+									Ezen felül van még egy hasznuk, akkor ha a rendszerünk egy paramétere \textit{lassan} változik.
+									A lassant itt úgy értjük, hogy a rendszerre jellemző saját időhöz képest. Ez egy kicsit absztrakt, szóval hozzuk közelebb.
+									Vegyük a fenti példa alapján a hiperbolikus rendszer saját idejét, ha mondjuk $E=2.7$ J, $k=1$ Jm, $m=1$ kg. Ekkor
 									$$ \begin{aligned}
-									    \mathcal{L} = \left(\frac{1}{2} m \dot{x}^2 -\frac{1}{2}m\omega^2 x^2 \right)e^{\gamma t}
+									    T = \pi\sqrt{2m}\  k  |E|^{-3/2} \approx 1 \text{ s}
 									\end{aligned} $$
-									szép explicit időfüggést tartalmaz. De nem baj, attól még tudunk számolni, például egy kanonikus impulzust:
+									a részecske másodpercenként kering körbe körbe.
+									Ehhez képest például ha a részecske tömegének mondjuk egy óra alatt elpárolog a fele, akkor az kellően lassú.
+								</p>
+								<p style="text-align: justify;">
+									Ekkor létezik egy olyan mennyiség, ami a lassú változás ellenére is állandó marad.
+									Ez nem más, mint maga a hatás-változó, amit ilyenkor \textbf{adiabatikus invariánsnak} nevezünk.
+									Mivel ő állandó, segíthet nekünk hogy azokat a paramétereket, amiktől ő függ, egymással kapcsolatba hozzuk:
+									meg tudjuk mondani például a fenti rendszerre, hogy mennyivel fog nőni az energiája, ha a $k$ paraméter vagy a tömeg változik.
+								</p>
+								<h3>
+									9.3. példa: Oszcillátor
+								</h3>
+								<p style="text-align: justify;">
+									Legyen
 									$$ \begin{aligned}
-									    p = m \dot{x} e^{\gamma t} \qquad\qquad \dot{x} = \frac{1}{m} e^{-\gamma t} p
+									    \mathcal{H} = \frac{1}{2m} \left( p^2 + m^2 \omega^2(t) q^2 \right)
 									\end{aligned} $$
-									Szóval
+									ahol lassan változik a frekvencia!
+									Kíváncsiak vagyunk, hogy mit tudunk mondani a rendszer energiájáról, ha a frekvencia duplájára nő.
+								</p>
+								<p style="text-align: justify;">
+									Kell először is az adiabatikus invariáns, ami maga a hatás:
 									$$ \begin{aligned}
-									    p \dot{x}(p) &= \frac{1}{m} e^{-\gamma t} p^2 \\
-									    \mathcal{L}(x, \dot{x}(p)) &= \frac{1}{2m} p^2 e^{-\gamma t} - \frac{1}{2}m\omega^2 x^2 e^{\gamma t}
+									    J = \oint p \rd q = 4 \int_0^{q_0} p(q) \rd q
+									\end{aligned} $$
+									valami zárt pályára. Ezt úgy kapjuk, hogy megnézzük az energiák abban a $q_0$ pontban, ha a sebesség nulla:
+									$$ \begin{aligned}
+									    q_0 = \frac{2E}{m\omega^2}
+									\end{aligned} $$
+									Illetve kell még maga a görbe, ami a lendület fix energiákra a koordináta függvényében:
+									$$ \begin{aligned}
+									    p = \sqrt{2mE} \sqrt{1 - \frac{m \omega^2}{2E} q^2}
 									\end{aligned} $$
 								</p>
 								<p style="text-align: justify;">
-									Összerakva:
+									Összerakva, a hatás változónk
 									$$ \begin{aligned}
-									    \mathcal{H}(x,p) =  \frac{1}{2m} p^2 e^{-\gamma t} + \frac{1}{2}m\omega^2 x^2 e^{\gamma t}
+									    J = 4  \sqrt{2mE} \int_0^{q_0}  \sqrt{1 - \frac{m \omega^2}{2E} q^2} \rd q
 									\end{aligned} $$
-									ami <b>nem</b> a mechanikából szokásos energia. Annak az alakja $E_m =\frac{1}{2}m \dot{x}^2 + V$, szóval kis matekkal $\mathcal{H} =E_m  e^{\gamma t}$.
-									Minden esetre a mozgásegyenletek még igazak:
+									Itt mindig jó ötlet az integrált valami fizikairól átírni valami pusztán matematikaira, ha lehetséges.
+									Ehhez változócserékkel próbálkozhatunk, itt például
 									$$ \begin{aligned}
-									    \dot{x} = \frac{1}{m} p  e^{-\gamma t} \qquad\qquad \dot{p} = - m\omega^2 x e^{\gamma t}
+									    \sqrt{\frac{m \omega^2}{2E}} q = u \qquad \longrightarrow \qquad \rd q = \sqrt{\frac{2E}{m \omega^2}} u
 									\end{aligned} $$
-									Mit tudunk mondani ezeknek a megoldásáról? Nézzük meg először, hogy van-e fixpontja az egyenleteknek:
+									ami után
 									$$ \begin{aligned}
-									    0 = \frac{1}{m} p  e^{-\gamma t} \rightarrow p = 0 \\
-									    0 =  - m\omega^2 x e^{\gamma t} \rightarrow x = 0 
+									     J &= 4  \sqrt{2mE}\sqrt{\frac{2E}{m \omega^2}} \int_0^1\sqrt{1 - u^2} \rd u \\
+									     P &= \frac{J}{2\pi} = \frac{E}{\omega} \frac{4}{\pi} \int_0^1\sqrt{1 - u^2} \rd u
 									\end{aligned} $$
 								</p>
 								<p style="text-align: justify;">
-									Van, méghozzá az origó. Kis mellébeszéléssel nézzük meg, stabil-e. Térítsük ki az egyensúlyi pontból a rendszert egy kis $\Delta x$ és $\Delta p$ távolsággal. Ekkor:
+									Mivel az integrál ebben pusztán egy szám, nem fog nekünk kelleni.
+									Azért gyakorlásként megnézhetjük:
 									$$ \begin{aligned}
-									    \dot{x} = \frac{1}{m}  e^{-\gamma t} \Delta p \qquad\qquad \dot{p} = - m\omega^2  e^{\gamma t} \Delta x
+									     u &= \sin{w} \\
+									     w &= \arcsin{u} \\
+									     \frac{\rd w}{\rd u} &= \frac{1}{\sqrt{1-u^2}} = \frac{1}{\cos{w}} \\
+									     \rd u &= \cos{w} \rd w
 									\end{aligned} $$
-									Ha kellően sok idő eltelt, akkor $e^{-\gamma t} \approx 0$, tehát az elsőt elhanyagolhatjuk.
-									A második előjele pont ellentétes a kitérítés irányával: ez a pont egy stabil vonzópont lesz.
-									A fázistéren ezt fel tudjuk rajzolni a sima oszcillátor alapján, csak egy különbséggel: a trajektóriák az origóba tartanak, miután $t>0$.
-									Attól függően, hogy túlcsillapított-e az oszcillátorunk; vagy keringenek körülötte párat, vagy rögtön belezuhannak.
+									illetve a határokon
+									$$ \begin{aligned}
+									    0 = \sin{w_0} \qquad &\longrightarrow \qquad w_0 = 0 \\
+									    1 = \sin{w_1} \qquad &\longrightarrow \qquad w_1 = \frac{\pi}{2}
+									\end{aligned} $$
+									$$ \begin{aligned}
+									    \int_0^1\sqrt{1 - u^2} \rd u = \int_0^{\pi/2} \cos^2{w} \rd w
+									\end{aligned} $$
+									Mi lesz ez, egy fél periódusra kiátlagolva? Hát, kihasználva, hogy
+									$$ \begin{aligned}
+									    \sin^2 + \cos^2 = 1
+									\end{aligned} $$
+									ami egy fél periódusra könnyen kiintegrálható
+									$$ \begin{aligned}
+									    \int_0^{\pi/2}1 = \frac{\pi}{2}
+									\end{aligned} $$
+									Na de ennek pont a fele kell: az integrál tehát
+									$$ \begin{aligned}
+									    \int_0^{\pi/2} \cos^2{w} \rd w = \frac{\pi}{4}
+									\end{aligned} $$
 								</p>
-								<details>
-									<summary>Érdeklődőknek:</summary>
-									<p style="text-align: justify;">
-										Igazából ez egy jó nagy mellébeszélés, aminek szinte semmi igazságalapja nincs.
-										Valójában a stabilitásvizsgálatot itt célszerűbb $q-\dot{q}$ térben elvégezni, mert ott kiderül,
-										hogy ez egy vonzó fixpont, mert a fixpontban kiértékelt Jacobi sajátértékeinek valós része mindig negatív.
-										A képzetes részeik pedig megadják a mozgás oszcilláló mivoltját: ha eltűnnek, túlcsillapítást tapasztalunk.
-									</p>
-								</details>
-								<div style="text-align: center;">
-									<img src="figs/lesson8/damposc_phase.png" alt="Csillapított oszcillátor fázistere." width="50%">
-								</div>
+								<p style="text-align: justify;">
+									Visszaírva mindent:
+									$$ \begin{aligned}
+									     P = \frac{E}{\omega} \frac{4}{\pi} \frac{\pi}{4} =  \frac{E}{\omega}
+									\end{aligned} $$
+									ami invariáns! Tehát az egyik változását kompenzálnia kell a másiknak, így
+									$$ \begin{aligned}
+									    E \propto \omega
+									\end{aligned} $$
+									Tehát ha megváltozik a frekvencia, mondjuk duplájára $\omega^\prime = 2 \omega$, akkor
+									$$ \begin{aligned}
+									    \frac{E}{\omega} &= \frac{E^\prime}{\omega^\prime }\\
+									     E^\prime &= \frac{E}{\omega} \omega^\prime = 2 E
+									\end{aligned} $$
+									azt látjuk, hogy az energia is kétszeresére nő.
+								</p>
+							</div>
 						</section>
 
 						<section id="four" class="wrapper alt style4">
 							<div class="inner">
 								<h3>
-									7.3. példa: Potenciálvölgyek
+									9.4. példa: Pattogó labda
 								</h3>
 								<p style="text-align: justify;">
-									Nézzünk egy (talán már ismerős) egy dimenziós rendszert, amelynek potenciális energiája
+									Legyen egy jó lassú liftben pattogó labdánk, amivel felkúszunk a MOL torony tetejére.
+									Ekkor picit változni fog a gravitációs konstans az időben: a torony tetején $g^\prime = 0.99995 g$ lesz az értéke.
+									Viszont gyorsan pattogtatjuk a labdát: egy periódus alatt alig vehető észre $g$ időfüggése.
+									Ha kezdetben 2 méter magasságban pattogott a labdánk, a torony tetején mekkora lesz az eltérése ettől a pattogásoknak?
+								</p>
+								<p style="text-align: justify;">
+									Ugyebár a Hamiltonunk, a szokásos $K+V$ módon
 									$$ \begin{aligned}
-										V=A(q^2-v^2)^2
+									    \mathcal{H} = \frac{p^2}{2m} + mg(t)q
 									\end{aligned} $$
-									ahol $v$ valamilyen konstans. Ekkor a Hamilton
+									Ami itt érdekes lehet, az a fázistér: itt igazából nem lehet negatív a kitérés, ezért csak a pozitív $q$ térfélen mozoghatunk.
+									A maximális kitérés valamilyen $h$ értéknél lesz, ahol nulla a lendület.
+									Amikor pedig nulla a kitérés, akkor kétféle sebességünk is lehet: vagy negatív, amikor éppen lefelé zuhan a labda, vagy pozitív amikor már felpattant.
+									A fázistér ezért egy háromszög lesz, ahol furcsamódon elteleportál a trajektória az egyik csúcsból a másikba. Ne aggódjunk emiatt.
+								</p>
+								<p style="text-align: justify;">
+									Helyette számoljunk! Először is a lendület paraméterezése, illetve a megmaradó energia
 									$$ \begin{aligned}
-										\mathcal{H}(q,p) = \frac{p^2}{2m} + A(q^2-v^2)^2
+									    p = \sqrt{2mE} \sqrt{1- \frac{mg}{2E}q} \\
+									    E_0 = mgh
 									\end{aligned} $$
-									A belőle fakadó egyenletek:
+									amiből
 									$$ \begin{aligned}
-										\dot{q} &= \frac{\partial \mathcal{H}}{\partial p} = \frac{p}{m} \\
-										\dot{p} &= -\frac{\partial \mathcal{H}}{\partial q} =-4Aq(q^2-v^2)
+									    J = \oint p \rd q = 2 \sqrt{2mE} \int_0^{h=E/(mg)} \sqrt{1- \frac{mg}{2E}q} \rd q 
 									\end{aligned} $$
-									Milyen fixpontjai vannak ezeknek?
+									Játszuk itt el megint az integrál dimenziótlanítását!
 									$$ \begin{aligned}
-										p_0 &= 0 \\
-										q_0 = 0 \qquad \qquad &\text{vagy} \qquad \qquad q_0 = \pm v
+									    \frac{mg}{2E}q = u \qquad &\rightarrow\qquad \rd q = \frac{2E}{mg} \rd u \\
+									    u_0 = \frac{mg}{2E}h \qquad &\rightarrow \qquad u_0 = \frac{1}{2}
+									\end{aligned} $$
+									$$ \begin{aligned}
+									    J &= \oint p \rd q = 2 \sqrt{2mE} \frac{2E}{mg} \int_0^{1/2} \sqrt{1- u} \rd u \\
+									    &= 2 \sqrt{2mE} \frac{2E}{mg} \cdot I \\
+									    &=  4 \sqrt{2} m^{-1/2} \frac{E^{3/2}}{g} \cdot I
+									\end{aligned} $$
+									Az integrál eredménye megint nem különösebben érdekes: ami számít, az
+									$$ \begin{aligned}
+									    J \propto  \frac{E^{3/2}}{g} = \text{konst.}
+									\end{aligned} $$
+									ergo
+									$$ \begin{aligned}
+									    E \propto g^{2/3}
+									\end{aligned} $$
+									és mivel $h \propto E/g$, így
+									$$ \begin{aligned}
+									    h \propto g^{-1/3}
 									\end{aligned} $$
 								</p>
 								<p style="text-align: justify;">
-									Fixpontból három fajta lehet:
-									<ul>
-										<li>Vonzó, ami bevonzza a trajektóriákat. Ide tarthat a rendszer végtelen idő után.</li>
-										<li>Taszító, ami taszítja a trajektóriákat. Itt nagyon nem akar lenni a rendszer.</li>
-										<li>Nyeregpont, ami egyes irányokban vonz, másik irányokban pedig taszít.</li>
-									</ul>
-									Hogyan döntsük el egy pontról, hogy ő melyik? Sokféleképpen.
-									Mi most a Lineáris Stabilitásvizsgálat módszerét fogjuk megnézni.
-									Eszerint, ha van egy egyenletrendszerünk, akkor annak tudjuk venni a Jacobi mátrixát:
+									Visszatérve a kérdésre: ha $g^\prime = 0.99995 g$, akkor
 									$$ \begin{aligned}
-									    \underline{\underline{J}} = \begin{pmatrix}
-									        \partial_q \dot{q} && \partial_p \dot{q} \\
-									        \partial_q \dot{p} && \partial_p \dot{p}
-									    \end{pmatrix}
+									    \frac{h}{g^{-1/3}} = \frac{h^\prime}{g^{^\prime-1/3}} \\
+									    h^\prime=  h\frac{g^{^\prime-1/3}}{g^{-1/3}} \\
+									    h^\prime=  h \left(\frac{g^{^\prime}}{g}\right)^{-1/3} \\
+									    h^\prime \approx 2.00003 \text{ m}
 									\end{aligned} $$
-									Amit ki tudunk értékelni egy-egy fixpontban.
+									Tehát $0.3$ milliméterrel pattogna magasabbra a labda.
+									Érdekességképp ha mondjuk a Titanic romjaihoz lemenve ismételnénk meg ezt a kísérletet, akkor ott már szinte mérhető, $8.1$ milliméteres kitérést tapasztalnánk, csak a másik irányba.
 								</p>
-								<p style="text-align: justify;">
-									Ezután ki kell számítani a fixpontban vett mátrix $\lambda$ sajátértékeit:
-									<ul>
-										<li>Ha $\forall \mathcal{R}e(\lambda)>0$, akkor taszító.</li>
-										<li>Ha $\forall \mathcal{R}e(\lambda)<0$, akkor vonzó.</li>
-										<li>Ha is-is, akkor nyeregpont.</li>
-										<li>Illetve ha $\mathcal{I}m(\lambda)$≠$0$, akkor oszcilláló mozgást fogunk tapasztalni.</li>
-									</ul>
-								</p>
-								<p style="text-align: justify;">
-									Most nézzük meg ezeknek a stabilitását rendesen!
-									Ehhez szükségünk van a Jacobi mátrixra, amely definíció szerint
-									$$ \begin{aligned}
-									    \frac{\rd}{\rd t} \begin{pmatrix}
-									        q \\ p
-									    \end{pmatrix} = \underline{f}(q,p) \\
-									    \underline{\underline{J}} = \begin{pmatrix}
-									        \partial_q f_1 && \partial_p f_1 \\
-									        \partial_q f_2 && \partial_p f_2
-									    \end{pmatrix}
-									\end{aligned} $$
-									tehát esetünkben
-									$$ \begin{aligned}
-									    \underline{\underline{J}} = \begin{pmatrix}
-									        0 && 1/m\\
-									        -4A(q^2-v^2) -8Aq^2  && 0
-									    \end{pmatrix}
-									\end{aligned} $$
-									Őt kell kiértékelni a fixpontokban, majd kiszámolni a sajátértékeit. Először is $q_0=v$ esetén
-									$$ \begin{aligned}
-									    \underline{\underline{J}}\Big|_{q_0=v} = &\begin{pmatrix}
-									        0 && 1/m\\
-									        -8Av^2  && 0
-									    \end{pmatrix} \\
-									    &\lambda_\pm = \pm i \sqrt{\frac{8A}{m}} v
-									\end{aligned} $$
-									ezek képzetesek.
-									Róluk több mindent nem tudunk mondani a lineáris stabilitásvizsgálattal: az annyiban merül ki, hogy valami oszcilláló keringésre számítunk körülöttük.
-								</p>
-								<p style="text-align: justify;">
-									Másrészt
-									$$ \begin{aligned}
-									    \underline{\underline{J}}\Big|_{q_0=0} = &\begin{pmatrix}
-									        0 && 1/m\\
-									        4Av^2  && 0
-									    \end{pmatrix} \\
-									    &\lambda_\pm = \pm \sqrt{\frac{4A}{m}} v
-									\end{aligned} $$
-									amik valósak: az egyik pozitív, a másik negatív. Ez azt jelenti, hogy ő egy nyeregpont lesz:
-									az egyik irányból bevonzza, a másikban pedig kitaszítja a trajektóriákat. Meg tudjuk nézni még a sajátvektorait is:
-									$$ \begin{aligned}
-									    \underline{u}_+ \propto \begin{pmatrix}
-									        1\\ 
-									        v\sqrt{4Am}
-									    \end{pmatrix} \qquad \qquad \underline{u}_- \propto \begin{pmatrix}
-									        1\\ 
-									        -v\sqrt{4Am}
-									    \end{pmatrix}
-									\end{aligned} $$
-									Amikről azt látjuk, hogy a taszítóhoz tartozó egy pozitív meredekségű egyenes irányába mutat, a másik, vonzó irány pedig rá merőleges.
-									Ezt össze tudjuk vetni a lenti, gép által generált ábrával:
-								</p>
-								<div style="text-align: center;">
-									<img src="figs/lesson8/higgs_phase.png" alt="Kétvölgyes potenciál fázistere" width="50%">
-								</div>
 							</div>
 						</section>
 
 						<section id="five" class="wrapper alt style3">
 							<div class="inner">
 								<h3>
-									7.4. példa: Rugós inga
+									Szimmetriák
 								</h3>
-								<div style="text-align: center;">
-									<img src="figs/lesson3/ruginga.png" alt="Rugós inga, ismét" width="25%">
-								</div>
 								<p style="text-align: justify;">
-									Véve egy $l$ nyugalmi hosszúságú rugót, és azt felfüggesztve egy plafonra, a Lagrange-unk:
+									Még a Poisson-zárójeleknél láthattuk, hogy egy tetszőleges bárminek az időfejlődése
 									$$ \begin{aligned}
-									    \mathcal{L}(\underline{q}, \dot{\underline{q}}) = \frac{1}{2} m \dot{r}^2 + \frac{1}{2} m (l+r)^2 \dot{\varphi}^2 + mg(l+r) \cos{\varphi} - \frac{1}{2} m \omega^2 r^2
+									    \dot{f} = \{f,\mathcal{H}\}
 									\end{aligned} $$
-									Hogy áttérjünk a Hamiltoni formalizmusra, kellenek először is a kanonikus impulzusok, amikből most kettő is lesz:
+									Mi van akkor, ha valaminek \textit{nincs} időfejlődése?
+									Ekkor ez egy konstans, tehát egy megmaradó mennyiség.
+									Ergo a Hamiltoni mechanika nyelvén azok lesznek a megmaradó mennyiségek, melyekre
 									$$ \begin{aligned}
-									    p_r = \frac{\partial \mathcal{L}}{\partial \dot{r}} = m \dot{r} \qquad\qquad p_\varphi = \frac{\partial \mathcal{L}}{\partial \dot{\varphi}} = m (l+r)^2 \dot{\varphi}
+									    \{f,\mathcal{H}\} = 0
 									\end{aligned} $$
-									Illetve ezeknek az invertálása, hogy ki tudjuk fejezni a sebességeket az impulzusokkal:
+								</p>
+								<h3>
+									9.5. példa: Forgatások
+								</h3>
+								<p style="text-align: justify;">
+									Kezdjük valami egyszerűvel: nézzünk egy centrális potenciált 2D-ben
 									$$ \begin{aligned}
-									    \dot{r} = \frac{1}{m} p_r \qquad\qquad \dot{\varphi} = \frac{1}{m(l+r)^2} p_\varphi
+									    \mathcal{H} = \frac{1}{2m} \left( p_x^2 + p_y^2 \right) + V(\sqrt{x^2+y^2})
 									\end{aligned} $$
-									Tehát a Hamiltonhoz kellő tagok:
+									Lássuk be, hogy erre a forgatás egy szimmetria, és a hozzá tartozó megmaradó mennyiség a perdület.
+									Először is:
 									$$ \begin{aligned}
-									    \underline{p}^T\underline{\dot{q}}(\underline{p}) &= \frac{1}{m} p_r^2 +  \frac{1}{m(l+r)^2} p_\varphi^2 \\
-									    \mathcal{L}(\underline{q}, \dot{\underline{q}}(\underline{q}, \underline{p})) &=  \frac{1}{2 m } p_r^2 + \frac{1}{2m(l+r)^2}  p_\varphi^2 + mg(l+r) \cos{\varphi} - \frac{1}{2} m \omega^2 r^2
+									    L = x p_y - y p_x
+									\end{aligned} $$
+									tehát ami kell:
+									$$ \begin{aligned}
+									    \{L, \mathcal{H}\} &= \{(x p_y - y p_x), \mathcal{H}\} \\
+									    &= \{x p_y , \mathcal{H}\} - \{y p_x, \mathcal{H}\} \\
+									    &= x\{p_y , \mathcal{H}\} + \{x, \mathcal{H}\}p_y - y\{ p_x, \mathcal{H}\} -\{y , \mathcal{H}\} p_x
 									\end{aligned} $$
 								</p>
 								<p style="text-align: justify;">
-									Összekombinálva, a Hamilton:
+									Mik ezek a zárójelek? Először is, írjuk ki az elsőt
 									$$ \begin{aligned}
-									    \mathcal{H} &= \frac{1}{m} p_r^2 +  \frac{1}{m(l+r)^2} p_\varphi^2 - \frac{1}{2 m } p_r^2 - \frac{1}{2m(l+r)^2}   p_\varphi^2 - mg(l+r) \cos{\varphi} + \frac{1}{2} m \omega^2 r^2 \\
-									    &= \frac{1}{2 m } p_r^2 + \frac{1}{2m(l+r)^2}   p_\varphi^2 - mg(l+r) \cos{\varphi}+ \frac{1}{2} m \omega^2 r^2
+									    \{p_y , \mathcal{H}\} = \frac{\partial p_y }{\partial x} \frac{\partial\mathcal{H}}{\partial p_x} -  \frac{\partial p_y }{\partial p_x} \frac{\partial\mathcal{H}}{\partial x} + \frac{\partial p_y }{\partial y} \frac{\partial\mathcal{H}}{\partial p_y} -  \frac{\partial p_y }{\partial p_y} \frac{\partial\mathcal{H}}{\partial y}
 									\end{aligned} $$
-									Ebből a mozgásegyenleteket egy-egy deriválással kapjuk:
+									ránézésre egyetlen egy lesz ami nem biztos, hogy nulla:
 									$$ \begin{aligned}
-									    \dot{r} &= \frac{\partial \mathcal{H}}{\partial p_r} = \frac{1}{m} p_r \qquad &\dot{\varphi} =  \frac{\partial \mathcal{H}}{\partial p_\varphi} =  \frac{1}{m} \frac{1}{(l+r)^2} p_\varphi \\
-									    - \dot{p_r} &= \frac{\partial \mathcal{H}}{\partial r} = -\frac{1}{m} \frac{1}{(l+r)^3} p_\varphi^2 - mg \cos{\varphi} + m \omega^2 r \qquad
-									     &- \dot{p_\varphi} = \frac{\partial \mathcal{H}}{\partial \varphi} = mg(l+r)\sin{\varphi} 
+									     \{p_y , \mathcal{H}\} &=-  \frac{\partial p_y }{\partial p_y} \frac{\partial\mathcal{H}}{\partial y} \\
+									     &= - 1 \cdot \frac{\partial V(\sqrt{x^2 + y^2})}{\partial y}
 									\end{aligned} $$
-									Megkaptuk a négy differenciálegyenletet, ami leírja a mozgást.
-									Hogy valamit ránézésre is tudjunk róla mondani, nézzük meg, hogy van-e egyensúlyi pontja ezeknek, illetve ha igen, akkor hol.
-									Egyensúly akkor van, ha a fenti egyenletek mindegyike nulla, tehát:
+									Menjünk tovább! Hasonlóképp
 									$$ \begin{aligned}
-									    0 &= \frac{1}{m} p_r \qquad &0 =   \frac{1}{m} \frac{1}{(l+r)^2} p_\varphi \\
-									    0 &=  -\frac{1}{m} \frac{1}{(l+r)^3} p_\varphi^2 - mg \cos{\varphi} + m \omega^2 r \qquad
-									     &0 =  mg(l+r)\sin{\varphi} 
+									    \{x, \mathcal{H}\} &= 1 \cdot \frac{\partial \mathcal{H}}{\partial p_x} \\
+									    &=1 \cdot  \frac{p_x}{m}
 									\end{aligned} $$
-									Ezek szerint
+									Amiből az első két tag:
 									$$ \begin{aligned}
-									    p_r &=0 &&   p_\varphi = 0 \\
-									    0 &=  -\frac{1}{m} \frac{1}{(l+r)^3} p_\varphi^2 - mg \cos{\varphi} + m \omega^2 r &&
-									    \varphi = n\pi
+									     \{L, \mathcal{H}\} =-x \partial_yV + \frac{p_x p_y}{m} - y\{ p_x, \mathcal{H}\} -\{y , \mathcal{H}\} p_x
+									\end{aligned} $$
+									Kis szimmetriával, a másik kettőt be tudjuk tippelni:
+									$$ \begin{aligned}
+									    \{L, \mathcal{H}\} &=-x \partial_yV + \frac{p_x p_y}{m} +y \partial_xV - \frac{p_x p_y}{m} \\
+									    &= -x \partial_yV+y \partial_xV
 									\end{aligned} $$
 								</p>
 								<p style="text-align: justify;">
-									Innen az utolsó előtti a legbonyolultabb. Beleírva a többit ($\cos{n\pi} = \pm 1$, $p_\varphi=0$), azt látjuk, hogy
+									A potenciál csak a távolságtól függ, valahogyan.
+									Bárhogyan is teszi azt, abban benne lesz egy közvetett függvényként való szerepe a gyökös kifejezésnek, tehát amikor azt deriváljuk
 									$$ \begin{aligned}
-									    0 &= \mp mg  + m \omega^2 r   \\
-									    \pm g &=  \omega^2 r \\
-									    \frac{g}{r} &= \pm \omega^2 
+									    \partial_xV(\sqrt{x^2+y^2}) &\propto \frac{x}{\sqrt{x^2+y^2}} \\
+									    \partial_y V(\sqrt{x^2+y^2}) &\propto \frac{y}{\sqrt{x^2+y^2}}
 									\end{aligned} $$
-									Két ilyen pont lesz tehát: az egyik lent $\varphi=0$ irányban, a másik pedig fent ahol $\varphi=\pi$ (most tegyük fel, hogy nincs fal felette, vagy mágikusan át tud rajta haladni).
-									Mindkét esetben a rugó ingaszerű megnyúlása ($g/L$-es jellemző frekvenciája) kapcsolatban lesz a rugó saját frekvenciájával, egyedül az iránya az ami eltér.
-									Fent egy picit összenyomódik, lent pedig egy picit megnyúlik.
+									Összegezve ezek pont kiejtik egymást:
+									$$ \begin{aligned}
+									     \{L, \mathcal{H}\} = c \cdot\left(\frac{xy}{\sqrt{x^2+y^2}} - \frac{xy}{\sqrt{x^2+y^2}}\right) = 0
+									\end{aligned} $$
+									ergo az $L$ lendület egy megmaradó mennyiség.
 								</p>
-								<div style="text-align: center;">
-									<img src="figs/lesson8/rugosinga.png" alt="Rugós inga mozgása" width="25%">
-								</div>
+								<p style="text-align: justify;">
+									Mit fog generálni? Ehhez nézzük meg, mik lesznek a megmaradó mennyiségünk parciális deriváltjai
+									$$ \begin{aligned}
+									    \frac{\partial L}{\partial p_x} &= -y \\
+									    \frac{\partial L}{\partial p_y} &= x \\
+									    \frac{\partial L}{\partial x} &= p_y \\
+									    \frac{\partial L}{\partial y} &= -p_x
+									\end{aligned} $$
+									És ezzel felírjuk a "mozgásegyenleteket", mintha maga $L$ lenne nekünk egy Hamilton, valami $s$ időszerű paraméterre.
+									Ekkor, az $s$ szerinti deriválást vesszővel jelölve:
+									$$ \begin{aligned}
+									    x' &= -y \qquad\qquad y' = x \\
+									    p_x' &= - p_y \qquad\quad\ \, p_y' = p_x 
+									\end{aligned} $$
+									ami egy szép diffegyenlet rendszer. Kicsit szórakozva vele:
+									$$ \begin{aligned}
+									    x'' &= - y' = -x \qquad\qquad  p_x'' = -p_y' = - p_x \\
+									    x &= R\cos{\omega s} \qquad\qquad\ \ \, p_x = P\cos{\omega s} \\
+									    y &= R\sin{\omega s} \qquad\qquad\ \ \, p_x = P\sin{\omega s} 
+									\end{aligned} $$
+									Látjuk, hogy az $s$ paraméter egy forgatást okoz.
+									Ezt le lehet rajzolni szépen a fázistérben, ahogy előadáson valószínűleg meg is tettétek.
+								</p>
 							</div>
 						</section>
 
-						<section id="five" class="wrapper alt style2">
+
+						<section id="six" class="wrapper alt style2">
 							<div class="inner">
 								<h3>
-									7.5. példa: Kisrezgések
+									9.6. példa: 2D-s oszcillátor
 								</h3>
 								<p style="text-align: justify;">
-									Erre nem nézünk meg specifikus példát, mert a következő az állítás: itt is ugyanúgy lehet kisrezgéseket vizsgálni mátrixosan.
-									A rezgéses Lagrange általános esetben:
+									Legyen
 									$$ \begin{aligned}
-									    \mathcal{L} = \frac{1}{2} \underline{\dot{q}}^T \underline{\underline{M}}\, \underline{\dot{q}} - \frac{1}{2} \underline{q}^T \underline{\underline{D}}\, \underline{q} 
+										\mathcal{H} = \frac{1}{2m} (p_x^2 + p_y^2) + m \omega^2 (x^2 + y^2) 
 									\end{aligned} $$
-									Amiből kellenek nekünk a kanonikus impulzusok. Egy szimbolikus deriválással
+									Vegyük észre hogy
 									$$ \begin{aligned}
-									    \underline{p} = \underline{\underline{M}}\, \underline{\dot{q}} \qquad\qquad \underline{p}^T =  \underline{\dot{q}}^T \underline{\underline{M}}
+										\mathcal{H} = E_1 + E_2
 									\end{aligned} $$
-									Amit invertálnunk kell, hogy megkapjuk a sebességeket az impulzusokkal kifejezve:
+									szóval hatás-szöggel
 									$$ \begin{aligned}
-									    \underline{\underline{M}}^{-1}\underline{p} =  \underline{\dot{q}} \qquad\qquad \underline{p}^T \underline{\underline{M}}^{-1} =  \underline{\dot{q}}^T 
+										\mathcal{H} = \omega (P_1 + P_2)
+									\end{aligned} $$
+									szép egyszerű, de van más mód is.
+								</p>
+								<p style="text-align: justify;">
+									Legyen egy szép mátrixunk, amelynek elemei
+									$$ \begin{aligned}
+									    A_{ij} = \frac{1}{2} \left( \frac{p_i p_j}{m} + m \omega^2 r_i r_j\right)
+									\end{aligned} $$
+									vegyük észre hogy
+									$$ \begin{aligned}
+									    A_{11} = E_1 && A_{22} = E_2
+									\end{aligned} $$
+									Kíváncsiak vagyunk még az offdiagonális elemre:
+									$$ \begin{aligned}
+									    A_{12} = A_{21} = \frac{1}{2m} \left( p_x p_y + m^2 \omega^2 x y \right)
+									\end{aligned} $$
+									ez vajon megmarad-e, mint az energiák?
+									$$ \begin{aligned}
+									    \{A_{12}, \mathcal{H}\} &= \frac{\partial A_{12}}{\partial x}\frac{\partial H}{\partial p_x} - \frac{\partial A_{12}}{\partial p_x}\frac{\partial H}{\partial x} + \frac{\partial A_{12}}{\partial y}\frac{\partial H}{\partial p_y}-\frac{\partial A_{12}}{\partial p_y}\frac{\partial H}{\partial y} \\
+									    &= \frac{\omega^2 m}{2} y \cdot \frac{p_x}{m} - \frac{\omega^2 m}{2} x \cdot \frac{p_y}{m}  - \omega^2 y p_x + \omega^2 y p_y  \\
+									    &= 0
+									\end{aligned} $$
+									Megmarad!
+								</p>
+								<p style="text-align: justify;">
+									Ha már ezt tudjuk, akkor szeretnénk valamilyen intuitív fizikai jelentést is társítani hozzá.
+									Ehhez gyötörjük kicsit
+									$$ \begin{aligned}
+									    A_{12}^2 &= \frac{1}{4m^2} \left( p_x p_y + m^2 \omega^2 x y \right)^2 \\
+									    &=  \frac{1}{4m^2} \left( p_x^2 p_y^2 + m^4 \omega^4 x^2 y^2 + 2 m^2 \omega^2 x y p_x p_y \right) \\
+									    &= \frac{p_x^2 p_y^2}{4m^2} + \frac{m^2  \omega^4}{4}x^2 y^2 + \frac{\omega^2}{2} x y p_x p_y \\
+									    &= \left(  \frac{p_x^2}{2m} + m\omega^2 x^2\right) \left(  \frac{p_y^2}{2m} + m\omega^2 y^2 \right) - \frac{\omega^2}{4} (x^2 p_y^2 + y^2 p_x^2) + 2\frac{\omega^2}{4} x y p_x p_y \\
+									    &= E_1 E_2 - \frac{\omega^2}{4} \left( x p_y - y p_x\right)^2 \\
+									    &= E_1 E_2 - \frac{\omega^2}{4} L^2
+									\end{aligned} $$
+									Tehát az energiákból és a lendületből tevődik össze, valamilyen csúnya módon.
+								</p>
+								<p style="text-align: justify;">
+									Szépítsük tovább! Legyen
+									$$ \begin{aligned}
+									    S_1 &= \frac{1}{\omega} \frac{A_{12}+A_{21}}{2} = \frac{A_{12}}{\omega} = \frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2} \\
+									    S_2 &= \frac{1}{\omega} \frac{A_{22}-A_{11}}{2} = \frac{1}{4m\omega} (p_y^2 - p_x^2) + \frac{y^2 - x^2}{4} m\omega 
+									\end{aligned} $$
+									Ezek egy rakat mozgásállandóból tevődnek össze: ők maguk is azok lesznek. Miért szebbek?
+									Nézzük meg a négyzetüket:
+									$$ \begin{aligned}
+									    S_1^2 &= \frac{A_{12}^2}{\omega^2} \\
+									    S_2^2 &= \frac{E_1^2 +E_2^2 - 2 E_1 E_2}{4 \omega^2}
+									\end{aligned} $$
+									Az előzőek alapján, mi lesz az összegük?
+									$$ \begin{aligned}
+									    S_1^2 + S_2^2  &= \frac{E_1 E_2}{\omega^2} - \frac{1}{4} L^2 + \frac{E_1^2 +E_2^2 - 2 E_1 E_2}{4 \omega^2} \\
+									    &= \frac{1}{4} L^2 + \frac{E_1^2 +E_2^2 + 2 E_1 E_2}{4 \omega^2}- \frac{1}{4} L^2 \\
+									    &=  \frac{1}{4} L^2 + \frac{(E_1+E_2)^2}{4\omega^2}
+									\end{aligned} $$
+									szóval vezessük be még a teljesség jegyében a harmadik testvérüket
+									$$ \begin{aligned}
+									    S_3 = \frac{L}{2} = \frac{x p_y - y p_x}{2}
+									\end{aligned} $$
+									amivel már
+									$$ \begin{aligned}
+									    S_1^2 + S_2^2 + S_3^2 = \frac{H^2}{4\omega^2}
 									\end{aligned} $$
 								</p>
 								<p style="text-align: justify;">
-									Beírva a Lagrange-ba:
+									Mit mond ez? Egy adott energiára:
 									$$ \begin{aligned}
-									    \mathcal{L}(\underline{q},\underline{\dot{q}}(\underline{p})) &= \frac{1}{2} \underline{p}^T \underline{\underline{M}}^{-1} \underline{\underline{M}} \underline{\underline{M}}^{-1}\underline{p} - \frac{1}{2} \underline{q}^T \underline{\underline{D}} \underline{q} \\
-									    \mathcal{L}(\underline{q},\underline{\dot{q}}(\underline{p})) &= \frac{1}{2} \underline{p}^T \underline{\underline{M}}^{-1}\underline{p} - \frac{1}{2} \underline{q}^T \underline{\underline{D}} \underline{q} 
+									    E = 2\omega \sqrt{S_1^2 + S_2^2 + S_3^2}
 									\end{aligned} $$
-									Ehhez jön még hozzá
+									tudunk tekinteni egy 3D-s gömbfelületként az S-ek terében.
+									Tudjuk viszont, hogy ezek megmaradó mennyiségek: milyen szimmetria tartozik hozzájuk?
+									A gömb már segít megtippelni. Nézzük meg ehhez most a zárójeleiket egymással!
 									$$ \begin{aligned}
-									    \underline{\dot{q}}^T  \underline{p} = \underline{p}^T \underline{\underline{M}}^{-1} \underline{p}
+									    \{S_3, S_1\} &= \frac{1}{2} \{(x p_y - y p_x), \left(\frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2}\right)\} \\
+									    &= \frac{1}{2} \left[ \{x p_y, \left(\frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2}\right)\} - \{y p_x, \left(\frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2}\right)\} \right]
 									\end{aligned} $$
-									Amiket beírva:
+									Innen két tagunk lesz, nézzük az elsőt:
 									$$ \begin{aligned}
-									    \mathcal{H} = \frac{1}{2} \underline{p}^T \underline{\underline{M}}^{-1}\underline{p} + \frac{1}{2} \underline{q}^T \underline{\underline{D}}\, \underline{q} 
+									    &\{x p_y, \left(\frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2}\right)\} = ? \\
+									    &= x\{p_y, \left(\frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2}\right)\} + \{x, \left(\frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2}\right)\} p_y
 									\end{aligned} $$
-									Ebből a Hamilton egyenletek egyszerűen deriválással kijönnek:
+									Egy tagban lesz a derivált nem nulla:
 									$$ \begin{aligned}
-									    \underline{\dot{q}} = \underline{\underline{M}}^{-1}\underline{p} \qquad\qquad \underline{\dot{p}} = - \underline{\underline{D}}\, \underline{q} 
+									    &= -x \frac{\partial p_y}{\partial p_y} \frac{\partial }{\partial y}\left(\frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2}\right)+ \frac{\partial x}{\partial x} \frac{\partial}{\partial p_x}\left(\frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2}\right)p_y \\
+									    &= -x \left( m\omega \frac{x}{2}\right)+ \left(\frac{p_y}{2m\omega} \right)p_y \\
+									    &=-  m\omega \frac{x^2}{2} + \frac{p_y^2}{2m\omega} \\
+									    &=  \frac{1}{2m\omega} \left( -m^2 \omega^2 x^2 + p_y^2\right)
 									\end{aligned} $$
-									Deriválva mégegyszer az elsőt (<i>feltéve</i> hogy $\underline{\underline{M}}^{-1}$ konstans, mint például egy kisrezgés esetén), és behelyettesítve a másodikat:
-									$$ \begin{aligned}
-									    \underline{\ddot{q}} &= \underline{\underline{M}}^{-1} \underline{\dot{p}} \\
-									    &=- \underline{\underline{M}}^{-1} \underline{\underline{D}}\, \underline{q} 
-									\end{aligned} $$
-									egy ismerős egyenletet kapunk: innentől megint jöhetnek a normálmódusok, pont ahogy eddig.
 								</p>
 								<p style="text-align: justify;">
-									Ami viszont hasznos még akkor is, ha nem rezgésekre vagyunk kíváncsiak, az a Hamiltonra való áttérés mátrixos útja.
-									Ha felírható ilyen mátrixos alakban a Lagrange (tehát négyzetesen szerepelnek a sebességek benne, és "szépen" keverednek)
-									akkor elég felírnunk a tömegmátrixot, és invertálnunk. Például a fenti rugós ingára
+									A másik hasonlóan
 									$$ \begin{aligned}
-									    \underline{\underline{M}} &= m\begin{pmatrix}
-									        1 && 0 \\
-									        0 &&(l+r)^2
-									    \end{pmatrix}  \\
-									    \underline{\underline{M}}^{-1} &= \frac{m}{m^2(l+r)^2}\begin{pmatrix}
-									        (l+r)^2 && 0 \\
-									        0 &&1
-									    \end{pmatrix} =  \frac{1}{m(l+r)^2}\begin{pmatrix}
-									        (l+r)^2 && 0 \\
-									        0 &&1
-									    \end{pmatrix}\\
-									    K(\underline{q},\underline{p}) &= \frac{1}{2} \underline{p}^T\, \underline{\underline{M}}^{-1}\underline{p} = \frac{p_r^2}{2m} + \frac{p_\varphi^2}{2m(l+r)^2}
+									    \{y p_x, \left(\frac{p_x p_y}{2m\omega} + m\omega \frac{xy}{2}\right)\} = \frac{1}{2m \omega} \left(- m^2 \omega^2y^2 + p_x^2 \right)
 									\end{aligned} $$
-									Ez meg tud spórolni nekünk pár deriválást, ha például egy sok dimenziós rendszerről beszélünk.
-									Azért a biztonság kedvéért érdemes a deriválgatással számolnunk még, főleg ha nem vagyunk biztosak benne, hogy "szép"-e a Lagrange eléggé.
+									Tehát összevonva:
+									$$ \begin{aligned}
+									    \{S_3, S_1\} &=  \frac{1}{4m \omega} \left[ -m^2 \omega^2 x^2 + p_y^2 + m^2 \omega^2y^2 - p_x^2 \right] \\
+									    &= \frac{1}{4m \omega} \left[  p_y^2  - p_x^2 + m^2 \omega^2y^2 -m^2 \omega^2 x^2 \right] \\
+									    &= \frac{ p_y^2  - p_x^2}{4m \omega} + \frac{y^2 - x^2}{4}m\omega \\
+									    &= S_2
+									\end{aligned} $$
+									Teljesen hasonló módon be lehet látni a másik kettőre is, így
+									$$ \begin{aligned}
+									    \{S_i, S_j\} = \epsilon_{ijk} S_k
+									\end{aligned} $$
+									Ami pont olyan, mint a forgatásokat generáló perdületek: ezek a megmaradó mennyiségek a fent említett gömbön való forgatásokat generálják, mint szimmetriákat.
+								</p>
+								<p style="text-align: justify;">
+									Most ehhez nem néztük meg direktben a hatásukat a fázistéren, helyette a Poisson-zárójelüket számítottuk ki.
+									Láthattuk, hogy ez pont olyan, mint a forgatásoké: erre hivatkozva mondhatjuk azt, hogy ők is forgatnak.
+									Kicsit precízebben szólva ugyanazt az \textit{algebrát} tudják, mint a forgatások.
+									Ezeket az algebrákat maguk a zárójelek (kommutátorok) határozzák meg, mint
+									$$ \begin{aligned}
+									    \{T_i, T_j\} = f_{ij}^k T_k
+									\end{aligned} $$
+									ahol az $f_{ij}^k$ úgy nevezett \textit{struktúraállandók} elmondanak nekünk mindent.
 								</p>
 							</div>
 						</section>
+
 
 						
 
