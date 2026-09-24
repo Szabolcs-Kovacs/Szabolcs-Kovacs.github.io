@@ -256,7 +256,7 @@
 								<h3>2.2 példa: Félkörről lecsúszás - 1</h3>
 								<p style="text-align: justify;">
 									Vegyünk egy asztalt, és szögezzünk rá egy félkört.
-									Ezután rakjunk rá egy kis tömegpontot, ami súrlódásmentesen lecsúszhat: <i>mi lesz a mozgásegyenlet?</i>
+									Ezután kössünk rá a felületére egy kis tömegpontot, ami súrlódásmentesen lecsúszhat: <i>mi lesz a mozgásegyenlet?</i>
 								</p>
 								<div style="text-align: center;">
 									<img src="figs/lesson2/felkorek.png" alt="Félkörről lecsúszó test" width="40%">
@@ -266,11 +266,12 @@
 									$$
 										K = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} m \dot{y}^2 
 									$$
-									a potenciális energiánkat pedig felvehetjük, mint
+									a potenciális energiánkat pedig sokféleképpen felvehetjük, például mint
 									$$
-										V = -mg (R-y)
+										V = mg (y-R)
 									$$
-									Persze tudjuk, hogy a mozgás itt csak a félkör felületén történhet: ez matekul annyit tesz, hogy
+									Gyors ellenőrzésként ez a félkör tetején ($y=R$) nulla, alatta pedig egy negatív szám. Ez stimmel: fent több a potenciál mint lent.
+									Persze tudjuk azt is, hogy a mozgás itt csak a félkör felületén történhet: ez matekul annyit tesz, hogy
 									$$
 										x^2 + y^2 = R^2
 									$$
@@ -389,8 +390,8 @@
 									Amit most behelyettesítve számoltunk ki, de egyébként abból is kiindulhattunk volna, hogy mi az érintőirányú sebesség egy kör mentén (sugár $\cdot$ szögsebesség). Én inkább a behelyettesítéses számolást ajánlom: lesznek olyan példák, ahol az utóbbi módszer félrevezet, ha nem vagyunk óvatosak. A potenciális energia szintén egyszerű:
 									$$
 									\begin{aligned}
-									    V &= -mg y \\
-									    &= -mg R(1- \cos{\varphi}) \\
+									    V &= mg h \\
+									    &= mg R(\cos{\varphi}-1) \\
 									    &= -mgR + mgR \cos{\varphi}
 									\end{aligned}
 									$$
@@ -552,23 +553,24 @@
 									Bemelegítésként először írjuk fel a sima inga problémáját Lagrange-osan, Descartes-i koordinátákkal.
 									Ezt többféleképpen is megtehetjük, például a fenti ábrán látható három módon.
 									Mind működik, de van amelyik bonyolultabb: a középsőnél például tükröződik az y tengely iránya, ezért óvatosnak kell lennünk a potenciális energia előjelével.
-									A kényszermentes Lagrange-függvény két tagja, ha origónak a harmadik lehetőséggel élünk:
+									Mi most az első lehetőséggel fogunk élni, de észrevehetjük, hogy az pont ugyanaz mint a harmadik, csak eltolva egy konstanssal.
+									A kényszermentes Lagrange-függvény két tagja:
 									$$
 									\begin{aligned}
 									    K = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} m \dot{y}^2 \\
-									    V = - mg (l-y)
+									    V = mg y
 									\end{aligned}
 									$$
 									Ezt még ki kell egészítenünk azzal a feltétellel, hogy a test csak az $l$ hosszúságú drót által rajzolt körön mozog. Most direkt távol maradva a szögektől, ez egy kis Pitagorasz tétel után:
 									$$
 									\begin{aligned}
 									    l^2 = x^2 + y^2 \\
-									    y = \sqrt{x^2 - l^2}
+									    y = -\sqrt{x^2 - l^2}
 									\end{aligned}
 									$$
 									tehát
 									$$
-									    \dot{y} = \frac{\rd}{\rd t} (\sqrt{x^2 - l^2}) = \frac{x \dot{x}}{\sqrt{x^2 - l^2}} 
+									    \dot{y} = -\frac{\rd}{\rd t} (\sqrt{x^2 - l^2}) = -\frac{x \dot{x}}{\sqrt{x^2 - l^2}} 
 									$$
 									amivel
 									$$
@@ -578,7 +580,7 @@
 								<p style="text-align: justify;">
 									Beírva mindent a Lagrange-ba:
 									$$
-									    \mathcal{L}_{\text{inga}} = \frac{1}{2} m \dot{x}^2 \left( 1 + \frac{x^2 }{x^2 - l^2}\right) + mg (l- \sqrt{x^2 - l^2})
+									    \mathcal{L}_{\text{inga}} = \frac{1}{2} m \dot{x}^2 \left( 1 + \frac{x^2 }{x^2 - l^2}\right) + mg \sqrt{x^2 - l^2}
 									$$
 									És ez még csak maga az inga. Ha belevesszük a rugót is:
 									$$
@@ -610,7 +612,7 @@
 									\begin{aligned}
 									    x^2 + y^2 &= l^2 = (l_0 + R)^2 \\
 									    x = l \sin{\varphi} &= (l_0 + R) \sin{\varphi} \\
-									    y = l \cos{\varphi} &= (l_0 + R) \cos{\varphi} 
+									    y = -l \cos{\varphi} &= -(l_0 + R) \cos{\varphi} 
 									\end{aligned}
 									$$
 									Milyen sebességek jelennek meg a kinetikus tagban? Lesz egyrészt a sugárirányú sebesség, ami azt mondja meg, hogy mennyire változik éppen $R$:
