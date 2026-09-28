@@ -438,7 +438,7 @@
 								<p style="text-align: justify;">
 									Vegyünk egy $M$ tömegű, $R$ sugarú üres hengert.
 									Rakjunk bele egy másik, $m$ tömegű $r$ sugarú hengert.
-									A nagyot kezdjük el megforgatni valamilyen $\dot{\beta}$ sebességgel, a kicsit pedig hagyjuk csúszni: mi lesz ekkor a Lagrange, mik a szimmetriái és a megmaradó mennyiségei?
+									A nagyot kezdjük el megforgatni valamilyen $\dot{\beta}$ sebességgel, a kicsit pedig hagyjuk benne gurulni: mi lesz ekkor a Lagrange, mik a szimmetriái és a megmaradó mennyiségei?
 								</p>
 								<div style="text-align: center;">
 									<img src="figs/lesson3/noether1.png" alt="Vázlatos rajz a hengerben csúszkáló hengerről" width="35%">
@@ -452,11 +452,11 @@
 									<img src="figs/lesson3/hengerhenger.png" alt="Részletesebb rajz a hengerben csúszkáló hengerről" width="55%">
 								</div>
 								<p style="text-align: justify;">
-									Ha csúszás nélkül történne a mozgás, akkor az érintkzési pontokban megegyeznének a kerületi sebességek, tehát
+									A csúszásmentes mozgás feltétele, hogy az érintkezési pontok sebessége megegyezik.
+									Ha elmozdulás nélkül történne a mozgás (tehát a kis henger középpontja ott is maradna, ahol volt), akkor az érintkzési pontokban megegyeznének a kerületi sebességek, tehát
 									$$
 										r \dot{\alpha_0} = R \dot{\beta_0}
 									$$
-									És mivel nem lenne csúszás, a kis henger középpontja ott is maradna, ahol volt.
 									Ha ez a feltétel viszont <b>nem</b> teljesül, akkor el fog mozdulni a kör körül, valamilyen $r \dot{\alpha} - R \dot{\beta}$ sebességgel.
 									Ez alatt megtesz a kis henger középpontja valamennyi $\Delta l$ utat a nagy középpontja körül, méghozzá
 									$$
@@ -509,7 +509,7 @@
 									$$
 									Tehát a teljes Lagrange:
 									$$
-									    \mathcal{L} = \frac{1}{2} M R^2 \dot{\beta}^2 + m  r^2 \dot{\alpha}^2 - m  r R \dot{\alpha} \dot{\beta} + \frac{1}{2} m  R^2 +mg (R-r) \cos{\frac{r \alpha - R \beta}{R-r}} 
+									    \mathcal{L} = \frac{1}{2} M R^2 \dot{\beta}^2 + m  r^2 \dot{\alpha}^2 - m  r R \dot{\alpha} \dot{\beta} + \frac{1}{2} m  R^2 \dot{\beta}^2 +mg (R-r) \cos{\frac{r \alpha - R \beta}{R-r}} 
 									$$
 								</p>
 								<p style="text-align: justify;">
@@ -531,22 +531,21 @@
 									$$
 									alakú konstans transzformációt.
 									Ezt nézegetve láthatjuk, hogy az $\alpha$ szöget, tehát a belső hengert elforgatjuk valamilyen $\epsilon$ szöggel; míg a külsőt a $\frac{r}{R} \epsilon$-al.
-									Visszaidézve a csúszásmentes forgás feltételét, azt ez pont teljesíti.
 								</p>
 								<p style="text-align: justify;">
 									Nézzük meg mi lesz a hozzá tartozó megmaradó mennyiség is. Véve az általános lendületeket:
 									$$
 									\begin{aligned}
-									    p_\alpha &= \frac{\partial \mathcal{L}}{\partial \dot{\alpha}} = r^2 m\dot{\alpha}  - mrR \dot{\beta} \\
-									    p_\beta &= \frac{\partial \mathcal{L}}{\partial \dot{\beta}} = R^2 M \dot{\beta} - m r R \dot{\alpha}
+									    p_\alpha &= \frac{\partial \mathcal{L}}{\partial \dot{\alpha}} = 2r^2 m\dot{\alpha}  - mrR \dot{\beta} \\
+									    p_\beta &= \frac{\partial \mathcal{L}}{\partial \dot{\beta}} = R^2 (M+m) \dot{\beta} - m r R \dot{\alpha}
 									\end{aligned}
 									$$
 									Majd megszorozva az infinitezimális trafókkal:
 									$$
 									\begin{aligned}
-									    P &= (r^2 m\dot{\alpha}  - mrR \dot{\beta}) + (R^2 M \dot{\beta} - m r R \dot{\alpha}) \frac{r}{R}  \\
-									    &= (r^2 m\dot{\alpha}  - mrR \dot{\beta} + R r M \dot{\beta} - m r^2 \dot{\alpha}) \\
-									    &=  ( M-m) rR \dot{\beta}
+									    P &= (2r^2 m\dot{\alpha}  - mrR \dot{\beta}) + (R^2 (M+m) \dot{\beta} - m r R \dot{\alpha}) \frac{r}{R}  \\
+									    &= (2r^2 m\dot{\alpha}  - mrR \dot{\beta} + R r (M+m) \dot{\beta} - m r^2 \dot{\alpha}) \\
+									    &=  (r^2 m\dot{\alpha} + R r M \dot{\beta})
 									\end{aligned}
 									$$
 									lesz a megmaradó mennyiségünk.
