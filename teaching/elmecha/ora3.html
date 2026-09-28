@@ -816,6 +816,7 @@
 							</div>
 						</section>
 
+						<!--
 						<section id="seven" class="wrapper alt style2">
 							<div class="inner">
 								<h3>
@@ -869,23 +870,23 @@
 									$$
 									Ahol megtaláljuk a már betippelt tagokat, illetve azt ami hiányzott:
 									$$
-									    K_{m,k} = 2 l \dot{\varphi}\dot{z} (\cos{\beta}\cos{\varphi} - \sin{\beta} \sin{\varphi}) = 2 l \dot{\varphi}\dot{z} \cos{(\varphi+\beta)}
+									    l^2 \dot{\varphi} ^2 + 2 l \dot{\varphi}\dot{z} (\cos{\beta}\cos{\varphi} - \sin{\beta} \sin{\varphi}) = l^2 \dot{\varphi} ^2 + 2 l \dot{\varphi}\dot{z} \cos{(\varphi+\beta)}
 									$$
 								</p>
 								<p style="text-align: justify;">
 									Ezzel együtt tehát a teljes Lagrange:
 									$$
-									    \mathcal{L} = \frac{1}{2} M \dot{z}^2 + \frac{1}{2} m l^2 \dot{\varphi}^2 +  ml \dot{\varphi}\dot{z} \cos{(\varphi+\beta)} + Mgz \sin{\beta} + mg \left( z \sin{\beta} + l \cos{\varphi}\right)
+									    \mathcal{L} = \frac{1}{2} (M+m) \dot{z}^2 + \frac{1}{2} m l^2 \dot{\varphi}^2 +  ml \dot{\varphi}\dot{z} \cos{(\varphi+\beta)} + Mgz \sin{\beta} + mg \left( z \sin{\beta} + l \cos{\varphi}\right)
 									$$
 									A mozgásegyenletek pedig, a téglatesttel kezdve:
 									$$
 									\begin{aligned}
-									    \frac{\partial \mathcal{L}}{\partial z} =  (M+m) g \sin{\beta} \qquad\qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{z}} = M \dot{z} + m l\dot{\varphi} \cos{(\varphi+\beta)}
+									    \frac{\partial \mathcal{L}}{\partial z} =  (M+m) g \sin{\beta} \qquad\qquad\qquad \frac{\partial \mathcal{L}}{\partial \dot{z}} = (M+m) \dot{z} + m l\dot{\varphi} \cos{(\varphi+\beta)}
 									\end{aligned}
 									$$
 									$$
 									\begin{aligned}
-									    (M+m) g \sin{\beta} = M \ddot{z} + ml\ddot{\varphi}\cos{(\varphi+\beta)} -ml \dot{\varphi}^2 \sin{(\varphi+\beta)}
+									    (M+m) g \sin{\beta} = (M+m) \ddot{z} + ml\ddot{\varphi}\cos{(\varphi+\beta)} -ml \dot{\varphi}^2 \sin{(\varphi+\beta)}
 									\end{aligned}
 									$$
 									Az ingára pedig:
@@ -906,7 +907,7 @@
 									Mit kapunk akkor, ha mind $\varphi$ mind $\beta$ kicsit? Ekkor
 									$$
 									\begin{aligned}
-									    (M+m) g \beta &= M \ddot{z} + ml\ddot{\varphi} \\
+									    (M+m) g \beta &= (M+m) \ddot{z} + ml\ddot{\varphi} \\
 									    l \ddot{\varphi} &= -  g \varphi - \ddot{z} 
 									\end{aligned}
 									$$
@@ -936,7 +937,7 @@
 								</p>
 							</div>
 						</section>
-						
+						-->
 
 				<!-- Footer -->
 					<section id="footer">
