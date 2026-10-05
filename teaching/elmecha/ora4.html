@@ -440,8 +440,7 @@
 									$$
 									Összeadva a komponenseket
 									$$\begin{aligned}
-									        \dot{x_m}^2+ \dot{y_m}^2 = 2 l\dot{\varphi}\dot{r}  
-									        +l^2\dot{\varphi}^2+\dot{r}^2 +r^2\dot{\varphi}^2
+									        \dot{x_m}^2+ \dot{y_m}^2 = 2 l\dot{\varphi}\dot{r} +l^2\dot{\varphi}^2+\dot{r}^2 +r^2\dot{\varphi}^2
 									\end{aligned}$$
 									Amikkel a kinetikus tagok nagyjából készen is vannak. A potenciális:
 									$$
@@ -450,8 +449,7 @@
 									Ha rezgésekre vagyunk kíváncsiak, megint át kell írni az ebből kapott Lagrange-függvényt valamilyen közelítésekkel. A kis szög itt is működik,
 									viszont két változónk van: $x$-re is ki kell szabnunk valamit, ha benne is kicsik a rezgések. Praktikai szempontból pedig az a célunk, hogy mátrixosan tudjuk felírni a kinetikus tagot, tehát a tagjainkban csak $\dot{r}$ és $\dot{\varphi}$ szerepeljenek (szigorúan másodrendben), maguk a változók ne. Ezt a két problémát egy csapásra tudjuk megoldani, ha feltesszük hogy $r \ll l$ tehát $\frac{r}{l}\ll 1$. Ekkor megjelölve, hogy mi hányadrendű a kis változókban:
 									$$\begin{aligned}
-									    \dot{x_m}^2+ \dot{y_m}^2 \approx 2 l^2 \underbrace{\dot{\varphi}\frac{\dot{r}}{l}}_{\mathcal{O}(2)}  
-									        +l^2 \underbrace{\dot{\varphi}^2}_{\mathcal{O}(2)} +l^2 \underbrace{\frac{\dot{r}^2}{l^2}}_{\mathcal{O}(2)}  +l^2\underbrace{\frac{r^2}{l^2}\dot{\varphi}^2}_{\mathcal{O}(4)}
+									    \dot{x_m}^2+ \dot{y_m}^2 \approx 2 l^2 \underbrace{\dot{\varphi}\frac{\dot{r}}{l}}_{\mathcal{O}(2)} +l^2 \underbrace{\dot{\varphi}^2}_{\mathcal{O}(2)} +l^2 \underbrace{\frac{\dot{r}^2}{l^2}}_{\mathcal{O}(2)}  +l^2\underbrace{\frac{r^2}{l^2}\dot{\varphi}^2}_{\mathcal{O}(4)}
 									\end{aligned}$$
 									láthatjuk, hogy csak az első három tag kell nekünk: egyrészt a többi már negyedrendű, másrészt pont ők azok, amik felírhatók mátrixosan. A teljesség jegyében még nézzük meg a potenciált is:
 									$$\begin{aligned}
