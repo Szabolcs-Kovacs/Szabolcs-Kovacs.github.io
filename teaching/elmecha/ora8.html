@@ -142,19 +142,19 @@
 									\end{aligned} $$
 									Meg permutáljunk párat ciklikusan, amivel
 									$$ \begin{aligned}
-									     \epsilon_{ilk}\epsilon_{jml} p_k  q_m &= \epsilon_{lik}\epsilon_{ljm} p_k  q_m \\
+									     -\epsilon_{ilk}\epsilon_{jml} p_k  q_m &= \epsilon_{lik}\epsilon_{ljm} p_k  q_m \\
 									     &= \delta_{ij}\delta_{km} p_k  q_m - \delta_{im}\delta_{jk} p_k  q_m \\
 									     &= \delta_{ij} p_k  q_k  -  p_j  q_i  
 									\end{aligned} $$
 									Illetve a másikra:
 									$$ \begin{aligned}
-									     \epsilon_{ipl}\epsilon_{jln}q_p p_n  &= \epsilon_{lip}\epsilon_{ljn}q_p p_n \\
+									     -\epsilon_{ipl}\epsilon_{jln}q_p p_n  &= \epsilon_{lip}\epsilon_{ljn}q_p p_n \\
 									     &=  \delta_{ij}\delta_{pn}q_p p_n - \delta_{in}\delta_{pj}q_p p_n \\
 									     &= \delta_{ij} q_p p_p - q_j p_i
 									\end{aligned} $$
 									Ebben van egy összegzett index: az nyugodtan átírható, mondjuk $k$-ra. Ezzel a teljes:
 									$$ \begin{aligned}
-									     \{L_i, L_j\} &= \delta_{ij} p_k  q_k  -  p_j  q_i   - \delta_{ij} p_k  q_k  +q_j p_i \\
+									     -\{L_i, L_j\} &= \delta_{ij} p_k  q_k  -  p_j  q_i   - \delta_{ij} p_k  q_k  +q_j p_i \\
 									     &= q_j p_i -  p_j  q_i \\
 									     &= (\delta_{jn} \delta_{im} - \delta_{jm} \delta_{in} ) q_n p_m \\
 									     &= \epsilon_{oji} \epsilon_{onm} q_n p_m  \\
@@ -163,7 +163,7 @@
 									\end{aligned} $$
 									Tehát:
 									$$ \begin{aligned}
-									     \{L_i, L_j\} =  \epsilon_{kji} L_k 
+									     \{L_i, L_j\} =  \epsilon_{ijk} L_k 
 									\end{aligned} $$
 									ami egy egészen nevezetes eredmény, jegyezzük meg.
 								</p>
