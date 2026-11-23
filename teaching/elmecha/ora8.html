@@ -366,7 +366,7 @@
 									8.3.4. Fixpontvizsgálat
 								</h4>
 								<p style="text-align: justify;">
-									Van nekünk egy egyenletrendszerünk, mégpedig
+									Van nekünk egy egyenletrendszerünk, mégpedig általános $\gamma$ esetén
 									$$ \begin{aligned}
 									     \dot{q} &= \frac{p}{m} \ e^{-\gamma t} \\
 									     \dot{p} &= - 2 \sin{q} \cos{q}\  e^{\gamma t}
@@ -454,11 +454,17 @@
 									\end{aligned} $$
 									Bárhogy nézzük, $\sqrt{\gamma^2 - \frac{8}{m}}$ kisebb lesz gammánál: még a plusszos megoldás esetében sem tudja pozitívvá tenni a sajátértéket.
 									Tehát mindkettő negatív: ezek a pontok vonzópontok lesznek.
-									Mindezeknek a tudatában fel tudjuk rajzolni a fázisteret, és ránézésre megmondani, hogy egy tetszőleges kezdeti feltételekből indított ponttal nagyjából mi fog történni.
+									Mindezeknek a tudatában fel tudjuk rajzolni a fázisteret, ezúttal $q-p$ helyett $q-\dot{q}$ térben és ránézésre megmondani,
+									hogy egy tetszőleges kezdeti feltételekből indított ponttal nagyjából mi fog történni.
+
+									<b>Megjegyzés:</b> a Lagrange-i fázistér és a Hamiltoni fázistér nem fog úgyanúgy kinézni.
+									A Liouville tétel miatt ha jól választott, kanonikus változókkal írjuk fel a jól viselkedő Hamiltont, akkor abból vonzó pontot sosem fogunk kapni.
+									Éppen ezért a stabilitásvizsgálatot csillapított rendszerekre én inkább $q-\dot{q}$ térben ajánlom elvégezni, a $q-p$ csúnyább.
 								</p>
 								<div style="text-align: center;">
 									<img src="figs/lesson9/fpa.png" alt="Fixpontvizsgálat" width="60%">
 								</div>
+								<!--
 								<h4>
 									8.3.5. Időfüggő mennyiségek
 								</h4>
@@ -609,6 +615,7 @@
 									    T = \frac{1}{\nu} = 4\sqrt{\frac{m}{2E}} 
 									\end{aligned} $$
 								</p>
+								-->
 							</div>
 						</section>
 						
