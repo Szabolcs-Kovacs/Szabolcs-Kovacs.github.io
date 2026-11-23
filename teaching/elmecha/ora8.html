@@ -354,6 +354,20 @@
 									Cserébe kicsit nézegetve a fenti képletet be tudjuk látni azt is, hogy ha $E$ nagyobb mint $a$ akkor ezen a görbén kívül fog utazni a rendszer, nem-periodikus mozgást végezve (átgurulva a potenciálok lejtőin).
 									Ha pedig $a>E$, akkor bezárul abba a régióba (völgybe), ahonnan indul, és azon belül fog rezegni jobbra balra.
 								</p>
+								<p>
+									Ha a mozgás irányára vagyunk kíváncsiak, akkor meg tudjuk nézni a deriváltak előjelét valamelyik pontban.
+									Például nézzük meg mi történik ha
+									$$\begin{aligned}
+										0 < &p  \\
+										0 < &q < \pi
+									\end{aligned} $$
+									Ekkor
+									$$ \begin{aligned}
+									    \dot{q} &\propto p >0 \\
+									    \dot{p} &\propto -\sin{q} \cos{q} <0
+									\end{aligned} $$
+									tehát $q$ nő, $p$ pedig csökken ezen a térrészen.
+								</p>
 								<div style="text-align: center;">
 									<img src="figs/lesson9/sinpot_phase.png" alt="Fázistér" width="60%">
 								</div>
@@ -456,7 +470,8 @@
 									Tehát mindkettő negatív: ezek a pontok vonzópontok lesznek.
 									Mindezeknek a tudatában fel tudjuk rajzolni a fázisteret, ezúttal $q-p$ helyett $q-\dot{q}$ térben és ránézésre megmondani,
 									hogy egy tetszőleges kezdeti feltételekből indított ponttal nagyjából mi fog történni.
-
+								</p>
+								<p style="text-align: justify;">
 									<b>Megjegyzés:</b> a Lagrange-i fázistér és a Hamiltoni fázistér nem fog úgyanúgy kinézni.
 									A Liouville tétel miatt ha jól választott, kanonikus változókkal írjuk fel a jól viselkedő Hamiltont, akkor abból vonzó pontot sosem fogunk kapni.
 									Éppen ezért a stabilitásvizsgálatot csillapított rendszerekre én inkább $q-\dot{q}$ térben ajánlom elvégezni, a $q-p$ csúnyább.
