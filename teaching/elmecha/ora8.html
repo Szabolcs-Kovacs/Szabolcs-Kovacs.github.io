@@ -329,22 +329,30 @@
 									\end{aligned} $$
 									Megoldani őket természetesen már más tészta: numerikusan biztos lehetséges.
 									Analitikusan és vizuálisan viszont anélkül is tudunk mondani valamit, a fázisterek és a fixpontvizsgálat módszereinek használatával.
+									A továbbiakban az egyszerűség kedvéért legyen $\gamma=0$.
 								</p>
 								<h4>
 									8.3.3. Fázistér
 								</h4>
 								<p style="text-align: justify;">
-									A fázistér felrajzolásához kelleni fog, hogy milyen kezdeti energiával indult a rendszer. Legyen ez most
+									A fázistér felrajzolásához kelleni fog, hogy mekkora energiája van a rendszernek. Ez ha $\gamma=0$ akkor meg is marad, és
 									$$ \begin{aligned}
-									    \mathcal{H}(t=0) = \frac{p^2}{2m} + a \sin^2{q} = a
+									    E = \mathcal{H} = \frac{p^2}{2m} + a \sin^2{q}
 									\end{aligned} $$
-									Mivel egy disszipatív rendszerünk van, az energia ennél csak kisebb lesz: a fázisterünk határai tehát
+									Fejezzük ki a lendületet, hogy ábrázolni tudjuk a $q$ függvényében:
 									$$ \begin{aligned}
-									    \frac{p^2}{2m} + a \sin^2{q} &\leq a \\
-									    \frac{p^2}{2m}  &\leq a -  a \sin^2{q} = a\cos^2{q} \\
-									    p^2 &\leq 2ma\cos^2{q} \\
-									    |p| &\leq \sqrt{2ma} |\cos{q}|
+									     \frac{p^2}{2m} &= E - a \sin^2{q} \\
+									     p^2 &= 2mE - 2ma \sin^2{q}
 									\end{aligned} $$
+									Nézzünk meg pár speciális értéket az energiára! Mi van például akkor, ha $E=a$?
+									$$ \begin{aligned}
+									    p^2 &= 2mE - 2mE \sin^2{q} \\
+									    p^2 &= 2mE (1-  \sin^2{q}) = 2mE \cos^2{q} \\
+									    p = &= \pm\sqrt{2mE} \cos{q}
+									\end{aligned} $$
+									Ezt egészen könnyen fel tudjuk rajzolni.
+									Cserébe kicsit nézegetve a fenti képletet be tudjuk látni azt is, hogy ha $E$ nagyobb mint $a$ akkor ezen a görbén kívül fog utazni a rendszer, nem-periodikus mozgást végezve (átgurulva a potenciálok lejtőin).
+									Ha pedig $a>E$, akkor bezárul abba a régióba (völgybe), ahonnan indul, és azon belül fog rezegni jobbra balra.
 								</p>
 								<div style="text-align: center;">
 									<img src="figs/lesson9/sinpot_phase.png" alt="Fázistér" width="60%">
